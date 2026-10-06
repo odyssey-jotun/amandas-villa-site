@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mulch, Soil and Compost | Amanda&#x27;s Villa</title>
+<meta name="description" content="The Mulch, Soil and Compost page is still being built Call Amanda's Villa at (870) 489-5463.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --linen: #f6f5f0; --linen-2: #ecebe4; --sage-pale: #e4e9e2;
+  --ink: #1c241f; --ink-2: #454e48; --ink-3: #5f6862;
+  --forest: #2b4a3a; --forest-deep: #1b3127; --on-forest: #f6f5f0;
+  --stone: #665f54; --clay: #94524f; --line: #d6d6cc; --line-strong: #7c8078;
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
+  --font-text-serif: "Libre Caslon Text", Georgia, serif;
+  --font-body: "Source Sans 3", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --space-2: 8px; --space-4: 16px; --space-6: 24px; --space-10: 40px; --space-16: 64px;
+  --radius-sm: 2px; --radius-photo: 18px;
+  /* the cross-section */
+  --soil: #b98b6a; --soil-dark: #9a6f52; --grass: #6f8f5a; --gravel: #8d8a83; --gravel-dot: #6b6862;
+  --sand: #dccaa0; --paver: #8a5a4a; --paver-edge: #6e463a; --joint: #cfc2a6;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--linen); color: var(--ink-2); font: 400 18px/1.65 var(--font-body); }
+a { color: var(--forest); }
+:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
+
+.uc-nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); max-width: 1200px; width: 100%; margin: 0 auto; padding: var(--space-6) var(--space-10); }
+.wordmark { display: inline-flex; flex-direction: column; gap: 6px; color: var(--ink); text-decoration: none; }
+.wordmark b { font: 400 30px/1.05 var(--font-display); }
+.wordmark span { font: 600 11px/1.3 var(--font-body); letter-spacing: .24em; text-transform: uppercase; color: var(--stone); }
+.uc-links { display: flex; gap: var(--space-10); list-style: none; margin: 0; padding: 0; }
+.uc-links a { color: var(--ink); text-decoration: none; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; }
+.uc-links a:hover { color: var(--forest); }
+
+main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-10) var(--space-6) var(--space-16); }
+.uc-art { width: min(100%, 640px); height: auto; margin-bottom: var(--space-10); overflow: visible; }
+h1 { margin: 0; max-width: 16em; font: 400 46px/1.1 var(--font-display); color: var(--ink); text-wrap: balance; }
+.uc-sub { margin: var(--space-4) 0 0; max-width: 32em; font: italic 400 21px/1.5 var(--font-text-serif); color: var(--ink-2); }
+.uc-extra { margin: var(--space-4) 0 0; max-width: 34em; }
+.btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-10); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: var(--radius-sm); border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); text-decoration: none; }
+.btn--primary { background: var(--forest); color: var(--on-forest); }
+.btn--primary:hover { background: var(--forest-deep); }
+.btn--secondary { background: transparent; color: var(--forest); }
+.btn--secondary:hover { background: var(--sage-pale); }
+.uc-back { margin-top: var(--space-6); font-weight: 600; }
+
+.foot { background: var(--forest-deep); color: rgba(246,245,240,.85); padding: var(--space-10) 0; font-size: 16px; }
+.foot-in { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-10); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-6); }
+.foot a { color: var(--on-forest); }
+
+/* ---------- The cross-section animation ---------- */
+.uc-art .grass { fill: var(--grass); }
+.uc-art .soil { fill: var(--soil); }
+.uc-art .dig { fill: var(--soil-dark); transition: opacity .6s ease; }
+.uc-art .gravel { fill: url(#gravel); transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 1.1s cubic-bezier(.25,1,.5,1); }
+.uc-art .base { fill: var(--sand); transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .6s cubic-bezier(.25,1,.5,1); }
+.uc-art .uc-paver { fill: var(--paver); stroke: var(--paver-edge); stroke-width: 1; opacity: 0; transform: translateY(-46px); transition: transform .45s cubic-bezier(.3,1.4,.5,1), opacity .25s ease; transition-delay: calc(var(--i) * 140ms); }
+.uc-art .stem { fill: none; stroke: var(--grass); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 60; stroke-dashoffset: 60; transition: stroke-dashoffset .9s ease; }
+.uc-art .leaf { fill: var(--grass); transform-box: fill-box; transform: scale(0); transition: transform .5s cubic-bezier(.3,1.5,.5,1) .7s; }
+.uc-art .leaf--l { transform-origin: 100% 100%; }
+.uc-art .leaf--r { transform-origin: 0% 100%; }
+.uc-art .lbl { font: italic 400 13px/1 var(--font-text-serif); fill: var(--on-forest); opacity: 0; transition: opacity .5s ease .5s; }
+
+.s-dug .dig { opacity: 0; }
+.s-gravel .gravel { transform: scaleY(1); }
+.s-gravel .lbl { opacity: .95; }
+.s-base .base { transform: scaleY(1); }
+.s-pavers .uc-paver { opacity: 1; transform: translateY(0); }
+.s-sprout .stem { stroke-dashoffset: 0; }
+.s-sprout .leaf { transform: scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .uc-art * { transition: none !important; }
+}
+@media (max-width: 900px) {
+  .uc-links { display: none; }
+}
+@media (max-width: 640px) {
+  .uc-nav { padding: var(--space-4); }
+  .wordmark b { font-size: 26px; }
+  .wordmark span { font-size: 9px; letter-spacing: .2em; }
+  main { padding: var(--space-6) var(--space-4) var(--space-16); }
+  h1 { font-size: 34px; }
+  .uc-sub { font-size: 19px; }
+  .btn-row { flex-direction: column; width: 100%; }
+  .btn { width: 100%; }
+  .foot-in { padding: 0 var(--space-4); }
+}
+</style>
+</head>
+<body>
+<header class="uc-nav">
+  <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
+  <ul class="uc-links">
+    <li><a href="../../landscaping/">Landscaping</a></li>
+    <li><a href="../../hardscape/">Hardscape</a></li>
+    <li><a href="../../garden-center/">Garden Center</a></li>
+    <li><a href="../../about/">About</a></li>
+  </ul>
+</header>
+
+<main>
+  <svg class="uc-art" viewBox="0 56 600 194" role="img" aria-label="A cross-section of a paver walkway being built: the ground is dug out, a packed gravel base and a fine base go in, then the pavers are set one by one and a sprout grows beside them.">
+    <defs>
+      <pattern id="gravel" width="14" height="12" patternUnits="userSpaceOnUse">
+        <rect width="14" height="12" fill="var(--gravel)"/>
+        <circle cx="3" cy="3" r="2.2" fill="var(--gravel-dot)"/>
+        <circle cx="10" cy="8" r="2.6" fill="var(--gravel-dot)"/>
+        <circle cx="12" cy="2" r="1.4" fill="#a4a19a"/>
+        <circle cx="5" cy="9.5" r="1.3" fill="#a4a19a"/>
+      </pattern>
+    </defs>
+    <rect class="soil" x="0" y="134" width="600" height="116" rx="10"/>
+    <rect class="grass" x="0" y="128" width="88" height="10" rx="5"/>
+    <rect class="grass" x="508" y="128" width="92" height="10" rx="5"/>
+    <rect class="dig" x="88" y="134" width="420" height="100"/>
+    <rect class="gravel" x="88" y="172" width="420" height="62"/>
+    <text class="lbl" x="298" y="208" text-anchor="middle">8 to 10 inches of packed gravel</text>
+    <rect class="base" x="88" y="156" width="420" height="16"/>
+      <rect class="uc-paver" style="--i:0" x="92" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:1" x="144" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:2" x="196" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:3" x="248" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:4" x="300" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:5" x="352" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:6" x="404" y="134" width="48" height="22" rx="2"/>
+      <rect class="uc-paver" style="--i:7" x="456" y="134" width="48" height="22" rx="2"/>
+    <path class="stem" d="M556 128 C556 110 552 100 556 84"/>
+    <path class="leaf leaf--l" d="M555 98 C540 98 532 88 532 80 C544 80 554 86 555 98Z"/>
+    <path class="leaf leaf--r" d="M557 88 C560 76 570 70 580 70 C580 80 570 88 557 88Z"/>
+  </svg>
+
+  <h1>The Mulch, Soil and Compost page is still being built</h1>
+  <p class="uc-sub">Base first, then the pavers. This page is still at the gravel stage.</p>
+
+  <div class="btn-row">
+    <a class="btn btn--primary" href="tel:+18704895463">Call (870) 489-5463</a>
+    <a class="btn btn--secondary" href="../../hardscape/">See the Hardscape page</a>
+    <a class="btn btn--secondary" href="../../garden-center/">See the Garden Center page</a>
+  </div>
+  <a class="uc-back" href="../../garden-center/">Back to the Garden Center</a>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span>Amanda's Villa Landscaping and Garden Center · 7901 Dollarway Road, White Hall, AR 71602</span>
+    <a href="tel:+18704895463">(870) 489-5463</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var art = document.querySelector('.uc-art'); if (!art) return;
+  var stages = ['s-dug', 's-gravel', 's-base', 's-pavers', 's-sprout'];
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    art.classList.add.apply(art.classList, stages); return;
+  }
+  var times = [500, 1300, 2600, 3300, 5000];
+  function run() {
+    art.classList.remove.apply(art.classList, stages);
+    times.forEach(function (t, i) { setTimeout(function () { art.classList.add(stages[i]); }, t); });
+    setTimeout(run, 9500);
+  }
+  run();
+})();
+</script>
+</body>
+</html>
