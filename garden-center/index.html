@@ -48,7 +48,7 @@ a { color: var(--forest); }
 .prose { max-width: var(--measure-text); }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); min-height: 48px; padding: 12px 24px; border-radius: var(--radius-sm); border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); letter-spacing: .02em; text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); min-height: 48px; padding: 12px 24px; border-radius: 10px; border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); letter-spacing: .02em; text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
 .btn--primary { background: var(--forest); color: var(--on-forest); }
 .btn--primary:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
 .btn--secondary { background: transparent; color: var(--forest); }
@@ -205,7 +205,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 /* On the lot strip */
 .lot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
 .lot-card { display: flex; flex-direction: column; gap: var(--space-2); color: inherit; text-decoration: none; }
-.lot-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-2); transition: transform .3s; }
+.lot-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-2); transition: transform .3s; }
 .lot-card:hover img { transform: scale(1.015); }
 .lot-card p { margin: 0; }
 .lot-card .go { color: var(--forest); font-weight: 600; }
@@ -260,6 +260,13 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   .problem-head p { font-size: 19px; }
   .pains li { gap: var(--space-4); }
 }
+
+/* ---------- Reviews ---------- */
+.reviews { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+.review { margin: 0; padding: var(--space-10); background: var(--linen-2); border-radius: var(--radius-photo); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-6); }
+.review blockquote { margin: 0; font: italic 400 22px/1.45 var(--font-text-serif); color: var(--ink); text-wrap: pretty; }
+.review figcaption { margin: 0; font: 600 15px/1.3 var(--font-body); color: var(--stone); }
+@media (max-width: 640px) { .reviews { grid-template-columns: 1fr; gap: var(--space-4); } .review { padding: var(--space-6); } .review blockquote { font-size: 19px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -417,9 +424,32 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-shovel"/></svg></span><span>Amanda designs and plants landscapes and Colton builds the stone, so the help covers the whole yard</span></li>
         <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hand-heart"/></svg></span><span>Every customer is greeted on the way in, even on the busiest Saturday in spring</span></li>
       </ul>
-      <figure class="quote">
-        <blockquote><p><span class="todo">A customer's words from a real review, with permission.</span></p></blockquote>
-        <figcaption>Customer, Jefferson County</figcaption>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS: verbatim Google reviews, first name and last initial only -->
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <h2>What customers say about the garden center</h2>
+    </div>
+    <div class="reviews">
+      <figure class="review">
+        <blockquote><p>"Shop here before anywhere else. They have it all with fair prices and a very helpful staff."</p></blockquote>
+        <figcaption>Carl C., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Great selection of healthy plants and shrubs at reasonable prices. Bulk mulch and other landscaping supplies. Friendly and helpful personnel. Worth visiting."</p></blockquote>
+        <figcaption>C. C., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Amanda went above and beyond to help me work something out for my Mother's day gift all the way from Texas. So so so helpful! My mother said she had great plant choices."</p></blockquote>
+        <figcaption>C. F., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Amanda always has the best variety and most reasonable prices around. I love going there!!"</p></blockquote>
+        <figcaption>Sara M., Google review</figcaption>
       </figure>
     </div>
   </div>
@@ -471,19 +501,19 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <span class="go">See hanging baskets →</span>
       </a>
       <a class="lot-card" href="../garden-center/mulch/">
-        <img width="880" height="1100" src="../img/lot-red-mulch-pile-amandas-villa.jpg" alt="A pile of red mulch in the bulk yard at Amanda's Villa" loading="lazy">
+        <img width="800" height="600" src="../img/lot-red-mulch-pile-amandas-villa.jpg" alt="A pile of red mulch in the bulk yard at Amanda's Villa" loading="lazy">
         <h3>Mulch</h3>
         <p>Red, black and natural mulch by the bag or in bulk.</p>
         <span class="go">See mulch →</span>
       </a>
       <a class="lot-card" href="../garden-center/soil/">
-        <img width="880" height="1100" src="../img/lot-topsoil-pile-amandas-villa.jpg" alt="A pile of dark topsoil in the bulk yard at Amanda's Villa" loading="lazy">
+        <img width="800" height="600" src="../img/lot-topsoil-pile-amandas-villa.jpg" alt="A pile of dark topsoil in the bulk yard at Amanda's Villa" loading="lazy">
         <h3>Soil</h3>
         <p>Topsoil and potting soil for new beds, low spots and containers.</p>
         <span class="go">See soil →</span>
       </a>
       <a class="lot-card" href="../garden-center/compost/">
-        <img width="880" height="1100" src="../img/lot-compost-piles-and-mums-amandas-villa.jpg" alt="Dark compost piles behind rows of potted mums at Amanda's Villa" loading="lazy">
+        <img width="800" height="600" src="../img/lot-compost-piles-and-mums-amandas-villa.jpg" alt="Dark compost piles behind rows of potted mums at Amanda's Villa" loading="lazy">
         <h3>Compost</h3>
         <p>Compost to work into beds before planting.</p>
         <span class="go">See compost →</span>

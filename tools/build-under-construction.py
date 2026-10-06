@@ -85,7 +85,7 @@ h1 {{ margin: 0; max-width: 16em; font: 400 46px/1.1 var(--font-display); color:
 .uc-sub {{ margin: var(--space-4) 0 0; max-width: 32em; font: italic 400 21px/1.5 var(--font-text-serif); color: var(--ink-2); }}
 .uc-extra {{ margin: var(--space-4) 0 0; max-width: 34em; }}
 .btn-row {{ display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-10); }}
-.btn {{ display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: var(--radius-sm); border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); text-decoration: none; }}
+.btn {{ display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: 10px; border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); text-decoration: none; }}
 .btn--primary {{ background: var(--forest); color: var(--on-forest); }}
 .btn--primary:hover {{ background: var(--forest-deep); }}
 .btn--secondary {{ background: transparent; color: var(--forest); }}
