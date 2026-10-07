@@ -348,6 +348,21 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .photo-placeholder { aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius-photo); background: repeating-linear-gradient(135deg, var(--linen-2) 0 18px, var(--sage-pale) 18px 36px); border: 2px dashed var(--line-strong); display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-10); }
 .photo-placeholder > span { font: italic 400 34px/1.3 var(--font-text-serif); color: var(--ink); background: var(--linen); padding: var(--space-6) var(--space-10); border-radius: var(--radius-photo); box-shadow: 0 6px 20px rgba(28,36,31,.12); }
 @media (max-width: 640px) { .photo-placeholder > span { font-size: 26px; padding: var(--space-4) var(--space-6); } }
+
+/* ---------- Before-and-after carousel: one pair at a time ---------- */
+.bac { margin-top: var(--space-10); outline: none; touch-action: pan-y; }
+.bac-track { display: grid; }
+.ba-slide { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s; }
+.ba-slide.is-on { opacity: 1; visibility: visible; }
+.bac .ba-pair { grid-template-columns: 1fr 1fr; }
+.bac-count { font: 600 15px/1 var(--font-body); letter-spacing: .12em; color: var(--ink-2); min-width: 4em; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .ba-slide { transition: none; } }
+@media (max-width: 640px) {
+  .bac .ba-pair { grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+  .bac .ba-pair::after { content: "→"; width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .bac .ba-shot img { aspect-ratio: 3 / 4; }
+  .bac .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -679,33 +694,40 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   <div class="wrap">
     <div class="head">
       <h2>Paver patio and walkway projects, before and after</h2>
-      <p>Each pair shows the same view of a property before work began and after installation was complete.</p>
+      <p>Each pair shows the same view of a property before work began and after installation was complete. Use the arrows to see more projects.</p>
     </div>
-    <div class="ba-list">
-      <figure class="ba">
-        <div class="ba-pair">
+    <div class="bac" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Before-and-after photos of four projects">
+      <div class="bac-track">
+        <div class="ba-slide is-on" aria-hidden="false">
+          <div class="ba-pair">
           <figure class="ba-shot"><img width="1100" height="825" src="../img/hardscape/before-farmhouse-front-yard.jpg" alt="Before: A bare front yard with no walk to the porch" loading="lazy"><span class="ba-tag">Before</span></figure>
           <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/hardscape/after-farmhouse-raised-walk-and-steps.jpg" alt="After: A raised paver walk with block retaining walls, wide steps and new beds." loading="lazy"><span class="ba-tag">After</span></figure>
         </div>
-      </figure>
-      <figure class="ba">
-        <div class="ba-pair">
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
           <figure class="ba-shot"><img width="1100" height="825" src="../img/hardscape/before-front-door-grass.jpg" alt="Before: Grass and dirt up to the front step" loading="lazy"><span class="ba-tag">Before</span></figure>
           <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/hardscape/after-front-door-paver-landing.jpg" alt="After: A gray paver landing with a charcoal border at the front door." loading="lazy"><span class="ba-tag">After</span></figure>
         </div>
-      </figure>
-      <figure class="ba">
-        <div class="ba-pair">
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
           <figure class="ba-shot"><img width="1100" height="825" src="../img/hardscape/before-white-house-dirt-path.jpg" alt="Before: A worn dirt path to the front door" loading="lazy"><span class="ba-tag">Before</span></figure>
           <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/hardscape/after-white-house-curved-walkway.jpg" alt="After: A curved flagstone walkway with a brick border, set on a packed gravel base." loading="lazy"><span class="ba-tag">After</span></figure>
         </div>
-      </figure>
-      <figure class="ba">
-        <div class="ba-pair">
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
           <figure class="ba-shot"><img width="1100" height="825" src="../img/hardscape/before-backyard-bare-dirt.jpg" alt="Before: Bare dirt beside the house" loading="lazy"><span class="ba-tag">Before</span></figure>
           <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/hardscape/after-backyard-herringbone-patio.jpg" alt="After: A herringbone brick patio and garden path, ready for chairs the same week." loading="lazy"><span class="ba-tag">After</span></figure>
         </div>
-      </figure>
+        </div>
+      </div>
+      <div class="cf-bar">
+        <button class="cf-btn bac-prev" type="button" aria-label="Previous project">‹</button>
+        <span class="bac-count" aria-live="polite">1 / 4</span>
+        <button class="cf-btn bac-next" type="button" aria-label="Next project">›</button>
+      </div>
     </div>
   </div>
 </section>
@@ -822,6 +844,24 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </section>
 
 </main>
+
+<script>
+(function () {
+  var root = document.querySelector('.bac'); if (!root) return;
+  var slides = root.querySelectorAll('.ba-slide'), count = root.querySelector('.bac-count'), cur = 0, n = slides.length;
+  function go(i) {
+    cur = (i + n) % n;
+    for (var k = 0; k < n; k++) { slides[k].classList.toggle('is-on', k === cur); slides[k].setAttribute('aria-hidden', k === cur ? 'false' : 'true'); }
+    count.textContent = (cur + 1) + ' / ' + n;
+  }
+  root.querySelector('.bac-prev').addEventListener('click', function () { go(cur - 1); });
+  root.querySelector('.bac-next').addEventListener('click', function () { go(cur + 1); });
+  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } });
+  var x0 = null;
+  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+})();
+</script>
 
 <script>
 (function () {
