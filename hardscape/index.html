@@ -343,6 +343,11 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .sc-dots span.is-on { width: 24px; background: #fff; }
 @media (prefers-reduced-motion: reduce) { .sc-slide { transition: none; } }
 @media (max-width: 640px) { .sc-btn { width: 40px; height: 40px; font-size: 22px; } .sc-prev { left: 8px; } .sc-next { right: 8px; } .sc-tag { font-size: 13px; padding: 8px 14px; left: 10px; top: 10px; } }
+
+/* ---------- Photo placeholder (Colton) ---------- */
+.photo-placeholder { aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius-photo); background: repeating-linear-gradient(135deg, var(--linen-2) 0 18px, var(--sage-pale) 18px 36px); border: 2px dashed var(--line-strong); display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-10); }
+.photo-placeholder > span { font: italic 400 34px/1.3 var(--font-text-serif); color: var(--ink); background: var(--linen); padding: var(--space-6) var(--space-10); border-radius: var(--radius-photo); box-shadow: 0 6px 20px rgba(28,36,31,.12); }
+@media (max-width: 640px) { .photo-placeholder > span { font-size: 26px; padding: var(--space-4) var(--space-6); } }
 </style>
 <script type="application/ld+json">
 {
@@ -624,17 +629,18 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <section class="band band--alt">
   <div class="wrap split split--flip">
     <figure class="split-media">
-      <img width="1000" height="1250" src="../img/hardscape/guide-paver-steps-and-block-wall.jpg" alt="Wide paver steps and a block retaining wall leading up to a farmhouse porch" loading="lazy">
+      <div class="photo-placeholder" role="img" aria-label="Placeholder for a photo of Colton"><span>Hey Colton&hellip;<br>I need a <span style="white-space:nowrap">photo of you.</span></span></div>
     </figure>
     <div>
-      <h2>Meet the hardscape teams behind every patio and retaining wall</h2>
+      <h2>Meet Colton, who leads the hardscape teams behind every patio and retaining wall</h2>
       <div class="prose" style="margin-top: var(--space-6)">
-        <p>Amanda's Villa runs several dedicated hardscape teams, experienced in paver patios, walkways, retaining walls and drainage. Every team works to the same standard: a properly engineered base, careful finish work and no chipped or flawed pavers left in a finished project.</p>
+        <p>Colton leads hardscaping at Amanda's Villa. He oversees the company's paver patios, walkways, retaining walls and drainage projects, and he holds each one to the standard he would expect at his own home.</p>
+        <p>He also directs several dedicated hardscape teams, and every team works to the same standard: a properly engineered base, careful finish work and no chipped or flawed pavers left in a finished project.</p>
         <p>That standard carries through to large-scale work, including a structural retaining wall currently under construction in Hot Springs that supports more than 80 tons of gravel.</p>
       </div>
       <figure class="quote">
         <blockquote><p>"If I'm doing it for a living, I want to be proud of it."</p></blockquote>
-        <figcaption>Colton, Amanda's Villa hardscape team</figcaption>
+        <figcaption>Colton, hardscape lead at Amanda's Villa</figcaption>
       </figure>
     </div>
   </div>
