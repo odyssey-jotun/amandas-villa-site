@@ -327,23 +327,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   .pains li { gap: var(--space-4); }
 }
 
-/* ---------- Plan carousel: one project, before / during / after ---------- */
-.sc { position: relative; margin: var(--space-6) 0 var(--space-4); border-radius: var(--radius-photo); overflow: hidden; outline: none; touch-action: pan-y; }
-.sc-track { position: relative; aspect-ratio: 3 / 2; max-height: 560px; width: 100%; }
-.sc-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .6s ease; }
-.sc-slide.is-on { opacity: 1; }
-.sc-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sc-tag { position: absolute; left: 16px; top: 16px; padding: 10px 18px; border-radius: 99px; background: rgba(246,245,240,.94); color: var(--ink); font: 600 15px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; box-shadow: 0 4px 14px rgba(28,36,31,.25); }
-.sc-slide:last-child .sc-tag { background: var(--forest); color: var(--on-forest); }
-.sc-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(246,245,240,.94); color: var(--forest); font: 400 26px/1 var(--font-body); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(28,36,31,.25); }
-.sc-btn:hover { background: #fff; }
-.sc-prev { left: 14px; } .sc-next { right: 14px; }
-.sc-dots { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; gap: 8px; }
-.sc-dots span { width: 8px; height: 8px; border-radius: 99px; background: rgba(246,245,240,.7); transition: width .3s; }
-.sc-dots span.is-on { width: 24px; background: #fff; }
-@media (prefers-reduced-motion: reduce) { .sc-slide { transition: none; } }
-@media (max-width: 640px) { .sc-btn { width: 40px; height: 40px; font-size: 22px; } .sc-prev { left: 8px; } .sc-next { right: 8px; } .sc-tag { font-size: 13px; padding: 8px 14px; left: 10px; top: 10px; } }
-
 /* ---------- Photo placeholder (Colton) ---------- */
 .photo-placeholder { aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius-photo); background: repeating-linear-gradient(135deg, var(--linen-2) 0 18px, var(--sage-pale) 18px 36px); border: 2px dashed var(--line-strong); display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-10); }
 .photo-placeholder > span { font: italic 400 34px/1.3 var(--font-text-serif); color: var(--ink); background: var(--linen); padding: var(--space-6) var(--space-10); border-radius: var(--radius-photo); box-shadow: 0 6px 20px rgba(28,36,31,.12); }
@@ -363,6 +346,11 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   .bac .ba-shot img { aspect-ratio: 3 / 4; }
   .bac .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
 }
+
+/* ---------- Step photos: one square photo over each step, aligned ---------- */
+.steps { margin-top: var(--space-10); }
+.steps li { border-top: 0; padding-top: 0; }
+.step-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-4); }
 </style>
 <script type="application/ld+json">
 {
@@ -666,20 +654,10 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   <div class="wrap">
     <div class="plan">
       <h2>How a hardscape project works, from free estimate to finished patio</h2>
-      <div class="sc" tabindex="0" role="region" aria-roledescription="carousel" aria-label="One patio project, before, during and after">
-        <div class="sc-track">
-          <figure class="sc-slide is-on" aria-hidden="false"><img width="1500" height="1000" src="../img/hardscape/steps-1-before-backyard.jpg" alt="A bare dirt backyard beside a brick house before a patio project began"><span class="sc-tag">Before</span></figure>
-          <figure class="sc-slide" aria-hidden="true"><img width="1500" height="1000" src="../img/hardscape/steps-2-herringbone-going-in.jpg" alt="A herringbone brick walk being set on a compacted base, with border pavers in place" loading="lazy"><span class="sc-tag">During</span></figure>
-          <figure class="sc-slide" aria-hidden="true"><img width="1500" height="1000" src="../img/hardscape/steps-3-finished-patio.jpg" alt="The finished herringbone brick patio with white rocking chairs and new planting beds" loading="lazy"><span class="sc-tag">After</span></figure>
-        </div>
-        <button class="sc-btn sc-prev" type="button" aria-label="Previous photo">‹</button>
-        <button class="sc-btn sc-next" type="button" aria-label="Next photo">›</button>
-        <div class="sc-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
-      </div>
       <ol class="steps">
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a free estimate</h3><p>Call (870) 489-5463 or submit the estimate form. Photos of the area help the team prepare before the site visit.</p></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Site survey and design</h3><p>A member of the hardscape team surveys your property with a transit, measures grade and drainage, and calculates the base and backfill the project requires. The team then designs the project and prepares your estimate.</p></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Installation from start to finish</h3><p>A dedicated crew excavates, compacts, sets and seals the entire project without leaving for other jobs along the way.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/hardscape/step-1-estimate-front-yard.jpg" alt="A front yard beside a black farmhouse before a hardscape project" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a free estimate</h3><p>Call (870) 489-5463 or submit the estimate form. Photos of the area help the team prepare before the site visit.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/hardscape/step-2-survey-layout.jpg" alt="A trench staked and flagged for a new paver walk during layout" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Site survey and design</h3><p>A member of the hardscape team surveys your property with a transit, measures grade and drainage, and calculates the base and backfill the project requires. The team then designs the project and prepares your estimate.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/hardscape/step-3-installation-herringbone.jpg" alt="Herringbone brick pavers being set on a compacted base with border pavers in place" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Installation from start to finish</h3><p>A dedicated crew excavates, compacts, sets and seals the entire project without leaving for other jobs along the way.</p></li>
       </ol>
       <div class="btn-row">
         <a class="btn btn--primary" href="../contact/#estimate">Request a free estimate</a>
@@ -856,23 +834,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   }
   root.querySelector('.bac-prev').addEventListener('click', function () { go(cur - 1); });
   root.querySelector('.bac-next').addEventListener('click', function () { go(cur + 1); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
-})();
-</script>
-
-<script>
-(function () {
-  var root = document.querySelector('.sc'); if (!root) return;
-  var slides = root.querySelectorAll('.sc-slide'), dots = root.querySelectorAll('.sc-dots span'), cur = 0, n = slides.length;
-  function go(i) {
-    cur = (i + n) % n;
-    for (var k = 0; k < n; k++) { slides[k].classList.toggle('is-on', k === cur); slides[k].setAttribute('aria-hidden', k === cur ? 'false' : 'true'); dots[k].classList.toggle('is-on', k === cur); }
-  }
-  root.querySelector('.sc-prev').addEventListener('click', function () { go(cur - 1); });
-  root.querySelector('.sc-next').addEventListener('click', function () { go(cur + 1); });
   root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } });
   var x0 = null;
   root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
