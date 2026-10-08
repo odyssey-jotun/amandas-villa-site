@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Name the Piles | Amanda's Villa</title>
+<title>Bulk Materials on the Lot | Amanda's Villa</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,8 +35,6 @@ p { margin: 0; }
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 header.wrap { padding-top: 72px; padding-bottom: 40px; }
 header p { margin-top: 12px; font-size: 20px; line-height: 1.55; }
-.name { margin-top: 28px; }
-.name label { display: block; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
 
 .pile { padding: 56px 0; border-top: 1px solid var(--line); }
 .pile img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-photo); background: var(--linen-2); }
@@ -48,7 +46,7 @@ legend { padding: 0; margin-bottom: 10px; }
 .opt { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; transition: border-color .15s, background-color .15s; }
 .opt:hover { border-color: var(--line-strong); }
 .opt:has(input:checked) { border-color: var(--forest); background: var(--sage-pale); }
-.opt input[type=radio] { margin: 5px 0 0; accent-color: var(--forest); width: 18px; height: 18px; flex: none; }
+.opt input[type=radio], .opt input[type=checkbox] { margin: 5px 0 0; accent-color: var(--forest); width: 18px; height: 18px; flex: none; }
 .opt span { flex: 1; }
 input[type=text], textarea { width: 100%; font: inherit; color: var(--ink); padding: 10px 12px; background: #fff; border: 1px solid var(--line-strong); border-radius: 8px; }
 .other { margin-top: 8px; }
@@ -65,7 +63,7 @@ textarea { min-height: 88px; resize: vertical; }
 .btn--plain { background: transparent; color: var(--forest); }
 .btn--plain:hover { background: var(--sage-pale); }
 .status { margin-top: 16px; min-height: 1.6em; color: var(--forest); font-weight: 600; }
-.count { margin-top: 16px; color: var(--ink-3); }
+.hint { color: var(--ink-3); font-size: 16px; margin: -4px 0 10px; }
 
 @media (max-width: 640px) {
   header.wrap { padding-top: 48px; padding-bottom: 32px; }
@@ -81,23 +79,18 @@ textarea { min-height: 88px; resize: vertical; }
 <body>
 <main>
   <header class="wrap">
-    <h1>Name the piles on the lot</h1>
-    <p>Each new garden center page will be about one material, so we need the right name for every pile. For each photo, pick the closest answer or type the real name, then say what the pile is for. When you finish, tap the button at the bottom to send your answers to Marc.</p>
-    <div class="name">
-      <label for="who">Your name</label>
-      <input type="text" id="who" name="who" autocomplete="name">
-    </div>
+    <h1>The bulk materials on the lot</h1>
+    <p>Marc is building a page for each bulk material Amanda's Villa sells, so customers searching for mulch, soil or gravel find the lot. For each pile below, pick the name you use or type it in, check what customers buy it for, and add anything customers often ask about it. Skip anything you are not sure of.</p>
   </header>
 
-  <form id="quiz" class="wrap" novalidate></form>
+  <form id="info" class="wrap" novalidate></form>
 
   <section class="send wrap">
-    <h2>Send your answers</h2>
-    <p>The button opens your email with every answer already filled in. Just hit send. If email does not open, copy the answers and text them to Marc instead.</p>
-    <p class="count" id="count"></p>
+    <h2>Send it to Marc</h2>
+    <p>The button opens your email with everything filled in. Just hit send. If email does not open, copy it and text it to Marc instead.</p>
     <div class="btns">
-      <button type="button" class="btn btn--main" id="send">Email my answers to Marc</button>
-      <button type="button" class="btn btn--plain" id="copy">Copy my answers</button>
+      <button type="button" class="btn btn--main" id="send">Email this to Marc</button>
+      <button type="button" class="btn btn--plain" id="copy">Copy it</button>
     </div>
     <p class="status" id="status" role="status"></p>
   </section>
@@ -105,125 +98,121 @@ textarea { min-height: 88px; resize: vertical; }
 
 <script>
 const TO = "mgray@odysseycollegeprep.com";
-const USE = [
-  "We sell it to customers",
-  "We use it on our own landscaping or hardscape jobs",
-  "Both: we sell it and use it on our jobs"
-];
+const USES = {
+  mulch: ["Flower beds", "Around trees and shrubs", "Keeping weeds down and holding moisture", "Garden paths", "Playgrounds"],
+  sand: ["Leveling under pavers", "Mixing concrete or mortar", "Filling low spots", "Sandboxes"],
+  soil: ["Starting new flower beds", "Vegetable gardens", "Raised beds", "Filling low spots and leveling the yard", "Working into clay soil"],
+  gravel: ["Driveways", "Walkways and paths", "Drainage", "Base under pavers or patios"]
+};
 const PILES = [
-  { id: "pile-1", title: "Pile 1: the biggest dark brown pile", seen: "Long, shredded wood pieces, dark brown. The largest pile on the lot.",
+  { id: "pile-1", kind: "mulch", title: "Pile 1: the biggest dark brown pile", seen: "Long, shredded wood pieces, dark brown. The largest pile on the lot.",
     alt: "Large dark brown pile of shredded wood mulch along the back fence",
     choices: ["Hardwood mulch", "Double-shredded hardwood mulch", "Pine bark mulch", "Cypress mulch"] },
-  { id: "pile-2", title: "Pile 2: the second dark pile, a little blacker", seen: "Same shredded look as pile 1, but darker, almost black.",
+  { id: "pile-2", kind: "mulch", title: "Pile 2: the second dark pile, a little blacker", seen: "Same shredded look as pile 1, but darker, almost black.",
     alt: "Second dark shredded mulch pile beside the largest pile",
     choices: ["Black mulch", "More hardwood mulch, same as pile 1", "Brown dyed mulch", "Compost"] },
-  { id: "pile-3", title: "Pile 3: the red piles", seen: "Two orange-red piles of wood chips. One looks a little darker than the other.",
+  { id: "pile-3", kind: "mulch", title: "Pile 3: the red piles", seen: "Two orange-red piles of wood chips. One looks a little darker than the other.",
     alt: "Two red wood chip mulch piles along the back fence",
     choices: ["Red mulch (dyed hardwood)", "Cedar mulch", "Cypress mulch", "Two different red mulches"] },
-  { id: "pile-4", title: "Pile 4: the tan pile", seen: "Light tan and grainy, with no wood in it.",
+  { id: "pile-4", kind: "sand", title: "Pile 4: the tan pile", seen: "Light tan and grainy, with no wood in it.",
     alt: "Tan pile of sand beside the red mulch",
-    choices: ["Fill sand", "Masonry sand", "Concrete sand for under pavers", "Play sand"] },
-  { id: "pile-5", title: "Pile 5: the dark soil pile next to the sand", seen: "Fine, crumbly and dark, with no wood chips.",
+    choices: ["Fill sand", "Masonry sand", "Concrete sand", "Play sand"] },
+  { id: "pile-5", kind: "soil", title: "Pile 5: the dark soil pile next to the sand", seen: "Fine, crumbly and dark, with no wood chips.",
     alt: "Dark soil pile next to the tan sand pile",
     choices: ["Compost", "Organic topsoil", "Super soil", "Garden soil mix"] },
-  { id: "pile-6", title: "Pile 6: the next dark soil pile", seen: "Also fine and dark, a little browner than pile 5.",
+  { id: "pile-6", kind: "soil", title: "Pile 6: the next dark soil pile", seen: "Also fine and dark, a little browner than pile 5.",
     alt: "Second dark soil pile near the back fence",
     choices: ["Compost", "Organic topsoil", "Super soil", "Garden soil mix"] },
-  { id: "pile-7", title: "Pile 7: the brown gravel by the dumpster", seen: "Small rounded stones, brown and tan.",
+  { id: "pile-7", kind: "gravel", title: "Pile 7: the brown gravel by the dumpster", seen: "Small rounded stones, brown and tan.",
     alt: "Brown gravel pile in front of the rental dumpster",
-    choices: ["Pea gravel", "River gravel", "Crushed gravel", "Drainage gravel for French drains"] },
-  { id: "pile-8", title: "Pile 8: the two pink-tan piles at the far end", seen: "Crushed rock, pinkish tan, in two piles.",
+    choices: ["Pea gravel", "River gravel", "Crushed gravel", "Drainage gravel"] },
+  { id: "pile-8", kind: "gravel", title: "Pile 8: the two pink-tan piles at the far end", seen: "Crushed rock, pinkish tan, in two piles.",
     alt: "Two pinkish crushed stone piles at the far end of the lot",
     choices: ["Class 7 base gravel (SB2)", "Crushed granite", "Crusher run", "Pea gravel"] }
 ];
 const EXTRA = [
   { id: "supplier", label: "Who makes or supplies the super soil?" },
-  { id: "missed", label: "Is anything sold in bulk on the lot that is not in these photos?" },
+  { id: "missed", label: "Is anything else sold in bulk that is not in these photos?" },
   { id: "notes", label: "Anything else Marc should know about the mulch, soil or gravel?" }
 ];
 
-const form = document.getElementById("quiz");
+const form = document.getElementById("info");
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-function group(name, legend, opts) {
-  const items = opts.map(o => `<label class="opt"><input type="radio" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join("");
-  return `<fieldset><legend><h3>${legend}</h3></legend><div class="opts">${items}
-    <label class="opt"><input type="radio" name="${name}" value="__other"><span>Something else (type it below)</span></label></div>
-    <input type="text" class="other" name="${name}-other" aria-label="${esc(legend)}: type your answer" placeholder="Type the right answer" hidden></fieldset>`;
+function group(name, type, legend, hint, opts) {
+  const items = opts.map(o => `<label class="opt"><input type="${type}" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join("");
+  return `<fieldset><legend><h3>${legend}</h3></legend>${hint ? `<p class="hint">${hint}</p>` : ""}<div class="opts">${items}
+    <label class="opt"><input type="${type}" name="${name}" value="__other"><span>Something else (type it below)</span></label></div>
+    <input type="text" class="other" name="${name}-other" aria-label="${esc(legend)}: type it in" placeholder="Type it here" hidden></fieldset>`;
 }
 form.innerHTML = PILES.map((p, i) => `
   <section class="pile" aria-labelledby="${p.id}-h">
     <img src="img/${p.id}.jpg" width="1200" height="800" alt="${esc(p.alt)}" ${i > 1 ? 'loading="lazy"' : ""}>
     <h2 id="${p.id}-h">${esc(p.title)}</h2>
-    <p class="seen">${esc(p.seen)} The ringed pile is the one this question is about.</p>
-    ${group(p.id + "-what", "What is it?", p.choices)}
-    ${group(p.id + "-use", "What is it for?", USE)}
+    <p class="seen">${esc(p.seen)} The ring marks the pile.</p>
+    ${group(p.id + "-name", "radio", "What do you call it?", "", p.choices)}
+    ${group(p.id + "-use", "checkbox", "What do customers buy it for?", "Check all that fit.", USES[p.kind])}
+    <fieldset><legend><h3><label for="${p.id}-notes">Anything customers often ask about it?</label></h3></legend>
+      <textarea id="${p.id}-notes" name="${p.id}-notes"></textarea></fieldset>
   </section>`).join("") + `
   <section class="pile" aria-labelledby="extra-h">
     <h2 id="extra-h">A few last questions</h2>
     ${EXTRA.map(e => `<fieldset><legend><h3><label for="${e.id}">${e.label}</label></h3></legend><textarea id="${e.id}" name="${e.id}"></textarea></fieldset>`).join("")}
   </section>`;
 
-const KEY = "av-lot-quiz";
+const KEY = "av-bulk-materials";
 function save() {
-  const data = { who: document.getElementById("who").value };
-  new FormData(form).forEach((v, k) => { data[k] = v; });
+  const data = {};
+  new FormData(form).forEach((v, k) => { (data[k] = data[k] || []).push(v); });
   try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
-  count();
 }
 function restore() {
   let data = null;
   try { data = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
   if (!data) return;
-  if (data.who) document.getElementById("who").value = data.who;
-  for (const [k, v] of Object.entries(data)) {
-    const r = form.querySelector(`input[type=radio][name="${k}"][value="${CSS.escape(v)}"]`);
-    if (r) r.checked = true;
-    const t = form.querySelector(`[name="${k}"]:not([type=radio])`);
-    if (t) t.value = v;
+  for (const [k, vals] of Object.entries(data)) {
+    for (const v of vals) {
+      const box = form.querySelector(`input[name="${k}"][value="${CSS.escape(v)}"]`);
+      if (box) box.checked = true;
+    }
+    const t = form.querySelector(`[name="${k}"]:not([type=radio]):not([type=checkbox])`);
+    if (t) t.value = vals[0];
   }
-  form.querySelectorAll("input[value=__other]:checked").forEach(r => showOther(r.name, true));
+  form.querySelectorAll("input[value=__other]").forEach(b => showOther(b.name));
 }
-function showOther(name, on) {
-  const t = form.querySelector(`[name="${name}-other"]`);
-  t.hidden = !on;
+function showOther(name) {
+  const on = !!form.querySelector(`input[name="${name}"][value="__other"]:checked`);
+  form.querySelector(`[name="${name}-other"]`).hidden = !on;
+  return on;
 }
 form.addEventListener("change", e => {
-  if (e.target.type === "radio") {
-    showOther(e.target.name, e.target.value === "__other");
-    if (e.target.value === "__other") form.querySelector(`[name="${e.target.name}-other"]`).focus();
+  if (e.target.type === "radio" || e.target.type === "checkbox") {
+    const on = showOther(e.target.name);
+    if (on && e.target.value === "__other") form.querySelector(`[name="${e.target.name}-other"]`).focus();
   }
   save();
 });
 form.addEventListener("input", save);
-document.getElementById("who").addEventListener("input", save);
 
-function answer(name) {
-  const r = form.querySelector(`input[name="${name}"]:checked`);
-  if (!r) return "(no answer)";
-  if (r.value === "__other") return form.querySelector(`[name="${name}-other"]`).value.trim() || "(something else, not typed)";
-  return r.value;
-}
-function count() {
-  let done = 0;
-  PILES.forEach(p => { if (form.querySelector(`input[name="${p.id}-what"]:checked`) && form.querySelector(`input[name="${p.id}-use"]:checked`)) done++; });
-  document.getElementById("count").textContent = `${done} of ${PILES.length} piles answered.`;
+function picked(name) {
+  const vals = [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(b =>
+    b.value === "__other" ? (form.querySelector(`[name="${name}-other"]`).value.trim() || "something else, not typed") : b.value);
+  return vals.length ? vals.join(", ") : "(skipped)";
 }
 function summary() {
-  const who = document.getElementById("who").value.trim() || "(name not given)";
-  const lines = [`Lot pile quiz answers from ${who}`, ""];
+  const lines = ["Bulk materials on the lot", ""];
   PILES.forEach((p, i) => {
-    lines.push(`Pile ${i + 1}: ${answer(p.id + "-what")}`);
-    lines.push(`  For: ${answer(p.id + "-use")}`);
+    lines.push(`Pile ${i + 1}: ${picked(p.id + "-name")}`);
+    lines.push(`  Customers buy it for: ${picked(p.id + "-use")}`);
+    const n = document.getElementById(p.id + "-notes").value.trim();
+    if (n) lines.push(`  Customers ask: ${n}`);
   });
   lines.push("");
-  EXTRA.forEach(e => lines.push(`${e.label} ${document.getElementById(e.id).value.trim() || "(blank)"}`));
+  EXTRA.forEach(e => lines.push(`${e.label} ${document.getElementById(e.id).value.trim() || "(skipped)"}`));
   return lines.join("\n");
 }
 document.getElementById("send").addEventListener("click", () => {
-  const who = document.getElementById("who").value.trim();
-  const subject = "Lot pile quiz answers" + (who ? " from " + who : "");
-  location.href = `mailto:${TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary())}`;
-  document.getElementById("status").textContent = "Your email should open now with the answers filled in.";
+  location.href = `mailto:${TO}?subject=${encodeURIComponent("Bulk materials on the lot")}&body=${encodeURIComponent(summary())}`;
+  document.getElementById("status").textContent = "Your email should open now with everything filled in.";
 });
 document.getElementById("copy").addEventListener("click", async () => {
   const s = document.getElementById("status");
@@ -231,7 +220,6 @@ document.getElementById("copy").addEventListener("click", async () => {
   catch (e) { s.textContent = "Copy did not work on this phone. Use the email button instead."; }
 });
 restore();
-count();
 </script>
 </body>
 </html>
