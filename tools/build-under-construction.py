@@ -14,7 +14,6 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 # path, page name used in the title, heading text, extra line (optional), back link
 PAGES = [
     ("", "Amanda's Villa", "The Amanda's Villa website is still being built", None, None),
-    ("landscaping", "Landscaping", "The Landscaping page is still being built", None, None),
     ("about", "About", "The About page is still being built", None, None),
     ("contact", "Contact", "The Contact page is still being built",
      "For a free estimate or directions, call (870) 489-5463 or come by 7901 Dollarway Road in White Hall.", None),

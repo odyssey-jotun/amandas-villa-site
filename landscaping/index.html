@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Landscaping | Amanda&#x27;s Villa</title>
-<meta name="description" content="The Landscaping page is still being built Call Amanda's Villa at (870) 489-5463.">
+<title>Landscape Design &amp; Installation in Arkansas | Amanda's Villa</title>
+<meta name="description" content="Landscape design and installation for homes all over Arkansas: front yard landscaping, flower beds, shrubs, edging and mulch, with every yard measured and designed by Amanda.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,162 +15,741 @@
   --linen: #f6f5f0; --linen-2: #ecebe4; --sage-pale: #e4e9e2;
   --ink: #1c241f; --ink-2: #454e48; --ink-3: #5f6862;
   --forest: #2b4a3a; --forest-deep: #1b3127; --on-forest: #f6f5f0;
-  --stone: #665f54; --clay: #94524f; --line: #d6d6cc; --line-strong: #7c8078;
-  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
-  --font-text-serif: "Libre Caslon Text", Georgia, serif;
+  --stone: #665f54; --clay: #94524f; --clay-light: #dc9c96;
+  --line: #d6d6cc; --line-strong: #7c8078;
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-text-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --space-2: 8px; --space-4: 16px; --space-6: 24px; --space-10: 40px; --space-16: 64px;
-  --radius-sm: 2px; --radius-photo: 18px;
-  /* the cross-section */
-  --soil: #b98b6a; --soil-dark: #9a6f52; --grass: #6f8f5a; --gravel: #8d8a83; --gravel-dot: #6b6862;
-  --sand: #dccaa0; --paver: #8a5a4a; --paver-edge: #6e463a; --joint: #cfc2a6;
+  --space-1: 4px; --space-2: 8px; --space-4: 16px; --space-6: 24px; --space-10: 40px; --space-16: 64px; --space-28: 112px;
+  --radius-sm: 2px; --radius-photo: 18px; --notch: 10px; --measure: 1200px; --measure-text: 62ch;
+  --gutter: var(--space-10);
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--linen); color: var(--ink-2); font: 400 18px/1.65 var(--font-body); }
+body { margin: 0; background: var(--linen); color: var(--ink-2); font: 400 18px/1.65 var(--font-body); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; color: var(--ink); text-wrap: balance; margin: 0; }
+h2 { font-size: 38px; line-height: 1.12; }
+h3 { font-family: var(--font-text-serif); font-weight: 400; color: var(--ink); margin: 0; font-size: 22px; line-height: 1.3; text-wrap: balance; }
+h1 em, h2 em { font-family: var(--font-text-serif); font-style: italic; color: var(--clay); }
+p { margin: 0; }
+p + p { margin-top: var(--space-4); }
 a { color: var(--forest); }
 :focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
 
-.uc-nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); max-width: 1200px; width: 100%; margin: 0 auto; padding: var(--space-6) var(--space-10); }
-.wordmark { display: inline-flex; flex-direction: column; gap: 6px; color: var(--ink); text-decoration: none; }
-.wordmark b { font: 400 30px/1.05 var(--font-display); }
-.wordmark span { font: 600 11px/1.3 var(--font-body); letter-spacing: .24em; text-transform: uppercase; color: var(--stone); }
-.uc-links { display: flex; gap: var(--space-10); list-style: none; margin: 0; padding: 0; }
-.uc-links a { color: var(--ink); text-decoration: none; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; }
-.uc-links a:hover { color: var(--forest); }
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 var(--gutter); }
+.band { padding: var(--space-28) 0; }
+.band + .band { border-top: 1px solid var(--line); }
+.band--alt { background: var(--linen-2); border-top: 0 !important; }
+.band--alt + .band { border-top: 0; }
+.eyebrow { display: block; margin: 0 0 var(--space-2); font: 600 12px/1.3 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
+.head { margin-bottom: var(--space-10); }
+.head p { margin-top: var(--space-2); max-width: var(--measure-text); font-size: 21px; line-height: 1.55; }
+.prose { max-width: var(--measure-text); }
 
-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-10) var(--space-6) var(--space-16); }
-.uc-art { width: min(100%, 640px); height: auto; margin-bottom: var(--space-10); overflow: visible; }
-h1 { margin: 0; max-width: 16em; font: 400 46px/1.1 var(--font-display); color: var(--ink); text-wrap: balance; }
-.uc-sub { margin: var(--space-4) 0 0; max-width: 32em; font: italic 400 21px/1.5 var(--font-text-serif); color: var(--ink-2); }
-.uc-extra { margin: var(--space-4) 0 0; max-width: 34em; }
-.btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-10); }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: 10px; border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); text-decoration: none; }
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); min-height: 48px; padding: 12px 24px; border-radius: 10px; border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); letter-spacing: .02em; text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
 .btn--primary { background: var(--forest); color: var(--on-forest); }
-.btn--primary:hover { background: var(--forest-deep); }
+.btn--primary:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
 .btn--secondary { background: transparent; color: var(--forest); }
 .btn--secondary:hover { background: var(--sage-pale); }
-.uc-back { margin-top: var(--space-6); font-weight: 600; }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.link { color: var(--forest); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.link:hover { border-bottom-color: var(--clay); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 
-.foot { background: var(--forest-deep); color: rgba(246,245,240,.85); padding: var(--space-10) 0; font-size: 16px; }
-.foot-in { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-10); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-6); }
+/* ---------- Hero: the Business Made Simple card ---------- */
+.hero { padding: var(--space-6) var(--space-6) 0; }
+.hero-card { position: relative; isolation: isolate; overflow: hidden; border-radius: 28px; min-height: min(860px, 92vh); display: flex; flex-direction: column; color: var(--on-forest); }
+.hero-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-card::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(14,22,18,.62) 0%, rgba(14,22,18,.38) 30%, rgba(14,22,18,.5) 62%, rgba(14,22,18,.78) 100%); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); padding: var(--space-6) var(--space-10); }
+.wordmark { display: inline-flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none; }
+.wordmark b { font: 400 30px/1.05 var(--font-display); letter-spacing: .01em; }
+.wordmark span { font: 600 11px/1.3 var(--font-body); letter-spacing: .24em; text-transform: uppercase; opacity: .85; }
+.nav-links { display: flex; align-items: center; gap: var(--space-10); list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--on-forest); text-decoration: none; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; }
+.nav-links a[aria-current] { border-bottom: 1px solid var(--clay-light); padding-bottom: 4px; }
+.nav-links a:hover { color: #fff; }
+.nav .btn--onphoto { min-height: 44px; padding: 10px 20px; font-size: 15px; }
+.btn--onphoto { background: var(--forest); color: var(--on-forest); border-color: var(--forest); }
+.btn--onphoto:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
+.btn--ghost { background: rgba(246,245,240,.08); color: var(--on-forest); border-color: rgba(246,245,240,.75); backdrop-filter: blur(4px); }
+.btn--ghost:hover { background: rgba(246,245,240,.18); }
+.nav details { display: none; }
+.hero-copy { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-10) var(--space-6) var(--space-16); }
+.hero h1 { color: var(--on-forest); font-size: 56px; line-height: 1.08; letter-spacing: -.01em; max-width: 15em; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
+.hero h1 em { color: var(--clay-light); }
+.hero-sub { margin-top: var(--space-4); max-width: 34em; font: italic 400 21px/1.5 var(--font-text-serif); color: rgba(246,245,240,.94); }
+.hero-ctas { margin-top: var(--space-10); display: flex; flex-direction: column; gap: var(--space-4); width: min(100%, 320px); }
+.hero-ctas .btn { width: 100%; }
+.hero-meta { margin-top: var(--space-6); font: 600 12px/1.4 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: rgba(246,245,240,.85); }
+.standin { position: absolute; right: var(--space-4); bottom: var(--space-4); z-index: 2; max-width: 300px; padding: 8px 12px; background: rgba(246,245,240,.92); color: var(--ink); border-radius: 10px; font: 400 13px/1.4 var(--font-body); }
+
+/* ---------- Problem: text and photo ---------- */
+.split { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-16); align-items: center; }
+.split--flip { grid-template-columns: 1fr 1.1fr; }
+.split--flip .split-media { order: -1; }
+.split img, .photo { width: 100%; border-radius: var(--radius-photo); object-fit: cover; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.pair img { aspect-ratio: 4 / 5; }
+.pair--square img { aspect-ratio: 1 / 1; }
+.split img { aspect-ratio: 4 / 5; }
+.photo--wide { aspect-ratio: 3 / 2; }
+figure { margin: 0; }
+figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; color: var(--ink-3); }
+
+/* ---------- Value: three points ---------- */
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10); }
+.three > div { padding-top: var(--space-4); border-top: 1px solid var(--line-strong); }
+.three h3 { margin-bottom: var(--space-2); }
+
+/* ---------- Guide ---------- */
+.proof { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+.proof li { padding-left: var(--space-6); position: relative; }
+.proof li::before { content: "\2192"; position: absolute; left: 0; color: var(--forest); }
+.quote { margin: var(--space-10) 0 0; padding: var(--space-6) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.quote blockquote { margin: 0; font: italic 400 28px/1.4 var(--font-text-serif); color: var(--ink); text-wrap: pretty; }
+.quote figcaption { margin-top: var(--space-4); font: 600 12px/1.3 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+
+/* ---------- Plan ---------- */
+.plan { background: var(--sage-pale); border-radius: var(--radius-sm); padding: var(--space-16) var(--space-10); }
+.steps { list-style: none; margin: var(--space-6) 0 var(--space-10); padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); counter-reset: step; }
+.steps li { counter-increment: step; display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--line-strong); }
+.steps li::before { content: counter(step) "."; font: italic 400 30px/1 var(--font-text-serif); color: var(--forest); }
+
+/* ---------- What's on the lot ---------- */
+.lot + .lot { margin-top: var(--space-28); }
+.plantlist { list-style: none; margin: var(--space-6) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.plantlist li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-1) var(--space-4); padding: 12px 0; border-bottom: 1px solid var(--line); }
+.plantlist b { font: 400 20px/1.35 var(--font-text-serif); color: var(--ink); }
+.plantlist i { font: italic 400 17px/1.4 var(--font-text-serif); color: var(--stone); }
+.plantlist span { flex-basis: 100%; color: var(--ink-3); font-size: 15px; line-height: 1.45; }
+.trio { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: var(--space-4); margin-top: var(--space-10); }
+.trio img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-photo); }
+.trio img:first-child { grid-row: span 2; aspect-ratio: 4 / 3; }
+.trio img:not(:first-child) { aspect-ratio: 4 / 3; }
+.note { margin-top: var(--space-4); font-size: 15px; color: var(--ink-3); }
+.todo { background: #f3e6c4; color: #3d2f0a; padding: 0 4px; border-radius: var(--radius-sm); font-size: .9em; }
+
+/* ---------- CatalogFrame (once per page) ---------- */
+.frame { --n: var(--notch); position: relative; padding: calc(var(--notch) + var(--space-10)); }
+.frame::before, .frame::after { content: ""; position: absolute;
+  clip-path: polygon(var(--n) 0, calc(100% - var(--n)) 0, calc(100% - var(--n)) var(--n), 100% var(--n), 100% calc(100% - var(--n)), calc(100% - var(--n)) calc(100% - var(--n)), calc(100% - var(--n)) 100%, var(--n) 100%, var(--n) calc(100% - var(--n)), 0 calc(100% - var(--n)), 0 var(--n), var(--n) var(--n)); }
+.frame::before { inset: 0; background: var(--line-strong); }
+.frame::after { inset: 1px; background: var(--linen); }
+.frame > * { position: relative; z-index: 1; }
+
+/* ---------- FAQ ---------- */
+.faq { border-top: 1px solid var(--line-strong); max-width: 820px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); padding: var(--space-6) 0; font: 400 21px/1.35 var(--font-text-serif); color: var(--ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 24px/1 var(--font-body); color: var(--forest); flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details > div { padding: 0 0 var(--space-6); max-width: var(--measure-text); }
+
+/* ---------- Closing CTA and footer ---------- */
+.closing { background: var(--sage-pale); text-align: center; }
+.closing h2 { max-width: 18em; margin: 0 auto; }
+.closing p { margin: var(--space-4) auto 0; max-width: 40em; }
+.closing .btn-row { justify-content: center; margin-top: var(--space-10); }
+.foot { background: var(--forest-deep); color: rgba(246,245,240,.85); padding: var(--space-16) 0; font-size: 16px; }
+.foot .wordmark { color: var(--on-forest); }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-10); }
 .foot a { color: var(--on-forest); }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.foot small { display: block; margin-top: var(--space-10); padding-top: var(--space-6); border-top: 1px solid rgba(246,245,240,.2); color: rgba(246,245,240,.7); font-size: 14px; }
 
-/* ---------- The cross-section animation ---------- */
-.uc-art .grass { fill: var(--grass); }
-.uc-art .soil { fill: var(--soil); }
-.uc-art .dig { fill: var(--soil-dark); transition: opacity .6s ease; }
-.uc-art .gravel { fill: url(#gravel); transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 1.1s cubic-bezier(.25,1,.5,1); }
-.uc-art .base { fill: var(--sand); transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .6s cubic-bezier(.25,1,.5,1); }
-.uc-art .uc-paver { fill: var(--paver); stroke: var(--paver-edge); stroke-width: 1; opacity: 0; transform: translateY(-46px); transition: transform .45s cubic-bezier(.3,1.4,.5,1), opacity .25s ease; transition-delay: calc(var(--i) * 140ms); }
-.uc-art .stem { fill: none; stroke: var(--grass); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 60; stroke-dashoffset: 60; transition: stroke-dashoffset .9s ease; }
-.uc-art .leaf { fill: var(--grass); transform-box: fill-box; transform: scale(0); transition: transform .5s cubic-bezier(.3,1.5,.5,1) .7s; }
-.uc-art .leaf--l { transform-origin: 100% 100%; }
-.uc-art .leaf--r { transform-origin: 0% 100%; }
-.uc-art .lbl { font: italic 400 13px/1 var(--font-text-serif); fill: var(--on-forest); opacity: 0; transition: opacity .5s ease .5s; }
-
-.s-dug .dig { opacity: 0; }
-.s-gravel .gravel { transform: scaleY(1); }
-.s-gravel .lbl { opacity: .95; }
-.s-base .base { transform: scaleY(1); }
-.s-pavers .uc-paver { opacity: 1; transform: translateY(0); }
-.s-sprout .stem { stroke-dashoffset: 0; }
-.s-sprout .leaf { transform: scale(1); }
-
-@media (prefers-reduced-motion: reduce) {
-  .uc-art * { transition: none !important; }
-}
+/* ---------- Phones ---------- */
 @media (max-width: 900px) {
-  .uc-links { display: none; }
+  .split, .split--flip { grid-template-columns: 1fr; gap: var(--space-10); }
+  .split--flip .split-media { order: 0; }
+  .three, .steps { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav .btn--onphoto { display: none; }
+  .nav details { display: block; position: relative; }
+  .nav summary { list-style: none; cursor: pointer; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; padding: 12px 0 12px 12px; }
+  .nav summary::-webkit-details-marker { display: none; }
+  .nav details ul { position: absolute; right: 0; top: 100%; z-index: 3; list-style: none; margin: 0; padding: var(--space-4); background: var(--linen); border-radius: var(--radius-sm); min-width: 220px; display: grid; gap: var(--space-2); }
+  .nav details a { color: var(--ink); text-decoration: none; font-weight: 600; display: block; padding: 8px 0; }
 }
 @media (max-width: 640px) {
-  .uc-nav { padding: var(--space-4); }
+  :root { --gutter: var(--space-4); }
+  .band { padding: var(--space-16) 0; }
+  .lot + .lot { margin-top: var(--space-16); }
+  h2 { font-size: 29px; }
+  .head p { font-size: 19px; }
+  .hero { padding: var(--space-2) var(--space-2) 0; }
+  .hero-card { border-radius: 20px; min-height: 92svh; }
+  .nav { padding: var(--space-4); }
   .wordmark b { font-size: 26px; }
   .wordmark span { font-size: 9px; letter-spacing: .2em; }
-  main { padding: var(--space-6) var(--space-4) var(--space-16); }
-  h1 { font-size: 34px; }
-  .uc-sub { font-size: 19px; }
-  .btn-row { flex-direction: column; width: 100%; }
-  .btn { width: 100%; }
-  .foot-in { padding: 0 var(--space-4); }
+  .hero-copy { align-items: flex-start; text-align: left; justify-content: flex-end; padding: var(--space-6) var(--space-4) var(--space-16); }
+  .hero h1 { font-size: 38px; }
+  .hero-sub { font-size: 19px; }
+  .hero-ctas { width: 100%; }
+  .standin { left: var(--space-2); right: var(--space-2); bottom: var(--space-2); max-width: none; font-size: 12px; }
+  .plan { padding: var(--space-10) var(--space-4); }
+  .frame { padding: calc(var(--notch) + var(--space-4)); }
+  .quote blockquote { font-size: 23px; }
+  .trio { grid-template-columns: 1fr; }
+  .trio img:first-child { grid-row: auto; }
 }
+
+/* Hero picture: tall crop on phones */
+.hero-card > picture { position: absolute; inset: 0; z-index: -2; }
+.hero-card > picture img { width: 100%; height: 100%; object-fit: cover; }
+/* On the lot strip */
+.lot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.lot-card { display: flex; flex-direction: column; gap: var(--space-2); color: inherit; text-decoration: none; }
+.lot-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-2); transition: transform .3s; }
+.lot-card:hover img { transform: scale(1.015); }
+.lot-card p { margin: 0; }
+.lot-card .go { color: var(--forest); font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .lot-card img { transition: none; } }
+.lot-grid figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-photo); }
+.lot-grid figcaption { margin-top: var(--space-2); font: 400 19px/1.35 var(--font-text-serif); color: var(--ink); }
+.lot-more { margin-top: var(--space-10); }
+.sources { margin-top: var(--space-6); font-size: 14px; line-height: 1.5; color: var(--ink-3); }
+.sources a { color: var(--ink-3); }
+@media (max-width: 900px) { .lot-grid { grid-template-columns: 1fr 1fr; gap: var(--space-4); } }
+@media (max-width: 640px) { .lot-grid figcaption { font-size: 17px; } }
+
+/* ---------- Coverflow gallery (vanilla port of the 21st.dev 3D Coverflow) ---------- */
+.cf { position: relative; margin-top: var(--space-10); outline: none; }
+.cf-stage { position: relative; height: clamp(380px, 52vw, 560px); perspective: 1400px; overflow: hidden; touch-action: pan-y; }
+.cf-card { position: absolute; left: 50%; top: 50%; width: clamp(240px, 32vw, 400px); aspect-ratio: 4 / 5; margin: 0; border-radius: var(--radius-photo); overflow: hidden; background: var(--linen-2);
+  transform: translate(-50%, -50%) scale(.4); opacity: 0; transition: transform .8s cubic-bezier(.25,1,.5,1), opacity .8s cubic-bezier(.25,1,.5,1), filter .8s; cursor: pointer; }
+.cf-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cf-card[data-pos="0"] { transform: translate(-50%, -50%); opacity: 1; z-index: 30; cursor: default; box-shadow: 0 24px 50px -18px rgba(28,36,31,.45); }
+.cf-card[data-pos="1"] { transform: translate(calc(-50% + 78%), -50%) scale(.84) rotateY(-24deg); opacity: .7; z-index: 20; filter: brightness(.85); }
+.cf-card[data-pos="-1"] { transform: translate(calc(-50% - 78%), -50%) scale(.84) rotateY(24deg); opacity: .7; z-index: 20; filter: brightness(.85); }
+.cf-card[data-pos="2"] { transform: translate(calc(-50% + 138%), -50%) scale(.68) rotateY(-38deg); opacity: .4; z-index: 10; filter: brightness(.7); }
+.cf-card[data-pos="-2"] { transform: translate(calc(-50% - 138%), -50%) scale(.68) rotateY(38deg); opacity: .4; z-index: 10; filter: brightness(.7); }
+.cf-bar { display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-top: var(--space-6); }
+.cf-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--linen); color: var(--forest); font: 400 22px/1 var(--font-body); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.cf-btn:hover { background: var(--sage-pale); }
+.cf-dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 60%; }
+.cf-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line-strong); opacity: .5; cursor: pointer; transition: width .3s, opacity .3s; }
+.cf-dot[aria-current="true"] { width: 26px; background: var(--forest); opacity: 1; }
+.cf-count { display: none; font: 600 15px/1 var(--font-body); letter-spacing: .12em; color: var(--ink-2); }
+.cf-caption { text-align: center; margin-top: var(--space-4); font: 400 20px/1.35 var(--font-text-serif); color: var(--ink); min-height: 1.4em; }
+@media (prefers-reduced-motion: reduce) { .cf-card { transition: none; } }
+@media (max-width: 640px) {
+  .cf-card[data-pos="1"] { transform: translate(calc(-50% + 70%), -50%) scale(.8) rotateY(-24deg); }
+  .cf-card[data-pos="-1"] { transform: translate(calc(-50% - 70%), -50%) scale(.8) rotateY(24deg); }
+  .cf-card[data-pos="2"], .cf-card[data-pos="-2"] { opacity: 0; }
+  .cf-card { width: 64vw; }
+  .cf-dots { display: none; }
+  .cf-count { display: block; }
+}
+
+/* ---------- Before and after ---------- */
+.ba-list { display: grid; gap: var(--space-16); margin-top: var(--space-10); }
+.ba { margin: 0; }
+.ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.ba-shot { position: relative; margin: 0; }
+.ba-shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-photo); }
+.ba-pair { position: relative; }
+.ba-pair::after { content: "→"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--on-forest); border: 4px solid var(--linen-2); display: flex; align-items: center; justify-content: center; font: 600 22px/1 var(--font-body); }
+.ba-tag { position: absolute; left: 16px; top: 16px; padding: 11px 20px; border-radius: 99px; font: 600 16px/1 var(--font-body); box-shadow: 0 4px 14px rgba(28,36,31,.25); letter-spacing: .18em; text-transform: uppercase; background: rgba(246,245,240,.94); color: var(--ink); }
+.ba-shot--after .ba-tag { background: var(--forest); color: var(--on-forest); }
+.ba > figcaption { margin-top: var(--space-4); font: 400 21px/1.4 var(--font-text-serif); color: var(--ink); max-width: none; }
+@media (max-width: 640px) { .ba-pair { grid-template-columns: 1fr; } .ba-pair::after { content: "↓"; } .ba > figcaption { font-size: 19px; } }
+
+/* ---------- Service cards ---------- */
+.svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.svc-card { display: flex; flex-direction: column; gap: var(--space-2); }
+.svc-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-2); }
+.svc-card p { margin: 0; }
+.svc-card.frame { padding: calc(var(--notch) + var(--space-6)); justify-content: center; }
+@media (max-width: 900px) { .svc { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .svc { grid-template-columns: 1fr; } }
+.price { font: 400 30px/1.2 var(--font-display); color: var(--ink); margin: var(--space-6) 0 var(--space-4); }
+
+/* Hero photo: the planter stays visible above the copy */
+.hero-card > picture img { object-position: center 20%; }
+.hero-copy { justify-content: flex-end; padding-bottom: var(--space-10); }
+.hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.5) 0%, rgba(14,22,18,.08) 22%, rgba(14,22,18,.22) 45%, rgba(14,22,18,.72) 72%, rgba(14,22,18,.86) 100%); }
+@media (max-width: 640px) {
+  .hero-card { min-height: 0; background: var(--forest-deep); }
+  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }
+  .hero-card > picture img { object-position: center; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }
+  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }
+  .hero-copy { margin-top: -48px; padding-top: 0; }
+  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+}
+
+/* ---------- Icons ---------- */
+.ic { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ic-badge { width: 48px; height: 48px; border-radius: 50%; background: var(--sage-pale); color: var(--forest); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.band--alt .ic-badge, .plan .ic-badge { background: var(--linen); }
+
+/* ---------- Every call to action sits centered ---------- */
+.btn-row { justify-content: center; }
+.cta-row { margin-top: var(--space-16); }
+
+/* ---------- Problem: one broad problem, three specific points ---------- */
+.problem-head { text-align: center; max-width: 880px; margin: 0 auto var(--space-16); }
+.problem-head p { margin: var(--space-4) auto 0; max-width: 38em; font-size: 21px; line-height: 1.55; }
+.pains { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-10); }
+.pains li { display: flex; gap: var(--space-6); align-items: flex-start; }
+.pains h3 { margin-bottom: var(--space-2); }
+
+/* ---------- Icon lists ---------- */
+.proof { gap: var(--space-4); }
+.proof li { padding-left: 0; display: flex; gap: var(--space-4); align-items: center; }
+.proof li::before { content: none; }
+.icon-points > div { display: flex; gap: var(--space-4); align-items: flex-start; border-top: 0; padding-top: 0; }
+.steps li::before { content: none; }
+.steps .ic-badge { margin-bottom: var(--space-2); }
+.step-n { display: block; font: 400 40px/1 var(--font-display); color: var(--clay); margin: var(--space-2) 0 var(--space-1); }
+.plan-photo { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: var(--radius-photo); margin: var(--space-6) 0 var(--space-4); }
+.split--top { align-items: start; }
+
+/* ---------- Closing band on a photo ---------- */
+.closing--photo { position: relative; isolation: isolate; overflow: hidden; background: var(--forest-deep); color: var(--on-forest); }
+.closing--photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.closing--photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(14,22,18,.74); }
+.closing--photo h2 { color: var(--on-forest); }
+.closing--photo p { color: rgba(246,245,240,.94); }
+.closing--photo .btn--primary { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+.closing--photo .btn--primary:hover { background: #fff; border-color: #fff; }
+.closing--photo .btn--secondary { color: var(--on-forest); border-color: rgba(246,245,240,.8); }
+.closing--photo .btn--secondary:hover { background: rgba(246,245,240,.12); }
+@media (max-width: 640px) {
+  .hero-copy { align-items: center; text-align: center; }
+  .problem-head p { font-size: 19px; }
+  .pains li { gap: var(--space-4); }
+}
+
+/* ---------- Photo placeholder (Colton) ---------- */
+.photo-placeholder { aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius-photo); background: repeating-linear-gradient(135deg, var(--linen-2) 0 18px, var(--sage-pale) 18px 36px); border: 2px dashed var(--line-strong); display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-10); }
+.photo-placeholder > span { font: italic 400 34px/1.3 var(--font-text-serif); color: var(--ink); background: var(--linen); padding: var(--space-6) var(--space-10); border-radius: var(--radius-photo); box-shadow: 0 6px 20px rgba(28,36,31,.12); }
+@media (max-width: 640px) { .photo-placeholder > span { font-size: 26px; padding: var(--space-4) var(--space-6); } }
+
+/* ---------- Before-and-after carousel: one pair at a time ---------- */
+.bac { margin-top: var(--space-10); outline: none; touch-action: pan-y; }
+.bac-track { display: grid; }
+.ba-slide { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s; }
+.ba-slide.is-on { opacity: 1; visibility: visible; }
+.bac .ba-pair { grid-template-columns: 1fr 1fr; }
+.bac-count { font: 600 15px/1 var(--font-body); letter-spacing: .12em; color: var(--ink-2); min-width: 4em; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .ba-slide { transition: none; } }
+@media (max-width: 640px) {
+  .bac .ba-pair { grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+  .bac .ba-pair::after { content: "→"; width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .bac .ba-shot img { aspect-ratio: 3 / 4; }
+  .bac .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+}
+
+/* ---------- Step photos: one square photo over each step, aligned ---------- */
+.steps { margin-top: var(--space-10); }
+.steps li { border-top: 0; padding-top: 0; }
+.step-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-4); }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Amanda's Villa Landscaping and Garden Center",
+  "telephone": "+1-870-489-5463",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7901 Dollarway Road",
+    "addressLocality": "White Hall",
+    "addressRegion": "AR",
+    "postalCode": "71602",
+    "addressCountry": "US"
+  },
+  "areaServed": "Arkansas",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landscape design" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landscape installation" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flower bed design and planting" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flower bed edging" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mulch installation" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does Amanda really come out herself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Amanda measures and designs every landscaping project personally." } },
+    { "@type": "Question", "name": "What if I already know what I want?", "acceptedAnswer": { "@type": "Answer", "text": "Bring the picture. Amanda will work out how to make it grow here, and she will tell you if anything in it won't survive an Arkansas summer." } },
+    { "@type": "Question", "name": "Do you plant shade gardens?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Amanda plans for full sun, part shade and full shade, and every plant is chosen for the light its spot actually gets." } },
+    { "@type": "Question", "name": "Which shrubs work best for the front of a house?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how much sun the front of the house gets and how high the windows sit. Amanda chooses shrubs that suit the light and stay in scale with the house, and the garden center usually carries three or four varieties of each to choose between." } },
+    { "@type": "Question", "name": "Can I plant it myself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Amanda can hand over the plan and the plants for anyone who would rather do the digging." } },
+    { "@type": "Question", "name": "What is the difference between landscaping and hardscaping?", "acceptedAnswer": { "@type": "Answer", "text": "Landscaping is the living part of a yard: plants, flower beds, edging and mulch. Hardscaping is the built part: patios, walkways and retaining walls. Amanda's Villa does both, so the planting and the stonework can be designed together." } },
+    { "@type": "Question", "name": "Do you landscape sloped or hillside yards?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. On a hillside, the hardscape teams can build retaining walls to level the ground, and Amanda plants the beds they create." } },
+    { "@type": "Question", "name": "How much does landscaping cost?", "acceptedAnswer": { "@type": "Answer", "text": "Every project is a custom quote. Amanda measures the yard and designs the plan first, then quotes the job before anything goes in the ground." } },
+    { "@type": "Question", "name": "Are the project photos your own work?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every project photo on this page shows a yard landscaped by Amanda's Villa." } },
+    { "@type": "Question", "name": "How far do you travel?", "acceptedAnswer": { "@type": "Answer", "text": "Amanda's Villa works all over the state of Arkansas." } }
+  ]
+}
+</script>
 </head>
 <body>
-<header class="uc-nav">
-  <a class="wordmark" href="../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
-  <ul class="uc-links">
-    <li><a href="../landscaping/">Landscaping</a></li>
-    <li><a href="../hardscape/">Hardscape</a></li>
-    <li><a href="../garden-center/">Garden Center</a></li>
-    <li><a href="../about/">About</a></li>
-  </ul>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-frown" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+<symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+<symbol id="i-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+<symbol id="i-shovel" viewBox="0 0 24 24"><path d="M2 22v-5l5-5 5 5-5 5z"/><path d="M9.5 14.5 16 8"/><path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5L17 2"/></symbol>
+</svg>
+
+<header class="hero">
+  <div class="hero-card">
+    <picture>
+      <source media="(max-width: 640px)" srcset="../img/landscaping/hero-woman-planting-marigolds-tall.jpg">
+      <img width="1600" height="1000" src="../img/landscaping/hero-woman-planting-marigolds-wide.jpg" alt="A woman in a straw hat and apron planting marigolds in a bed beside a house" fetchpriority="high">
+    </picture>
+    <nav class="nav" aria-label="Main">
+      <a class="wordmark" href="../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
+      <ul class="nav-links">
+        <li><a href="../landscaping/" aria-current="page">Landscaping</a></li>
+        <li><a href="../hardscape/">Hardscape</a></li>
+        <li><a href="../garden-center/">Garden Center</a></li>
+        <li><a href="../about/">About</a></li>
+      </ul>
+      <a class="btn btn--onphoto" href="tel:+18704895463">Call (870) 489-5463</a>
+      <details>
+        <summary>Menu</summary>
+        <ul>
+          <li><a href="../landscaping/">Landscaping</a></li>
+          <li><a href="../hardscape/">Hardscape</a></li>
+          <li><a href="../garden-center/">Garden Center</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="tel:+18704895463">Call (870) 489-5463</a></li>
+        </ul>
+      </details>
+    </nav>
+    <div class="hero-copy">
+      <h1>Landscape Design and Installation, Planted to <em>Last</em> Through Arkansas Summers</h1>
+      <p class="hero-sub">Front yard landscaping, flower beds and shrubs for homes all over Arkansas, designed by Amanda and planted by her crew.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--onphoto" href="../contact/#estimate">Request a design visit</a>
+        <a class="btn btn--ghost" href="tel:+18704895463">Call (870) 489-5463</a>
+      </div>
+      <p class="hero-meta">Every yard measured by Amanda · Plants from our own garden center</p>
+    </div>
+  </div>
 </header>
 
 <main>
-  <svg class="uc-art" viewBox="0 56 600 194" role="img" aria-label="A cross-section of a paver walkway being built: the ground is dug out, a packed gravel base and a fine base go in, then the pavers are set one by one and a sprout grows beside them.">
-    <defs>
-      <pattern id="gravel" width="14" height="12" patternUnits="userSpaceOnUse">
-        <rect width="14" height="12" fill="var(--gravel)"/>
-        <circle cx="3" cy="3" r="2.2" fill="var(--gravel-dot)"/>
-        <circle cx="10" cy="8" r="2.6" fill="var(--gravel-dot)"/>
-        <circle cx="12" cy="2" r="1.4" fill="#a4a19a"/>
-        <circle cx="5" cy="9.5" r="1.3" fill="#a4a19a"/>
-      </pattern>
-    </defs>
-    <rect class="soil" x="0" y="134" width="600" height="116" rx="10"/>
-    <rect class="grass" x="0" y="128" width="88" height="10" rx="5"/>
-    <rect class="grass" x="508" y="128" width="92" height="10" rx="5"/>
-    <rect class="dig" x="88" y="134" width="420" height="100"/>
-    <rect class="gravel" x="88" y="172" width="420" height="62"/>
-    <text class="lbl" x="298" y="208" text-anchor="middle">8 to 10 inches of packed gravel</text>
-    <rect class="base" x="88" y="156" width="420" height="16"/>
-      <rect class="uc-paver" style="--i:0" x="92" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:1" x="144" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:2" x="196" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:3" x="248" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:4" x="300" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:5" x="352" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:6" x="404" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:7" x="456" y="134" width="48" height="22" rx="2"/>
-    <path class="stem" d="M556 128 C556 110 552 100 556 84"/>
-    <path class="leaf leaf--l" d="M555 98 C540 98 532 88 532 80 C544 80 554 86 555 98Z"/>
-    <path class="leaf leaf--r" d="M557 88 C560 76 570 70 580 70 C580 80 570 88 557 88Z"/>
-  </svg>
 
-  <h1>The Landscaping page is still being built</h1>
-  <p class="uc-sub">Base first, then the pavers. This page is still at the gravel stage.</p>
-
-  <div class="btn-row">
-    <a class="btn btn--primary" href="tel:+18704895463">Call (870) 489-5463</a>
-    <a class="btn btn--secondary" href="../hardscape/">See the Hardscape page</a>
-    <a class="btn btn--secondary" href="../garden-center/">See the Garden Center page</a>
+<!-- VALUE -->
+<section class="band">
+  <div class="wrap split split--flip">
+    <figure class="split-media">
+      <img width="589" height="736" src="../img/landscaping/value-front-walk-flower-beds.jpg" alt="A front walk lined with new flower beds leading to a brick house, landscaped by Amanda's Villa" loading="lazy">
+    </figure>
+    <div>
+      <h2>Let's plant you a front yard that still looks good in August</h2>
+      <div class="prose" style="margin-top: var(--space-6)">
+        <p>Your plan starts with your yard itself: how much sun it gets, where the shade falls and what the soil underneath can hold.</p>
+      </div>
+      <div class="three icon-points" style="grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-6)">
+        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><div><h3>Designed for your sun and shade</h3><p>Amanda measures your yard in person and places shade plants and full sun plants where each one will thrive, so your beds fill in instead of burning out.</p></div></div>
+        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><div><h3>Plants chosen on our own lot</h3><p>Your shrubs, perennials and annuals come from the Amanda's Villa garden center, often with three or four varieties of the same plant to choose between.</p></div></div>
+        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><div><h3>Finished from edge to mulch</h3><p>Your beds are edged in brick, stone block or steel and topped with fresh mulch, so your yard looks complete the day the crew leaves.</p></div></div>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- PROBLEM: one broad problem, then external, internal and philosophical -->
+<section class="band band--alt">
+  <div class="wrap">
+    <div class="problem-head">
+      <h2>Most yards don't look like the people who live there</h2>
+      <p>Arkansas summers are long and hot, and clay soil holds water through every spring storm. When a yard is planted without a plan:</p>
+    </div>
+    <div class="split">
+      <ul class="pains">
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg></span><div><h3>Plants end up in the wrong spot</h3><p>Whatever is blooming goes wherever there's a gap. A shade plant lands in full sun, shrubs crowd the windows within a few years, and by August half the bed is struggling.</p></div></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><div><h3>Homeowners give up on the yard</h3><p>After paying to plant the same bed twice, most people stop trying and stop looking at it.</p></div></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><div><h3>A yard should feel like home</h3><p>A yard is supposed to look like the people who live there, and that takes a plan drawn for that one yard.</p></div></li>
+      </ul>
+      <figure class="split-media">
+        <img width="1000" height="1250" src="../img/landscaping/problem-flower-bed-porch-steps.jpg" alt="A curved flower bed of pink and red impatiens and petunias beside white porch steps, planted by Amanda's Villa" loading="lazy">
+      </figure>
+    </div>
+    <div class="btn-row cta-row">
+      <a class="btn btn--primary" href="../contact/#estimate">Request a design visit</a>
+      <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="band">
+  <div class="wrap">
+    <div class="head" style="text-align:center">
+      <h2>Front yard landscaping and flower bed ideas from Amanda's Villa projects</h2>
+    </div>
+    <div class="cf" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Photos of landscaping projects">
+      <div class="cf-stage">
+        <figure class="cf-card" data-i="0"><img width="821" height="1026" src="../img/landscaping/gallery-01.jpg" alt="A round flower bed of red, pink and white annuals under a shade tree, edged in stone block" loading="lazy" draggable="false"></figure>
+        <figure class="cf-card" data-i="1"><img width="900" height="1125" src="../img/landscaping/gallery-06.jpg" alt="A new bed of shrubs with steel edging beside a flagstone walk along a house" loading="lazy" draggable="false"></figure>
+        <figure class="cf-card" data-i="2"><img width="815" height="1018" src="../img/landscaping/gallery-04.jpg" alt="A circular bed of dwarf blue spruce and pansies in black mulch with a brick border" loading="lazy" draggable="false"></figure>
+        <figure class="cf-card" data-i="3"><img width="900" height="1125" src="../img/landscaping/gallery-08.jpg" alt="A curved bed of boxwoods along the front walk of a brick ranch house" loading="lazy" draggable="false"></figure>
+        <figure class="cf-card" data-i="4"><img width="768" height="960" src="../img/landscaping/gallery-07.jpg" alt="A long curved bed of annuals and shrubs with a brick border across a front lawn" loading="lazy" draggable="false"></figure>
+        <figure class="cf-card" data-i="5"><img width="540" height="675" src="../img/landscaping/gallery-05.jpg" alt="A raised circular bed with a brick wall around a backyard seating area" loading="lazy" draggable="false"></figure>
+      </div>
+      <div class="cf-bar">
+        <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo">‹</button>
+        <div class="cf-dots"></div>
+        <span class="cf-count" aria-hidden="true"></span>
+        <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE -->
+<section class="band band--alt">
+  <div class="wrap split split--flip">
+    <figure class="split-media">
+      <div class="photo-placeholder" role="img" aria-label="Placeholder for a photo of Amanda"><span>Hey Amanda&hellip;<br>I need a <span style="white-space:nowrap">photo of you.</span></span></div>
+    </figure>
+    <div>
+      <h2>Meet Amanda, the landscape designer who measures every yard herself</h2>
+      <div class="prose" style="margin-top: var(--space-6)">
+        <p>Amanda designs every landscaping project at Amanda's Villa. She walks each yard in person, notes the sun, the shade and the soil, and draws a planting plan for that yard alone.</p>
+        <p>Homeowners bring her a magazine page, a neighbor's yard or a photo on their phone, and she works out how to make that look grow here. When something in the picture won't survive an Arkansas summer, she says so plainly and suggests what will.</p>
+        <p>Every plant in her plans comes from the Amanda's Villa garden center in White Hall, one of the widest selections of shrubs and trees in the state.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="band">
+  <div class="wrap">
+    <div class="plan">
+      <h2>How a landscaping project works, from a photo to a planted yard</h2>
+      <ol class="steps">
+        <li><img class="step-photo" width="900" height="900" src="../img/landscaping/step-1-front-of-house-before.jpg" alt="The bare corner of a white brick house beside the driveway before landscaping" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a design visit</h3><p>Call (870) 489-5463 or send the form. A photo of the space, or of a yard you love, helps Amanda prepare.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/landscaping/step-2-bed-outline-dug.jpg" alt="A curved bed outline dug into bare ground along the side of a house" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Amanda measures and designs</h3><p>She walks your yard with you, draws a landscape plan around your sun, shade and soil, and gives you a custom quote before anything goes in the ground.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/landscaping/step-3-planted-bed-finished.jpg" alt="The same corner finished with a mulched bed of shrubs and a stone block border" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-shovel"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Her crew plants it</h3><p>The crew edges the beds, sets the shrubs and flowers and finishes with mulch. Or take the plan and the plants home and do the digging yourself.</p></li>
+      </ol>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="../contact/#estimate">Request a design visit</a>
+        <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AND AFTER -->
+<section class="band band--alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Front yard landscaping, before and after</h2>
+      <p>Each pair shows the same view of a yard before work began and after planting was complete. Use the arrows to see more projects.</p>
+    </div>
+    <div class="bac" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Before-and-after photos of five landscaping projects">
+      <div class="bac-track">
+        <div class="ba-slide is-on" aria-hidden="false">
+          <div class="ba-pair">
+          <figure class="ba-shot"><img width="1100" height="825" src="../img/landscaping/before-ranch-maple.jpg" alt="Before: Plain lawn up to the corner of a white ranch house" loading="lazy"><span class="ba-tag">Before</span></figure>
+          <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/landscaping/after-ranch-maple.jpg" alt="After: A curved mulched bed with a Japanese maple and flowering shrubs at the porch corner." loading="lazy"><span class="ba-tag">After</span></figure>
+        </div>
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
+          <figure class="ba-shot"><img width="1100" height="825" src="../img/landscaping/before-porch-boulder.jpg" alt="Before: Patchy grass in front of a covered porch" loading="lazy"><span class="ba-tag">Before</span></figure>
+          <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/landscaping/after-porch-boulder.jpg" alt="After: A long bed of shrubs, perennials and a feature boulder along the porch." loading="lazy"><span class="ba-tag">After</span></figure>
+        </div>
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
+          <figure class="ba-shot"><img width="1100" height="825" src="../img/landscaping/before-long-ranch.jpg" alt="Before: A long ranch house with lawn running straight to the porch" loading="lazy"><span class="ba-tag">Before</span></figure>
+          <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/landscaping/after-long-ranch.jpg" alt="After: Foundation planting along the full length of the porch." loading="lazy"><span class="ba-tag">After</span></figure>
+        </div>
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
+          <figure class="ba-shot"><img width="1100" height="825" src="../img/landscaping/before-fountain-bed.jpg" alt="Before: Bare sand and weeds in a corner by the garage" loading="lazy"><span class="ba-tag">Before</span></figure>
+          <figure class="ba-shot ba-shot--after"><img width="1100" height="825" src="../img/landscaping/after-fountain-bed.jpg" alt="After: A mulched bed with a fountain, small shrubs and a stone block border." loading="lazy"><span class="ba-tag">After</span></figure>
+        </div>
+        </div>
+        <div class="ba-slide" aria-hidden="true">
+          <div class="ba-pair">
+          <figure class="ba-shot"><img width="1080" height="810" src="../img/landscaping/before-flagstone-walk.jpg" alt="Before: A bed outline dug into bare ground beside a house" loading="lazy"><span class="ba-tag">Before</span></figure>
+          <figure class="ba-shot ba-shot--after"><img width="1080" height="810" src="../img/landscaping/after-flagstone-walk.jpg" alt="After: A planted bed with steel edging beside a new flagstone walk." loading="lazy"><span class="ba-tag">After</span></figure>
+        </div>
+        </div>
+      </div>
+      <div class="cf-bar">
+        <button class="cf-btn bac-prev" type="button" aria-label="Previous project">‹</button>
+        <span class="bac-count" aria-live="polite">1 / 5</span>
+        <button class="cf-btn bac-next" type="button" aria-label="Next project">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Landscaping services: design, flower beds, edging and mulch</h2>
+    </div>
+    <div class="svc">
+      <div class="svc-card"><img width="900" height="1125" src="../img/landscaping/service-landscape-design.jpg" alt="New beds of shrubs and a crape myrtle along the porch of a brick house" loading="lazy"><h3>Landscape design</h3><p>A landscape plan drawn for your yard after Amanda measures it in person, built around the sun, shade and soil that are actually there.</p></div>
+      <div class="svc-card"><img width="900" height="1125" src="../img/landscaping/service-flower-bed-design.jpg" alt="A curved flower bed of annuals and young shrubs along a brick border" loading="lazy"><h3>Flower bed design and planting</h3><p>New and redone beds with annuals, perennials and shrubs for the front of the house, each chosen for the light its spot gets.</p></div>
+      <div class="svc-card"><img width="807" height="1008" src="../img/landscaping/service-flower-bed-edging.jpg" alt="A flower bed edged in stone block with a birdbath, pansies and small shrubs" loading="lazy"><h3>Flower bed edging</h3><p>Landscape edging in brick, stone block or steel, so your beds keep their shape and the grass stays out.</p></div>
+      <div class="svc-card"><img width="648" height="810" src="../img/landscaping/service-mulch-installation.jpg" alt="A freshly mulched bed of shrubs and flowers beside a brick wall" loading="lazy"><h3>Mulch installation and river rock</h3><p>Fresh mulch or river rock from the lot, spread to finish every bed and help hold moisture through the summer.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLANATORY PARAGRAPH -->
+<section class="band band--alt">
+  <div class="wrap split split--flip">
+    <figure class="split-media">
+      <img width="1080" height="810" src="../img/landscaping/area-brick-ranch-new-beds.jpg" alt="A brick ranch house with new foundation beds along a curved front walk" loading="lazy" style="aspect-ratio: 4 / 3">
+    </figure>
+    <div>
+    <div class="head">
+      <h2>A landscaping company serving homes all over Arkansas</h2>
+    </div>
+    <div class="prose">
+      <p>Landscaping in Arkansas means planting for long, hot summers and heavy clay soil. Amanda's Villa handles landscape design and landscape installation for homes all over the state of Arkansas, and Amanda measures and draws every plan herself.</p>
+      <p>The crew plants flower beds, foundation shrubs and shade gardens, edges every bed and finishes it with mulch or river rock from the garden center. When a yard needs a patio, walkway or retaining wall, the <a class="link" href="../hardscape/">hardscape teams</a> build that part, so the stonework and the planting are planned together from the start.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Landscape design questions</h2>
+    </div>
+    <div class="split split--top">
+    <div class="faq">
+      <details><summary>Does Amanda really come out herself?</summary><div><p>Yes. Amanda measures and designs every landscaping project personally.</p></div></details>
+      <details><summary>What if I already know what I want?</summary><div><p>Bring the picture. Amanda will work out how to make it grow here, and she will tell you if anything in it won't survive an Arkansas summer.</p></div></details>
+      <details><summary>Do you plant shade gardens?</summary><div><p>Yes. Amanda plans for full sun, part shade and full shade, and every plant is chosen for the light its spot actually gets.</p></div></details>
+      <details><summary>Which shrubs work best for the front of a house?</summary><div><p>It depends on how much sun the front of the house gets and how high the windows sit. Amanda chooses shrubs that suit the light and stay in scale with the house, and the garden center usually carries three or four varieties of each to choose between.</p></div></details>
+      <details><summary>Can I plant it myself?</summary><div><p>Yes. Amanda can hand over the plan and the plants for anyone who would rather do the digging.</p></div></details>
+      <details><summary>What is the difference between landscaping and hardscaping?</summary><div><p>Landscaping is the living part of a yard: plants, flower beds, edging and mulch. Hardscaping is the built part: patios, walkways and retaining walls. Amanda's Villa does both, so the planting and the stonework can be designed together.</p></div></details>
+      <details><summary>Do you landscape sloped or hillside yards?</summary><div><p>Yes. On a hillside, the hardscape teams can build retaining walls to level the ground, and Amanda plants the beds they create.</p></div></details>
+      <details><summary>How much does landscaping cost?</summary><div><p>Every project is a custom quote. Amanda measures the yard and designs the plan first, then quotes the job before anything goes in the ground.</p></div></details>
+      <details><summary>Are the project photos your own work?</summary><div><p>Yes. Every project photo on this page shows a yard landscaped by Amanda's Villa.</p></div></details>
+      <details><summary>How far do you travel?</summary><div><p>Amanda's Villa works all over the state of Arkansas.</p></div></details>
+    </div>
+    <figure class="split-media">
+      <img width="900" height="1200" src="../img/landscaping/faq-stone-house-fern-urn.jpg" alt="A Boston fern in a black urn beside new beds and a fountain at the entry of a stone house" loading="lazy">
+    </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="band closing closing--photo">
+  <img width="786" height="589" src="../img/landscaping/closing-pool-arborvitae-bed.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <h2>Book a landscape design visit</h2>
+    <p>Your new front yard starts with Amanda walking it in person. Send a photo of the space, and she will design planting that suits it.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="../contact/#estimate">Request a design visit</a>
+      <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<footer class="foot">
-  <div class="foot-in">
-    <span>Amanda's Villa Landscaping and Garden Center · 7901 Dollarway Road, White Hall, AR 71602</span>
-    <a href="tel:+18704895463">(870) 489-5463</a>
-  </div>
-</footer>
+<script>
+(function () {
+  var root = document.querySelector('.bac'); if (!root) return;
+  var slides = root.querySelectorAll('.ba-slide'), count = root.querySelector('.bac-count'), cur = 0, n = slides.length;
+  function go(i) {
+    cur = (i + n) % n;
+    for (var k = 0; k < n; k++) { slides[k].classList.toggle('is-on', k === cur); slides[k].setAttribute('aria-hidden', k === cur ? 'false' : 'true'); }
+    count.textContent = (cur + 1) + ' / ' + n;
+  }
+  root.querySelector('.bac-prev').addEventListener('click', function () { go(cur - 1); });
+  root.querySelector('.bac-next').addEventListener('click', function () { go(cur + 1); });
+  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } });
+  var x0 = null;
+  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+})();
+</script>
 
 <script>
 (function () {
-  var art = document.querySelector('.uc-art'); if (!art) return;
-  var stages = ['s-dug', 's-gravel', 's-base', 's-pavers', 's-sprout'];
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    art.classList.add.apply(art.classList, stages); return;
+  var root = document.querySelector('.cf'); if (!root) return;
+  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
+  var dotsBox = root.querySelector('.cf-dots');
+  var n = cards.length, cur = 0, timer = null;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dots = cards.map(function (_, i) {
+    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
+    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
+    dotsBox.appendChild(d); return d;
+  });
+  function render() {
+    cards.forEach(function (c, i) {
+      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
+      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
+      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
+    });
+    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
+    root.querySelector('.cf-count').textContent = (cur + 1) + ' / ' + n;
   }
-  var times = [500, 1300, 2600, 3300, 5000];
-  function run() {
-    art.classList.remove.apply(art.classList, stages);
-    times.forEach(function (t, i) { setTimeout(function () { art.classList.add(stages[i]); }, t); });
-    setTimeout(run, 9500);
-  }
-  run();
+  function go(i) { cur = (i + n) % n; render(); }
+  function step(d) { go(cur + d); }
+  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
+  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
+  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
+  var x0 = null;
+  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
+  function play() { if (still || timer) return; timer = setInterval(function () { step(1); }, 5000); }
+  function pause() { clearInterval(timer); timer = null; }
+  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
+  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
+  render(); play();
 })();
 </script>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="wordmark" href="../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center · White Hall, Arkansas</span></a>
+      </div>
+      <ul>
+        <li><a href="../landscaping/">Landscaping</a></li>
+        <li><a href="../hardscape/">Hardscape</a></li>
+        <li><a href="../garden-center/">Garden Center</a></li>
+        <li><a href="../about/">About</a></li>
+      </ul>
+      <ul>
+        <li>7901 Dollarway Road<br>White Hall, AR 71602</li>
+        <li><a href="tel:+18704895463">(870) 489-5463</a></li>
+        <li><span class="todo">Hours</span></li>
+      </ul>
+    </div>
+    <small>© 2026 Amanda's Villa Landscaping and Garden Center.</small>
+  </div>
+</footer>
+
 </body>
 </html>
