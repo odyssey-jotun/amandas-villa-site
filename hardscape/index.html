@@ -351,6 +351,22 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .steps { margin-top: var(--space-10); }
 .steps li { border-top: 0; padding-top: 0; }
 .step-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-4); }
+
+/* ---------- Centered icon rows (matches the About page) ---------- */
+.svc3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10); margin-top: var(--space-16); }
+.svc3 > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+.svc3 .ic-badge { width: 72px; height: 72px; margin-bottom: var(--space-2); }
+.svc3 .ic { width: 32px; height: 32px; }
+.svc3 p { margin: 0; max-width: 32ch; }
+.band--alt .svc3 .ic-badge { background: var(--linen); }
+.split--short img { aspect-ratio: 4 / 3; }
+.split-text p { margin-top: var(--space-4); font-size: 21px; line-height: 1.55; max-width: 34em; }
+.plan > h2 { text-align: center; }
+.steps li { align-items: center; text-align: center; }
+.proof { grid-template-columns: 1fr 1fr; gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.proof li { flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+@media (max-width: 900px) { .svc3 { grid-template-columns: 1fr; gap: var(--space-16); } }
+@media (max-width: 640px) { .split-text p { font-size: 19px; } .proof { grid-template-columns: 1fr; } }
 </style>
 <script type="application/ld+json">
 {
@@ -551,7 +567,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 
 <!-- VALUE -->
 <section class="band">
-  <div class="wrap split split--flip">
+  <div class="wrap">
+    <div class="split split--flip split--short">
     <figure class="split-media">
       <img width="1000" height="1250" src="../img/hardscape/value-herringbone-patio-white-chairs.jpg" alt="A herringbone brick patio with white rocking chairs and new planting beds, built by Amanda's Villa" loading="lazy">
     </figure>
@@ -560,11 +577,12 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <div class="prose" style="margin-top: var(--space-6)">
         <p>Roughly 90 percent of a paver patio's performance depends on what lies beneath the surface, so that is where the work on your patio starts.</p>
       </div>
-      <div class="three icon-points" style="grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-6)">
-        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><div><h3>An engineered base</h3><p>Your site is excavated eight to ten inches deep and built up with a compacted gravel subbase, a leveling course and polymeric sand joints, so your patio drains properly, resists weeds and stays level.</p></div></div>
-        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-calendar-check"/></svg></span><div><h3>One project at a time</h3><p>Your project has one dedicated crew from excavation to final cleanup, so the work is finished efficiently and without long pauses.</p></div></div>
-        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><div><h3>Hardscape and planting designed together</h3><p>Amanda plans the landscape around your new stonework, so your patio, walls and planting beds read as one cohesive design.</p></div></div>
-      </div>
+    </div>
+    </div>
+    <div class="svc3">
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>An engineered base</h3><p>Your site is excavated eight to ten inches deep and built up with a compacted gravel subbase, a leveling course and polymeric sand joints, so your patio drains properly, resists weeds and stays level.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-calendar-check"/></svg></span><h3>One project at a time</h3><p>Your project has one dedicated crew from excavation to final cleanup, so the work is finished efficiently and without long pauses.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><h3>Hardscape and planting designed together</h3><p>Amanda plans the landscape around your new stonework, so your patio, walls and planting beds read as one cohesive design.</p></div>
     </div>
   </div>
 </section>
@@ -572,19 +590,19 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <!-- PROBLEM: one broad problem, then external, internal and philosophical -->
 <section class="band band--alt">
   <div class="wrap">
-    <div class="problem-head">
-      <h2>Why paver patios sink and retaining walls lean in Arkansas</h2>
-      <p>Arkansas is hard on hardscaping. Dense clay soil holds water, and spring storms can bring several inches of rain in a single day. When a patio or wall is not built for these conditions:</p>
-    </div>
-    <div class="split">
-      <ul class="pains">
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-cloud-rain"/></svg></span><div><h3>Surfaces shift and settle</h3><p>Without a deep, compacted base, rainwater washes out the joints and the soil beneath moves, leaving uneven pavers and weeds in the gaps. Walls without proper drainage begin to lean under the weight of saturated soil.</p></div></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><div><h3>Repairs cost more than the original project</h3><p>Removing and rebuilding a failed patio or wall is more expensive and more disruptive than building it on the right foundation from the start.</p></div></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><div><h3>A home should be something to be proud of</h3><p>A well-built patio, walkway or wall should add value and enjoyment to a home for decades.</p></div></li>
-      </ul>
+    <div class="split split--short">
+      <div class="split-text">
+        <h2>Why paver patios sink and retaining walls lean in Arkansas</h2>
+        <p>Arkansas is hard on hardscaping. Dense clay soil holds water, and spring storms can bring several inches of rain in a single day. When a patio or wall is not built for these conditions:</p>
+      </div>
       <figure class="split-media">
         <img width="1000" height="1250" src="../img/hardscape/problem-farmhouse-walk-and-steps.jpg" alt="A paver walk, block retaining walls and wide steps leading to a black farmhouse porch, built by Amanda's Villa" loading="lazy">
       </figure>
+    </div>
+    <div class="svc3">
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-cloud-rain"/></svg></span><h3>Surfaces shift and settle</h3><p>Without a deep, compacted base, rainwater washes out the joints and the soil beneath moves, leaving uneven pavers and weeds in the gaps. Walls without proper drainage begin to lean under the weight of saturated soil.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><h3>Repairs cost more than the original project</h3><p>Removing and rebuilding a failed patio or wall is more expensive and more disruptive than building it on the right foundation from the start.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><h3>A home should be something to be proud of</h3><p>A well-built patio, walkway or wall should add value and enjoyment to a home for decades.</p></div>
     </div>
     <div class="btn-row cta-row">
       <a class="btn btn--primary" href="../contact/#estimate">Request a free estimate</a>

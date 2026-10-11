@@ -351,6 +351,22 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .steps { margin-top: var(--space-10); }
 .steps li { border-top: 0; padding-top: 0; }
 .step-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-4); }
+
+/* ---------- Centered icon rows (matches the About page) ---------- */
+.svc3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10); margin-top: var(--space-16); }
+.svc3 > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+.svc3 .ic-badge { width: 72px; height: 72px; margin-bottom: var(--space-2); }
+.svc3 .ic { width: 32px; height: 32px; }
+.svc3 p { margin: 0; max-width: 32ch; }
+.band--alt .svc3 .ic-badge { background: var(--linen); }
+.split--short img { aspect-ratio: 4 / 3; }
+.split-text p { margin-top: var(--space-4); font-size: 21px; line-height: 1.55; max-width: 34em; }
+.plan > h2 { text-align: center; }
+.steps li { align-items: center; text-align: center; }
+.proof { grid-template-columns: 1fr 1fr; gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.proof li { flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+@media (max-width: 900px) { .svc3 { grid-template-columns: 1fr; gap: var(--space-16); } }
+@media (max-width: 640px) { .split-text p { font-size: 19px; } .proof { grid-template-columns: 1fr; } }
 </style>
 <script type="application/ld+json">
 {
@@ -449,7 +465,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 
 <!-- VALUE -->
 <section class="band">
-  <div class="wrap split split--flip">
+  <div class="wrap">
+    <div class="split split--flip split--short">
     <figure class="split-media">
       <img width="589" height="736" src="../img/landscaping/value-front-walk-flower-beds.jpg" alt="A front walk lined with new flower beds leading to a brick house, landscaped by Amanda's Villa" loading="lazy">
     </figure>
@@ -458,11 +475,12 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <div class="prose" style="margin-top: var(--space-6)">
         <p>Your plan starts with your yard itself: how much sun it gets, where the shade falls and what the soil underneath can hold.</p>
       </div>
-      <div class="three icon-points" style="grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-6)">
-        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><div><h3>Designed for your sun and shade</h3><p>Amanda measures your yard in person and places shade plants and full sun plants where each one will thrive, so your beds fill in instead of burning out.</p></div></div>
-        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><div><h3>Plants chosen on our own lot</h3><p>Your shrubs, perennials and annuals come from the Amanda's Villa garden center, often with three or four varieties of the same plant to choose between.</p></div></div>
-        <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><div><h3>Finished from edge to mulch</h3><p>Your beds are edged in brick, stone block or steel and topped with fresh mulch, so your yard looks complete the day the crew leaves.</p></div></div>
-      </div>
+    </div>
+    </div>
+    <div class="svc3">
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><h3>Designed for your sun and shade</h3><p>Amanda measures your yard in person and places shade plants and full sun plants where each one will thrive, so your beds fill in instead of burning out.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><h3>Plants chosen on our own lot</h3><p>Your shrubs, perennials and annuals come from the Amanda's Villa garden center, often with three or four varieties of the same plant to choose between.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>Finished from edge to mulch</h3><p>Your beds are edged in brick, stone block or steel and topped with fresh mulch, so your yard looks complete the day the crew leaves.</p></div>
     </div>
   </div>
 </section>
@@ -470,19 +488,19 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <!-- PROBLEM: one broad problem, then external, internal and philosophical -->
 <section class="band band--alt">
   <div class="wrap">
-    <div class="problem-head">
-      <h2>Most yards don't look like the people who live there</h2>
-      <p>Arkansas summers are long and hot, and clay soil holds water through every spring storm. When a yard is planted without a plan:</p>
-    </div>
-    <div class="split">
-      <ul class="pains">
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg></span><div><h3>Plants end up in the wrong spot</h3><p>Whatever is blooming goes wherever there's a gap. A shade plant lands in full sun, shrubs crowd the windows within a few years, and by August half the bed is struggling.</p></div></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><div><h3>Homeowners give up on the yard</h3><p>After paying to plant the same bed twice, most people stop trying and stop looking at it.</p></div></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><div><h3>A yard should feel like home</h3><p>A yard is supposed to look like the people who live there, and that takes a plan drawn for that one yard.</p></div></li>
-      </ul>
+    <div class="split split--short">
+      <div class="split-text">
+        <h2>Most yards don't look like the people who live there</h2>
+        <p>Arkansas summers are long and hot, and clay soil holds water through every spring storm. When a yard is planted without a plan:</p>
+      </div>
       <figure class="split-media">
         <img width="1000" height="1250" src="../img/landscaping/problem-flower-bed-porch-steps.jpg" alt="A curved flower bed of pink and red impatiens and petunias beside white porch steps, planted by Amanda's Villa" loading="lazy">
       </figure>
+    </div>
+    <div class="svc3">
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg></span><h3>Plants end up in the wrong spot</h3><p>Whatever is blooming goes wherever there's a gap. A shade plant lands in full sun, shrubs crowd the windows within a few years, and by August half the bed is struggling.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><h3>Homeowners give up on the yard</h3><p>After paying to plant the same bed twice, most people stop trying and stop looking at it.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><h3>A yard should feel like home</h3><p>A yard is supposed to look like the people who live there, and that takes a plan drawn for that one yard.</p></div>
     </div>
     <div class="btn-row cta-row">
       <a class="btn btn--primary" href="../contact/#estimate">Request a design visit</a>
