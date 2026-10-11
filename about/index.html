@@ -363,6 +363,15 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .work-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-10); }
 .work-pair img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-photo); }
 @media (max-width: 900px) { .svc3 { grid-template-columns: 1fr; gap: var(--space-16); } }
+.reviews { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+.review { margin: 0; padding: var(--space-10); background: var(--linen-2); border-radius: var(--radius-photo); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-6); }
+.review blockquote { margin: 0; font: italic 400 22px/1.45 var(--font-text-serif); color: var(--ink); text-wrap: pretty; }
+.review figcaption { margin: 0; font: 600 15px/1.3 var(--font-body); color: var(--stone); }
+.split--short img { aspect-ratio: 4 / 3; }
+.split-text p { margin-top: var(--space-4); font-size: 21px; line-height: 1.55; max-width: 34em; }
+.plan > h2 { text-align: center; }
+.steps li { align-items: center; text-align: center; }
+@media (max-width: 640px) { .reviews { grid-template-columns: 1fr; gap: var(--space-4); } .review { padding: var(--space-6); } .review blockquote { font-size: 19px; } .split-text p { font-size: 19px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -391,6 +400,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
 <symbol id="i-brick-wall" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 9v6"/><path d="M16 15v6"/><path d="M16 3v6"/><path d="M3 15h18"/><path d="M3 9h18"/><path d="M8 15v6"/><path d="M8 3v6"/></symbol>
 <symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+<symbol id="i-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+<symbol id="i-shovel" viewBox="0 0 24 24"><path d="M2 22v-5l5-5 5 5-5 5z"/><path d="M9.5 14.5 16 8"/><path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5L17 2"/></symbol>
 </svg>
 
 <header class="hero">
@@ -431,6 +443,19 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </header>
 
 <main>
+
+<!-- EMPATHY -->
+<section class="band band--alt">
+  <div class="wrap split split--short">
+    <div class="split-text">
+      <h2>Nobody should have to plant the same bed twice</h2>
+      <p>Most homeowners have spent money on a yard that never came together: a shade plant set in full sun, a walk that holds water after every storm, beds that never fill in. Amanda's Villa plans every yard around its light, soil and slope, so the work only has to be done once.</p>
+    </div>
+    <figure class="split-media">
+      <img width="1100" height="825" src="../img/landscaping/after-porch-boulder.jpg" alt="A long bed of shrubs, perennials and a feature boulder along a covered porch, planted by Amanda's Villa" loading="lazy">
+    </figure>
+  </div>
+</section>
 
 <!-- AMANDA -->
 <section class="band">
@@ -478,6 +503,64 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </div>
     <div class="btn-row cta-row">
       <a class="btn btn--primary" href="../hardscape/">Hardscape services</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS: verbatim Google reviews, first name and last initial only -->
+<section class="band">
+  <div class="wrap">
+    <div class="head" style="text-align:center">
+      <h2>What customers say about Amanda's Villa</h2>
+    </div>
+    <div class="reviews">
+      <figure class="review">
+        <blockquote><p>"Amanda always has the best variety and most reasonable prices around. I love going there!!"</p></blockquote>
+        <figcaption>Sara M., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Amanda went above and beyond to help me work something out for my Mother's day gift all the way from Texas. So so so helpful! My mother said she had great plant choices."</p></blockquote>
+        <figcaption>C. F., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Shop here before anywhere else. They have it all with fair prices and a very helpful staff."</p></blockquote>
+        <figcaption>Carl C., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Great selection of healthy plants and shrubs at reasonable prices. Bulk mulch and other landscaping supplies. Friendly and helpful personnel. Worth visiting."</p></blockquote>
+        <figcaption>C. C., Google review</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="band">
+  <div class="wrap">
+    <div class="plan">
+      <h2>Three steps from a photo of your yard to a finished one</h2>
+      <ol class="steps">
+        <li><img class="step-photo" width="900" height="900" src="../img/landscaping/step-1-front-of-house-before.jpg" alt="The bare corner of a white brick house beside the driveway before any work began" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a design visit</h3><p>Call (870) 489-5463 or send the form, with a photo of the space if you have one.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/hardscape/step-2-survey-layout.jpg" alt="A trench staked and flagged for a new paver walk during layout" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Amanda and Colton design it</h3><p>Amanda measures and plans the planting, Colton surveys the ground for any stonework, and you receive one custom quote for the whole yard.</p></li>
+        <li><img class="step-photo" width="900" height="900" src="../img/landscaping/step-3-planted-bed-finished.jpg" alt="The same corner finished with a mulched bed of shrubs and a stone block border" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-shovel"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>The crews plant and build it</h3><p>The landscaping crew plants the beds and the hardscape teams build the patios, walks and walls, each staying until the job is done.</p></li>
+      </ol>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="../contact/#estimate">Request a design visit</a>
+        <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS -->
+<section class="band band--alt">
+  <div class="wrap split split--short split--flip">
+    <figure class="split-media">
+      <img width="1000" height="1250" src="../img/hardscape/success-herringbone-garden-path.jpg" alt="A herringbone brick path through new garden beds to a patio with white chairs, built and planted by Amanda's Villa" loading="lazy">
+    </figure>
+    <div class="split-text">
+      <h2>A yard you're proud to pull into</h2>
+      <p>Beds that are still full in August, a patio that's still level after the spring storms, and a front yard that finally looks like the people who live there. Every plan Amanda and Colton draw is aimed at that one result for your home.</p>
     </div>
   </div>
 </section>
