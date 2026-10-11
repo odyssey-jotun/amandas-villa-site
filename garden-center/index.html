@@ -284,6 +284,20 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 @media (max-width: 900px) { .svc3 { grid-template-columns: 1fr; gap: var(--space-16); } }
 @media (max-width: 640px) { .split-text p { font-size: 19px; } .proof { grid-template-columns: 1fr; } }
 .foot-tag { margin-top: var(--space-4); font: italic 400 20px/1.4 var(--font-text-serif); color: var(--on-forest); }
+/* ---------- Static background gradients ----------
+   Glows sit at mid-height on the left or right edge and fade out before the
+   top and bottom, so no glow ever meets the next section at a seam. */
+.band { background:
+  radial-gradient(60% 50% at 0% 50%, rgba(180,204,184,.7), transparent 100%),
+  radial-gradient(45% 40% at 100% 50%, rgba(238,222,204,.55), transparent 100%),
+  var(--linen); }
+.band--alt { background:
+  radial-gradient(60% 50% at 100% 50%, rgba(180,204,184,.85), transparent 100%),
+  radial-gradient(45% 40% at 0% 50%, rgba(238,222,204,.5), transparent 100%),
+  var(--linen-2); }
+.band + .band { border-top: 0; }
+.closing--photo { background: var(--forest-deep); }
+.review { background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 24px -14px rgba(28,36,31,.25); }
 </style>
 <script type="application/ld+json">
 {
