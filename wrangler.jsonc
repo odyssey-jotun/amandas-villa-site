@@ -1,0 +1,8 @@
+{
+  "name": "amandas-villa-site",      // must match the Cloudflare Worker name
+  "compatibility_date": "2026-10-12",
+  "assets": { "directory": "./" },   // site files live at the repo root (Marc's build scripts expect this)
+  "workers_dev": true,               // set to false after amandasvilla.com is live
+  "preview_urls": true,
+  "previews": {}                     // required, or develop preview builds fail
+}

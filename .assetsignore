@@ -1,0 +1,12 @@
+# Files in the repo that must NOT be published to the website
+.git
+.gitignore
+.assetsignore
+.nojekyll
+.DS_Store
+.env
+README.md
+CLAUDE.md
+wrangler.jsonc
+tools/
+**/CREDITS.md
