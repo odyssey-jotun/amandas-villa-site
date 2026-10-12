@@ -156,7 +156,7 @@ def page(d):
     ld_html = "\n".join(f'<script type="application/ld+json">\n{json.dumps(x, indent=2, ensure_ascii=False)}\n</script>' for x in lds)
     hero = d["hero"]
     body = "\n\n".join(s(p) if callable(s) else s for s in d["sections"])
-    return f"""<!doctype html>
+    return alternate_bands(f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -227,34 +227,21 @@ def page(d):
 
 </body>
 </html>
-"""
+""")
+
+
+def alternate_bands(doc):
+    """Give every content band an alternating background, plain first, so removing
+    or reordering a section never leaves two of the same shade side by side."""
+    n = [0]
+
+    def swap(m):
+        n[0] += 1
+        return '<section class="band band--alt"' if n[0] % 2 == 0 else '<section class="band"'
+    return re.sub(r'<section class="band(?: band--alt)?"', swap, doc)
 
 
 # ---------- shared section builders ----------
-
-def problem(h2, lead, photo, points, cta):
-    def f(p):
-        pts = "\n".join(f"      <div>{icon(i)}<h3>{t}</h3><p>{b}</p></div>" for i, t, b in points)
-        return f"""<!-- PROBLEM: one broad problem, then external, internal and philosophical -->
-<section class="band">
-  <div class="wrap">
-    <div class="split split--short">
-      <div class="split-text">
-        <h2>{h2}</h2>
-        <p>{lead}</p>
-      </div>
-      <figure class="split-media">
-        {img(p, *photo)}
-      </figure>
-    </div>
-    <div class="svc3">
-{pts}
-    </div>
-    {cta_row(p, cta)}
-  </div>
-</section>"""
-    return f
-
 
 def guide(h2, para, photo, proof):
     def f(p):
@@ -369,18 +356,10 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
         cta=VISIT,
         standin="The final hero shows a customer choosing shrubs on the lot, still to be shot."),
     sections=[
-        problem(
-            "Too many yards are planted with shrubs that never suited the spot",
-            "A sun-loving shrub goes in the shade of the house. A shade plant bakes beside the driveway. When the plant and the light don't match:",
-            ("plants-coleus-mums-amandas-villa.jpg", "Bright coleus, mums and ornamental grasses in a fall plant display at Amanda's Villa Garden Center", 1100, 1375),
-            [("leaf", "Plants struggle and fade", "Leaves scorch or thin out, and the bed by the mailbox is bare again by August."),
-             ("frown", "People blame themselves", "After a few losses, many homeowners decide they just don't have a green thumb."),
-             ("sun", "Every yard deserves plants that thrive in it", "The right plant in the right light keeps growing for years with very little fuss.")],
-            VISIT),
         guide(
             "A plant nursery where every sale starts with the spot",
             "Amanda designs and plants landscapes all over Arkansas, so the people on the lot know which plants live in shade, which need full sun, and which handle Arkansas clay. Before anything goes on the cart, someone asks where it's going.",
-            ("garden-center/nursery-shrubs-and-ornamental-grasses-amandas-villa.jpg", "Nursery rows of shrubs, ornamental grasses and Italian cypress at Amanda's Villa", 1031, 1375),
+            ("plants-coleus-mums-amandas-villa.jpg", "Bright coleus, mums and ornamental grasses in a fall plant display at Amanda's Villa Garden Center", 1100, 1375),
             [("store", "Shrubs and trees from small starts to large specimen trees, sized by pot"),
              ("sun", "Plants for shade, part shade and full sun"),
              ("shovel", "Amanda's crew can plant what you buy"),
@@ -395,7 +374,7 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
              ("Pansies and violas", "Viola", "Cool-season color for fall beds and planters."),
              ("Banana plants and elephant ears", "Musa, Colocasia", "Big tropical leaves for a bold summer bed.")],
             "Ask on the lot what's in for your light: shade, part shade or full sun.",
-            [("garden-center/potted-mums-and-landscape-boulders-amandas-villa.jpg", "Rows of potted mums in the nursery yard with landscape boulders behind at Amanda's Villa", 1100, 825, "Fall mums by the row"),
+            [("home/garden-center-celosia-and-annuals.jpg", "Red celosia and bright annuals on the Amanda's Villa lot", 900, 1125, "Celosia and seasonal color"),
              ("success-pansies-amandas-villa.jpg", "Tables of pansies and violas for fall planting at Amanda's Villa Garden Center", 1100, 1375, "Pansies and violas"),
              ("lot-banana-plants-and-elephant-ears-under-pergola-amandas-villa.jpg", "Banana plants and elephant ears under the pergola at Amanda's Villa", 1065, 1420, "Banana plants and elephant ears")]),
         lambda p: reviews_section("What customers say about the plants"),
@@ -411,14 +390,14 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
             "A yard that fills in a little more every year",
             ["Picture a Japanese maple turning red by the front walk, a row of cypress along the drive, and beds that are still green in August. Every plant was chosen for the light it has, so the yard keeps growing.",
              "Without that match, too many yards stay stuck: bare beds, a dead shrub pulled every spring, and money spent on plants that never had a chance."],
-            ("garden-center/concrete-urns-pottery-and-topiary-trees-amandas-villa.jpg", "Concrete urns, stoneware pots and topiary trees in the yard at Amanda's Villa", 1031, 1375),
+            ("landscaping/after-ranch-maple.jpg", "A Japanese maple in a new mulched bed in front of a ranch house, planted by Amanda's Villa", 1100, 825),
             alt=True, flip=False),
         split_prose(
             "EXPLANATORY PARAGRAPH",
             "Shade plants, full sun plants, shrubs and trees for Arkansas yards",
             ["Many Arkansas homeowners want a yard that looks full and healthy, but it's hard to know which shrubs and trees will live in each spot. Amanda's Villa runs a plant nursery on Dollarway Road in White Hall with shrubs, trees, shade plants and full sun plants, and every sale starts with a question about the light.",
              "Come by, describe the spot, and leave with plants chosen to grow there. Amanda's crew can plant them, too."],
-            ("home/garden-center-celosia-and-annuals.jpg", "Celosia and annuals on the Amanda's Villa lot", 900, 1125),
+            ("landscaping/gallery-01.jpg", "A round bed of bright annuals around a shade tree, planted by Amanda's Villa", 821, 1026),
             alt=False, flip=True),
     ],
     faq_heading="Questions about plants, shrubs and trees",
@@ -430,7 +409,7 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
         ("Can you order a plant you don't have?", "Usually. If it isn't on the lot, Amanda will try to find it."),
         ("What are your hours?", '<span class="todo">Hours.</span> The garden center is at 7901 Dollarway Road, White Hall.'),
     ],
-    faq_img=("lot-mulch-and-mums-amandas-villa.jpg", "Potted mums in front of bulk mulch piles at Amanda's Villa", 1100, 1375),
+    faq_img=("landscaping/service-flower-bed-design.jpg", "A planted bed of shrubs and annuals along a brick house, designed by Amanda's Villa", 900, 1125),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Describe the spot. Leave with plants that will grow there.", cta=VISIT),
 )
 
@@ -446,14 +425,6 @@ PAGES["garden-center/landscaping-stone"] = dict(
         cta=VISIT,
         standin="The final hero shows a customer choosing stone on the lot, still to be shot."),
     sections=[
-        problem(
-            "Arkansas clay and spring storms are hard on a yard",
-            "Heavy rain cuts ruts through the beds, washes soil onto the walk and turns a bare path into mud. When a yard has nothing solid in it:",
-            ("stone-fieldstone-amandas-villa.jpg", "Rough gray fieldstone pieces stacked for landscaping at Amanda's Villa", 1000, 1000),
-            [("cloud-rain", "Beds and paths wash out", "Every storm moves the dirt around, and the edges of the beds blur into the yard."),
-             ("frown", "The yard never feels finished", "People stop using the side yard and the path to the back gate because it's always muddy."),
-             ("mountain", "A yard should feel settled and solid", "Natural stone gives a bed or a path an edge that stays put for years.")],
-            VISIT),
         guide(
             "A stone yard run by people who build with stone",
             "Amanda's Villa sells natural stone to homeowners and contractors, and its hardscape teams build patios, walkways and retaining walls from it. So the help on the lot comes from people who know how each stone sets, stacks and drains.",
@@ -473,8 +444,8 @@ PAGES["garden-center/landscaping-stone"] = dict(
              ("Pavers", "", "For a patio or a walkway, or ask the hardscape teams to lay them.")],
             "Not sure how much stone a bed or path takes? Bring the measurements and ask on the lot.",
             [("stone-river-rock-amandas-villa.jpg", "Close-up of smooth gray river rock sold for landscaping at Amanda's Villa", 1000, 1000, "River rock"),
-             ("garden-center/flagstone-and-evergreen-shrubs-nursery-amandas-villa.jpg", "Flagstone slabs laid along the nursery beside potted evergreen shrubs at Amanda's Villa", 1100, 825, "Flagstone"),
-             ("garden-center/mums-landscape-boulders-and-soil-piles-amandas-villa.jpg", "Potted mums in front of large landscape boulders at Amanda's Villa Landscaping", 1100, 825, "Landscape boulders")]),
+             ("landscaping/after-flagstone-walk.jpg", "A flagstone walk curving past a new planted bed, laid by Amanda's Villa", 1080, 810, "Flagstone"),
+             ("landscaping/after-porch-boulder.jpg", "A landscape boulder set in a new bed beside a front porch, by Amanda's Villa", 1100, 825, "Landscape boulders")]),
         split_prose(
             "WHAT IT BECOMES",
             "From the stone yard to a finished hillside",
@@ -484,7 +455,7 @@ PAGES["garden-center/landscaping-stone"] = dict(
         lambda p: reviews_section("What customers say about Amanda's Villa"),
         plan(
             "How to bring home the right stone",
-            ("garden-center/potted-mums-and-landscape-boulders-amandas-villa.jpg", "Potted mums with landscape boulders behind them at Amanda's Villa", 1100, 825),
+            ("stone-fieldstone-amandas-villa.jpg", "Rough gray fieldstone pieces stacked for landscaping at Amanda's Villa", 1000, 1000),
             [("store", "Come see the stone", "Stop by 7901 Dollarway Road in White Hall and walk the stone yard."),
              ("clipboard", "Pick it out", "Choose by the piece or by the pile. Bring the size of the bed or path and someone will help you work out how much."),
              ("hammer", "Set it, or have it built", "Take it home for a weekend project, or have the hardscape teams build with it.")],
@@ -528,14 +499,6 @@ PAGES["garden-center/pottery-decor"] = dict(
         cta=VISIT,
         standin="The final hero shows a customer choosing a pot on the lot, still to be shot."),
     sections=[
-        problem(
-            "Too many porches and patios look bare",
-            "A plant sits in its plastic nursery pot for months, and the front steps never look finished. When a home has nothing out front:",
-            ("pottery-talavera-pumpkin-amandas-villa.jpg", "A hand-painted Talavera ceramic pumpkin among fall decor at Amanda's Villa Garden Center", 1100, 1375),
-            [("house", "The front of the house looks empty", "Bare steps and an empty patio make even a well-kept house look unlived in."),
-             ("frown", "Decorating feels like guesswork", "It's hard to picture which pot suits the plant, the porch and the house, so nothing changes."),
-             ("heart", "A home should welcome people at the door", "A good pot with a healthy plant in it says someone cares about this place.")],
-            VISIT),
         guide(
             "Around two hundred pots on the lot at any time",
             "Amanda's Villa keeps a full pottery yard beside the plants, so a pot and the plant for it can be chosen together. The people on the lot will help match the size, the color and the light.",
@@ -554,7 +517,7 @@ PAGES["garden-center/pottery-decor"] = dict(
              ("Bird baths and fountains", "", "A focal point for a bed, and a stop for the birds."),
              ("Garden statues and yard art", "", "Statues, metal frogs and butterflies, hummingbird feeders, Razorback signs and seasonal decor.")],
             "Call ahead if you need a particular size or a matching pair.",
-            [("garden-center/glazed-ceramic-pots-and-landscape-mulch-piles-amandas-villa.jpg", "Glazed ceramic pots and planters in the yard at Amanda's Villa", 1100, 825, "Glazed ceramic pots"),
+            [("pottery-talavera-pumpkin-amandas-villa.jpg", "A hand-painted Talavera ceramic pumpkin among fall decor at Amanda's Villa Garden Center", 1100, 1375, "Talavera pottery"),
              ("garden-center/concrete-garden-statue-amandas-villa.jpg", "A concrete garden statue among pansies and pumpkins at Amanda's Villa Garden Center", 1031, 1375, "Garden statues"),
              ("pottery-frogs-planters-amandas-villa.jpg", "Painted metal frog garden ornaments beside purple and blue ceramic planters at Amanda's Villa Garden Center", 1100, 1375, "Yard art and planters")]),
         lambda p: reviews_section("What customers say about Amanda's Villa"),
@@ -570,14 +533,14 @@ PAGES["garden-center/pottery-decor"] = dict(
             "A front porch that welcomes people home",
             ["Picture a pair of glazed pots by the front door, a bird bath in the bed and a Talavera piece on the patio table. Guests notice, and coming home feels better.",
              "Without it, too many porches stay bare, with a nursery pot or two that never made it into anything nicer."],
-            ("garden-center/concrete-urns-pottery-and-topiary-trees-amandas-villa.jpg", "Concrete urns, stoneware pots and topiary trees at Amanda's Villa", 1031, 1375),
+            ("landscaping/faq-stone-house-fern-urn.jpg", "A Boston fern in a tall black urn beside a front door, planted by Amanda's Villa", 900, 1200),
             alt=True, flip=False),
         split_prose(
             "EXPLANATORY PARAGRAPH",
             "Flower pots, bird baths and garden decor for Arkansas homes",
             ["Many Arkansas homeowners want a porch and patio that feel finished, but finding the right flower pots and garden decor in one place is hard. Amanda's Villa keeps about two hundred pots on Dollarway Road in White Hall, with Talavera pottery, large outdoor planters, bird baths, fountains and garden statues beside them.",
              "Pick a pot and a plant together, set them out, and enjoy a home that welcomes people at the door."],
-            ("garden-center/halloween-yard-decor-and-stacked-pumpkin-planters-amandas-villa.jpg", "Halloween yard signs, sunflowers and stacked pumpkins in green planters by the garden center porch at Amanda's Villa", 1100, 825),
+            ("landscaping/after-fountain-bed.jpg", "A tiered fountain in a new bed by a front entry, planted by Amanda's Villa", 1100, 825),
             alt=False, flip=True),
     ],
     faq_heading="Questions about pottery and garden decor",
@@ -588,7 +551,7 @@ PAGES["garden-center/pottery-decor"] = dict(
         ("Can you help me pick a plant for the pot?", "Yes. Say where the pot is going, and someone on the lot will suggest plants for that light."),
         ("What are your hours?", '<span class="todo">Hours.</span> The garden center is at 7901 Dollarway Road, White Hall.'),
     ],
-    faq_img=("problem-fall-planters-amandas-villa.jpg", "Fall planters of pansies and ornamental cabbage beside a wooden scarecrow at Amanda's Villa", 1100, 1375),
+    faq_img=("landscaping/service-flower-bed-edging.jpg", "A bird bath in an edged flower bed, planted by Amanda's Villa", 807, 1008),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Pick the pot and the plant together.", cta=VISIT),
 )
 
@@ -604,18 +567,10 @@ PAGES["garden-center/produce"] = dict(
         cta=("Visit the produce stand", "~/contact/#directions"),
         standin="The final hero shows a customer at the Amanda's Villa produce stand, still to be shot."),
     sections=[
-        problem(
-            "Too many tomatoes are picked green and shipped across the country",
-            "Grocery store produce often travels a long way before it reaches an Arkansas kitchen. When that's all there is:",
-            ("produce-tomatoes-amandas-villa.jpg", "Baskets of fresh red tomatoes on a wooden table at the Amanda's Villa produce stand", 1400, 1050),
-            [("leaf", "The tomatoes taste like nothing", "Slice one open and it's pale and hard in the middle."),
-             ("frown", "Supper feels like a compromise", "Cooking something good starts with ingredients that taste like something."),
-             ("heart", "Arkansas food should stay in Arkansas", "Buying from Arkansas farms keeps that money with the families who grow it.")],
-            ("Visit the produce stand", "~/contact/#directions")),
         guide(
             "A produce stand stocked from Arkansas farms first",
             "The produce at Amanda's Villa is farm-raised and grown in the ground, from Arkansas farms as long as the season allows and out of state only when it has to be. Cut one of these tomatoes open and it's red all the way through.",
-            ("garden-center/produce-stand-tomatoes-and-pig-statues-amandas-villa.jpg", "The covered produce stand with baskets of tomatoes, a fish sign and two pink pig statues at Amanda's Villa", 1100, 825),
+            ("produce-tomatoes-amandas-villa.jpg", "Baskets of fresh red tomatoes on a wooden table at the Amanda's Villa produce stand", 1400, 1050),
             [("sprout", "Farm-raised and grown in the ground"),
              ("heart", "Jams, jellies, chow-chow and desserts from Ozark Mountain, an Amish family that uses no preservatives"),
              ("store", "Honey from an Arkansas beekeeper and salsa made by a local cook"),
@@ -624,7 +579,7 @@ PAGES["garden-center/produce"] = dict(
             "Fresh tomatoes, seasonal produce and Amish jams",
             "What's on the stand changes with the season. In early fall it held all of this at once.",
             [("Tomatoes", "", "Farm-raised and red all the way through, sold by the basket."),
-             ("Watermelons", "", "Laid out on the long produce table while the season lasts."),
+             ("Watermelons", "", "On the produce table while the season lasts."),
              ("Onions and pickling cucumbers", "", "Yellow onions by the pile and pickling cucumbers kept cold."),
              ("Pumpkins and winter squash", "", "Heirloom pumpkins, blue Hubbard, butternut and gourds every fall."),
              ("Local honey", "", "Jars from an Arkansas beekeeper."),
@@ -632,7 +587,7 @@ PAGES["garden-center/produce"] = dict(
             "Call ahead to ask what came in this week.",
             [("garden-center/jams-jellies-and-preserves-shelves-amandas-villa.jpg", "Shelves of jams, jellies and preserves at the Amanda's Villa produce stand", 1100, 825, "Jams, jellies and chow-chow"),
              ("produce-honey-amandas-villa.jpg", "Jars of local honey at the Amanda's Villa produce stand", 1100, 825, "Local honey"),
-             ("garden-center/watermelons-on-produce-table-amandas-villa.jpg", "Watermelons laid out on a long wooden produce table at Amanda's Villa", 1031, 1375, "Watermelons")]),
+             ("garden-center/yellow-onions-amandas-villa.jpg", "A pile of yellow onions for sale at the Amanda's Villa produce stand", 1031, 1375, "Yellow onions")]),
         plan(
             "How to stock the kitchen with Arkansas food",
             ("garden-center/fresh-tomatoes-by-the-basket-amandas-villa.jpg", "Baskets of fresh red tomatoes on a wooden table at the Amanda's Villa produce stand", 1100, 825),
@@ -645,14 +600,14 @@ PAGES["garden-center/produce"] = dict(
             "Tomatoes that taste like a summer garden",
             ["Picture a tomato sandwich with slices that are red all the way through, chow-chow on the beans and honey on a warm biscuit. Every jar and basket came from Arkansas hands.",
              "Without a stand like this, too many kitchens settle for produce picked early and shipped a long way."],
-            ("garden-center/yellow-onions-amandas-villa.jpg", "A pile of yellow onions for sale at the Amanda's Villa produce stand", 1031, 1375),
+            ("guide-cash-register-amandas-villa.jpg", "An antique brass cash register at the Amanda's Villa produce stand", 1100, 1375),
             alt=True, flip=False),
         split_prose(
             "EXPLANATORY PARAGRAPH",
             "A farm stand with Arkansas produce, local honey and chow-chow",
             ["Many Arkansas families want produce that tastes fresh, but too much of what's in the grocery store was picked early and shipped in. Amanda's Villa runs a produce stand on Dollarway Road in White Hall with farm-raised Arkansas tomatoes and seasonal produce, local honey, and Amish jams, jellies and chow-chow.",
              "Stop by, pick what's in season, and bring home food that keeps money in Arkansas."],
-            ("garden-center/blue-hubbard-squash-and-winter-gourds-amandas-villa.jpg", "A pile of blue Hubbard squash, butternut and ornamental gourds on straw at Amanda's Villa Garden Center", 1031, 1375),
+            ("produce-preserves-amandas-villa.jpg", "Jars of preserves above fresh tomatoes at the Amanda's Villa produce stand", 1100, 825),
             alt=False, flip=True),
     ],
     faq_heading="Questions about the produce stand",
@@ -663,7 +618,7 @@ PAGES["garden-center/produce"] = dict(
         ("Do you sell local honey?", "Yes. The honey comes from an Arkansas beekeeper."),
         ("What are your hours?", '<span class="todo">Hours.</span> The produce stand is at 7901 Dollarway Road, White Hall.'),
     ],
-    faq_img=("produce-preserves-amandas-villa.jpg", "Jars of preserves at the Amanda's Villa produce stand", 1100, 825),
+    faq_img=("fall-heirloom-pumpkins-amandas-villa.jpg", "Heirloom pumpkins and gourds on straw at Amanda's Villa", 1100, 1375),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Pick what's in season. Bring Arkansas home to the table.", cta=("Visit the produce stand", "~/contact/#directions")),
 )
 
@@ -720,7 +675,7 @@ PAGES["contact"] = dict(
         contact_directions,
         plan(
             "What to have ready when you call",
-            ("contact/covered-garden-center-pavilion-amandas-villa.jpg", "The covered garden center pavilion with houseplants, fall decor and pumpkins at Amanda's Villa", 1100, 825),
+            ("hero-pergola-wide-amandas-villa.jpg", "Banana plants and elephant ears under the pergola at Amanda's Villa Garden Center", 1065, 666),
             [("camera", "For landscaping", "A phone photo of the space, and a picture of a yard you love if you have one. Amanda will come measure."),
              ("hammer", "For a patio, wall or drain", "Just the yard. The hardscape team surveys it with a transit and gives the estimate free."),
              ("leaf", "For the garden center", "A photo of the spot, or the plant itself if it's struggling.")],
@@ -734,7 +689,7 @@ PAGES["contact"] = dict(
         ("Do I need an appointment for the garden center?", "No. Come by the lot at 7901 Dollarway Road in White Hall, and someone will greet you on the way in."),
         ("What are your hours?", '<span class="todo">Hours.</span>'),
     ],
-    faq_img=("lot-hanging-baskets-and-boston-ferns-amandas-villa.jpg", "Hanging baskets and Boston ferns under the shade house at Amanda's Villa", 800, 1420),
+    faq_img=("home/garden-center-celosia-and-annuals.jpg", "Red celosia and bright annuals on the Amanda's Villa lot", 900, 1125),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Together, plant the space your yard deserves.", cta=("Directions", "#directions")),
 )
 
