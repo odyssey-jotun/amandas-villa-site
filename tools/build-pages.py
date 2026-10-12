@@ -29,7 +29,51 @@ EXTRA_ICONS = """
 <symbol id="i-cloud-rain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M16 14v6M8 14v6M12 16v6"/></symbol>
 <symbol id="i-hammer" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9M18 15l4-4M21.5 11.5l-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></symbol>
 <symbol id="i-clipboard" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></g></symbol>
+<symbol id="i-amphora" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8" /> <path d="M10 5H8a2 2 0 0 0 0 4h.68" /> <path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8" /> <path d="M14 5h2a2 2 0 0 1 0 4h-.68" /> <path d="M18 22H6" /> <path d="M9 2h6" /></g></symbol>
+<symbol id="i-bird" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01" /> <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" /> <path d="m20 7 2 .5-2 .5" /> <path d="M10 18v3" /> <path d="M14 17.75V21" /> <path d="M7 18a6 6 0 0 0 3.84-10.61" /></g></symbol>
+<symbol id="i-brick-wall" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M12 9v6" /> <path d="M16 15v6" /> <path d="M16 3v6" /> <path d="M3 15h18" /> <path d="M3 9h18" /> <path d="M8 15v6" /> <path d="M8 3v6" /></g></symbol>
+<symbol id="i-carrot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 16a1 1 0 0 0-7-7q-4 4-5.987 12.385a.5.5 0 0 0 .602.602Q11 20 15 16l-3-3" /> <path d="M15 9q4 4 7 0-3-4-7 0 4-4 0-7-4 3 0 7" /> <path d="m8 15-2.58-2.58" /></g></symbol>
+<symbol id="i-cherry" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z" /> <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z" /> <path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12" /> <path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z" /></g></symbol>
+<symbol id="i-citrus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.66 17.67a1.08 1.08 0 0 1-.04 1.6A12 12 0 0 1 4.73 2.38a1.1 1.1 0 0 1 1.61-.04z" /> <path d="M19.65 15.66A8 8 0 0 1 8.35 4.34" /> <path d="m14 10-5.5 5.5" /> <path d="M14 17.85V10H6.15" /></g></symbol>
+<symbol id="i-cooking-pot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20" /> <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /> <path d="m4 8 16-4" /> <path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8" /></g></symbol>
+<symbol id="i-feather" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /> <path d="M16 8 2 22" /> <path d="M17.488 15H9" /></g></symbol>
+<symbol id="i-flower" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" /> <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" /> <path d="M12 7.5V9" /> <path d="M7.5 12H9" /> <path d="M16.5 12H15" /> <path d="M12 16.5V15" /> <path d="m8 8 1.88 1.88" /> <path d="M14.12 9.88 16 8" /> <path d="m8 16 1.88-1.88" /> <path d="M14.12 14.12 16 16" /></g></symbol>
+<symbol id="i-flower-2" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" /> <circle cx="12" cy="8" r="2" /> <path d="M12 10v12" /> <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" /> <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" /></g></symbol>
+<symbol id="i-footprints" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /> <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /> <path d="M16 17h4" /> <path d="M4 13h4" /></g></symbol>
+<symbol id="i-hexagon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></g></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></g></symbol>
+<symbol id="i-mountain-snow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z" /> <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" /></g></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /> <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></g></symbol>
+<symbol id="i-shapes" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z" /> <rect x="3" y="14" width="7" height="7" rx="1" /> <circle cx="17.5" cy="17.5" r="3.5" /></g></symbol>
+<symbol id="i-tree-deciduous" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19Z" /> <path d="M12 19v3" /></g></symbol>
+<symbol id="i-tree-palm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4" /> <path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3" /> <path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35" /> <path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14" /></g></symbol>
+<symbol id="i-tree-pine" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z" /> <path d="M12 22v-3" /></g></symbol>
+<symbol id="i-waves" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0" /> <path d="M2 19q2.5 2 5 0t5 0 5 0 5 0" /> <path d="M2 5q2.5 2 5 0t5 0 5 0 5 0" /></g></symbol>
+<symbol id="i-wheat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8" /> <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /> <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /> <path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /> <path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></g></symbol>
 """
+
+LOT_CSS = """<style id="lot-items">
+/* What's on the lot: icon cards, three across, two across on phones */
+.head--center { text-align: center; }
+.head--center p { margin-left: auto; margin-right: auto; }
+.lot-items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10) var(--space-6); }
+.lot-items li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+.lot-items .ic-badge { width: 64px; height: 64px; margin-bottom: var(--space-2); }
+.lot-items .ic { width: 28px; height: 28px; }
+.lot-items h3 { font: 400 22px/1.25 var(--font-text-serif); color: var(--ink); margin: 0; }
+.lot-items i { font: italic 400 17px/1.35 var(--font-text-serif); color: var(--stone); }
+.lot-items p { margin: 0; max-width: 30ch; color: var(--ink-3); font-size: 16px; line-height: 1.5; }
+.note--center { text-align: center; margin-top: var(--space-10); }
+@media (max-width: 640px) {
+  .lot-items { grid-template-columns: 1fr 1fr; gap: var(--space-10) var(--space-4); }
+  .lot-items .ic-badge { width: 56px; height: 56px; }
+  .lot-items .ic { width: 24px; height: 24px; }
+  .lot-items h3 { font-size: 19px; }
+  .lot-items i { font-size: 15px; }
+  .lot-items p { font-size: 15px; }
+}
+</style>"""
+
 
 PHONE = "(870) 489-5463"
 TEL = "tel:+18704895463"
@@ -165,6 +209,7 @@ def page(d):
 <title>{esc(d["title"])}</title>
 <meta name="description" content="{esc(d["description"])}">
 {HEAD_STYLE}
+{LOT_CSS}
 {ld_html}
 </head>
 <body>
@@ -268,24 +313,20 @@ def guide(h2, para, photo, proof):
 
 def lot(h2, intro, items, note, photos, alt=True):
     def f(p):
-        lis = "\n".join(
-            f"        <li><b>{n}</b>{f'<i>{l}</i>' if l else ''}<span>{s}</span></li>" for n, l, s in items)
+        cards = "\n".join(
+            f"      <li>{icon(i)}<h3>{n}</h3>{f'<i>{l}</i>' if l else ''}<p>{d}</p></li>" for i, n, l, d in items)
         figs = "\n".join(f"      <figure>{img(p, src, a, w, h)}<figcaption>{c}</figcaption></figure>" for src, a, w, h, c in photos)
         return f"""<!-- ON THE LOT -->
 <section class="band{' band--alt' if alt else ''}">
   <div class="wrap">
-    <div class="split split--top">
-      <div>
-        <h2>{h2}</h2>
-        <div class="prose" style="margin-top: var(--space-6)"><p>{intro}</p></div>
-      </div>
-      <div>
-        <ul class="plantlist">
-{lis}
-        </ul>
-        <p class="note">{note}</p>
-      </div>
+    <div class="head head--center">
+      <h2>{h2}</h2>
+      <p>{intro}</p>
     </div>
+    <ul class="lot-items">
+{cards}
+    </ul>
+    <p class="note note--center">{note}</p>
     <div class="lot-grid">
 {figs}
     </div>
@@ -367,12 +408,12 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
         lot(
             "Japanese maples, Italian cypress and seasonal color on the lot",
             "A few of the plants in the nursery yard this season. Stock changes with the season, so call ahead for something specific.",
-            [("Japanese maple", "Acer palmatum", "Specimen trees for a front bed or a shady corner."),
-             ("Italian cypress", "Cupressus sempervirens", "Tall, narrow evergreens for a formal line along a drive or a fence."),
-             ("Coleus", "Plectranthus scutellarioides", "Bright leaves for shade and part shade."),
-             ("Garden mums", "Chrysanthemum", "Potted fall mums in rows across the nursery yard."),
-             ("Pansies and violas", "Viola", "Cool-season color for fall beds and planters."),
-             ("Banana plants and elephant ears", "Musa, Colocasia", "Big tropical leaves for a bold summer bed.")],
+            [("tree-deciduous", "Japanese maple", "Acer palmatum", "Specimen trees for a front bed or a shady corner."),
+             ("tree-pine", "Italian cypress", "Cupressus sempervirens", "Tall, narrow evergreens for a formal line along a drive or a fence."),
+             ("leaf", "Coleus", "Plectranthus scutellarioides", "Bright leaves for shade and part shade."),
+             ("flower", "Garden mums", "Chrysanthemum", "Potted fall mums in rows across the nursery yard."),
+             ("flower-2", "Pansies and violas", "Viola", "Cool-season color for fall beds and planters."),
+             ("tree-palm", "Banana plants and elephant ears", "Musa, Colocasia", "Big tropical leaves for a bold summer bed.")],
             "Ask on the lot what's in for your light: shade, part shade or full sun.",
             [("home/garden-center-celosia-and-annuals.jpg", "Red celosia and bright annuals on the Amanda's Villa lot", 900, 1125, "Celosia and seasonal color"),
              ("success-pansies-amandas-villa.jpg", "Tables of pansies and violas for fall planting at Amanda's Villa Garden Center", 1100, 1375, "Pansies and violas"),
@@ -436,12 +477,12 @@ PAGES["garden-center/landscaping-stone"] = dict(
         lot(
             "River rock, fieldstone, flagstone and landscape boulders",
             "Homeowners take stone home for a border or a path, and contractors load it for jobs. What's on the lot changes, so call ahead for a large order.",
-            [("River rock", "", "Smooth, rounded stone for beds, borders and around plantings."),
-             ("Fieldstone", "", "Rough, flat-sided pieces for borders and low stacked edges."),
-             ("Flagstone", "", "Flat slabs for stepping stones, paths and patios."),
-             ("Landscape boulders", "", "Large accent stones for a bed, a corner or a hillside."),
-             ("Granite and Ozark Mountain rock", "", "Arkansas stone for borders, accents and walls."),
-             ("Pavers", "", "For a patio or a walkway, or ask the hardscape teams to lay them.")],
+            [("waves", "River rock", "", "Smooth, rounded stone for beds, borders and around plantings."),
+             ("layers", "Fieldstone", "", "Rough, flat-sided pieces for borders and low stacked edges."),
+             ("footprints", "Flagstone", "", "Flat slabs for stepping stones, paths and patios."),
+             ("mountain", "Landscape boulders", "", "Large accent stones for a bed, a corner or a hillside."),
+             ("mountain-snow", "Granite and Ozark Mountain rock", "", "Arkansas stone for borders, accents and walls."),
+             ("brick-wall", "Pavers", "", "For a patio or a walkway, or ask the hardscape teams to lay them.")],
             "Not sure how much stone a bed or path takes? Bring the measurements and ask on the lot.",
             [("stone-river-rock-amandas-villa.jpg", "Close-up of smooth gray river rock sold for landscaping at Amanda's Villa", 1000, 1000, "River rock"),
              ("landscaping/after-flagstone-walk.jpg", "A flagstone walk curving past a new planted bed, laid by Amanda's Villa", 1080, 810, "Flagstone"),
@@ -510,12 +551,12 @@ PAGES["garden-center/pottery-decor"] = dict(
         lot(
             "Talavera pottery, large outdoor planters and garden statues",
             "A few of the things in the pottery yard. Decor changes with the season, so the lot looks different every visit.",
-            [("Clay and glazed ceramic pots", "", "From a three-inch pot for a windowsill up to large outdoor planters."),
-             ("Talavera pottery", "", "Hand-painted pots and pieces in bright colors."),
-             ("Aluminum planters", "", "Light, weatherproof planters for a porch or patio."),
-             ("Concrete urns and planters", "", "Heavy, classic planters for an entry or a garden bed."),
-             ("Bird baths and fountains", "", "A focal point for a bed, and a stop for the birds."),
-             ("Garden statues and yard art", "", "Statues, metal frogs and butterflies, hummingbird feeders, Razorback signs and seasonal decor.")],
+            [("flower-2", "Clay and glazed ceramic pots", "", "From a three-inch pot for a windowsill up to large outdoor planters."),
+             ("palette", "Talavera pottery", "", "Hand-painted pots and pieces in bright colors."),
+             ("feather", "Aluminum planters", "", "Light, weatherproof planters for a porch or patio."),
+             ("amphora", "Concrete urns and planters", "", "Heavy, classic planters for an entry or a garden bed."),
+             ("bird", "Bird baths and fountains", "", "A focal point for a bed, and a stop for the birds."),
+             ("shapes", "Garden statues and yard art", "", "Statues, metal frogs and butterflies, hummingbird feeders, Razorback signs and seasonal decor.")],
             "Call ahead if you need a particular size or a matching pair.",
             [("pottery-talavera-pumpkin-amandas-villa.jpg", "A hand-painted Talavera ceramic pumpkin among fall decor at Amanda's Villa Garden Center", 1100, 1375, "Talavera pottery"),
              ("garden-center/concrete-garden-statue-amandas-villa.jpg", "A concrete garden statue among pansies and pumpkins at Amanda's Villa Garden Center", 1031, 1375, "Garden statues"),
@@ -578,12 +619,12 @@ PAGES["garden-center/produce"] = dict(
         lot(
             "Fresh tomatoes, seasonal produce and Amish jams",
             "What's on the stand changes with the season. In early fall it held all of this at once.",
-            [("Tomatoes", "", "Farm-raised and red all the way through, sold by the basket."),
-             ("Watermelons", "", "On the produce table while the season lasts."),
-             ("Onions and pickling cucumbers", "", "Yellow onions by the pile and pickling cucumbers kept cold."),
-             ("Pumpkins and winter squash", "", "Heirloom pumpkins, blue Hubbard, butternut and gourds every fall."),
-             ("Local honey", "", "Jars from an Arkansas beekeeper."),
-             ("Jams, jellies and chow-chow", "", "From Ozark Mountain, an Amish family in north-central Arkansas, made with no preservatives.")],
+            [("cherry", "Tomatoes", "", "Farm-raised and red all the way through, sold by the basket."),
+             ("citrus", "Watermelons", "", "On the produce table while the season lasts."),
+             ("carrot", "Onions and pickling cucumbers", "", "Yellow onions by the pile and pickling cucumbers kept cold."),
+             ("wheat", "Pumpkins and winter squash", "", "Heirloom pumpkins, blue Hubbard, butternut and gourds every fall."),
+             ("hexagon", "Local honey", "", "Jars from an Arkansas beekeeper."),
+             ("cooking-pot", "Jams, jellies and chow-chow", "", "From Ozark Mountain, an Amish family in north-central Arkansas, made with no preservatives.")],
             "Call ahead to ask what came in this week.",
             [("garden-center/jams-jellies-and-preserves-shelves-amandas-villa.jpg", "Shelves of jams, jellies and preserves at the Amanda's Villa produce stand", 1100, 825, "Jams, jellies and chow-chow"),
              ("produce-honey-amandas-villa.jpg", "Jars of local honey at the Amanda's Villa produce stand", 1100, 825, "Local honey"),
