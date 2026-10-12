@@ -19,6 +19,10 @@ Under-construction pages show an animated cross-section of a walkway being built
 
 Every page carries `noindex` until the site launches.
 
+## Menu and footer
+
+Every built page shares one menu (with the Garden Center dropdown) and one footer, written by `python3 tools/site_nav.py`. To add a finished page to the dropdown, add it to `GARDEN_CENTER` in that script and run it. Under-construction pages stay out of the menu.
+
 ## Preview locally
 
 ```

@@ -701,3 +701,5 @@ if __name__ == "__main__":
         with open(out, "w", encoding="utf-8") as f:
             f.write(page(d))
         print("wrote", path)
+    import site_nav  # same folder; keeps the menu and footer in step with every other page
+    site_nav.apply_all()
