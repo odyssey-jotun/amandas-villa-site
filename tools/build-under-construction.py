@@ -13,17 +13,11 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 
 # path, page name used in the title, heading text, extra line (optional), back link
 PAGES = [
-    ("contact", "Contact", "The Contact page is still being built",
-     "For a free estimate or directions, call (870) 489-5463 or come by 7901 Dollarway Road in White Hall.", None),
-    ("garden-center/plants-shrubs-trees", "Plants, Shrubs and Trees", "The Plants, Shrubs and Trees page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
     ("garden-center/houseplants", "Houseplants", "The Houseplants page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
     ("garden-center/hanging-baskets", "Hanging Baskets", "The Hanging Baskets page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
     ("garden-center/mulch", "Mulch", "The Mulch page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
     ("garden-center/soil", "Soil", "The Soil page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
     ("garden-center/compost", "Compost", "The Compost page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
-    ("garden-center/landscaping-stone", "Landscaping Stone", "The Landscaping Stone page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
-    ("garden-center/pottery-decor", "Pottery and Decor", "The Pottery and Decor page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
-    ("garden-center/produce", "Arkansas Produce", "The Arkansas Produce page is still being built", None, ("/garden-center/", "Back to the Garden Center")),
 ]
 
 NOWRAP_PHONE = '<span style="white-space:nowrap">(870) 489-5463</span>'

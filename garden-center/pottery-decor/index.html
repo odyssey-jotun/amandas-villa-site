@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Pottery and Decor | Amanda&#x27;s Villa</title>
-<meta name="description" content="The Pottery and Decor page is still being built Call Amanda's Villa at (870) 489-5463.">
+<title>Flower Pots, Talavera Pottery, Statues and Garden Decor in Arkansas | Amanda&#x27;s Villa</title>
+<meta name="description" content="About two hundred flower pots at a time, plus concrete planters, bird baths, fountains, garden statues and seasonal decor at Amanda&#x27;s Villa in White Hall.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,162 +15,621 @@
   --linen: #f6f5f0; --linen-2: #ecebe4; --sage-pale: #e4e9e2;
   --ink: #1c241f; --ink-2: #454e48; --ink-3: #5f6862;
   --forest: #2b4a3a; --forest-deep: #1b3127; --on-forest: #f6f5f0;
-  --stone: #665f54; --clay: #94524f; --line: #d6d6cc; --line-strong: #7c8078;
-  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
-  --font-text-serif: "Libre Caslon Text", Georgia, serif;
+  --stone: #665f54; --clay: #94524f; --clay-light: #dc9c96;
+  --line: #d6d6cc; --line-strong: #7c8078;
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-text-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --space-2: 8px; --space-4: 16px; --space-6: 24px; --space-10: 40px; --space-16: 64px;
-  --radius-sm: 2px; --radius-photo: 18px;
-  /* the cross-section */
-  --soil: #b98b6a; --soil-dark: #9a6f52; --grass: #6f8f5a; --gravel: #8d8a83; --gravel-dot: #6b6862;
-  --sand: #dccaa0; --paver: #8a5a4a; --paver-edge: #6e463a; --joint: #cfc2a6;
+  --space-1: 4px; --space-2: 8px; --space-4: 16px; --space-6: 24px; --space-10: 40px; --space-16: 64px; --space-28: 112px;
+  --radius-sm: 2px; --radius-photo: 18px; --notch: 10px; --measure: 1200px; --measure-text: 62ch;
+  --gutter: var(--space-10);
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--linen); color: var(--ink-2); font: 400 18px/1.65 var(--font-body); }
+body { margin: 0; background: var(--linen); color: var(--ink-2); font: 400 18px/1.65 var(--font-body); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; color: var(--ink); text-wrap: balance; margin: 0; }
+h2 { font-size: 38px; line-height: 1.12; }
+h3 { font-family: var(--font-text-serif); font-weight: 400; color: var(--ink); margin: 0; font-size: 22px; line-height: 1.3; text-wrap: balance; }
+h1 em, h2 em { font-family: var(--font-text-serif); font-style: italic; color: var(--clay); }
+p { margin: 0; }
+p + p { margin-top: var(--space-4); }
 a { color: var(--forest); }
 :focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
 
-.uc-nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); max-width: 1200px; width: 100%; margin: 0 auto; padding: var(--space-6) var(--space-10); }
-.wordmark { display: inline-flex; flex-direction: column; gap: 6px; color: var(--ink); text-decoration: none; }
-.wordmark b { font: 400 30px/1.05 var(--font-display); }
-.wordmark span { font: 600 11px/1.3 var(--font-body); letter-spacing: .24em; text-transform: uppercase; color: var(--stone); }
-.uc-links { display: flex; gap: var(--space-10); list-style: none; margin: 0; padding: 0; }
-.uc-links a { color: var(--ink); text-decoration: none; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; }
-.uc-links a:hover { color: var(--forest); }
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 var(--gutter); }
+.band { padding: var(--space-28) 0; }
+.band + .band { border-top: 1px solid var(--line); }
+.band--alt { background: var(--linen-2); border-top: 0 !important; }
+.band--alt + .band { border-top: 0; }
+.eyebrow { display: block; margin: 0 0 var(--space-2); font: 600 12px/1.3 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
+.head { margin-bottom: var(--space-10); }
+.head p { margin-top: var(--space-2); max-width: var(--measure-text); font-size: 21px; line-height: 1.55; }
+.prose { max-width: var(--measure-text); }
 
-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-10) var(--space-6) var(--space-16); }
-.uc-art { width: min(100%, 640px); height: auto; margin-bottom: var(--space-10); overflow: visible; }
-h1 { margin: 0; max-width: 16em; font: 400 46px/1.1 var(--font-display); color: var(--ink); text-wrap: balance; }
-.uc-sub { margin: var(--space-4) 0 0; max-width: 32em; font: italic 400 21px/1.5 var(--font-text-serif); color: var(--ink-2); }
-.uc-extra { margin: var(--space-4) 0 0; max-width: 34em; }
-.btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-10); }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: 10px; border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); text-decoration: none; }
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); min-height: 48px; padding: 12px 24px; border-radius: 10px; border: 1px solid var(--forest); font: 600 16px/1.2 var(--font-body); letter-spacing: .02em; text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
 .btn--primary { background: var(--forest); color: var(--on-forest); }
-.btn--primary:hover { background: var(--forest-deep); }
+.btn--primary:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
 .btn--secondary { background: transparent; color: var(--forest); }
 .btn--secondary:hover { background: var(--sage-pale); }
-.uc-back { margin-top: var(--space-6); font-weight: 600; }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.link { color: var(--forest); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.link:hover { border-bottom-color: var(--clay); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 
-.foot { background: var(--forest-deep); color: rgba(246,245,240,.85); padding: var(--space-10) 0; font-size: 16px; }
-.foot-in { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-10); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-6); }
+/* ---------- Hero: the Business Made Simple card ---------- */
+.hero { padding: var(--space-6) var(--space-6) 0; }
+.hero-card { position: relative; isolation: isolate; overflow: hidden; border-radius: 28px; min-height: min(860px, 92vh); display: flex; flex-direction: column; color: var(--on-forest); }
+.hero-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-card::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(14,22,18,.62) 0%, rgba(14,22,18,.38) 30%, rgba(14,22,18,.5) 62%, rgba(14,22,18,.78) 100%); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); padding: var(--space-6) var(--space-10); }
+.wordmark { display: inline-flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none; }
+.wordmark b { font: 400 30px/1.05 var(--font-display); letter-spacing: .01em; }
+.wordmark span { font: 600 11px/1.3 var(--font-body); letter-spacing: .24em; text-transform: uppercase; opacity: .85; }
+.nav-links { display: flex; align-items: center; gap: var(--space-10); list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--on-forest); text-decoration: none; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; }
+.nav-links a[aria-current] { border-bottom: 1px solid var(--clay-light); padding-bottom: 4px; }
+.nav-links a:hover { color: #fff; }
+.nav .btn--onphoto { min-height: 44px; padding: 10px 20px; font-size: 15px; }
+.btn--onphoto { background: var(--forest); color: var(--on-forest); border-color: var(--forest); }
+.btn--onphoto:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
+.btn--ghost { background: rgba(246,245,240,.08); color: var(--on-forest); border-color: rgba(246,245,240,.75); backdrop-filter: blur(4px); }
+.btn--ghost:hover { background: rgba(246,245,240,.18); }
+.nav details { display: none; }
+.hero-copy { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-10) var(--space-6) var(--space-16); }
+.hero h1 { color: var(--on-forest); font-size: 56px; line-height: 1.08; letter-spacing: -.01em; max-width: 15em; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
+.hero h1 em { color: var(--clay-light); }
+.hero-sub { margin-top: var(--space-4); max-width: 34em; font: italic 400 21px/1.5 var(--font-text-serif); color: rgba(246,245,240,.94); }
+.hero-ctas { margin-top: var(--space-10); display: flex; flex-direction: column; gap: var(--space-4); width: min(100%, 320px); }
+.hero-ctas .btn { width: 100%; }
+.hero-meta { margin-top: var(--space-6); font: 600 12px/1.4 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: rgba(246,245,240,.85); }
+.standin { position: absolute; right: var(--space-4); bottom: var(--space-4); z-index: 2; max-width: 300px; padding: 8px 12px; background: rgba(246,245,240,.92); color: var(--ink); border-radius: 10px; font: 400 13px/1.4 var(--font-body); }
+
+/* ---------- Problem: text and photo ---------- */
+.split { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-16); align-items: center; }
+.split--flip { grid-template-columns: 1fr 1.1fr; }
+.split--flip .split-media { order: -1; }
+.split img, .photo { width: 100%; border-radius: var(--radius-photo); object-fit: cover; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.pair img { aspect-ratio: 4 / 5; }
+.pair--square img { aspect-ratio: 1 / 1; }
+.split img { aspect-ratio: 4 / 5; }
+.photo--wide { aspect-ratio: 3 / 2; }
+figure { margin: 0; }
+figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; color: var(--ink-3); }
+
+/* ---------- Value: three points ---------- */
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10); }
+.three > div { padding-top: var(--space-4); border-top: 1px solid var(--line-strong); }
+.three h3 { margin-bottom: var(--space-2); }
+
+/* ---------- Guide ---------- */
+.proof { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+.proof li { padding-left: var(--space-6); position: relative; }
+.proof li::before { content: "\2192"; position: absolute; left: 0; color: var(--forest); }
+.quote { margin: var(--space-10) 0 0; padding: var(--space-6) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.quote blockquote { margin: 0; font: italic 400 28px/1.4 var(--font-text-serif); color: var(--ink); text-wrap: pretty; }
+.quote figcaption { margin-top: var(--space-4); font: 600 12px/1.3 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+
+/* ---------- Plan ---------- */
+.plan { background: var(--sage-pale); border-radius: var(--radius-sm); padding: var(--space-16) var(--space-10); }
+.steps { list-style: none; margin: var(--space-6) 0 var(--space-10); padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); counter-reset: step; }
+.steps li { counter-increment: step; display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--line-strong); }
+.steps li::before { content: counter(step) "."; font: italic 400 30px/1 var(--font-text-serif); color: var(--forest); }
+
+/* ---------- What's on the lot ---------- */
+.lot + .lot { margin-top: var(--space-28); }
+.plantlist { list-style: none; margin: var(--space-6) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.plantlist li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-1) var(--space-4); padding: 12px 0; border-bottom: 1px solid var(--line); }
+.plantlist b { font: 400 20px/1.35 var(--font-text-serif); color: var(--ink); }
+.plantlist i { font: italic 400 17px/1.4 var(--font-text-serif); color: var(--stone); }
+.plantlist span { flex-basis: 100%; color: var(--ink-3); font-size: 15px; line-height: 1.45; }
+.trio { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: var(--space-4); margin-top: var(--space-10); }
+.trio img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-photo); }
+.trio img:first-child { grid-row: span 2; aspect-ratio: 4 / 3; }
+.trio img:not(:first-child) { aspect-ratio: 4 / 3; }
+.note { margin-top: var(--space-4); font-size: 15px; color: var(--ink-3); }
+.todo { background: #f3e6c4; color: #3d2f0a; padding: 0 4px; border-radius: var(--radius-sm); font-size: .9em; }
+
+/* ---------- CatalogFrame (once per page) ---------- */
+.frame { --n: var(--notch); position: relative; padding: calc(var(--notch) + var(--space-10)); }
+.frame::before, .frame::after { content: ""; position: absolute;
+  clip-path: polygon(var(--n) 0, calc(100% - var(--n)) 0, calc(100% - var(--n)) var(--n), 100% var(--n), 100% calc(100% - var(--n)), calc(100% - var(--n)) calc(100% - var(--n)), calc(100% - var(--n)) 100%, var(--n) 100%, var(--n) calc(100% - var(--n)), 0 calc(100% - var(--n)), 0 var(--n), var(--n) var(--n)); }
+.frame::before { inset: 0; background: var(--line-strong); }
+.frame::after { inset: 1px; background: var(--linen); }
+.frame > * { position: relative; z-index: 1; }
+
+/* ---------- FAQ ---------- */
+.faq { border-top: 1px solid var(--line-strong); max-width: 820px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); padding: var(--space-6) 0; font: 400 21px/1.35 var(--font-text-serif); color: var(--ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 24px/1 var(--font-body); color: var(--forest); flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details > div { padding: 0 0 var(--space-6); max-width: var(--measure-text); }
+
+/* ---------- Closing CTA and footer ---------- */
+.closing { background: var(--sage-pale); text-align: center; }
+.closing h2 { max-width: 18em; margin: 0 auto; }
+.closing p { margin: var(--space-4) auto 0; max-width: 40em; }
+.closing .btn-row { justify-content: center; margin-top: var(--space-10); }
+.foot { background: var(--forest-deep); color: rgba(246,245,240,.85); padding: var(--space-16) 0; font-size: 16px; }
+.foot .wordmark { color: var(--on-forest); }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-10); }
 .foot a { color: var(--on-forest); }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.foot small { display: block; margin-top: var(--space-10); padding-top: var(--space-6); border-top: 1px solid rgba(246,245,240,.2); color: rgba(246,245,240,.7); font-size: 14px; }
 
-/* ---------- The cross-section animation ---------- */
-.uc-art .grass { fill: var(--grass); }
-.uc-art .soil { fill: var(--soil); }
-.uc-art .dig { fill: var(--soil-dark); transition: opacity .6s ease; }
-.uc-art .gravel { fill: url(#gravel); transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 1.1s cubic-bezier(.25,1,.5,1); }
-.uc-art .base { fill: var(--sand); transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .6s cubic-bezier(.25,1,.5,1); }
-.uc-art .uc-paver { fill: var(--paver); stroke: var(--paver-edge); stroke-width: 1; opacity: 0; transform: translateY(-46px); transition: transform .45s cubic-bezier(.3,1.4,.5,1), opacity .25s ease; transition-delay: calc(var(--i) * 140ms); }
-.uc-art .stem { fill: none; stroke: var(--grass); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 60; stroke-dashoffset: 60; transition: stroke-dashoffset .9s ease; }
-.uc-art .leaf { fill: var(--grass); transform-box: fill-box; transform: scale(0); transition: transform .5s cubic-bezier(.3,1.5,.5,1) .7s; }
-.uc-art .leaf--l { transform-origin: 100% 100%; }
-.uc-art .leaf--r { transform-origin: 0% 100%; }
-.uc-art .lbl { font: italic 400 13px/1 var(--font-text-serif); fill: var(--on-forest); opacity: 0; transition: opacity .5s ease .5s; }
-
-.s-dug .dig { opacity: 0; }
-.s-gravel .gravel { transform: scaleY(1); }
-.s-gravel .lbl { opacity: .95; }
-.s-base .base { transform: scaleY(1); }
-.s-pavers .uc-paver { opacity: 1; transform: translateY(0); }
-.s-sprout .stem { stroke-dashoffset: 0; }
-.s-sprout .leaf { transform: scale(1); }
-
-@media (prefers-reduced-motion: reduce) {
-  .uc-art * { transition: none !important; }
-}
+/* ---------- Phones ---------- */
 @media (max-width: 900px) {
-  .uc-links { display: none; }
+  .split, .split--flip { grid-template-columns: 1fr; gap: var(--space-10); }
+  .split--flip .split-media { order: 0; }
+  .three, .steps { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav .btn--onphoto { display: none; }
+  .nav details { display: block; position: relative; }
+  .nav summary { list-style: none; cursor: pointer; font: 600 13px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; padding: 12px 0 12px 12px; }
+  .nav summary::-webkit-details-marker { display: none; }
+  .nav details ul { position: absolute; right: 0; top: 100%; z-index: 3; list-style: none; margin: 0; padding: var(--space-4); background: var(--linen); border-radius: var(--radius-sm); min-width: 220px; display: grid; gap: var(--space-2); }
+  .nav details a { color: var(--ink); text-decoration: none; font-weight: 600; display: block; padding: 8px 0; }
 }
 @media (max-width: 640px) {
-  .uc-nav { padding: var(--space-4); }
+  :root { --gutter: var(--space-4); }
+  .band { padding: var(--space-16) 0; }
+  .lot + .lot { margin-top: var(--space-16); }
+  h2 { font-size: 29px; }
+  .head p { font-size: 19px; }
+  .hero { padding: var(--space-2) var(--space-2) 0; }
+  .hero-card { border-radius: 20px; min-height: 92svh; }
+  .nav { padding: var(--space-4); }
   .wordmark b { font-size: 26px; }
   .wordmark span { font-size: 9px; letter-spacing: .2em; }
-  main { padding: var(--space-6) var(--space-4) var(--space-16); }
-  h1 { font-size: 34px; }
-  .uc-sub { font-size: 19px; }
-  .btn-row { flex-direction: column; width: 100%; }
-  .btn { width: 100%; }
-  .foot-in { padding: 0 var(--space-4); }
+  .hero-copy { align-items: flex-start; text-align: left; justify-content: flex-end; padding: var(--space-6) var(--space-4) var(--space-16); }
+  .hero h1 { font-size: 38px; }
+  .hero-sub { font-size: 19px; }
+  .hero-ctas { width: 100%; }
+  .standin { left: var(--space-2); right: var(--space-2); bottom: var(--space-2); max-width: none; font-size: 12px; }
+  .plan { padding: var(--space-10) var(--space-4); }
+  .frame { padding: calc(var(--notch) + var(--space-4)); }
+  .quote blockquote { font-size: 23px; }
+  .trio { grid-template-columns: 1fr; }
+  .trio img:first-child { grid-row: auto; }
 }
+
+/* Hero picture: tall crop on phones */
+.hero-card > picture { position: absolute; inset: 0; z-index: -2; }
+.hero-card > picture img { width: 100%; height: 100%; object-fit: cover; }
+/* On the lot strip */
+.lot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.lot-card { display: flex; flex-direction: column; gap: var(--space-2); color: inherit; text-decoration: none; }
+.lot-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-photo); margin-bottom: var(--space-2); transition: transform .3s; }
+.lot-card:hover img { transform: scale(1.015); }
+.lot-card p { margin: 0; }
+.lot-card .go { color: var(--forest); font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .lot-card img { transition: none; } }
+.lot-grid figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-photo); }
+.lot-grid figcaption { margin-top: var(--space-2); font: 400 19px/1.35 var(--font-text-serif); color: var(--ink); }
+.lot-more { margin-top: var(--space-10); }
+.sources { margin-top: var(--space-6); font-size: 14px; line-height: 1.5; color: var(--ink-3); }
+.sources a { color: var(--ink-3); }
+@media (max-width: 900px) { .lot-grid { grid-template-columns: 1fr 1fr; gap: var(--space-4); } }
+@media (max-width: 640px) { .lot-grid { grid-template-columns: 1fr; gap: var(--space-10); } .lot-grid figcaption { font-size: 17px; } }
+
+/* ---------- Icons ---------- */
+.ic { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ic-badge { width: 48px; height: 48px; border-radius: 50%; background: var(--sage-pale); color: var(--forest); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.band--alt .ic-badge, .plan .ic-badge { background: var(--linen); }
+
+/* ---------- Every call to action sits centered ---------- */
+.btn-row { justify-content: center; }
+.cta-row { margin-top: var(--space-16); }
+
+/* ---------- Problem: one broad problem, three specific points ---------- */
+.problem-head { text-align: center; max-width: 880px; margin: 0 auto var(--space-16); }
+.problem-head p { margin: var(--space-4) auto 0; max-width: 38em; font-size: 21px; line-height: 1.55; }
+.pains { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-10); }
+.pains li { display: flex; gap: var(--space-6); align-items: flex-start; }
+.pains h3 { margin-bottom: var(--space-2); }
+
+/* ---------- Icon lists ---------- */
+.proof { gap: var(--space-4); }
+.proof li { padding-left: 0; display: flex; gap: var(--space-4); align-items: center; }
+.proof li::before { content: none; }
+.icon-points > div { display: flex; gap: var(--space-4); align-items: flex-start; border-top: 0; padding-top: 0; }
+.steps li::before { content: none; }
+.steps .ic-badge { margin-bottom: var(--space-2); }
+.step-n { display: block; font: 400 40px/1 var(--font-display); color: var(--clay); margin: var(--space-2) 0 var(--space-1); }
+.plan-photo { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: var(--radius-photo); margin: var(--space-6) 0 var(--space-4); }
+.split--top { align-items: start; }
+
+/* ---------- Closing band on a photo ---------- */
+.closing--photo { position: relative; isolation: isolate; overflow: hidden; background: var(--forest-deep); color: var(--on-forest); }
+.closing--photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.closing--photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(14,22,18,.74); }
+.closing--photo h2 { color: var(--on-forest); }
+.closing--photo p { color: rgba(246,245,240,.94); }
+.closing--photo .btn--primary { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+.closing--photo .btn--primary:hover { background: #fff; border-color: #fff; }
+.closing--photo .btn--secondary { color: var(--on-forest); border-color: rgba(246,245,240,.8); }
+.closing--photo .btn--secondary:hover { background: rgba(246,245,240,.12); }
+@media (max-width: 640px) {
+  .hero-copy { align-items: center; text-align: center; }
+  .problem-head p { font-size: 19px; }
+  .pains li { gap: var(--space-4); }
+}
+
+/* ---------- Reviews ---------- */
+.reviews { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+.review { margin: 0; padding: var(--space-10); background: var(--linen-2); border-radius: var(--radius-photo); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-6); }
+.review blockquote { margin: 0; font: italic 400 22px/1.45 var(--font-text-serif); color: var(--ink); text-wrap: pretty; }
+.review figcaption { margin: 0; font: 600 15px/1.3 var(--font-body); color: var(--stone); }
+@media (max-width: 640px) { .reviews { grid-template-columns: 1fr; gap: var(--space-4); } .review { padding: var(--space-6); } .review blockquote { font-size: 19px; } }
+
+/* ---------- Centered icon rows (matches the About page) ---------- */
+.svc3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10); margin-top: var(--space-16); }
+.svc3 > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+.svc3 .ic-badge { width: 72px; height: 72px; margin-bottom: var(--space-2); }
+.svc3 .ic { width: 32px; height: 32px; }
+.svc3 p { margin: 0; max-width: 32ch; }
+.band--alt .svc3 .ic-badge { background: var(--linen); }
+.split--short img { aspect-ratio: 4 / 3; }
+.split-text p { margin-top: var(--space-4); font-size: 21px; line-height: 1.55; max-width: 34em; }
+.plan > h2 { text-align: center; }
+.steps li { align-items: center; text-align: center; }
+.proof { grid-template-columns: 1fr 1fr; gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.proof li { flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+@media (max-width: 900px) { .svc3 { grid-template-columns: 1fr; gap: var(--space-16); } }
+@media (max-width: 640px) { .split-text p { font-size: 19px; } .proof { grid-template-columns: 1fr; } }
+.foot-tag { margin-top: var(--space-4); font: italic 400 20px/1.4 var(--font-text-serif); color: var(--on-forest); }
+/* ---------- Static background gradients ----------
+   Glows sit at mid-height on the left or right edge and fade out before the
+   top and bottom, so no glow ever meets the next section at a seam. */
+.band { background:
+  radial-gradient(60% 50% at 0% 50%, rgba(180,204,184,.7), transparent 100%),
+  radial-gradient(45% 40% at 100% 50%, rgba(238,222,204,.55), transparent 100%),
+  var(--linen); }
+.band--alt { background:
+  radial-gradient(60% 50% at 100% 50%, rgba(180,204,184,.85), transparent 100%),
+  radial-gradient(45% 40% at 0% 50%, rgba(238,222,204,.5), transparent 100%),
+  var(--linen-2); }
+.band + .band { border-top: 0; }
+.closing--photo { background: var(--forest-deep); }
+.review { background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 24px -14px rgba(28,36,31,.25); }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GardenStore",
+  "name": "Amanda's Villa Landscaping and Garden Center",
+  "telephone": "+1-870-489-5463",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7901 Dollarway Road",
+    "addressLocality": "White Hall",
+    "addressRegion": "AR",
+    "postalCode": "71602",
+    "addressCountry": "US"
+  },
+  "areaServed": "Arkansas"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How big are the pots?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They run from a three-inch pot for a windowsill to one big enough for a hotel lobby."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many pots do you carry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Around two hundred are on the lot at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sell bird baths and fountains?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, along with concrete planters, garden statues, hummingbird feeders and seasonal decor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help me pick a plant for the pot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Say where the pot is going, and someone on the lot will suggest plants for that light."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<header class="uc-nav">
-  <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
-  <ul class="uc-links">
-    <li><a href="../../landscaping/">Landscaping</a></li>
-    <li><a href="../../hardscape/">Hardscape</a></li>
-    <li><a href="../../garden-center/">Garden Center</a></li>
-    <li><a href="../../about/">About</a></li>
-  </ul>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-leaf" viewBox="0 0 24 24"><svg class="lucide lucide-leaf" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" /> <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></symbol>
+<symbol id="i-frown" viewBox="0 0 24 24"><svg class="lucide lucide-frown" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="M16 16s-1.5-2-4-2-4 2-4 2" /> <line x1="9" x2="9.01" y1="9" y2="9" /> <line x1="15" x2="15.01" y1="9" y2="9" /></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><svg class="lucide lucide-store" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /> <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /> <path d="M2 7h20" /> <path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><svg class="lucide lucide-truck" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></symbol>
+<symbol id="i-shovel" viewBox="0 0 24 24"><svg class="lucide lucide-shovel" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2 22v-5l5-5 5 5-5 5z" /> <path d="M9.5 14.5 16 8" /> <path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5L17 2" /></symbol>
+<symbol id="i-hand-heart" viewBox="0 0 24 24"><svg class="lucide lucide-hand-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" /> <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /> <path d="m2 15 6 6" /> <path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" /></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><svg class="lucide lucide-star" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><svg class="lucide lucide-camera" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /> <circle cx="12" cy="13" r="3" /></symbol>
+<symbol id="i-sprout" viewBox="0 0 24 24"><svg class="lucide lucide-sprout" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 20h10" /> <path d="M10 20c5.5-2.5.8-6.4 3-10" /> <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /> <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" /></symbol>
+
+<symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol>
+<symbol id="i-mountain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+<symbol id="i-cloud-rain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24M16 14v6M8 14v6M12 16v6"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9M18 15l4-4M21.5 11.5l-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></g></symbol>
+</svg>
+
+<header class="hero">
+  <div class="hero-card">
+    <picture>
+      <source media="(max-width: 640px)" srcset="../../img/garden-center/hero-woman-holding-terracotta-pot-tall.jpg">
+      <img width="1600" height="900" src="../../img/garden-center/hero-woman-holding-terracotta-pot-wide.jpg" alt="A smiling woman holding a plant in a terracotta pot" fetchpriority="high">
+    </picture>
+    <nav class="nav" aria-label="Main">
+      <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
+      <ul class="nav-links">
+        <li><a href="../../landscaping/">Landscaping</a></li>
+        <li><a href="../../hardscape/">Hardscape</a></li>
+        <li><a href="../../garden-center/" aria-current="page">Garden Center</a></li>
+        <li><a href="../../about/">About</a></li>
+      </ul>
+      <a class="btn btn--onphoto" href="tel:+18704895463">Call (870) 489-5463</a>
+      <details>
+        <summary>Menu</summary>
+        <ul>
+          <li><a href="../../landscaping/">Landscaping</a></li>
+          <li><a href="../../hardscape/">Hardscape</a></li>
+          <li><a href="../../garden-center/">Garden Center</a></li>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="tel:+18704895463">Call (870) 489-5463</a></li>
+        </ul>
+      </details>
+    </nav>
+    <div class="hero-copy">
+      <h1>Flower Pots, Planters and Garden <em>Decor</em></h1>
+      <p class="hero-sub">Clay, ceramic, glazed, Talavera and aluminum pots, from a three-inch windowsill pot to one big enough for a hotel lobby.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--onphoto" href="../../contact/#directions">Visit the garden center</a>
+        <a class="btn btn--ghost" href="tel:+18704895463">Call (870) 489-5463</a>
+      </div>
+      <p class="hero-meta">7901 Dollarway Road, White Hall · <span class="todo">Hours</span></p>
+    </div>
+    <p class="standin">Stand-in photo. The final hero shows a customer choosing a pot on the lot, still to be shot.</p>
+  </div>
 </header>
 
 <main>
-  <svg class="uc-art" viewBox="0 56 600 194" role="img" aria-label="A cross-section of a paver walkway being built: the ground is dug out, a packed gravel base and a fine base go in, then the pavers are set one by one and a sprout grows beside them.">
-    <defs>
-      <pattern id="gravel" width="14" height="12" patternUnits="userSpaceOnUse">
-        <rect width="14" height="12" fill="var(--gravel)"/>
-        <circle cx="3" cy="3" r="2.2" fill="var(--gravel-dot)"/>
-        <circle cx="10" cy="8" r="2.6" fill="var(--gravel-dot)"/>
-        <circle cx="12" cy="2" r="1.4" fill="#a4a19a"/>
-        <circle cx="5" cy="9.5" r="1.3" fill="#a4a19a"/>
-      </pattern>
-    </defs>
-    <rect class="soil" x="0" y="134" width="600" height="116" rx="10"/>
-    <rect class="grass" x="0" y="128" width="88" height="10" rx="5"/>
-    <rect class="grass" x="508" y="128" width="92" height="10" rx="5"/>
-    <rect class="dig" x="88" y="134" width="420" height="100"/>
-    <rect class="gravel" x="88" y="172" width="420" height="62"/>
-    <text class="lbl" x="298" y="208" text-anchor="middle">8 to 10 inches of packed gravel</text>
-    <rect class="base" x="88" y="156" width="420" height="16"/>
-      <rect class="uc-paver" style="--i:0" x="92" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:1" x="144" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:2" x="196" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:3" x="248" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:4" x="300" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:5" x="352" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:6" x="404" y="134" width="48" height="22" rx="2"/>
-      <rect class="uc-paver" style="--i:7" x="456" y="134" width="48" height="22" rx="2"/>
-    <path class="stem" d="M556 128 C556 110 552 100 556 84"/>
-    <path class="leaf leaf--l" d="M555 98 C540 98 532 88 532 80 C544 80 554 86 555 98Z"/>
-    <path class="leaf leaf--r" d="M557 88 C560 76 570 70 580 70 C580 80 570 88 557 88Z"/>
-  </svg>
 
-  <h1>The Pottery and Decor page is still being built</h1>
-  <p class="uc-sub">Base first, then the pavers. This page is still at the gravel stage.</p>
-
-  <div class="btn-row">
-    <a class="btn btn--primary" href="tel:+18704895463">Call (870) 489-5463</a>
-    <a class="btn btn--secondary" href="../../hardscape/">See the Hardscape page</a>
-    <a class="btn btn--secondary" href="../../garden-center/">See the Garden Center page</a>
+<!-- PROBLEM: one broad problem, then external, internal and philosophical -->
+<section class="band">
+  <div class="wrap">
+    <div class="split split--short">
+      <div class="split-text">
+        <h2>Too many porches and patios look bare</h2>
+        <p>A plant sits in its plastic nursery pot for months, and the front steps never look finished. When a home has nothing out front:</p>
+      </div>
+      <figure class="split-media">
+        <img width="1100" height="1375" src="../../img/pottery-talavera-pumpkin-amandas-villa.jpg" alt="A hand-painted Talavera ceramic pumpkin among fall decor at Amanda&#x27;s Villa Garden Center" loading="lazy">
+      </figure>
+    </div>
+    <div class="svc3">
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><h3>The front of the house looks empty</h3><p>Bare steps and an empty patio make even a well-kept house look unlived in.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><h3>Decorating feels like guesswork</h3><p>It's hard to picture which pot suits the plant, the porch and the house, so nothing changes.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></span><h3>A home should welcome people at the door</h3><p>A good pot with a healthy plant in it says someone cares about this place.</p></div>
+    </div>
+    <div class="btn-row cta-row">
+      <a class="btn btn--primary" href="../../contact/#directions">Visit the garden center</a>
+      <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+    </div>
   </div>
-  <a class="uc-back" href="../../garden-center/">Back to the Garden Center</a>
+</section>
+
+<!-- GUIDE -->
+<section class="band band--alt">
+  <div class="wrap split split--flip">
+    <figure class="split-media">
+      <img width="1100" height="825" src="../../img/garden-center/talavera-and-ceramic-pottery-aisle-amandas-villa.jpg" alt="An aisle of Talavera and ceramic pottery lined with blooming annuals at Amanda&#x27;s Villa Garden Center" loading="lazy">
+    </figure>
+    <div>
+      <h2>Around two hundred pots on the lot at any time</h2>
+      <div class="prose" style="margin-top: var(--space-6)">
+        <p>Amanda's Villa keeps a full pottery yard beside the plants, so a pot and the plant for it can be chosen together. The people on the lot will help match the size, the color and the light.</p>
+      </div>
+      <ul class="proof">
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg></span><span>Clay, ceramic, glazed, Talavera and aluminum pots</span></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg></span><span>Plants for the pot are a few steps away</span></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><span>Concrete planters, bird baths, fountains and garden statues</span></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hand-heart"/></svg></span><span>Help matching a pot to the plant, the porch and the light</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ON THE LOT -->
+<section class="band band--alt">
+  <div class="wrap">
+    <div class="split split--top">
+      <div>
+        <h2>Talavera pottery, large outdoor planters and garden statues</h2>
+        <div class="prose" style="margin-top: var(--space-6)"><p>A few of the things in the pottery yard. Decor changes with the season, so the lot looks different every visit.</p></div>
+      </div>
+      <div>
+        <ul class="plantlist">
+        <li><b>Clay and glazed ceramic pots</b><span>From a three-inch pot for a windowsill up to large outdoor planters.</span></li>
+        <li><b>Talavera pottery</b><span>Hand-painted pots and pieces in bright colors.</span></li>
+        <li><b>Aluminum planters</b><span>Light, weatherproof planters for a porch or patio.</span></li>
+        <li><b>Concrete urns and planters</b><span>Heavy, classic planters for an entry or a garden bed.</span></li>
+        <li><b>Bird baths and fountains</b><span>A focal point for a bed, and a stop for the birds.</span></li>
+        <li><b>Garden statues and yard art</b><span>Statues, metal frogs and butterflies, hummingbird feeders, Razorback signs and seasonal decor.</span></li>
+        </ul>
+        <p class="note">Call ahead if you need a particular size or a matching pair.</p>
+      </div>
+    </div>
+    <div class="lot-grid">
+      <figure><img width="1100" height="825" src="../../img/garden-center/glazed-ceramic-pots-and-landscape-mulch-piles-amandas-villa.jpg" alt="Glazed ceramic pots and planters in the yard at Amanda&#x27;s Villa" loading="lazy"><figcaption>Glazed ceramic pots</figcaption></figure>
+      <figure><img width="1031" height="1375" src="../../img/garden-center/concrete-garden-statue-amandas-villa.jpg" alt="A concrete garden statue among pansies and pumpkins at Amanda&#x27;s Villa Garden Center" loading="lazy"><figcaption>Garden statues</figcaption></figure>
+      <figure><img width="1100" height="1375" src="../../img/pottery-frogs-planters-amandas-villa.jpg" alt="Painted metal frog garden ornaments beside purple and blue ceramic planters at Amanda&#x27;s Villa Garden Center" loading="lazy"><figcaption>Yard art and planters</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS: verbatim Google reviews, first name and last initial only -->
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <h2>What customers say about Amanda's Villa</h2>
+    </div>
+    <div class="reviews">
+      <figure class="review">
+        <blockquote><p>"Shop here before anywhere else. They have it all with fair prices and a very helpful staff."</p></blockquote>
+        <figcaption>Carl C., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Great selection of healthy plants and shrubs at reasonable prices. Bulk mulch and other landscaping supplies. Friendly and helpful personnel. Worth visiting."</p></blockquote>
+        <figcaption>C. C., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Amanda went above and beyond to help me work something out for my Mother&#x27;s day gift all the way from Texas. So so so helpful! My mother said she had great plant choices."</p></blockquote>
+        <figcaption>C. F., Google review</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote><p>"Amanda always has the best variety and most reasonable prices around. I love going there!!"</p></blockquote>
+        <figcaption>Sara M., Google review</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="band">
+  <div class="wrap">
+    <div class="plan">
+      <h2>How to dress up the porch in one trip</h2>
+      <img width="1500" height="643" class="plan-photo" src="../../img/plan-fall-planters-amandas-villa.jpg" alt="Potted lantana, pansies, ornamental kale and peppers ready to take home at Amanda&#x27;s Villa Garden Center" loading="lazy">
+      <ol class="steps">
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Come visit</h3><p>Stop by the lot at 7901 Dollarway Road in White Hall. Bring a photo of the porch or patio.</p></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Pick a pot and a plant</h3><p>Choose them together, so the size, color and light all match.</p></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Set it out</h3><p>Put it by the door and enjoy a porch that looks lived in.</p></li>
+      </ol>
+      <div class="btn-row">
+      <a class="btn btn--primary" href="../../contact/#directions">Visit the garden center</a>
+      <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS AND FAILURE -->
+<section class="band band--alt">
+  <div class="wrap split">
+    <div>
+      <h2>A front porch that welcomes people home</h2>
+      <div class="prose" style="margin-top: var(--space-6)">
+        <p>Picture a pair of glazed pots by the front door, a bird bath in the bed and a Talavera piece on the patio table. Guests notice, and coming home feels better.</p>
+        <p>Without it, too many porches stay bare, with a nursery pot or two that never made it into anything nicer.</p>
+      </div>
+    </div>
+    <figure class="split-media">
+      <img width="1031" height="1375" src="../../img/garden-center/concrete-urns-pottery-and-topiary-trees-amandas-villa.jpg" alt="Concrete urns, stoneware pots and topiary trees at Amanda&#x27;s Villa" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- EXPLANATORY PARAGRAPH -->
+<section class="band">
+  <div class="wrap split split--flip">
+    <figure class="split-media">
+      <img width="1100" height="825" src="../../img/garden-center/halloween-yard-decor-and-stacked-pumpkin-planters-amandas-villa.jpg" alt="Halloween yard signs, sunflowers and stacked pumpkins in green planters by the garden center porch at Amanda&#x27;s Villa" loading="lazy">
+    </figure>
+    <div>
+      <h2>Flower pots, bird baths and garden decor for Arkansas homes</h2>
+      <div class="prose" style="margin-top: var(--space-6)">
+        <p>Many Arkansas homeowners want a porch and patio that feel finished, but finding the right flower pots and garden decor in one place is hard. Amanda's Villa keeps about two hundred pots on Dollarway Road in White Hall, with Talavera pottery, large outdoor planters, bird baths, fountains and garden statues beside them.</p>
+        <p>Pick a pot and a plant together, set them out, and enjoy a home that welcomes people at the door.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <h2>Questions about pottery and garden decor</h2>
+    </div>
+    <div class="split split--top">
+    <div class="faq">
+      <details><summary>How big are the pots?</summary><div><p>They run from a three-inch pot for a windowsill to one big enough for a hotel lobby.</p></div></details>
+      <details><summary>How many pots do you carry?</summary><div><p>Around two hundred are on the lot at any time.</p></div></details>
+      <details><summary>Do you sell bird baths and fountains?</summary><div><p>Yes, along with concrete planters, garden statues, hummingbird feeders and seasonal decor.</p></div></details>
+      <details><summary>Can you help me pick a plant for the pot?</summary><div><p>Yes. Say where the pot is going, and someone on the lot will suggest plants for that light.</p></div></details>
+      <details><summary>What are your hours?</summary><div><p><span class="todo">Hours.</span> The garden center is at 7901 Dollarway Road, White Hall.</p></div></details>
+    </div>
+    <figure class="split-media">
+      <img width="1100" height="1375" src="../../img/problem-fall-planters-amandas-villa.jpg" alt="Fall planters of pansies and ornamental cabbage beside a wooden scarecrow at Amanda&#x27;s Villa" loading="lazy">
+    </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="band closing closing--photo">
+  <img width="2000" height="1250" src="../../img/hero-storefront-amandas-villa.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <h2>Pick the pot and the plant together.</h2>
+    <p>7901 Dollarway Road, White Hall, Arkansas · (870) 489-5463 · <span class="todo">Hours</span></p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="../../contact/#directions">Visit the garden center</a>
+      <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="foot">
-  <div class="foot-in">
-    <span>Amanda's Villa Landscaping and Garden Center · 7901 Dollarway Road, White Hall, AR 71602</span>
-    <a href="tel:+18704895463">(870) 489-5463</a>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center · White Hall, Arkansas</span></a>
+        <p class="foot-tag">Together, plant the space your yard deserves.</p>
+      </div>
+      <ul>
+        <li><a href="../../landscaping/">Landscaping</a></li>
+        <li><a href="../../hardscape/">Hardscape</a></li>
+        <li><a href="../../garden-center/">Garden Center</a></li>
+        <li><a href="../../about/">About</a></li>
+      </ul>
+      <ul>
+        <li>7901 Dollarway Road<br>White Hall, AR 71602</li>
+        <li><a href="tel:+18704895463">(870) 489-5463</a></li>
+        <li><span class="todo">Hours</span></li>
+      </ul>
+    </div>
+    <small>© 2026 Amanda's Villa Landscaping and Garden Center.</small>
   </div>
 </footer>
 
-<script>
-(function () {
-  var art = document.querySelector('.uc-art'); if (!art) return;
-  var stages = ['s-dug', 's-gravel', 's-base', 's-pavers', 's-sprout'];
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    art.classList.add.apply(art.classList, stages); return;
-  }
-  var times = [500, 1300, 2600, 3300, 5000];
-  function run() {
-    art.classList.remove.apply(art.classList, stages);
-    times.forEach(function (t, i) { setTimeout(function () { art.classList.add(stages[i]); }, t); });
-    setTimeout(run, 9500);
-  }
-  run();
-})();
-</script>
 </body>
 </html>
