@@ -7,7 +7,7 @@ Amanda's Villa Landscaping and Garden Center in White Hall, Arkansas (owners Ama
 Plain HTML/CSS/JS. One folder per URL, all paths relative. Site files live at the repo root, not in `public/`, because the scripts in `tools/` are run from the root and write pages in place.
 
 ## Hosting
-- Cloudflare Worker `amandas-villa-site` in the Outset business Cloudflare account, connected to this repo.
+- Cloudflare Worker `amandas-villa-site` in the Outset business Cloudflare account, connected to this repo on 2026-10-12.
 - `wrangler.jsonc` publishes the repo root; `.assetsignore` keeps README.md, CLAUDE.md, wrangler.jsonc, tools/, CREDITS.md files and dotfiles off the website. Add any new non-site file there.
 - Live: `https://amandas-villa-site.jmgreen1361.workers.dev` (until the domain is connected)
 - Preview: `https://develop-amandas-villa-site.jmgreen1361.workers.dev`
