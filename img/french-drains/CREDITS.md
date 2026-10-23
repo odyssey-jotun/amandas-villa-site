@@ -1,9 +1,23 @@
 # Photo credits
 
-The build-step, value, plan, service, price, day-one, FAQ and closing photos are Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23).
+build-step-1 to build-step-7: Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23). They appear only in the build sequence so no photo repeats on the page.
 
-hero-kids-playing-backyard-lawn-wide.jpg / -tall.jpg
-- Katherine Hanlon, Unsplash photo -WGk8tfkMAw, Unsplash License. STAND-IN: replace with a client family in a dry yard.
+Stock (Pexels License, free to use, no attribution required; Pexels photo ID in brackets):
+- hero-couple-rain-boots-on-porch-wide.jpg / -tall.jpg [7728096]. STAND-IN: replace with a client couple or family at home.
+- value-drain-pipe-in-gravel-trench.jpg [37627673]
+- plan-1-homeowner-photographing-yard.jpg [7859133]
+- plan-2-level-survey-of-yard.jpg [7499043]
+- plan-3-shovel-breaking-ground.jpg [8993775]
+- service-rain-pouring-off-gutter.jpg [13307118]
+- service-rain-puddle-on-lawn.jpg [17401395]
+- service-stone-garden-wall.jpg [38843820]
+- service-stone-patio-garden.jpg [37785078]
+- price-drain-outlet-over-gravel.jpg [14179928]
+- day-one-shovel-in-fresh-trench.jpg [32938383]
+- area-brick-home-green-lawn.jpg [31602311]
+- faq-rain-from-the-porch.jpg [38745015]
+- closing-backyard-lawn-and-patio.jpg [17240696]
+- card-drainage-trench-with-gravel.jpg [37627672] (French drain card on the Hardscape page)
 
-problem-rainwater-pooled-on-lawn.jpg
-- Yura Stroganov, Unsplash photo yv1ul25rLz0, Unsplash License.
+Stock (Unsplash License):
+- problem-rainwater-pooled-on-lawn.jpg: Yura Stroganov, Unsplash photo yv1ul25rLz0.
