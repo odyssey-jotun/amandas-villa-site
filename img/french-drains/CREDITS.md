@@ -3,7 +3,6 @@
 build-step-1 to build-step-7: Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23). They appear only in the numbered build carousel so no photo repeats on the page.
 
 Stock (Pexels License, free to use, no attribution required; Pexels photo ID in brackets):
-- hero-drain-pipe-in-gravel-trench-wide.jpg / -tall.jpg [37627673]
 - value-dry-backyard-lawn-and-patio.jpg [15369750]
 - service-rain-pouring-off-gutter.jpg [13307118]
 - service-rain-puddle-on-lawn.jpg [17401395]
@@ -17,4 +16,5 @@ Stock (Pexels License, free to use, no attribution required; Pexels photo ID in 
 - card-drainage-trench-with-gravel.jpg [37627672] (French drain card on the Hardscape page)
 
 Stock (Unsplash License):
+- hero-drainage-line-through-lawn-wide.jpg / -tall.jpg: Lilishia Gounder, Unsplash photo hnbF920leGM.
 - problem-rainwater-pooled-on-lawn.jpg: Yura Stroganov, Unsplash photo yv1ul25rLz0.

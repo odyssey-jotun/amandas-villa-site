@@ -549,6 +549,11 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   .cf--steps .cf-dots { display: flex; }
 }
 @media (max-width: 640px) { .cf--steps .cf-title { font-size: 22px; } .cf--steps .cf-text { font-size: 17px; min-height: 4.8em; } }
+/* ---------- French drains: darker scrim and a soft shadow so the hero headline reads over the lawn ---------- */
+@media (min-width: 641px) {
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,.3) 20%, rgba(14,22,18,.5) 42%, rgba(14,22,18,.8) 66%, rgba(14,22,18,.9) 100%); }
+  .hero-copy h1, .hero-sub, .hero-meta { text-shadow: 0 2px 18px rgba(10,16,13,.6); }
+}
 /* ---------- French drains: the three-step plan runs on icons, no photos ---------- */
 .plan .steps .ic-badge { width: 72px; height: 72px; background: var(--linen); }
 .plan .steps .ic { width: 32px; height: 32px; }
@@ -616,8 +621,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <header class="hero">
   <div class="hero-card">
     <picture>
-      <source media="(max-width: 640px)" srcset="../../img/french-drains/hero-drain-pipe-in-gravel-trench-tall.jpg">
-      <img width="1800" height="1125" src="../../img/french-drains/hero-drain-pipe-in-gravel-trench-wide.jpg" alt="A perforated French drain pipe bedded in gravel at the bottom of a freshly dug trench" fetchpriority="high">
+      <source media="(max-width: 640px)" srcset="../../img/french-drains/hero-drainage-line-through-lawn-tall.jpg">
+      <img width="1800" height="1125" src="../../img/french-drains/hero-drainage-line-through-lawn-wide.jpg" alt="A drainage line curving through a green lawn beside tall ornamental grasses" fetchpriority="high">
     </picture>
     <nav class="nav" aria-label="Main">
       <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
