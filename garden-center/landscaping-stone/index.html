@@ -378,7 +378,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 }
 </script>
 <style id="site-nav">
-/* Menu: Garden Center dropdown, Contact tab, phone menu sub-items, four-column footer.
+/* Menu: Hardscape and Garden Center dropdowns, Contact tab, phone menu sub-items, four-column footer.
    Written by tools/site_nav.py; edit there, not here. */
 .nav-links .nav-drop { display: block; position: relative; }
 .nav-links a, .nav-drop summary, .nav .btn--onphoto, .nav .wordmark span { white-space: nowrap; }
@@ -466,7 +466,15 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
       <ul class="nav-links">
         <li><a href="../../landscaping/">Landscaping</a></li>
-        <li><a href="../../hardscape/">Hardscape</a></li>
+        <li>
+          <details class="nav-drop">
+            <summary>Hardscape</summary>
+            <ul>
+            <li><a href="../../hardscape/">Hardscape overview</a></li>
+            <li><a href="../../hardscape/french-drains/">French drains</a></li>
+            </ul>
+          </details>
+        </li>
         <li>
           <details class="nav-drop is-current">
             <summary>Garden Center</summary>
@@ -488,6 +496,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <ul>
           <li><a href="../../landscaping/">Landscaping</a></li>
           <li><a href="../../hardscape/">Hardscape</a></li>
+          <li><a class="sub" href="../../hardscape/french-drains/">French drains</a></li>
           <li><a href="../../garden-center/">Garden Center</a></li>
           <li><a class="sub" href="../../garden-center/plants-shrubs-trees/">Plants, shrubs and trees</a></li>
           <li><a class="sub" href="../../garden-center/landscaping-stone/">Landscaping stone</a></li>
@@ -698,6 +707,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <ul>
         <li><a href="../../landscaping/">Landscaping</a></li>
         <li><a href="../../hardscape/">Hardscape</a></li>
+        <li><a href="../../hardscape/french-drains/">French drains</a></li>
         <li><a href="../../garden-center/">Garden Center</a></li>
         <li><a href="../../about/">About</a></li>
         <li><a href="../../contact/">Contact</a></li>
@@ -719,7 +729,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </footer>
 
 <script id="site-nav-js">
-// Close the Garden Center dropdown on an outside click or Escape.
+// Close the menu dropdowns on an outside click or Escape.
 (function () {
   var drops = document.querySelectorAll('.nav-drop');
   document.addEventListener('click', function (e) {

@@ -4,9 +4,9 @@
 Run from the repo root:  python3 tools/site_nav.py
 (tools/build-pages.py also runs it after generating its pages.)
 
-To add a page to the Garden Center dropdown once it's built, add it to
-GARDEN_CENTER below and run this script. Under-construction pages stay out
-of the menu on purpose.
+To add a page to the Hardscape or Garden Center dropdown once it's built,
+add it to HARDSCAPE or GARDEN_CENTER below and run this script.
+Under-construction pages stay out of the menu on purpose.
 """
 import os
 import re
@@ -19,6 +19,9 @@ TEL = "tel:+18704895463"
 # Folder paths, relative to the site root
 TOP = [("landscaping/", "Landscaping"), ("hardscape/", "Hardscape"), ("garden-center/", "Garden Center"),
        ("about/", "About"), ("contact/", "Contact")]
+HARDSCAPE = [
+    ("hardscape/french-drains/", "French drains"),
+]
 GARDEN_CENTER = [
     ("garden-center/plants-shrubs-trees/", "Plants, shrubs and trees"),
     ("garden-center/landscaping-stone/", "Landscaping stone"),
@@ -27,10 +30,17 @@ GARDEN_CENTER = [
 ]
 
 # Every page that carries the full menu
-PAGES = ["", "landscaping/", "hardscape/", "garden-center/", "about/", "contact/"] + [u for u, _ in GARDEN_CENTER]
+PAGES = (["", "landscaping/", "hardscape/", "garden-center/", "about/", "contact/"]
+         + [u for u, _ in HARDSCAPE] + [u for u, _ in GARDEN_CENTER])
+
+# Top-level items that open a dropdown: (overview label, sub-pages)
+DROPDOWNS = {
+    "hardscape/": ("Hardscape overview", HARDSCAPE),
+    "garden-center/": ("Garden Center overview", GARDEN_CENTER),
+}
 
 CSS = """<style id="site-nav">
-/* Menu: Garden Center dropdown, Contact tab, phone menu sub-items, four-column footer.
+/* Menu: Hardscape and Garden Center dropdowns, Contact tab, phone menu sub-items, four-column footer.
    Written by tools/site_nav.py; edit there, not here. */
 .nav-links .nav-drop { display: block; position: relative; }
 .nav-links a, .nav-drop summary, .nav .btn--onphoto, .nav .wordmark span { white-space: nowrap; }
@@ -65,7 +75,7 @@ CSS = """<style id="site-nav">
 </style>"""
 
 JS = """<script id="site-nav-js">
-// Close the Garden Center dropdown on an outside click or Escape.
+// Close the menu dropdowns on an outside click or Escape.
 (function () {
   var drops = document.querySelectorAll('.nav-drop');
   document.addEventListener('click', function (e) {
@@ -87,17 +97,16 @@ def nav_html(page):
     p = prefix_for(page)
     home = p or "./"
     cur = ' aria-current="page"'
-    in_gc = page.startswith("garden-center/")
-
     links = []
     for u, t in TOP:
-        if u == "garden-center/":
-            items = [(u, "Garden Center overview")] + GARDEN_CENTER
+        if u in DROPDOWNS:
+            overview, subs = DROPDOWNS[u]
+            items = [(u, overview)] + subs
             sub = "\n".join(
                 f'            <li><a href="{p}{su}"{cur if su == page else ""}>{st}</a></li>' for su, st in items)
             links.append(f"""        <li>
-          <details class="nav-drop{' is-current' if in_gc else ''}">
-            <summary>Garden Center</summary>
+          <details class="nav-drop{' is-current' if page.startswith(u) else ''}">
+            <summary>{t}</summary>
             <ul>
 {sub}
             </ul>
@@ -109,8 +118,8 @@ def nav_html(page):
     menu = []
     for u, t in TOP:
         menu.append(f'          <li><a href="{p}{u}">{t}</a></li>')
-        if u == "garden-center/":
-            menu += [f'          <li><a class="sub" href="{p}{su}">{st}</a></li>' for su, st in GARDEN_CENTER]
+        if u in DROPDOWNS:
+            menu += [f'          <li><a class="sub" href="{p}{su}">{st}</a></li>' for su, st in DROPDOWNS[u][1]]
     menu.append(f'          <li><a href="{TEL}">Call {PHONE}</a></li>')
 
     links_s = "\n".join(links)
@@ -133,7 +142,7 @@ def nav_html(page):
 def footer_html(page):
     p = prefix_for(page)
     home = p or "./"
-    site = "\n".join(f'        <li><a href="{p}{u}">{t}</a></li>' for u, t in TOP)
+    site = "\n".join(f'        <li><a href="{p}{u}">{t}</a></li>' for u, t in TOP[:2] + HARDSCAPE + TOP[2:])
     gc = "\n".join(f'        <li><a href="{p}{u}">{t}</a></li>' for u, t in GARDEN_CENTER)
     return f"""<footer class="foot">
   <div class="wrap">
