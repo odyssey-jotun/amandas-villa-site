@@ -35,7 +35,7 @@ SITES = [
     {
         "desc": "White painted-brick house with a tall chimney",
         "when": "June 2025", "from": COLTON,
-        "check": "Which town? Is IMG_3297 the finished walk? It has no date on file.",
+        "check": "Which town? Is IMG_3297 the finished walk?",
         "projects": [("Curved front walk: flagstone set in gravel with a paver border", [
             ("colton-oct5--IMG_1493", "IMG_1493", "Jun 20, 2025", "Walk dug out to the porch"),
             ("colton-oct5--IMG_1516", "IMG_1516", "Jun 23, 2025", "Gravel base down, paver border set"),
@@ -58,7 +58,7 @@ SITES = [
     {
         "desc": "Black board-and-batten farmhouse on open land",
         "when": "April to May 2026", "from": COLTON,
-        "check": "Which town? Is 1000004878 (no date on file) this same house?",
+        "check": "Which town? Is 1000004878 this same house?",
         "projects": [("Raised paver walk, retaining walls, steps and new beds", [
             ("colton-oct5--IMG_4635", "IMG_4635", "Apr 20, 2026", "Before: front yard and porch"),
             ("colton-oct5--IMG_4639", "IMG_4639", "Apr 20, 2026", "Before: the beds by the garage"),
@@ -82,7 +82,7 @@ SITES = [
     {
         "desc": "Backyard with a brick garage and a white arbor",
         "when": "April to June 2026", "from": COLTON,
-        "check": "Which town? Are the two April photos the same yard before the job?",
+        "check": "Which town? Are the two before photos (IMG_4506 and IMG_4519) the same yard?",
         "projects": [("Herringbone brick patio and paths with new beds", [
             ("colton-oct5--IMG_4506", "IMG_4506", "Apr 7, 2026", "Before: old brick edging along the house"),
             ("colton-oct5--IMG_4519", "IMG_4519", "Apr 7, 2026", "Before: the yard and the arbor by the garage"),
@@ -119,7 +119,7 @@ SITES = [
     {
         "desc": "Wooded hillside lot with a brick house",
         "when": "July to October 2026", "from": "Colton's phone and the drone",
-        "check": "Which town? Is this the Hot Springs hillside job? Are the July and August slope photos this site?",
+        "check": "Which town? Is this the Hot Springs hillside job? Are the bare slope photos (IMG_5663 and IMG_5797) this site?",
         "projects": [("Hillside retaining walls, block steps, patio and boulder steps", [
             ("drive-oct8--IMG_5663", "IMG_5663", "Jul 28, 2026", "Before: bare slope by the fence"),
             ("drive-oct8--IMG_5797", "IMG_5797", "Aug 20, 2026", "Excavator grading the slope"),
@@ -279,7 +279,7 @@ def figure(photo, where):
     src, label, date, cap = photo
     name = slug(src)
     w, h = Image.open(f"{OUT}/img/thumb/{name}.jpg").size
-    meta = f"{label} · {date}" if date else label
+    meta = label  # dates stay in SITES for ordering; Marc asked to leave them off the page
     return (f'<li><button type="button" class="ph" data-full="img/{name}.jpg" data-where="{esc(where)}" '
             f'data-cap="{esc(cap)}" data-meta="{esc(meta)}" aria-label="Enlarge: {esc(cap)}">'
             f'<img src="img/thumb/{name}.jpg" width="{w}" height="{h}" alt="{esc(cap)}" loading="lazy" decoding="async"></button>'
@@ -299,7 +299,7 @@ def build():
         photo_count += count
         parts = [f'<section class="site" id="site-{i}" data-name="Site {i}" data-desc="{esc(s["desc"])}">',
                  f'<div class="site-head"><h2>Site {i}</h2><p class="desc">{esc(s["desc"])}</p>',
-                 f'<p class="facts">{count} photo{"s" if count > 1 else ""} · {esc(s["when"])} · {esc(s["from"])}</p></div>']
+                 f'<p class="facts">{count} photo{"s" if count > 1 else ""} · {esc(s["from"])}</p></div>']
         titles = []
         for title, photos in s["projects"]:
             project_no += 1
@@ -318,7 +318,7 @@ def build():
     body.append("\n".join([
         f'<section class="site" id="misc" data-name="Miscellaneous" data-desc="{esc(m["desc"])}">',
         f'<div class="site-head"><h2>Miscellaneous</h2><p class="desc">{esc(m["desc"])}</p>',
-        f'<p class="facts">{len(m["photos"])} photos · No dates · {esc(m["from"])}</p></div>',
+        f'<p class="facts">{len(m["photos"])} photos · {esc(m["from"])}</p></div>',
         '<ul class="grid">', *[figure(p, "Miscellaneous") for p in m["photos"]], "</ul>",
         notes_block("misc", m["check"]), "</section>"]))
     index.append(f'<li><a href="#misc"><span class="n">Miscellaneous</span><span class="t">{esc(m["desc"])}</span>'
