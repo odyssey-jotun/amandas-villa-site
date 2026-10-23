@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Photos by Site | Amanda's Villa</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --linen: #f6f5f0; --linen-2: #ecebe4; --sage-pale: #e4e9e2;
+  --ink: #1c241f; --ink-2: #454e48; --ink-3: #5f6862;
+  --forest: #2b4a3a; --forest-deep: #1b3127; --on-forest: #f6f5f0;
+  --line: #d6d6cc; --line-strong: #7c8078;
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-text-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --radius-photo: 14px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--linen); color: var(--ink-2); font: 400 17px/1.55 var(--font-body); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; color: var(--ink); margin: 0; text-wrap: balance; }
+h1 { font-size: 46px; line-height: 1.08; }
+h2 { font-size: 34px; line-height: 1.1; }
+h3 { font-family: var(--font-text-serif); font-weight: 400; color: var(--ink); font-size: 21px; line-height: 1.3; margin: 40px 0 14px; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+header.wrap { padding-top: 64px; padding-bottom: 8px; }
+header p { margin-top: 12px; font-size: 19px; max-width: 46em; }
+header .count { margin-top: 10px; font-size: 16px; color: var(--ink-3); }
+
+.index { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+.index a { display: grid; align-content: start; gap: 2px; height: 100%; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 10px; color: inherit; text-decoration: none; transition: border-color .15s, background-color .15s; }
+.index a:hover { border-color: var(--forest); background: var(--sage-pale); }
+.index .n { font-family: var(--font-text-serif); color: var(--ink); font-size: 18px; }
+.index .t { font-size: 15px; line-height: 1.35; }
+.index .p { font-size: 14px; color: var(--ink-3); }
+
+.site { padding: 56px 0 8px; margin-top: 48px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.site-head .desc { margin-top: 6px; font-size: 19px; color: var(--ink); }
+.site-head .facts { margin-top: 4px; font-size: 15px; color: var(--ink-3); }
+.site-head + .grid { margin-top: 24px; }
+
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 16px; }
+.grid li { min-width: 0; }
+.ph { display: block; width: 100%; padding: 0; border: 0; background: var(--linen-2); border-radius: var(--radius-photo); overflow: hidden; cursor: zoom-in; }
+.ph img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .25s ease; }
+.ph:hover img { transform: scale(1.03); }
+.cap { margin-top: 8px; font-size: 15px; line-height: 1.35; color: var(--ink); }
+.meta { margin-top: 2px; font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+.ask { margin-top: 28px; padding: 16px 18px; background: var(--sage-pale); border-radius: 12px; }
+.check { color: var(--ink); }
+.fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: start; gap: 12px; margin-top: 12px; }
+.fields label { display: grid; gap: 4px; font-size: 14px; color: var(--ink-3); }
+input[type=text], textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); padding: 9px 11px; background: #fff; border: 1px solid var(--line-strong); border-radius: 8px; }
+textarea { display: block; resize: vertical; min-height: 44px; height: 44px; }
+#notesOut { height: auto; }
+
+.send { padding: 64px 0 96px; margin-top: 48px; border-top: 1px solid var(--line); }
+.send p { margin-top: 8px; max-width: 46em; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.btn { font: 600 17px/1 var(--font-body); padding: 15px 24px; border-radius: 999px; border: 1px solid var(--forest); cursor: pointer; transition: background-color .15s, color .15s; }
+.btn--main { background: var(--forest); color: var(--on-forest); }
+.btn--main:hover { background: var(--forest-deep); }
+.btn--plain { background: transparent; color: var(--forest); }
+.btn--plain:hover { background: #fff; }
+.status { margin-top: 14px; min-height: 1.5em; color: var(--forest); font-weight: 600; }
+#notesOut { margin-top: 16px; min-height: 160px; font-size: 15px; }
+#notesOut[hidden] { display: none; }
+
+dialog { width: min(1100px, 100vw - 32px); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: 16px; background: var(--ink); color: var(--on-forest); }
+dialog::backdrop { background: rgba(20, 26, 22, .82); }
+.lb { display: grid; grid-template-rows: minmax(0, 1fr) auto; max-height: calc(100vh - 32px); }
+.lb img { width: 100%; height: 100%; max-height: calc(100vh - 150px); object-fit: contain; background: #111; }
+.lb-bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; }
+.lb-text { flex: 1; min-width: 0; }
+.lb-where { font-size: 14px; opacity: .75; }
+.lb-cap { font-size: 17px; line-height: 1.35; }
+.lb-meta { font-size: 13px; opacity: .75; }
+.lb-btn { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(246, 245, 240, .5); background: transparent; color: var(--on-forest); font: 400 22px/1 var(--font-body); cursor: pointer; }
+.lb-btn:hover { background: rgba(246, 245, 240, .14); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  header.wrap { padding-top: 44px; }
+  h1 { font-size: 36px; }
+  h2 { font-size: 29px; }
+  h3 { font-size: 19px; margin-top: 32px; }
+  header p { font-size: 17px; }
+  .index { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .index a { padding: 10px 12px; }
+  .index .n { font-size: 16px; }
+  .index .t, .index .p { font-size: 13px; }
+  .site { padding-top: 40px; margin-top: 36px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
+  .cap { font-size: 14px; }
+  .fields { grid-template-columns: 1fr; }
+  .btn { width: 100%; text-align: center; }
+  dialog { width: 100vw; max-width: 100vw; max-height: 100vh; border-radius: 0; }
+  .lb, .lb img { max-height: 100vh; }
+  .lb img { max-height: calc(100vh - 140px); }
+  .lb-bar { flex-wrap: wrap; }
+  .lb-text { order: -1; flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ph img { transition: none; }
+}
+</style>
+</head>
+<body>
+<main>
+<header class="wrap">
+  <h1>Job Photos by Site</h1>
+  <p>Every job photo on file from Colton, the drone and Amanda's Facebook page, grouped by property. A site is one property and a project is one job there. Tap any photo to see it full size. Type in the town as Colton names it, and copy everything at the bottom when you're done.</p>
+  <p class="count">{{COUNT}} photos · {{SITECOUNT}} sites · {{PROJECTCOUNT}} projects, plus Miscellaneous</p>
+  <ul class="index">
+{{INDEX}}
+  </ul>
+</header>
+
+<div class="wrap">
+{{SITES}}
+
+<section class="send" id="notes">
+  <h2>Copy the notes</h2>
+  <p>Towns and notes stay saved in this browser as you type. Copy them all into a text or an email when you're done.</p>
+  <div class="btns">
+    <button type="button" class="btn btn--main" id="copyNotes">Copy all notes</button>
+    <button type="button" class="btn btn--plain" id="clearNotes">Clear notes</button>
+  </div>
+  <p class="status" id="status" role="status"></p>
+  <textarea id="notesOut" hidden readonly aria-label="All notes"></textarea>
+</section>
+</div>
+</main>
+
+<dialog id="lightbox" aria-label="Photo">
+  <div class="lb">
+    <img id="lbImg" alt="">
+    <div class="lb-bar">
+      <button type="button" class="lb-btn" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+      <div class="lb-text"><p class="lb-where" id="lbWhere"></p><p class="lb-cap" id="lbCap"></p><p class="lb-meta" id="lbMeta"></p></div>
+      <button type="button" class="lb-btn" id="lbNext" aria-label="Next photo">&#8250;</button>
+      <button type="button" class="lb-btn" id="lbClose" aria-label="Close">&#215;</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var KEY = "av-job-photos-notes";
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { store = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+
+  var fields = document.querySelectorAll("[data-key]");
+  fields.forEach(function (f) {
+    if (store[f.dataset.key]) f.value = store[f.dataset.key];
+    f.addEventListener("input", function () { store[f.dataset.key] = f.value; save(); });
+  });
+
+  function collect() {
+    var lines = [];
+    document.querySelectorAll(".site").forEach(function (s) {
+      var town = s.querySelector("[data-key$='-town']").value.trim();
+      var notes = s.querySelector("[data-key$='-notes']").value.trim();
+      if (!town && !notes) return;
+      var line = s.dataset.name + " (" + s.dataset.desc + ")";
+      if (town) line += "\nTown: " + town;
+      if (notes) line += "\nNotes: " + notes;
+      lines.push(line);
+    });
+    return lines.join("\n\n");
+  }
+
+  var status = document.getElementById("status");
+  var out = document.getElementById("notesOut");
+  document.getElementById("copyNotes").addEventListener("click", function () {
+    var text = collect();
+    if (!text) { status.textContent = "Nothing typed in yet."; return; }
+    out.value = text; out.hidden = false;
+    function fallback() { out.focus(); out.select(); status.textContent = "Selected below. Copy it from there."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied."; }, fallback);
+    } else { fallback(); }
+  });
+  document.getElementById("clearNotes").addEventListener("click", function () {
+    if (!confirm("Clear every town and note on this page?")) return;
+    store = {}; save();
+    fields.forEach(function (f) { f.value = ""; });
+    out.hidden = true; status.textContent = "Cleared.";
+  });
+
+  var buttons = Array.prototype.slice.call(document.querySelectorAll(".ph"));
+  var dlg = document.getElementById("lightbox");
+  var img = document.getElementById("lbImg");
+  var at = 0;
+  function show(i) {
+    at = (i + buttons.length) % buttons.length;
+    var b = buttons[at];
+    img.src = b.dataset.full;
+    img.alt = b.dataset.cap;
+    document.getElementById("lbWhere").textContent = b.dataset.where;
+    document.getElementById("lbCap").textContent = b.dataset.cap;
+    document.getElementById("lbMeta").textContent = b.dataset.meta;
+  }
+  buttons.forEach(function (b, i) {
+    b.addEventListener("click", function () {
+      show(i);
+      if (dlg.showModal) dlg.showModal(); else window.open(b.dataset.full, "_blank");
+    });
+  });
+  document.getElementById("lbPrev").addEventListener("click", function () { show(at - 1); });
+  document.getElementById("lbNext").addEventListener("click", function () { show(at + 1); });
+  document.getElementById("lbClose").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", function () { buttons[at].focus({ preventScroll: true }); });
+  document.addEventListener("keydown", function (e) {
+    if (!dlg.open) return;
+    if (e.key === "ArrowRight") show(at + 1);
+    if (e.key === "ArrowLeft") show(at - 1);
+  });
+  var x0 = null;
+  img.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>
+</body>
+</html>

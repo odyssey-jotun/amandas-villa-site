@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Photos by Site | Amanda's Villa</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --linen: #f6f5f0; --linen-2: #ecebe4; --sage-pale: #e4e9e2;
+  --ink: #1c241f; --ink-2: #454e48; --ink-3: #5f6862;
+  --forest: #2b4a3a; --forest-deep: #1b3127; --on-forest: #f6f5f0;
+  --line: #d6d6cc; --line-strong: #7c8078;
+  --font-display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-text-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --radius-photo: 14px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--linen); color: var(--ink-2); font: 400 17px/1.55 var(--font-body); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; color: var(--ink); margin: 0; text-wrap: balance; }
+h1 { font-size: 46px; line-height: 1.08; }
+h2 { font-size: 34px; line-height: 1.1; }
+h3 { font-family: var(--font-text-serif); font-weight: 400; color: var(--ink); font-size: 21px; line-height: 1.3; margin: 40px 0 14px; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+header.wrap { padding-top: 64px; padding-bottom: 8px; }
+header p { margin-top: 12px; font-size: 19px; max-width: 46em; }
+header .count { margin-top: 10px; font-size: 16px; color: var(--ink-3); }
+
+.index { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+.index a { display: grid; align-content: start; gap: 2px; height: 100%; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 10px; color: inherit; text-decoration: none; transition: border-color .15s, background-color .15s; }
+.index a:hover { border-color: var(--forest); background: var(--sage-pale); }
+.index .n { font-family: var(--font-text-serif); color: var(--ink); font-size: 18px; }
+.index .t { font-size: 15px; line-height: 1.35; }
+.index .p { font-size: 14px; color: var(--ink-3); }
+
+.site { padding: 56px 0 8px; margin-top: 48px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.site-head .desc { margin-top: 6px; font-size: 19px; color: var(--ink); }
+.site-head .facts { margin-top: 4px; font-size: 15px; color: var(--ink-3); }
+.site-head + .grid { margin-top: 24px; }
+
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 16px; }
+.grid li { min-width: 0; }
+.ph { display: block; width: 100%; padding: 0; border: 0; background: var(--linen-2); border-radius: var(--radius-photo); overflow: hidden; cursor: zoom-in; }
+.ph img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .25s ease; }
+.ph:hover img { transform: scale(1.03); }
+.cap { margin-top: 8px; font-size: 15px; line-height: 1.35; color: var(--ink); }
+.meta { margin-top: 2px; font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+.ask { margin-top: 28px; padding: 16px 18px; background: var(--sage-pale); border-radius: 12px; }
+.check { color: var(--ink); }
+.fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: start; gap: 12px; margin-top: 12px; }
+.fields label { display: grid; gap: 4px; font-size: 14px; color: var(--ink-3); }
+input[type=text], textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); padding: 9px 11px; background: #fff; border: 1px solid var(--line-strong); border-radius: 8px; }
+textarea { display: block; resize: vertical; min-height: 44px; height: 44px; }
+#notesOut { height: auto; }
+
+.send { padding: 64px 0 96px; margin-top: 48px; border-top: 1px solid var(--line); }
+.send p { margin-top: 8px; max-width: 46em; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.btn { font: 600 17px/1 var(--font-body); padding: 15px 24px; border-radius: 999px; border: 1px solid var(--forest); cursor: pointer; transition: background-color .15s, color .15s; }
+.btn--main { background: var(--forest); color: var(--on-forest); }
+.btn--main:hover { background: var(--forest-deep); }
+.btn--plain { background: transparent; color: var(--forest); }
+.btn--plain:hover { background: #fff; }
+.status { margin-top: 14px; min-height: 1.5em; color: var(--forest); font-weight: 600; }
+#notesOut { margin-top: 16px; min-height: 160px; font-size: 15px; }
+#notesOut[hidden] { display: none; }
+
+dialog { width: min(1100px, 100vw - 32px); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: 16px; background: var(--ink); color: var(--on-forest); }
+dialog::backdrop { background: rgba(20, 26, 22, .82); }
+.lb { display: grid; grid-template-rows: minmax(0, 1fr) auto; max-height: calc(100vh - 32px); }
+.lb img { width: 100%; height: 100%; max-height: calc(100vh - 150px); object-fit: contain; background: #111; }
+.lb-bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; }
+.lb-text { flex: 1; min-width: 0; }
+.lb-where { font-size: 14px; opacity: .75; }
+.lb-cap { font-size: 17px; line-height: 1.35; }
+.lb-meta { font-size: 13px; opacity: .75; }
+.lb-btn { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(246, 245, 240, .5); background: transparent; color: var(--on-forest); font: 400 22px/1 var(--font-body); cursor: pointer; }
+.lb-btn:hover { background: rgba(246, 245, 240, .14); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  header.wrap { padding-top: 44px; }
+  h1 { font-size: 36px; }
+  h2 { font-size: 29px; }
+  h3 { font-size: 19px; margin-top: 32px; }
+  header p { font-size: 17px; }
+  .index { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .index a { padding: 10px 12px; }
+  .index .n { font-size: 16px; }
+  .index .t, .index .p { font-size: 13px; }
+  .site { padding-top: 40px; margin-top: 36px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
+  .cap { font-size: 14px; }
+  .fields { grid-template-columns: 1fr; }
+  .btn { width: 100%; text-align: center; }
+  dialog { width: 100vw; max-width: 100vw; max-height: 100vh; border-radius: 0; }
+  .lb, .lb img { max-height: 100vh; }
+  .lb img { max-height: calc(100vh - 140px); }
+  .lb-bar { flex-wrap: wrap; }
+  .lb-text { order: -1; flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ph img { transition: none; }
+}
+</style>
+</head>
+<body>
+<main>
+<header class="wrap">
+  <h1>Job Photos by Site</h1>
+  <p>Every job photo on file from Colton, the drone and Amanda's Facebook page, grouped by property. A site is one property and a project is one job there. Tap any photo to see it full size. Type in the town as Colton names it, and copy everything at the bottom when you're done.</p>
+  <p class="count">96 photos · 17 sites · 18 projects, plus Miscellaneous</p>
+  <ul class="index">
+<li><a href="#site-1"><span class="n">Site 1</span><span class="t">Brick house with a wood privacy fence</span><span class="p">Project 1 · 7 photos</span></a></li>
+<li><a href="#site-2"><span class="n">Site 2</span><span class="t">White painted-brick house with a tall chimney</span><span class="p">Project 2 · 3 photos</span></a></li>
+<li><a href="#site-3"><span class="n">Site 3</span><span class="t">Red brick house with a white picket fence</span><span class="p">Project 3 · 6 photos</span></a></li>
+<li><a href="#site-4"><span class="n">Site 4</span><span class="t">Black board-and-batten farmhouse on open land</span><span class="p">Project 4 · 17 photos</span></a></li>
+<li><a href="#site-5"><span class="n">Site 5</span><span class="t">Backyard with a brick garage and a white arbor</span><span class="p">Project 5 · 11 photos</span></a></li>
+<li><a href="#site-6"><span class="n">Site 6</span><span class="t">Two-story brick house on a wooded lot</span><span class="p">Project 6 and Project 7 · 8 photos</span></a></li>
+<li><a href="#site-7"><span class="n">Site 7</span><span class="t">Wooded hillside lot with a brick house</span><span class="p">Project 8 · 13 photos</span></a></li>
+<li><a href="#site-8"><span class="n">Site 8</span><span class="t">White stone house with a round tower</span><span class="p">Project 9 · 3 photos</span></a></li>
+<li><a href="#site-9"><span class="n">Site 9</span><span class="t">Red brick ranch with a navy front door</span><span class="p">Project 10 · 2 photos</span></a></li>
+<li><a href="#site-10"><span class="n">Site 10</span><span class="t">Tan-sided house with a white garage door</span><span class="p">Project 11 · 2 photos</span></a></li>
+<li><a href="#site-11"><span class="n">Site 11</span><span class="t">White ranch with dark wood porch posts</span><span class="p">Project 12 · 6 photos</span></a></li>
+<li><a href="#site-12"><span class="n">Site 12</span><span class="t">White painted-brick house with arched windows</span><span class="p">Project 13 · 4 photos</span></a></li>
+<li><a href="#site-13"><span class="n">Site 13</span><span class="t">Backyard pool with a wood privacy fence</span><span class="p">Project 14 · 2 photos</span></a></li>
+<li><a href="#site-14"><span class="n">Site 14</span><span class="t">Brick house with a white arched sunroom</span><span class="p">Project 15 · 3 photos</span></a></li>
+<li><a href="#site-15"><span class="n">Site 15</span><span class="t">Brick house with white columns and a white gable</span><span class="p">Project 16 · 1 photo</span></a></li>
+<li><a href="#site-16"><span class="n">Site 16</span><span class="t">Two-story brick house with a brick mailbox</span><span class="p">Project 17 · 1 photo</span></a></li>
+<li><a href="#site-17"><span class="n">Site 17</span><span class="t">Round bed under a shade tree</span><span class="p">Project 18 · 1 photo</span></a></li>
+<li><a href="#misc"><span class="n">Miscellaneous</span><span class="t">Close-ups and beds with no house in view</span><span class="p">6 photos</span></a></li>
+  </ul>
+</header>
+
+<div class="wrap">
+<section class="site" id="site-1" data-name="Site 1" data-desc="Brick house with a wood privacy fence">
+<div class="site-head"><h2>Site 1</h2><p class="desc">Brick house with a wood privacy fence</p>
+<p class="facts">7 photos · June 3 to 6, 2025 · Colton&#x27;s phone</p></div>
+<h3>Project 1: French drain along the house and the fence line</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-1240.jpg" data-where="Site 1, Project 1" data-cap="Sod cut and rolled back along the drain line" data-meta="IMG_1240 · Jun 3, 2025" aria-label="Enlarge: Sod cut and rolled back along the drain line"><img src="img/thumb/img-1240.jpg" width="450" height="600" alt="Sod cut and rolled back along the drain line" loading="lazy" decoding="async"></button><p class="cap">Sod cut and rolled back along the drain line</p><p class="meta">IMG_1240 · Jun 3, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1246.jpg" data-where="Site 1, Project 1" data-cap="Trench dug" data-meta="IMG_1246 · Jun 4, 2025" aria-label="Enlarge: Trench dug"><img src="img/thumb/img-1246.jpg" width="450" height="600" alt="Trench dug" loading="lazy" decoding="async"></button><p class="cap">Trench dug</p><p class="meta">IMG_1246 · Jun 4, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1252.jpg" data-where="Site 1, Project 1" data-cap="Blue drain pipe in a fabric-lined trench beside the house" data-meta="IMG_1252 · Jun 5, 2025" aria-label="Enlarge: Blue drain pipe in a fabric-lined trench beside the house"><img src="img/thumb/img-1252.jpg" width="450" height="600" alt="Blue drain pipe in a fabric-lined trench beside the house" loading="lazy" decoding="async"></button><p class="cap">Blue drain pipe in a fabric-lined trench beside the house</p><p class="meta">IMG_1252 · Jun 5, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1260.jpg" data-where="Site 1, Project 1" data-cap="Gravel and a catch basin grate by the generator" data-meta="IMG_1260 · Jun 5, 2025" aria-label="Enlarge: Gravel and a catch basin grate by the generator"><img src="img/thumb/img-1260.jpg" width="450" height="600" alt="Gravel and a catch basin grate by the generator" loading="lazy" decoding="async"></button><p class="cap">Gravel and a catch basin grate by the generator</p><p class="meta">IMG_1260 · Jun 5, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1265.jpg" data-where="Site 1, Project 1" data-cap="Sod going back down along the fence" data-meta="IMG_1265 · Jun 6, 2025" aria-label="Enlarge: Sod going back down along the fence"><img src="img/thumb/img-1265.jpg" width="450" height="600" alt="Sod going back down along the fence" loading="lazy" decoding="async"></button><p class="cap">Sod going back down along the fence</p><p class="meta">IMG_1265 · Jun 6, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1273.jpg" data-where="Site 1, Project 1" data-cap="Finished, sod back along the fence" data-meta="IMG_1273 · Jun 6, 2025" aria-label="Enlarge: Finished, sod back along the fence"><img src="img/thumb/img-1273.jpg" width="450" height="600" alt="Finished, sod back along the fence" loading="lazy" decoding="async"></button><p class="cap">Finished, sod back along the fence</p><p class="meta">IMG_1273 · Jun 6, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1275.jpg" data-where="Site 1, Project 1" data-cap="Finished, sod back beside the house" data-meta="IMG_1275 · Jun 6, 2025" aria-label="Enlarge: Finished, sod back beside the house"><img src="img/thumb/img-1275.jpg" width="450" height="600" alt="Finished, sod back beside the house" loading="lazy" decoding="async"></button><p class="cap">Finished, sod back beside the house</p><p class="meta">IMG_1275 · Jun 6, 2025</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? This is the job on the French drain page.</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-1-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-1-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-2" data-name="Site 2" data-desc="White painted-brick house with a tall chimney">
+<div class="site-head"><h2>Site 2</h2><p class="desc">White painted-brick house with a tall chimney</p>
+<p class="facts">3 photos · June 2025 · Colton&#x27;s phone</p></div>
+<h3>Project 2: Curved front walk: flagstone set in gravel with a paver border</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-1493.jpg" data-where="Site 2, Project 2" data-cap="Walk dug out to the porch" data-meta="IMG_1493 · Jun 20, 2025" aria-label="Enlarge: Walk dug out to the porch"><img src="img/thumb/img-1493.jpg" width="450" height="600" alt="Walk dug out to the porch" loading="lazy" decoding="async"></button><p class="cap">Walk dug out to the porch</p><p class="meta">IMG_1493 · Jun 20, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-1516.jpg" data-where="Site 2, Project 2" data-cap="Gravel base down, paver border set" data-meta="IMG_1516 · Jun 23, 2025" aria-label="Enlarge: Gravel base down, paver border set"><img src="img/thumb/img-1516.jpg" width="450" height="600" alt="Gravel base down, paver border set" loading="lazy" decoding="async"></button><p class="cap">Gravel base down, paver border set</p><p class="meta">IMG_1516 · Jun 23, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-3297.jpg" data-where="Site 2, Project 2" data-cap="Finished flagstone walk with the paver border" data-meta="IMG_3297 · No date on file" aria-label="Enlarge: Finished flagstone walk with the paver border"><img src="img/thumb/img-3297.jpg" width="600" height="366" alt="Finished flagstone walk with the paver border" loading="lazy" decoding="async"></button><p class="cap">Finished flagstone walk with the paver border</p><p class="meta">IMG_3297 · No date on file</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? Is IMG_3297 the finished walk? It has no date on file.</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-2-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-2-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-3" data-name="Site 3" data-desc="Red brick house with a white picket fence">
+<div class="site-head"><h2>Site 3</h2><p class="desc">Red brick house with a white picket fence</p>
+<p class="facts">6 photos · August to October 2025 · Colton&#x27;s phone</p></div>
+<h3>Project 3: Curved paver side walk with downspout lines and a river rock bed</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-2314.jpg" data-where="Site 3, Project 3" data-cap="Before: grass between the house and the fence" data-meta="IMG_2314 · Aug 29, 2025" aria-label="Enlarge: Before: grass between the house and the fence"><img src="img/thumb/img-2314.jpg" width="450" height="600" alt="Before: grass between the house and the fence" loading="lazy" decoding="async"></button><p class="cap">Before: grass between the house and the fence</p><p class="meta">IMG_2314 · Aug 29, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-2388.jpg" data-where="Site 3, Project 3" data-cap="Walk dug out, downspout lines going in" data-meta="IMG_2388 · Sep 7, 2025" aria-label="Enlarge: Walk dug out, downspout lines going in"><img src="img/thumb/img-2388.jpg" width="450" height="600" alt="Walk dug out, downspout lines going in" loading="lazy" decoding="async"></button><p class="cap">Walk dug out, downspout lines going in</p><p class="meta">IMG_2388 · Sep 7, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-2665.jpg" data-where="Site 3, Project 3" data-cap="Pavers going down" data-meta="IMG_2665 · Oct 8, 2025" aria-label="Enlarge: Pavers going down"><img src="img/thumb/img-2665.jpg" width="450" height="600" alt="Pavers going down" loading="lazy" decoding="async"></button><p class="cap">Pavers going down</p><p class="meta">IMG_2665 · Oct 8, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-2696.jpg" data-where="Site 3, Project 3" data-cap="Finished walk curving to the gate" data-meta="IMG_2696 · Oct 17, 2025" aria-label="Enlarge: Finished walk curving to the gate"><img src="img/thumb/img-2696.jpg" width="450" height="600" alt="Finished walk curving to the gate" loading="lazy" decoding="async"></button><p class="cap">Finished walk curving to the gate</p><p class="meta">IMG_2696 · Oct 17, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-2697.jpg" data-where="Site 3, Project 3" data-cap="Finished walk and the river rock bed" data-meta="IMG_2697 · Oct 17, 2025" aria-label="Enlarge: Finished walk and the river rock bed"><img src="img/thumb/img-2697.jpg" width="450" height="600" alt="Finished walk and the river rock bed" loading="lazy" decoding="async"></button><p class="cap">Finished walk and the river rock bed</p><p class="meta">IMG_2697 · Oct 17, 2025</p></li>
+<li><button type="button" class="ph" data-full="img/img-2700.jpg" data-where="Site 3, Project 3" data-cap="Finished walk through the gate" data-meta="IMG_2700 · Oct 17, 2025" aria-label="Enlarge: Finished walk through the gate"><img src="img/thumb/img-2700.jpg" width="450" height="600" alt="Finished walk through the gate" loading="lazy" decoding="async"></button><p class="cap">Finished walk through the gate</p><p class="meta">IMG_2700 · Oct 17, 2025</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-3-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-3-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-4" data-name="Site 4" data-desc="Black board-and-batten farmhouse on open land">
+<div class="site-head"><h2>Site 4</h2><p class="desc">Black board-and-batten farmhouse on open land</p>
+<p class="facts">17 photos · April to May 2026 · Colton&#x27;s phone</p></div>
+<h3>Project 4: Raised paver walk, retaining walls, steps and new beds</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-4635.jpg" data-where="Site 4, Project 4" data-cap="Before: front yard and porch" data-meta="IMG_4635 · Apr 20, 2026" aria-label="Enlarge: Before: front yard and porch"><img src="img/thumb/img-4635.jpg" width="600" height="450" alt="Before: front yard and porch" loading="lazy" decoding="async"></button><p class="cap">Before: front yard and porch</p><p class="meta">IMG_4635 · Apr 20, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4639.jpg" data-where="Site 4, Project 4" data-cap="Before: the beds by the garage" data-meta="IMG_4639 · Apr 20, 2026" aria-label="Enlarge: Before: the beds by the garage"><img src="img/thumb/img-4639.jpg" width="450" height="600" alt="Before: the beds by the garage" loading="lazy" decoding="async"></button><p class="cap">Before: the beds by the garage</p><p class="meta">IMG_4639 · Apr 20, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/1000004878.jpg" data-where="Site 4, Project 4" data-cap="Ground dug out along the front beds, layout stakes in" data-meta="1000004878 · No date on file" aria-label="Enlarge: Ground dug out along the front beds, layout stakes in"><img src="img/thumb/1000004878.jpg" width="452" height="600" alt="Ground dug out along the front beds, layout stakes in" loading="lazy" decoding="async"></button><p class="cap">Ground dug out along the front beds, layout stakes in</p><p class="meta">1000004878 · No date on file</p></li>
+<li><button type="button" class="ph" data-full="img/img-4680.jpg" data-where="Site 4, Project 4" data-cap="Wall going up beside the garage" data-meta="IMG_4680 · Apr 23, 2026" aria-label="Enlarge: Wall going up beside the garage"><img src="img/thumb/img-4680.jpg" width="450" height="600" alt="Wall going up beside the garage" loading="lazy" decoding="async"></button><p class="cap">Wall going up beside the garage</p><p class="meta">IMG_4680 · Apr 23, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4742.jpg" data-where="Site 4, Project 4" data-cap="Wall and steps built, gravel fill" data-meta="IMG_4742 · Apr 30, 2026" aria-label="Enlarge: Wall and steps built, gravel fill"><img src="img/thumb/img-4742.jpg" width="450" height="600" alt="Wall and steps built, gravel fill" loading="lazy" decoding="async"></button><p class="cap">Wall and steps built, gravel fill</p><p class="meta">IMG_4742 · Apr 30, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4770.jpg" data-where="Site 4, Project 4" data-cap="Paver walk turning the corner by the garage" data-meta="IMG_4770 · May 6, 2026" aria-label="Enlarge: Paver walk turning the corner by the garage"><img src="img/thumb/img-4770.jpg" width="450" height="600" alt="Paver walk turning the corner by the garage" loading="lazy" decoding="async"></button><p class="cap">Paver walk turning the corner by the garage</p><p class="meta">IMG_4770 · May 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4771.jpg" data-where="Site 4, Project 4" data-cap="Paver walk along the front beds" data-meta="IMG_4771 · May 6, 2026" aria-label="Enlarge: Paver walk along the front beds"><img src="img/thumb/img-4771.jpg" width="450" height="600" alt="Paver walk along the front beds" loading="lazy" decoding="async"></button><p class="cap">Paver walk along the front beds</p><p class="meta">IMG_4771 · May 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4772.jpg" data-where="Site 4, Project 4" data-cap="Steps and landing at the porch" data-meta="IMG_4772 · May 6, 2026" aria-label="Enlarge: Steps and landing at the porch"><img src="img/thumb/img-4772.jpg" width="450" height="600" alt="Steps and landing at the porch" loading="lazy" decoding="async"></button><p class="cap">Steps and landing at the porch</p><p class="meta">IMG_4772 · May 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4774.jpg" data-where="Site 4, Project 4" data-cap="Landing at the porch" data-meta="IMG_4774 · May 6, 2026" aria-label="Enlarge: Landing at the porch"><img src="img/thumb/img-4774.jpg" width="450" height="600" alt="Landing at the porch" loading="lazy" decoding="async"></button><p class="cap">Landing at the porch</p><p class="meta">IMG_4774 · May 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4849.jpg" data-where="Site 4, Project 4" data-cap="Finished: walls, steps and beds from the yard" data-meta="IMG_4849 · May 18, 2026" aria-label="Enlarge: Finished: walls, steps and beds from the yard"><img src="img/thumb/img-4849.jpg" width="600" height="450" alt="Finished: walls, steps and beds from the yard" loading="lazy" decoding="async"></button><p class="cap">Finished: walls, steps and beds from the yard</p><p class="meta">IMG_4849 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4852.jpg" data-where="Site 4, Project 4" data-cap="Finished: steps up to the porch" data-meta="IMG_4852 · May 18, 2026" aria-label="Enlarge: Finished: steps up to the porch"><img src="img/thumb/img-4852.jpg" width="600" height="450" alt="Finished: steps up to the porch" loading="lazy" decoding="async"></button><p class="cap">Finished: steps up to the porch</p><p class="meta">IMG_4852 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4855.jpg" data-where="Site 4, Project 4" data-cap="Finished: walk between the beds" data-meta="IMG_4855 · May 18, 2026" aria-label="Enlarge: Finished: walk between the beds"><img src="img/thumb/img-4855.jpg" width="600" height="450" alt="Finished: walk between the beds" loading="lazy" decoding="async"></button><p class="cap">Finished: walk between the beds</p><p class="meta">IMG_4855 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4856.jpg" data-where="Site 4, Project 4" data-cap="Finished: landing at the porch" data-meta="IMG_4856 · May 18, 2026" aria-label="Enlarge: Finished: landing at the porch"><img src="img/thumb/img-4856.jpg" width="600" height="450" alt="Finished: landing at the porch" loading="lazy" decoding="async"></button><p class="cap">Finished: landing at the porch</p><p class="meta">IMG_4856 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4857.jpg" data-where="Site 4, Project 4" data-cap="Finished: curved walk and bed" data-meta="IMG_4857 · May 18, 2026" aria-label="Enlarge: Finished: curved walk and bed"><img src="img/thumb/img-4857.jpg" width="600" height="450" alt="Finished: curved walk and bed" loading="lazy" decoding="async"></button><p class="cap">Finished: curved walk and bed</p><p class="meta">IMG_4857 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4858.jpg" data-where="Site 4, Project 4" data-cap="Finished: steps and the boulder bed" data-meta="IMG_4858 · May 18, 2026" aria-label="Enlarge: Finished: steps and the boulder bed"><img src="img/thumb/img-4858.jpg" width="600" height="450" alt="Finished: steps and the boulder bed" loading="lazy" decoding="async"></button><p class="cap">Finished: steps and the boulder bed</p><p class="meta">IMG_4858 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4861.jpg" data-where="Site 4, Project 4" data-cap="Finished: raised wall by the garage" data-meta="IMG_4861 · May 18, 2026" aria-label="Enlarge: Finished: raised wall by the garage"><img src="img/thumb/img-4861.jpg" width="450" height="600" alt="Finished: raised wall by the garage" loading="lazy" decoding="async"></button><p class="cap">Finished: raised wall by the garage</p><p class="meta">IMG_4861 · May 18, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4862.jpg" data-where="Site 4, Project 4" data-cap="Finished: long walk out toward the driveway" data-meta="IMG_4862 · May 18, 2026" aria-label="Enlarge: Finished: long walk out toward the driveway"><img src="img/thumb/img-4862.jpg" width="450" height="600" alt="Finished: long walk out toward the driveway" loading="lazy" decoding="async"></button><p class="cap">Finished: long walk out toward the driveway</p><p class="meta">IMG_4862 · May 18, 2026</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? Is 1000004878 (no date on file) this same house?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-4-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-4-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-5" data-name="Site 5" data-desc="Backyard with a brick garage and a white arbor">
+<div class="site-head"><h2>Site 5</h2><p class="desc">Backyard with a brick garage and a white arbor</p>
+<p class="facts">11 photos · April to June 2026 · Colton&#x27;s phone</p></div>
+<h3>Project 5: Herringbone brick patio and paths with new beds</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-4506.jpg" data-where="Site 5, Project 5" data-cap="Before: old brick edging along the house" data-meta="IMG_4506 · Apr 7, 2026" aria-label="Enlarge: Before: old brick edging along the house"><img src="img/thumb/img-4506.jpg" width="450" height="600" alt="Before: old brick edging along the house" loading="lazy" decoding="async"></button><p class="cap">Before: old brick edging along the house</p><p class="meta">IMG_4506 · Apr 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-4519.jpg" data-where="Site 5, Project 5" data-cap="Before: the yard and the arbor by the garage" data-meta="IMG_4519 · Apr 7, 2026" aria-label="Enlarge: Before: the yard and the arbor by the garage"><img src="img/thumb/img-4519.jpg" width="600" height="450" alt="Before: the yard and the arbor by the garage" loading="lazy" decoding="async"></button><p class="cap">Before: the yard and the arbor by the garage</p><p class="meta">IMG_4519 · Apr 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5256.jpg" data-where="Site 5, Project 5" data-cap="Ground cleared, skid steer on site" data-meta="IMG_5256 · Jun 10, 2026" aria-label="Enlarge: Ground cleared, skid steer on site"><img src="img/thumb/img-5256.jpg" width="450" height="600" alt="Ground cleared, skid steer on site" loading="lazy" decoding="async"></button><p class="cap">Ground cleared, skid steer on site</p><p class="meta">IMG_5256 · Jun 10, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5277.jpg" data-where="Site 5, Project 5" data-cap="Base compacted" data-meta="IMG_5277 · Jun 12, 2026" aria-label="Enlarge: Base compacted"><img src="img/thumb/img-5277.jpg" width="450" height="600" alt="Base compacted" loading="lazy" decoding="async"></button><p class="cap">Base compacted</p><p class="meta">IMG_5277 · Jun 12, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5287.jpg" data-where="Site 5, Project 5" data-cap="Herringbone path started along the house" data-meta="IMG_5287 · Jun 15, 2026" aria-label="Enlarge: Herringbone path started along the house"><img src="img/thumb/img-5287.jpg" width="450" height="600" alt="Herringbone path started along the house" loading="lazy" decoding="async"></button><p class="cap">Herringbone path started along the house</p><p class="meta">IMG_5287 · Jun 15, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5297.jpg" data-where="Site 5, Project 5" data-cap="Path and border laid" data-meta="IMG_5297 · Jun 19, 2026" aria-label="Enlarge: Path and border laid"><img src="img/thumb/img-5297.jpg" width="450" height="600" alt="Path and border laid" loading="lazy" decoding="async"></button><p class="cap">Path and border laid</p><p class="meta">IMG_5297 · Jun 19, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5305.jpg" data-where="Site 5, Project 5" data-cap="Patio laid" data-meta="IMG_5305 · Jun 22, 2026" aria-label="Enlarge: Patio laid"><img src="img/thumb/img-5305.jpg" width="450" height="600" alt="Patio laid" loading="lazy" decoding="async"></button><p class="cap">Patio laid</p><p class="meta">IMG_5305 · Jun 22, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5306.jpg" data-where="Site 5, Project 5" data-cap="Patio and path by the garage" data-meta="IMG_5306 · Jun 22, 2026" aria-label="Enlarge: Patio and path by the garage"><img src="img/thumb/img-5306.jpg" width="450" height="600" alt="Patio and path by the garage" loading="lazy" decoding="async"></button><p class="cap">Patio and path by the garage</p><p class="meta">IMG_5306 · Jun 22, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5329.jpg" data-where="Site 5, Project 5" data-cap="Finished: path and new beds" data-meta="IMG_5329 · Jun 25, 2026" aria-label="Enlarge: Finished: path and new beds"><img src="img/thumb/img-5329.jpg" width="450" height="600" alt="Finished: path and new beds" loading="lazy" decoding="async"></button><p class="cap">Finished: path and new beds</p><p class="meta">IMG_5329 · Jun 25, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5330.jpg" data-where="Site 5, Project 5" data-cap="Finished: patio with the white chairs" data-meta="IMG_5330 · Jun 25, 2026" aria-label="Enlarge: Finished: patio with the white chairs"><img src="img/thumb/img-5330.jpg" width="600" height="450" alt="Finished: patio with the white chairs" loading="lazy" decoding="async"></button><p class="cap">Finished: patio with the white chairs</p><p class="meta">IMG_5330 · Jun 25, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5333.jpg" data-where="Site 5, Project 5" data-cap="Finished: path between the planted beds" data-meta="IMG_5333 · Jun 25, 2026" aria-label="Enlarge: Finished: path between the planted beds"><img src="img/thumb/img-5333.jpg" width="450" height="600" alt="Finished: path between the planted beds" loading="lazy" decoding="async"></button><p class="cap">Finished: path between the planted beds</p><p class="meta">IMG_5333 · Jun 25, 2026</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? Are the two April photos the same yard before the job?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-5-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-5-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-6" data-name="Site 6" data-desc="Two-story brick house on a wooded lot">
+<div class="site-head"><h2>Site 6</h2><p class="desc">Two-story brick house on a wooded lot</p>
+<p class="facts">8 photos · June to August 2026 · Colton&#x27;s phone</p></div>
+<h3>Project 6: Paver landing at the front door</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-5337.jpg" data-where="Site 6, Project 6" data-cap="Before: grass at the front door" data-meta="IMG_5337 · Jun 25, 2026" aria-label="Enlarge: Before: grass at the front door"><img src="img/thumb/img-5337.jpg" width="450" height="600" alt="Before: grass at the front door" loading="lazy" decoding="async"></button><p class="cap">Before: grass at the front door</p><p class="meta">IMG_5337 · Jun 25, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5376.jpg" data-where="Site 6, Project 6" data-cap="Finished paver landing" data-meta="IMG_5376 · Jun 30, 2026" aria-label="Enlarge: Finished paver landing"><img src="img/thumb/img-5376.jpg" width="450" height="600" alt="Finished paver landing" loading="lazy" decoding="async"></button><p class="cap">Finished paver landing</p><p class="meta">IMG_5376 · Jun 30, 2026</p></li>
+</ul>
+<h3>Project 7: Paver walk along the side of the house</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-5361.jpg" data-where="Site 6, Project 7" data-cap="Before: old path along the hedge" data-meta="IMG_5361 · Jun 29, 2026" aria-label="Enlarge: Before: old path along the hedge"><img src="img/thumb/img-5361.jpg" width="450" height="600" alt="Before: old path along the hedge" loading="lazy" decoding="async"></button><p class="cap">Before: old path along the hedge</p><p class="meta">IMG_5361 · Jun 29, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5364.jpg" data-where="Site 6, Project 7" data-cap="Before: old bed torn out along the side" data-meta="IMG_5364 · Jun 29, 2026" aria-label="Enlarge: Before: old bed torn out along the side"><img src="img/thumb/img-5364.jpg" width="450" height="600" alt="Before: old bed torn out along the side" loading="lazy" decoding="async"></button><p class="cap">Before: old bed torn out along the side</p><p class="meta">IMG_5364 · Jun 29, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5742.jpg" data-where="Site 6, Project 7" data-cap="Finished walk around the corner" data-meta="IMG_5742 · Aug 6, 2026" aria-label="Enlarge: Finished walk around the corner"><img src="img/thumb/img-5742.jpg" width="450" height="600" alt="Finished walk around the corner" loading="lazy" decoding="async"></button><p class="cap">Finished walk around the corner</p><p class="meta">IMG_5742 · Aug 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5745.jpg" data-where="Site 6, Project 7" data-cap="Finished walk along the hedge" data-meta="IMG_5745 · Aug 6, 2026" aria-label="Enlarge: Finished walk along the hedge"><img src="img/thumb/img-5745.jpg" width="450" height="600" alt="Finished walk along the hedge" loading="lazy" decoding="async"></button><p class="cap">Finished walk along the hedge</p><p class="meta">IMG_5745 · Aug 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5756.jpg" data-where="Site 6, Project 7" data-cap="Finished walk toward the driveway" data-meta="IMG_5756 · Aug 6, 2026" aria-label="Enlarge: Finished walk toward the driveway"><img src="img/thumb/img-5756.jpg" width="450" height="600" alt="Finished walk toward the driveway" loading="lazy" decoding="async"></button><p class="cap">Finished walk toward the driveway</p><p class="meta">IMG_5756 · Aug 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5758.jpg" data-where="Site 6, Project 7" data-cap="Finished walk, long view" data-meta="IMG_5758 · Aug 6, 2026" aria-label="Enlarge: Finished walk, long view"><img src="img/thumb/img-5758.jpg" width="450" height="600" alt="Finished walk, long view" loading="lazy" decoding="async"></button><p class="cap">Finished walk, long view</p><p class="meta">IMG_5758 · Aug 6, 2026</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? Are the front landing and the side walk the same house, two separate jobs?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-6-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-6-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-7" data-name="Site 7" data-desc="Wooded hillside lot with a brick house">
+<div class="site-head"><h2>Site 7</h2><p class="desc">Wooded hillside lot with a brick house</p>
+<p class="facts">13 photos · July to October 2026 · Colton&#x27;s phone and the drone</p></div>
+<h3>Project 8: Hillside retaining walls, block steps, patio and boulder steps</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/img-5663.jpg" data-where="Site 7, Project 8" data-cap="Before: bare slope by the fence" data-meta="IMG_5663 · Jul 28, 2026" aria-label="Enlarge: Before: bare slope by the fence"><img src="img/thumb/img-5663.jpg" width="450" height="600" alt="Before: bare slope by the fence" loading="lazy" decoding="async"></button><p class="cap">Before: bare slope by the fence</p><p class="meta">IMG_5663 · Jul 28, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-5797.jpg" data-where="Site 7, Project 8" data-cap="Excavator grading the slope" data-meta="IMG_5797 · Aug 20, 2026" aria-label="Enlarge: Excavator grading the slope"><img src="img/thumb/img-5797.jpg" width="450" height="600" alt="Excavator grading the slope" loading="lazy" decoding="async"></button><p class="cap">Excavator grading the slope</p><p class="meta">IMG_5797 · Aug 20, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/dji-20261006-170824.jpg" data-where="Site 7, Project 8" data-cap="Drone: walls, patio and beds from above" data-meta="DJI 0328 · Oct 6, 2026" aria-label="Enlarge: Drone: walls, patio and beds from above"><img src="img/thumb/dji-20261006-170824.jpg" width="600" height="338" alt="Drone: walls, patio and beds from above" loading="lazy" decoding="async"></button><p class="cap">Drone: walls, patio and beds from above</p><p class="meta">DJI 0328 · Oct 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/dji-20261006-171102.jpg" data-where="Site 7, Project 8" data-cap="Drone: patio, steps and river rock" data-meta="DJI 0334 · Oct 6, 2026" aria-label="Enlarge: Drone: patio, steps and river rock"><img src="img/thumb/dji-20261006-171102.jpg" width="600" height="338" alt="Drone: patio, steps and river rock" loading="lazy" decoding="async"></button><p class="cap">Drone: patio, steps and river rock</p><p class="meta">DJI 0334 · Oct 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/dji-20261006-171128.jpg" data-where="Site 7, Project 8" data-cap="Drone: curved wall and steps" data-meta="DJI 0335 · Oct 6, 2026" aria-label="Enlarge: Drone: curved wall and steps"><img src="img/thumb/dji-20261006-171128.jpg" width="600" height="338" alt="Drone: curved wall and steps" loading="lazy" decoding="async"></button><p class="cap">Drone: curved wall and steps</p><p class="meta">DJI 0335 · Oct 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/dji-20261006-171146.jpg" data-where="Site 7, Project 8" data-cap="Drone: the round wall and the bed above it" data-meta="DJI 0336 · Oct 6, 2026" aria-label="Enlarge: Drone: the round wall and the bed above it"><img src="img/thumb/dji-20261006-171146.jpg" width="600" height="338" alt="Drone: the round wall and the bed above it" loading="lazy" decoding="async"></button><p class="cap">Drone: the round wall and the bed above it</p><p class="meta">DJI 0336 · Oct 6, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-6152.jpg" data-where="Site 7, Project 8" data-cap="Block steps between two walls" data-meta="IMG_6152 · Oct 7, 2026" aria-label="Enlarge: Block steps between two walls"><img src="img/thumb/img-6152.jpg" width="450" height="600" alt="Block steps between two walls" loading="lazy" decoding="async"></button><p class="cap">Block steps between two walls</p><p class="meta">IMG_6152 · Oct 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-6153.jpg" data-where="Site 7, Project 8" data-cap="Curved wall and paver patio" data-meta="IMG_6153 · Oct 7, 2026" aria-label="Enlarge: Curved wall and paver patio"><img src="img/thumb/img-6153.jpg" width="450" height="600" alt="Curved wall and paver patio" loading="lazy" decoding="async"></button><p class="cap">Curved wall and paver patio</p><p class="meta">IMG_6153 · Oct 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-6156.jpg" data-where="Site 7, Project 8" data-cap="Wall corner and gravel" data-meta="IMG_6156 · Oct 7, 2026" aria-label="Enlarge: Wall corner and gravel"><img src="img/thumb/img-6156.jpg" width="450" height="600" alt="Wall corner and gravel" loading="lazy" decoding="async"></button><p class="cap">Wall corner and gravel</p><p class="meta">IMG_6156 · Oct 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-6157.jpg" data-where="Site 7, Project 8" data-cap="Wall with river rock along the drive" data-meta="IMG_6157 · Oct 7, 2026" aria-label="Enlarge: Wall with river rock along the drive"><img src="img/thumb/img-6157.jpg" width="450" height="600" alt="Wall with river rock along the drive" loading="lazy" decoding="async"></button><p class="cap">Wall with river rock along the drive</p><p class="meta">IMG_6157 · Oct 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/img-6162.jpg" data-where="Site 7, Project 8" data-cap="Boulder steps through river rock" data-meta="IMG_6162 · Oct 7, 2026" aria-label="Enlarge: Boulder steps through river rock"><img src="img/thumb/img-6162.jpg" width="450" height="600" alt="Boulder steps through river rock" loading="lazy" decoding="async"></button><p class="cap">Boulder steps through river rock</p><p class="meta">IMG_6162 · Oct 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/dji-20261007-133650.jpg" data-where="Site 7, Project 8" data-cap="Drone: the round wall and steps, lower angle" data-meta="DJI 0337 · Oct 7, 2026" aria-label="Enlarge: Drone: the round wall and steps, lower angle"><img src="img/thumb/dji-20261007-133650.jpg" width="600" height="338" alt="Drone: the round wall and steps, lower angle" loading="lazy" decoding="async"></button><p class="cap">Drone: the round wall and steps, lower angle</p><p class="meta">DJI 0337 · Oct 7, 2026</p></li>
+<li><button type="button" class="ph" data-full="img/dji-20261007-135156.jpg" data-where="Site 7, Project 8" data-cap="Drone: round wall and steps with the drive behind" data-meta="DJI 0366 · Oct 7, 2026" aria-label="Enlarge: Drone: round wall and steps with the drive behind"><img src="img/thumb/dji-20261007-135156.jpg" width="600" height="338" alt="Drone: round wall and steps with the drive behind" loading="lazy" decoding="async"></button><p class="cap">Drone: round wall and steps with the drive behind</p><p class="meta">DJI 0366 · Oct 7, 2026</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? Is this the Hot Springs hillside job? Are the July and August slope photos this site?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-7-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-7-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-8" data-name="Site 8" data-desc="White stone house with a round tower">
+<div class="site-head"><h2>Site 8</h2><p class="desc">White stone house with a round tower</p>
+<p class="facts">3 photos · No dates · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 9: Front beds along the stepping-stone walk</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-194292.jpg" data-where="Site 8, Project 9" data-cap="Before: bare dirt along the walk" data-meta="Facebook" aria-label="Enlarge: Before: bare dirt along the walk"><img src="img/thumb/facebook-194292.jpg" width="450" height="600" alt="Before: bare dirt along the walk" loading="lazy" decoding="async"></button><p class="cap">Before: bare dirt along the walk</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-210260.jpg" data-where="Site 8, Project 9" data-cap="After: planted beds along the walk" data-meta="Facebook" aria-label="Enlarge: After: planted beds along the walk"><img src="img/thumb/facebook-210260.jpg" width="450" height="600" alt="After: planted beds along the walk" loading="lazy" decoding="async"></button><p class="cap">After: planted beds along the walk</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-219298.jpg" data-where="Site 8, Project 9" data-cap="Fern urn and fountain by the front door" data-meta="Facebook" aria-label="Enlarge: Fern urn and fountain by the front door"><img src="img/thumb/facebook-219298.jpg" width="450" height="600" alt="Fern urn and fountain by the front door" loading="lazy" decoding="async"></button><p class="cap">Fern urn and fountain by the front door</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-8-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-8-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-9" data-name="Site 9" data-desc="Red brick ranch with a navy front door">
+<div class="site-head"><h2>Site 9</h2><p class="desc">Red brick ranch with a navy front door</p>
+<p class="facts">2 photos · No dates · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 10: Bed along the curved front walk</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-279808.jpg" data-where="Site 9, Project 10" data-cap="Before: lawn along the front walk" data-meta="Facebook" aria-label="Enlarge: Before: lawn along the front walk"><img src="img/thumb/facebook-279808.jpg" width="600" height="450" alt="Before: lawn along the front walk" loading="lazy" decoding="async"></button><p class="cap">Before: lawn along the front walk</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-285406.jpg" data-where="Site 9, Project 10" data-cap="After: new mulched bed with shrubs" data-meta="Facebook" aria-label="Enlarge: After: new mulched bed with shrubs"><img src="img/thumb/facebook-285406.jpg" width="450" height="600" alt="After: new mulched bed with shrubs" loading="lazy" decoding="async"></button><p class="cap">After: new mulched bed with shrubs</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-9-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-9-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-10" data-name="Site 10" data-desc="Tan-sided house with a white garage door">
+<div class="site-head"><h2>Site 10</h2><p class="desc">Tan-sided house with a white garage door</p>
+<p class="facts">2 photos · No dates · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 11: Flagstone walk and curved bed</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-067976.jpg" data-where="Site 10, Project 11" data-cap="Before: bed outline dug in bare ground" data-meta="Facebook" aria-label="Enlarge: Before: bed outline dug in bare ground"><img src="img/thumb/facebook-067976.jpg" width="450" height="600" alt="Before: bed outline dug in bare ground" loading="lazy" decoding="async"></button><p class="cap">Before: bed outline dug in bare ground</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-071330.jpg" data-where="Site 10, Project 11" data-cap="After: flagstone walk around the planted bed" data-meta="Facebook" aria-label="Enlarge: After: flagstone walk around the planted bed"><img src="img/thumb/facebook-071330.jpg" width="450" height="600" alt="After: flagstone walk around the planted bed" loading="lazy" decoding="async"></button><p class="cap">After: flagstone walk around the planted bed</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-10-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-10-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-11" data-name="Site 11" data-desc="White ranch with dark wood porch posts">
+<div class="site-head"><h2>Site 11</h2><p class="desc">White ranch with dark wood porch posts</p>
+<p class="facts">6 photos · No dates · Facebook drone video</p></div>
+<h3>Project 12: Front and side beds with a boulder and a Japanese maple</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/drone-video-155743.jpg" data-where="Site 11, Project 12" data-cap="Before: bare corner by the porch" data-meta="Drone video" aria-label="Enlarge: Before: bare corner by the porch"><img src="img/thumb/drone-video-155743.jpg" width="600" height="338" alt="Before: bare corner by the porch" loading="lazy" decoding="async"></button><p class="cap">Before: bare corner by the porch</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-155838.jpg" data-where="Site 11, Project 12" data-cap="After: corner bed with the maple" data-meta="Drone video" aria-label="Enlarge: After: corner bed with the maple"><img src="img/thumb/drone-video-155838.jpg" width="600" height="338" alt="After: corner bed with the maple" loading="lazy" decoding="async"></button><p class="cap">After: corner bed with the maple</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-155856.jpg" data-where="Site 11, Project 12" data-cap="Before: lawn at the front porch" data-meta="Drone video" aria-label="Enlarge: Before: lawn at the front porch"><img src="img/thumb/drone-video-155856.jpg" width="600" height="338" alt="Before: lawn at the front porch" loading="lazy" decoding="async"></button><p class="cap">Before: lawn at the front porch</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-155915.jpg" data-where="Site 11, Project 12" data-cap="After: front bed with the boulder" data-meta="Drone video" aria-label="Enlarge: After: front bed with the boulder"><img src="img/thumb/drone-video-155915.jpg" width="600" height="338" alt="After: front bed with the boulder" loading="lazy" decoding="async"></button><p class="cap">After: front bed with the boulder</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-155943.jpg" data-where="Site 11, Project 12" data-cap="Before: the whole front" data-meta="Drone video" aria-label="Enlarge: Before: the whole front"><img src="img/thumb/drone-video-155943.jpg" width="600" height="338" alt="Before: the whole front" loading="lazy" decoding="async"></button><p class="cap">Before: the whole front</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-155931.jpg" data-where="Site 11, Project 12" data-cap="After: the whole front" data-meta="Drone video" aria-label="Enlarge: After: the whole front"><img src="img/thumb/drone-video-155931.jpg" width="600" height="338" alt="After: the whole front" loading="lazy" decoding="async"></button><p class="cap">After: the whole front</p><p class="meta">Drone video</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-11-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-11-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-12" data-name="Site 12" data-desc="White painted-brick house with arched windows">
+<div class="site-head"><h2>Site 12</h2><p class="desc">White painted-brick house with arched windows</p>
+<p class="facts">4 photos · No dates · Facebook drone video</p></div>
+<h3>Project 13: Block-edged beds and a fountain bed</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/drone-video-161913.jpg" data-where="Site 12, Project 13" data-cap="Before: grass strip along the drive" data-meta="Drone video" aria-label="Enlarge: Before: grass strip along the drive"><img src="img/thumb/drone-video-161913.jpg" width="600" height="338" alt="Before: grass strip along the drive" loading="lazy" decoding="async"></button><p class="cap">Before: grass strip along the drive</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-161926.jpg" data-where="Site 12, Project 13" data-cap="After: block-edged bed along the drive" data-meta="Drone video" aria-label="Enlarge: After: block-edged bed along the drive"><img src="img/thumb/drone-video-161926.jpg" width="600" height="338" alt="After: block-edged bed along the drive" loading="lazy" decoding="async"></button><p class="cap">After: block-edged bed along the drive</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-162002.jpg" data-where="Site 12, Project 13" data-cap="Before: bare corner by the garage" data-meta="Drone video" aria-label="Enlarge: Before: bare corner by the garage"><img src="img/thumb/drone-video-162002.jpg" width="600" height="338" alt="Before: bare corner by the garage" loading="lazy" decoding="async"></button><p class="cap">Before: bare corner by the garage</p><p class="meta">Drone video</p></li>
+<li><button type="button" class="ph" data-full="img/drone-video-162011.jpg" data-where="Site 12, Project 13" data-cap="After: fountain bed by the garage" data-meta="Drone video" aria-label="Enlarge: After: fountain bed by the garage"><img src="img/thumb/drone-video-162011.jpg" width="600" height="338" alt="After: fountain bed by the garage" loading="lazy" decoding="async"></button><p class="cap">After: fountain bed by the garage</p><p class="meta">Drone video</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-12-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-12-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-13" data-name="Site 13" data-desc="Backyard pool with a wood privacy fence">
+<div class="site-head"><h2>Site 13</h2><p class="desc">Backyard pool with a wood privacy fence</p>
+<p class="facts">2 photos · No dates · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 14: Arborvitae row and a curved brick-edged bed</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-006732.jpg" data-where="Site 13, Project 14" data-cap="Arborvitae and landscape lights along the fence" data-meta="Facebook" aria-label="Enlarge: Arborvitae and landscape lights along the fence"><img src="img/thumb/facebook-006732.jpg" width="600" height="328" alt="Arborvitae and landscape lights along the fence" loading="lazy" decoding="async"></button><p class="cap">Arborvitae and landscape lights along the fence</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-010992.jpg" data-where="Site 13, Project 14" data-cap="Curved brick-edged bed by the patio" data-meta="Facebook" aria-label="Enlarge: Curved brick-edged bed by the patio"><img src="img/thumb/facebook-010992.jpg" width="600" height="399" alt="Curved brick-edged bed by the patio" loading="lazy" decoding="async"></button><p class="cap">Curved brick-edged bed by the patio</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? Are both photos the same backyard?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-13-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-13-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-14" data-name="Site 14" data-desc="Brick house with a white arched sunroom">
+<div class="site-head"><h2>Site 14</h2><p class="desc">Brick house with a white arched sunroom</p>
+<p class="facts">3 photos · No dates · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 15: Beds along the brick edging and the front walk</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-971544.jpg" data-where="Site 14, Project 15" data-cap="Shrub bed by the brick pillar" data-meta="Facebook" aria-label="Enlarge: Shrub bed by the brick pillar"><img src="img/thumb/facebook-971544.jpg" width="600" height="450" alt="Shrub bed by the brick pillar" loading="lazy" decoding="async"></button><p class="cap">Shrub bed by the brick pillar</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-954078.jpg" data-where="Site 14, Project 15" data-cap="Bed in front of the sunroom" data-meta="Facebook" aria-label="Enlarge: Bed in front of the sunroom"><img src="img/thumb/facebook-954078.jpg" width="450" height="600" alt="Bed in front of the sunroom" loading="lazy" decoding="async"></button><p class="cap">Bed in front of the sunroom</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-959728.jpg" data-where="Site 14, Project 15" data-cap="Flower border along the drive" data-meta="Facebook" aria-label="Enlarge: Flower border along the drive"><img src="img/thumb/facebook-959728.jpg" width="573" height="600" alt="Flower border along the drive" loading="lazy" decoding="async"></button><p class="cap">Flower border along the drive</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-14-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-14-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-15" data-name="Site 15" data-desc="Brick house with white columns and a white gable">
+<div class="site-head"><h2>Site 15</h2><p class="desc">Brick house with white columns and a white gable</p>
+<p class="facts">1 photo · No date · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 16: Curved front bed with crape myrtles</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-229149.jpg" data-where="Site 15, Project 16" data-cap="Curved bed across the front of the house" data-meta="Facebook" aria-label="Enlarge: Curved bed across the front of the house"><img src="img/thumb/facebook-229149.jpg" width="450" height="600" alt="Curved bed across the front of the house" loading="lazy" decoding="async"></button><p class="cap">Curved bed across the front of the house</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-15-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-15-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-16" data-name="Site 16" data-desc="Two-story brick house with a brick mailbox">
+<div class="site-head"><h2>Site 16</h2><p class="desc">Two-story brick house with a brick mailbox</p>
+<p class="facts">1 photo · No date · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 17: Flower beds along the front walk</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-867741.jpg" data-where="Site 16, Project 17" data-cap="Beds on both sides of the front walk" data-meta="Facebook" aria-label="Enlarge: Beds on both sides of the front walk"><img src="img/thumb/facebook-867741.jpg" width="600" height="437" alt="Beds on both sides of the front walk" loading="lazy" decoding="async"></button><p class="cap">Beds on both sides of the front walk</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town?</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-16-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-16-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="site-17" data-name="Site 17" data-desc="Round bed under a shade tree">
+<div class="site-head"><h2>Site 17</h2><p class="desc">Round bed under a shade tree</p>
+<p class="facts">1 photo · No date · Amanda&#x27;s Facebook page</p></div>
+<h3>Project 18: Stone-edged flower ring around a tree</h3><ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-303189.jpg" data-where="Site 17, Project 18" data-cap="Flower ring with stone edging" data-meta="Facebook" aria-label="Enlarge: Flower ring with stone edging"><img src="img/thumb/facebook-303189.jpg" width="600" height="581" alt="Flower ring with stone edging" loading="lazy" decoding="async"></button><p class="cap">Flower ring with stone edging</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which town? The house is not in the photo.</p><div class="fields"><label><span>Town</span><input type="text" data-key="site-17-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="site-17-notes" rows="1"></textarea></label></div></div>
+</section>
+<section class="site" id="misc" data-name="Miscellaneous" data-desc="Close-ups and beds with no house in view">
+<div class="site-head"><h2>Miscellaneous</h2><p class="desc">Close-ups and beds with no house in view</p>
+<p class="facts">6 photos · No dates · Amanda&#x27;s Facebook page</p></div>
+<ul class="grid">
+<li><button type="button" class="ph" data-full="img/facebook-120398.jpg" data-where="Miscellaneous" data-cap="Stone-edged bed with a birdbath" data-meta="Facebook" aria-label="Enlarge: Stone-edged bed with a birdbath"><img src="img/thumb/facebook-120398.jpg" width="600" height="561" alt="Stone-edged bed with a birdbath" loading="lazy" decoding="async"></button><p class="cap">Stone-edged bed with a birdbath</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-794949.jpg" data-where="Miscellaneous" data-cap="Round bed with junipers and pansies" data-meta="Facebook" aria-label="Enlarge: Round bed with junipers and pansies"><img src="img/thumb/facebook-794949.jpg" width="600" height="566" alt="Round bed with junipers and pansies" loading="lazy" decoding="async"></button><p class="cap">Round bed with junipers and pansies</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-050310.jpg" data-where="Miscellaneous" data-cap="Petunias by a white porch rail. Same brick edging as Site 14?" data-meta="Facebook" aria-label="Enlarge: Petunias by a white porch rail. Same brick edging as Site 14?"><img src="img/thumb/facebook-050310.jpg" width="450" height="600" alt="Petunias by a white porch rail. Same brick edging as Site 14?" loading="lazy" decoding="async"></button><p class="cap">Petunias by a white porch rail. Same brick edging as Site 14?</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-094048.jpg" data-where="Miscellaneous" data-cap="Mixed annuals, close up" data-meta="Facebook" aria-label="Enlarge: Mixed annuals, close up"><img src="img/thumb/facebook-094048.jpg" width="450" height="600" alt="Mixed annuals, close up" loading="lazy" decoding="async"></button><p class="cap">Mixed annuals, close up</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-918944.jpg" data-where="Miscellaneous" data-cap="White petunias, close up" data-meta="Facebook" aria-label="Enlarge: White petunias, close up"><img src="img/thumb/facebook-918944.jpg" width="450" height="600" alt="White petunias, close up" loading="lazy" decoding="async"></button><p class="cap">White petunias, close up</p><p class="meta">Facebook</p></li>
+<li><button type="button" class="ph" data-full="img/facebook-045138.jpg" data-where="Miscellaneous" data-cap="Celosia, likely on the garden center benches" data-meta="Facebook" aria-label="Enlarge: Celosia, likely on the garden center benches"><img src="img/thumb/facebook-045138.jpg" width="450" height="600" alt="Celosia, likely on the garden center benches" loading="lazy" decoding="async"></button><p class="cap">Celosia, likely on the garden center benches</p><p class="meta">Facebook</p></li>
+</ul>
+<div class="ask"><p class="check">Which site, if any, does each one belong to?</p><div class="fields"><label><span>Town</span><input type="text" data-key="misc-town" autocomplete="off"></label><label><span>Notes</span><textarea data-key="misc-notes" rows="1"></textarea></label></div></div>
+</section>
+
+<section class="send" id="notes">
+  <h2>Copy the notes</h2>
+  <p>Towns and notes stay saved in this browser as you type. Copy them all into a text or an email when you're done.</p>
+  <div class="btns">
+    <button type="button" class="btn btn--main" id="copyNotes">Copy all notes</button>
+    <button type="button" class="btn btn--plain" id="clearNotes">Clear notes</button>
+  </div>
+  <p class="status" id="status" role="status"></p>
+  <textarea id="notesOut" hidden readonly aria-label="All notes"></textarea>
+</section>
+</div>
+</main>
+
+<dialog id="lightbox" aria-label="Photo">
+  <div class="lb">
+    <img id="lbImg" alt="">
+    <div class="lb-bar">
+      <button type="button" class="lb-btn" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+      <div class="lb-text"><p class="lb-where" id="lbWhere"></p><p class="lb-cap" id="lbCap"></p><p class="lb-meta" id="lbMeta"></p></div>
+      <button type="button" class="lb-btn" id="lbNext" aria-label="Next photo">&#8250;</button>
+      <button type="button" class="lb-btn" id="lbClose" aria-label="Close">&#215;</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var KEY = "av-job-photos-notes";
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { store = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+
+  var fields = document.querySelectorAll("[data-key]");
+  fields.forEach(function (f) {
+    if (store[f.dataset.key]) f.value = store[f.dataset.key];
+    f.addEventListener("input", function () { store[f.dataset.key] = f.value; save(); });
+  });
+
+  function collect() {
+    var lines = [];
+    document.querySelectorAll(".site").forEach(function (s) {
+      var town = s.querySelector("[data-key$='-town']").value.trim();
+      var notes = s.querySelector("[data-key$='-notes']").value.trim();
+      if (!town && !notes) return;
+      var line = s.dataset.name + " (" + s.dataset.desc + ")";
+      if (town) line += "\nTown: " + town;
+      if (notes) line += "\nNotes: " + notes;
+      lines.push(line);
+    });
+    return lines.join("\n\n");
+  }
+
+  var status = document.getElementById("status");
+  var out = document.getElementById("notesOut");
+  document.getElementById("copyNotes").addEventListener("click", function () {
+    var text = collect();
+    if (!text) { status.textContent = "Nothing typed in yet."; return; }
+    out.value = text; out.hidden = false;
+    function fallback() { out.focus(); out.select(); status.textContent = "Selected below. Copy it from there."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied."; }, fallback);
+    } else { fallback(); }
+  });
+  document.getElementById("clearNotes").addEventListener("click", function () {
+    if (!confirm("Clear every town and note on this page?")) return;
+    store = {}; save();
+    fields.forEach(function (f) { f.value = ""; });
+    out.hidden = true; status.textContent = "Cleared.";
+  });
+
+  var buttons = Array.prototype.slice.call(document.querySelectorAll(".ph"));
+  var dlg = document.getElementById("lightbox");
+  var img = document.getElementById("lbImg");
+  var at = 0;
+  function show(i) {
+    at = (i + buttons.length) % buttons.length;
+    var b = buttons[at];
+    img.src = b.dataset.full;
+    img.alt = b.dataset.cap;
+    document.getElementById("lbWhere").textContent = b.dataset.where;
+    document.getElementById("lbCap").textContent = b.dataset.cap;
+    document.getElementById("lbMeta").textContent = b.dataset.meta;
+  }
+  buttons.forEach(function (b, i) {
+    b.addEventListener("click", function () {
+      show(i);
+      if (dlg.showModal) dlg.showModal(); else window.open(b.dataset.full, "_blank");
+    });
+  });
+  document.getElementById("lbPrev").addEventListener("click", function () { show(at - 1); });
+  document.getElementById("lbNext").addEventListener("click", function () { show(at + 1); });
+  document.getElementById("lbClose").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", function () { buttons[at].focus({ preventScroll: true }); });
+  document.addEventListener("keydown", function (e) {
+    if (!dlg.open) return;
+    if (e.key === "ArrowRight") show(at + 1);
+    if (e.key === "ArrowLeft") show(at - 1);
+  });
+  var x0 = null;
+  img.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>
+</body>
+</html>
