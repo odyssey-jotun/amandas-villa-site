@@ -1,6 +1,6 @@
 # Photo credits
 
-build-step-1 to build-step-7: Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23). They appear only in the numbered build carousel so no photo repeats on the page.
+build-step-1 to build-step-7: Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23). They appear in the numbered build carousel. The hero (hero-colton-french-drain-along-brick-house) is IMG_1252, the same photo as step 3: Marc chose a real Amanda's Villa drain over stock so the hero is not false advertising.
 
 Stock (Pexels License, free to use, no attribution required; Pexels photo ID in brackets):
 - value-dry-backyard-lawn-and-patio.jpg [15369750]
@@ -16,5 +16,4 @@ Stock (Pexels License, free to use, no attribution required; Pexels photo ID in 
 - card-drainage-trench-with-gravel.jpg [37627672] (French drain card on the Hardscape page)
 
 Stock (Unsplash License):
-- hero-drainage-line-through-lawn-wide.jpg / -tall.jpg: Lilishia Gounder, Unsplash photo hnbF920leGM.
 - problem-rainwater-pooled-on-lawn.jpg: Yura Stroganov, Unsplash photo yv1ul25rLz0.
