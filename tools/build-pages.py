@@ -192,6 +192,9 @@ def reviews_section(heading):
 </section>"""
 
 
+SPLIT_HERO_CSS = '<style>\n/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */\n@media (min-width: 641px) {\n  .hero-card { background: var(--forest-deep); }\n  .hero-card > picture { left: auto; right: 0; width: 62%; }\n  .hero-card > picture img { object-position: {pos}; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }\n  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }\n  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }\n  .hero h1 { font-size: 54px; max-width: 10.5em; }\n  .hero-sub { max-width: 24em; }\n  .hero-meta { max-width: 28em; line-height: 1.7; }\n  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }\n  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }\n}\n@media (max-width: 640px) {\n  .hero-card { min-height: 0; background: var(--forest-deep); }\n  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }\n  .hero-card > picture img { object-position: center 30%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }\n  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }\n  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }\n  .hero-copy { margin-top: -48px; padding-top: 0; }\n  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }\n}\n</style>'
+
+
 def page(d):
     p = d["prefix"]
     faqs = d["faqs"]
@@ -210,6 +213,7 @@ def page(d):
 <meta name="description" content="{esc(d["description"])}">
 {HEAD_STYLE}
 {LOT_CSS}
+{SPLIT_HERO_CSS.replace("{pos}", hero["split"]) if hero.get("split") else ""}
 {ld_html}
 </head>
 <body>
@@ -535,8 +539,9 @@ PAGES["garden-center/pottery-decor"] = dict(
     title="Flower Pots, Talavera Pottery, Statues and Garden Decor in Arkansas | Amanda's Villa",
     description="About two hundred flower pots at a time, plus concrete planters, bird baths, fountains, garden statues and seasonal decor at Amanda's Villa in White Hall.",
     hero=dict(
-        img="garden-center/hero-woman-holding-terracotta-pot",
-        alt="A smiling woman holding a plant in a terracotta pot",
+        img="garden-center/hero-woman-choosing-terracotta-pot",
+        alt="A woman choosing a terracotta pot from the shelves of a garden center",
+        split="88% center",
         h1="Flower Pots, Planters and Garden <em>Decor</em>",
         sub="Clay, ceramic, glazed, Talavera and aluminum pots, from a three-inch windowsill pot to one big enough for a hotel lobby.",
         cta=VISIT,

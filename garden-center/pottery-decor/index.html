@@ -320,6 +320,30 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   .lot-items p { font-size: 15px; }
 }
 </style>
+<style>
+/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */
+@media (min-width: 641px) {
+  .hero-card { background: var(--forest-deep); }
+  .hero-card > picture { left: auto; right: 0; width: 62%; }
+  .hero-card > picture img { object-position: 88% center; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }
+  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }
+  .hero h1 { font-size: 54px; max-width: 10.5em; }
+  .hero-sub { max-width: 24em; }
+  .hero-meta { max-width: 28em; line-height: 1.7; }
+  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }
+}
+@media (max-width: 640px) {
+  .hero-card { min-height: 0; background: var(--forest-deep); }
+  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }
+  .hero-card > picture img { object-position: center 30%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }
+  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }
+  .hero-copy { margin-top: -48px; padding-top: 0; }
+  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -459,8 +483,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <header class="hero">
   <div class="hero-card">
     <picture>
-      <source media="(max-width: 640px)" srcset="../../img/garden-center/hero-woman-holding-terracotta-pot-tall.jpg">
-      <img width="1600" height="900" src="../../img/garden-center/hero-woman-holding-terracotta-pot-wide.jpg" alt="A smiling woman holding a plant in a terracotta pot" fetchpriority="high">
+      <source media="(max-width: 640px)" srcset="../../img/garden-center/hero-woman-choosing-terracotta-pot-tall.jpg">
+      <img width="1600" height="900" src="../../img/garden-center/hero-woman-choosing-terracotta-pot-wide.jpg" alt="A woman choosing a terracotta pot from the shelves of a garden center" fetchpriority="high">
     </picture>
     <nav class="nav" aria-label="Main">
       <a class="wordmark" href="../../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
