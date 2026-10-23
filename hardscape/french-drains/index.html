@@ -531,7 +531,27 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .cf--steps .cf-caption { max-width: 34em; margin: var(--space-6) auto 0; min-height: 0; }
 .cf--steps .cf-title { margin: 0; font: 400 26px/1.25 var(--font-display); color: var(--ink); }
 .cf--steps .cf-text { margin: var(--space-2) auto 0; font: 400 18px/1.6 var(--font-body); color: var(--ink-2); min-height: 3.2em; }
+.cf--steps .cf-stage { height: clamp(280px, 35vw, 450px); }
+.cf--steps .cf-card { aspect-ratio: 1 / 1; }
+.cf--steps .cf-caption { margin-top: var(--space-4); }
+.cf--steps .cf-frame { position: relative; }
+.cf--steps .cf-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 40; width: 60px; height: 60px; border: 0; background: var(--forest); color: var(--on-forest); box-shadow: 0 10px 24px -8px rgba(14,22,18,.6); }
+.cf--steps .cf-btn:hover { background: var(--forest-deep); }
+.cf--steps .cf-btn:focus-visible { outline: 3px solid var(--clay-light); outline-offset: 3px; }
+.cf--steps .cf-btn svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.cf--steps .cf-btn--prev { left: calc(50% - clamp(240px, 32vw, 400px) / 2 - 30px); }
+.cf--steps .cf-btn--next { right: calc(50% - clamp(240px, 32vw, 400px) / 2 - 30px); }
+.cf--steps .cf-count { display: none; }
+@media (max-width: 640px) {
+  .cf--steps .cf-btn { width: 52px; height: 52px; }
+  .cf--steps .cf-btn--prev { left: calc(50% - 146px); }
+  .cf--steps .cf-btn--next { right: calc(50% - 146px); }
+  .cf--steps .cf-dots { display: flex; }
+}
 @media (max-width: 640px) { .cf--steps .cf-title { font-size: 22px; } .cf--steps .cf-text { font-size: 17px; min-height: 4.8em; } }
+/* ---------- French drains: the three-step plan runs on icons, no photos ---------- */
+.plan .steps .ic-badge { width: 72px; height: 72px; background: var(--linen); }
+.plan .steps .ic { width: 32px; height: 32px; }
 /* ---------- Footnote markers and the Citations fold-out ---------- */
 .fn { font-size: .68em; line-height: 0; vertical-align: super; margin-left: 1px; }
 .fn a { color: var(--forest); font-weight: 600; text-decoration: none; }
@@ -731,9 +751,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <div class="plan">
       <h2>How French drain installation works, from free estimate to dry yard</h2>
       <ol class="steps">
-        <li><img class="step-photo" width="900" height="900" src="../../img/french-drains/plan-1-homeowner-calling-from-front-step.jpg" alt="A homeowner on her phone on the front step of her brick house" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a free estimate</h3><p>Call (870) 489-5463 or submit the estimate form. Photos of the spots where water collects, taken during or right after a rain, help the team prepare for the site visit.</p></li>
-        <li><img class="step-photo" width="900" height="900" src="../../img/french-drains/plan-2-site-plans-on-the-lawn.jpg" alt="Site plans and a clipboard laid out on a green lawn" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Site survey and design</h3><p>A member of the hardscape team surveys your property with a transit, traces where the water collects and where it can drain, and sets the route and slope of your drain. The team then prepares your estimate.</p></li>
-        <li><img class="step-photo" width="900" height="900" src="../../img/french-drains/plan-3-finished-backyard-lawn.jpg" alt="A finished backyard with a full green lawn and a covered patio" loading="lazy"><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Installation from start to finish</h3><p>A dedicated crew digs the trench, builds the drain, backfills it and restores the ground above it, without leaving for other jobs along the way.</p></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a free estimate</h3><p>Call (870) 489-5463 or submit the estimate form. Photos of the spots where water collects, taken during or right after a rain, help the team prepare for the site visit.</p></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Site survey and design</h3><p>A member of the hardscape team surveys your property with a transit, traces where the water collects and where it can drain, and sets the route and slope of your drain. The team then prepares your estimate.</p></li>
+        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Installation from start to finish</h3><p>A dedicated crew digs the trench, builds the drain, backfills it and restores the ground above it, without leaving for other jobs along the way.</p></li>
       </ol>
       <div class="btn-row">
         <a class="btn btn--primary" href="../../contact/#estimate">Request a free estimate</a>
@@ -751,21 +771,23 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <p style="margin-left:auto;margin-right:auto">These photos follow one French drain by the Amanda's Villa hardscape team, from the route on the survey to the finished lawn.</p>
     </div>
     <div class="cf cf--steps" tabindex="0" role="region" aria-roledescription="carousel" aria-label="French drain installation, step by step">
-      <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Lift the sod along the route" data-text="The drain follows the slope set on the survey. The sod along that line is cut and rolled up to go back down at the end."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-1-sod-lifted-along-drain-route.jpg" alt="Rolls of cut sod lined up beside a curving strip of bare soil marking a French drain route across a backyard" loading="lazy"><span class="build-n" aria-hidden="true">1</span></figure>
-        <figure class="cf-card" data-i="1" data-title="Dig the trench" data-text="The crew digs along the marked route, with the rolled sod and the drain pipe waiting beside the trench."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-2-digging-the-trench.jpg" alt="A crew member digging a French drain trench across a lawn, with sod rolls and coils of blue drain pipe nearby" loading="lazy"><span class="build-n" aria-hidden="true">2</span></figure>
-        <figure class="cf-card" data-i="2" data-title="Line the trench and lay the pipe" data-text="Filter fabric lines the trench to keep soil out of the gravel, and the pipe runs along the bottom. Boards protect the lawn from wheelbarrows."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-3-fabric-and-pipe-in-trench.jpg" alt="Blue drain pipe laid in a fabric-lined trench along a brick house, with boards protecting the lawn" loading="lazy"><span class="build-n" aria-hidden="true">3</span></figure>
-        <figure class="cf-card" data-i="3" data-title="Add gravel and catch basins" data-text="Gravel fills the trench around the pipe, and round grates at the surface catch water where it collects."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-4-gravel-and-catch-basin.jpg" alt="A gravel-filled French drain wrapped in filter fabric with a round catch basin grate set at the surface" loading="lazy"><span class="build-n" aria-hidden="true">4</span></figure>
-        <figure class="cf-card" data-i="4" data-title="Close the fabric and replace the sod" data-text="The fabric folds over the gravel, and the original sod goes back down over the trench."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-5-sod-replaced-over-drain.jpg" alt="Filter fabric and catch basin grates along a fence line as sod is laid back over a new French drain" loading="lazy"><span class="build-n" aria-hidden="true">5</span></figure>
-        <figure class="cf-card" data-i="5" data-title="Finished along the fence" data-text="The lawn along the fence is back in place, with only a faint line where the trench ran."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-6-finished-lawn-along-fence.jpg" alt="A green backyard lawn along a wood privacy fence after a French drain was installed beneath it" loading="lazy"><span class="build-n" aria-hidden="true">6</span></figure>
-        <figure class="cf-card" data-i="6" data-title="Finished beside the house" data-text="The side yard is back to grass, and rain now has a path away from the foundation."><img draggable="false" width="900" height="1125" src="../../img/french-drains/build-step-7-finished-side-yard-by-house.jpg" alt="A restored grass side yard beside a brick house and air conditioning unit after French drain installation" loading="lazy"><span class="build-n" aria-hidden="true">7</span></figure>
+      <div class="cf-frame">
+        <div class="cf-stage">
+        <figure class="cf-card" data-i="0" data-title="Lift the sod along the route" data-text="The drain follows the slope set on the survey. The sod along that line is cut and rolled up to go back down at the end."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-1-sod-lifted-along-drain-route.jpg" alt="Rolls of cut sod lined up beside a curving strip of bare soil marking a French drain route across a backyard" loading="lazy"><span class="build-n" aria-hidden="true">1</span></figure>
+        <figure class="cf-card" data-i="1" data-title="Dig the trench" data-text="The crew digs along the marked route, with the rolled sod and the drain pipe waiting beside the trench."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-2-digging-the-trench.jpg" alt="A crew member digging a French drain trench across a lawn, with sod rolls and coils of blue drain pipe nearby" loading="lazy"><span class="build-n" aria-hidden="true">2</span></figure>
+        <figure class="cf-card" data-i="2" data-title="Line the trench and lay the pipe" data-text="Filter fabric lines the trench to keep soil out of the gravel, and the pipe runs along the bottom. Boards protect the lawn from wheelbarrows."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-3-fabric-and-pipe-in-trench.jpg" alt="Blue drain pipe laid in a fabric-lined trench along a brick house, with boards protecting the lawn" loading="lazy"><span class="build-n" aria-hidden="true">3</span></figure>
+        <figure class="cf-card" data-i="3" data-title="Add gravel and catch basins" data-text="Gravel fills the trench around the pipe, and round grates at the surface catch water where it collects."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-4-gravel-and-catch-basin.jpg" alt="A gravel-filled French drain wrapped in filter fabric with a round catch basin grate set at the surface" loading="lazy"><span class="build-n" aria-hidden="true">4</span></figure>
+        <figure class="cf-card" data-i="4" data-title="Close the fabric and replace the sod" data-text="The fabric folds over the gravel, and the original sod goes back down over the trench."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-5-sod-replaced-over-drain.jpg" alt="Filter fabric and catch basin grates along a fence line as sod is laid back over a new French drain" loading="lazy"><span class="build-n" aria-hidden="true">5</span></figure>
+        <figure class="cf-card" data-i="5" data-title="Finished along the fence" data-text="The lawn along the fence is back in place, with only a faint line where the trench ran."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-6-finished-lawn-along-fence.jpg" alt="A green backyard lawn along a wood privacy fence after a French drain was installed beneath it" loading="lazy"><span class="build-n" aria-hidden="true">6</span></figure>
+        <figure class="cf-card" data-i="6" data-title="Finished beside the house" data-text="The side yard is back to grass, and rain now has a path away from the foundation."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-7-finished-side-yard-by-house.jpg" alt="A restored grass side yard beside a brick house and air conditioning unit after French drain installation" loading="lazy"><span class="build-n" aria-hidden="true">7</span></figure>
+        </div>
+        <button class="cf-btn cf-btn--prev" type="button" data-dir="-1" aria-label="Previous step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="cf-btn cf-btn--next" type="button" data-dir="1" aria-label="Next step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
       </div>
       <div class="cf-caption" aria-live="polite"><h3 class="cf-title">Step 1: Lift the sod along the route</h3><p class="cf-text">The drain follows the slope set on the survey. The sod along that line is cut and rolled up to go back down at the end.</p></div>
       <div class="cf-bar">
-        <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous step">‹</button>
         <div class="cf-dots"></div>
         <span class="cf-count" aria-hidden="true"></span>
-        <button class="cf-btn" type="button" data-dir="1" aria-label="Next step">›</button>
       </div>
     </div>
   </div>
@@ -943,7 +965,13 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   function pause() { clearInterval(timer); timer = null; }
   root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
   root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render(); play();
+  render();
+  // Every time the carousel scrolls into view it starts over at step 1, and it only advances while on screen.
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { pause(); go(0); play(); } else { pause(); } });
+    }, { threshold: 0.3 }).observe(root);
+  } else { play(); }
 })();
 </script>
 
