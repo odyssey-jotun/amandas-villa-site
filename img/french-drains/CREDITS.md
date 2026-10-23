@@ -1,13 +1,13 @@
 # Photo credits
 
-build-step-1 to build-step-7: Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23). They appear only in the build sequence so no photo repeats on the page.
+build-step-1 to build-step-7: Colton's photos of one Amanda's Villa French drain job (IMG_1240 to IMG_1275, sent to Marc 2026-10-23). They appear only in the numbered build carousel so no photo repeats on the page.
 
 Stock (Pexels License, free to use, no attribution required; Pexels photo ID in brackets):
 - hero-drain-pipe-in-gravel-trench-wide.jpg / -tall.jpg [37627673]
 - value-dry-backyard-lawn-and-patio.jpg [15369750]
-- plan-1-homeowner-photographing-yard.jpg [7859133]
-- plan-2-level-survey-of-yard.jpg [7499043]
-- plan-3-shovel-breaking-ground.jpg [8993775]
+- plan-1-homeowner-calling-from-front-step.jpg [14599211]
+- plan-2-site-plans-on-the-lawn.jpg [8470829]
+- plan-3-finished-backyard-lawn.jpg [7546775]
 - service-rain-pouring-off-gutter.jpg [13307118]
 - service-rain-puddle-on-lawn.jpg [17401395]
 - service-stone-garden-wall.jpg [38843820]
