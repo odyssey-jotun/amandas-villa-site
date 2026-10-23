@@ -534,20 +534,14 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .cf--steps .cf-stage { height: clamp(280px, 35vw, 450px); }
 .cf--steps .cf-card { aspect-ratio: 1 / 1; }
 .cf--steps .cf-caption { margin-top: var(--space-4); }
-.cf--steps .cf-frame { position: relative; }
-.cf--steps .cf-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 40; width: 60px; height: 60px; border: 0; background: var(--forest); color: var(--on-forest); box-shadow: 0 10px 24px -8px rgba(14,22,18,.6); }
+.cf--steps .cf-bar { gap: var(--space-6); }
+.cf--steps .cf-bar--top { margin: 0 0 var(--space-4); }
+.cf--steps .cf-btn { width: 56px; height: 56px; border: 0; background: var(--forest); color: var(--on-forest); box-shadow: 0 8px 20px -8px rgba(14,22,18,.55); }
 .cf--steps .cf-btn:hover { background: var(--forest-deep); }
 .cf--steps .cf-btn:focus-visible { outline: 3px solid var(--clay-light); outline-offset: 3px; }
 .cf--steps .cf-btn svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.cf--steps .cf-btn--prev { left: calc(50% - clamp(240px, 32vw, 400px) / 2 - 30px); }
-.cf--steps .cf-btn--next { right: calc(50% - clamp(240px, 32vw, 400px) / 2 - 30px); }
-.cf--steps .cf-count { display: none; }
-@media (max-width: 640px) {
-  .cf--steps .cf-btn { width: 52px; height: 52px; }
-  .cf--steps .cf-btn--prev { left: calc(50% - 146px); }
-  .cf--steps .cf-btn--next { right: calc(50% - 146px); }
-  .cf--steps .cf-dots { display: flex; }
-}
+.cf--steps .cf-count { display: inline-block; min-width: 4.5em; text-align: center; font: 600 16px/1 var(--font-body); letter-spacing: .12em; color: var(--ink-2); }
+@media (max-width: 640px) { .cf--steps .cf-btn { width: 52px; height: 52px; } .cf--steps .cf-dots { display: flex; } }
 @media (max-width: 640px) { .cf--steps .cf-title { font-size: 22px; } .cf--steps .cf-text { font-size: 17px; min-height: 4.8em; } }
 /* ---------- French drains: darker scrim and a soft shadow so the hero headline reads over the lawn ---------- */
 @media (min-width: 641px) {
@@ -776,8 +770,12 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <p style="margin-left:auto;margin-right:auto">These photos follow one French drain by the Amanda's Villa hardscape team, from the route on the survey to the finished lawn.</p>
     </div>
     <div class="cf cf--steps" tabindex="0" role="region" aria-roledescription="carousel" aria-label="French drain installation, step by step">
-      <div class="cf-frame">
-        <div class="cf-stage">
+      <div class="cf-bar cf-bar--top">
+        <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <span class="cf-count" aria-hidden="true">1 / 7</span>
+        <button class="cf-btn" type="button" data-dir="1" aria-label="Next step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+      <div class="cf-stage">
         <figure class="cf-card" data-i="0" data-title="Lift the sod along the route" data-text="The drain follows the slope set on the survey. The sod along that line is cut and rolled up to go back down at the end."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-1-sod-lifted-along-drain-route.jpg" alt="Rolls of cut sod lined up beside a curving strip of bare soil marking a French drain route across a backyard" loading="lazy"><span class="build-n" aria-hidden="true">1</span></figure>
         <figure class="cf-card" data-i="1" data-title="Dig the trench" data-text="The crew digs along the marked route, with the rolled sod and the drain pipe waiting beside the trench."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-2-digging-the-trench.jpg" alt="A crew member digging a French drain trench across a lawn, with sod rolls and coils of blue drain pipe nearby" loading="lazy"><span class="build-n" aria-hidden="true">2</span></figure>
         <figure class="cf-card" data-i="2" data-title="Line the trench and lay the pipe" data-text="Filter fabric lines the trench to keep soil out of the gravel, and the pipe runs along the bottom. Boards protect the lawn from wheelbarrows."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-3-fabric-and-pipe-in-trench.jpg" alt="Blue drain pipe laid in a fabric-lined trench along a brick house, with boards protecting the lawn" loading="lazy"><span class="build-n" aria-hidden="true">3</span></figure>
@@ -785,14 +783,12 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <figure class="cf-card" data-i="4" data-title="Close the fabric and replace the sod" data-text="The fabric folds over the gravel, and the original sod goes back down over the trench."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-5-sod-replaced-over-drain.jpg" alt="Filter fabric and catch basin grates along a fence line as sod is laid back over a new French drain" loading="lazy"><span class="build-n" aria-hidden="true">5</span></figure>
         <figure class="cf-card" data-i="5" data-title="Finished along the fence" data-text="The lawn along the fence is back in place, with only a faint line where the trench ran."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-6-finished-lawn-along-fence.jpg" alt="A green backyard lawn along a wood privacy fence after a French drain was installed beneath it" loading="lazy"><span class="build-n" aria-hidden="true">6</span></figure>
         <figure class="cf-card" data-i="6" data-title="Finished beside the house" data-text="The side yard is back to grass, and rain now has a path away from the foundation."><img draggable="false" width="1000" height="1000" src="../../img/french-drains/build-step-7-finished-side-yard-by-house.jpg" alt="A restored grass side yard beside a brick house and air conditioning unit after French drain installation" loading="lazy"><span class="build-n" aria-hidden="true">7</span></figure>
-        </div>
-        <button class="cf-btn cf-btn--prev" type="button" data-dir="-1" aria-label="Previous step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-        <button class="cf-btn cf-btn--next" type="button" data-dir="1" aria-label="Next step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
       </div>
       <div class="cf-caption" aria-live="polite"><h3 class="cf-title">Step 1: Lift the sod along the route</h3><p class="cf-text">The drain follows the slope set on the survey. The sod along that line is cut and rolled up to go back down at the end.</p></div>
       <div class="cf-bar">
+        <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
         <div class="cf-dots"></div>
-        <span class="cf-count" aria-hidden="true"></span>
+        <button class="cf-btn" type="button" data-dir="1" aria-label="Next step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
       </div>
     </div>
   </div>
