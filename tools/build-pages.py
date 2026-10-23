@@ -424,13 +424,15 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
             ("plan-fall-planters-amandas-villa.jpg", "Potted lantana, pansies, ornamental kale and peppers ready to take home at Amanda's Villa Garden Center", 1500, 643),
             [("store", "Come visit", "Stop by the lot at 7901 Dollarway Road in White Hall. Someone will greet you on the way in."),
              ("sun", "Describe the spot", "Say how much sun it has, or show a photo, and someone will lay out a few plants that will live there."),
-             ("shovel", "Plant it, or have it planted", "Take your plants home, or have Amanda's crew plant them for you.")],
+             ("shovel", "Plant it", "Take your plants home, or have Amanda's crew plant them for you.")],
             VISIT),
         split_prose(
             "SUCCESS AND FAILURE",
             "A yard that fills in a little more every year",
             ["Picture a Japanese maple turning red by the front walk, a row of cypress along the drive, and beds that are still green in August. Every plant was chosen for the light it has, so the yard keeps growing.",
-             "Without that match, too many yards stay stuck: bare beds, a dead shrub pulled every spring, and money spent on plants that never had a chance."],
+             "Each spring the yard has a little more to show. Shrubs fill out the space they were planted for, the evergreens hold their color through winter, and pansies and mums brighten the beds when the summer flowers fade.",
+             "Before long the front yard is the first thing friends mention when they visit, and the back porch is the favorite seat on a warm evening.",
+             "Choosing for the light from the start is what keeps a yard growing year after year, with fewer plants to replace each spring."],
             ("landscaping/after-ranch-maple.jpg", "A Japanese maple in a new mulched bed in front of a ranch house, planted by Amanda's Villa", 1100, 825),
             alt=True, flip=False),
         split_prose(
