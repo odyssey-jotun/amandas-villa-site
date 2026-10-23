@@ -354,6 +354,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .foot-tag { margin-top: var(--space-4); font: italic 400 20px/1.4 var(--font-text-serif); color: var(--on-forest); }
 </style>
 <style>
+/* ---------- About: Colton's photo sits level with his heading, and above his text on phones ---------- */
+@media (max-width: 900px) { .split--media-first .split-media { order: -1; } }
+
 /* ---------- About: services in a centered row of three ---------- */
 .svc3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10); margin-top: var(--space-10); }
 .svc3 > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
@@ -546,13 +549,12 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <!-- COLTON -->
 <section class="band band--alt">
   <div class="wrap">
-    <div class="split">
+    <div class="split split--top split--media-first">
       <div>
         <h2>Colton is the hardscape master behind every patio and wall</h2>
         <div class="prose" style="margin-top: var(--space-6)">
           <p>Colton leads the hardscape teams at Amanda's Villa. His crews build paver patios, walkways, structural and flower bed retaining walls and French drains, and every one starts with a transit survey of the ground it sits on.</p>
           <p>His standard is the part no one sees: eight to ten inches of compacted gravel under every patio, a finer leveling course on top and polymeric sand locking the joints. He designs each project the way he would want it at his own home, then works it to the customer's budget without cutting the base.</p>
-          <p>That standard holds on the biggest jobs too, including a hillside retaining wall in Hot Springs that holds back more than 80 tons of gravel.</p>
         </div>
         <figure class="quote">
           <blockquote><p>"If I'm doing it for a living, I want to be proud of it."</p></blockquote>
