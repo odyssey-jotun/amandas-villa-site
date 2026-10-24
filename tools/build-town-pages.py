@@ -420,7 +420,7 @@ STAR_CITY = {
         "tall": ("hero-curved-paver-walk-river-rock-tall",),
     },
     "value": {
-        "h2": "Let's build you a Star City yard that stays dry after a hard rain",
+        "h2": "Let's build you a Star City yard that stays dry and looks finished",
         "text": "Your project starts with a walk around your yard and a transit survey of how the ground falls, so the water, the stone and the plants each have a plan before any digging starts.",
         "photo": ("value-flower-border-brick-edging", "A border of red and purple annuals and yellow-green foliage along a brick edging at a Star City home"),
         "points": [
