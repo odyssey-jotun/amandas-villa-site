@@ -421,6 +421,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .cites-box[open] summary::after { content: "\2212"; }
 .cites-box ol { margin: 0; padding: 0 0 var(--space-6) 1.4em; display: grid; gap: var(--space-2); font-size: 15px; line-height: 1.55; color: var(--ink-2); }
 .cites-box li:target { background: var(--sage-pale); }
+.cites-box--faq { max-width: none; margin-top: var(--space-10); }
 </style>
 <script type="application/ld+json">
 {
@@ -886,10 +887,10 @@ document.querySelectorAll('.cf').forEach(function (root) {
 
 
 <script>
-// A footnote opens the Citations fold-out (and its FAQ answer stays open) before jumping to the source.
+// A footnote opens the fold-out that holds its source (Citations, or FAQ Citations under the FAQ) before jumping to it.
 (function () {
-  var box = document.getElementById('citations'); if (!box) return;
-  function show(hash) { if (hash && hash.indexOf('#cite-') === 0) { box.open = true; var t = document.querySelector(hash); if (t) t.scrollIntoView({ block: 'center' }); } }
+  if (!document.querySelector('.cites-box')) return;
+  function show(hash) { if (hash && hash.indexOf('#cite-') === 0) { var t = document.querySelector(hash); if (!t) return; var box = t.closest('details'); if (box) box.open = true; t.scrollIntoView({ block: 'center' }); } }
   document.addEventListener('click', function (e) { var a = e.target.closest('.fn a'); if (!a) return; e.preventDefault(); history.replaceState(null, '', a.getAttribute('href')); show(a.getAttribute('href')); });
   show(location.hash);
 })();

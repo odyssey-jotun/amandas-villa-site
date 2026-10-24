@@ -563,6 +563,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .cites-box[open] summary::after { content: "\2212"; }
 .cites-box ol { margin: 0; padding: 0 0 var(--space-6) 1.4em; display: grid; gap: var(--space-2); font-size: 15px; line-height: 1.55; color: var(--ink-2); }
 .cites-box li:target { background: var(--sage-pale); }
+.cites-box--faq { max-width: none; margin-top: var(--space-10); }
 </style>
 <style id="site-nav">
 /* Menu: Hardscape and Garden Center dropdowns, Contact tab, phone menu sub-items, four-column footer.
@@ -666,7 +667,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </nav>
     <div class="hero-copy">
       <h1>French Drain Installation for Yards That Hold <em>Water</em></h1>
-      <p class="hero-sub">Drainage for homes all over Arkansas, laid to the slope measured on a transit survey.</p>
+      <p class="hero-sub">Drainage for homes all over Arkansas.</p>
       <div class="hero-ctas">
         <a class="btn btn--onphoto" href="../../contact/#estimate">Request a free estimate</a>
         <a class="btn btn--ghost" href="tel:+18704895463">Call (870) 489-5463</a>
@@ -892,6 +893,16 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <img width="900" height="1200" src="../../img/french-drains/faq-rain-from-the-porch.jpg" alt="Heavy rain falling past a screened porch into a wooded backyard" loading="lazy">
     </figure>
     </div>
+    <details class="cites-box cites-box--faq" id="faq-citations">
+      <summary>FAQ Citations</summary>
+      <ol start="4">
+          <li id="cite-4">Henry F. French, Farm Drainage (New York: C. M. Saxton, Barker &amp; Co., 1860; copyright 1859); McGill University Library archival description of Henry F. French.</li>
+          <li id="cite-5">LSU AgCenter, “Installing and Maintaining a French Drain.”</li>
+          <li id="cite-6">Clemson Cooperative Extension Home &amp; Garden Information Center, “Dealing with Spring Drainage.”</li>
+          <li id="cite-7">International Code Council, 2021 International Residential Code, Section R401.3, adopted in the Arkansas Fire Prevention Code effective January 1, 2023.</li>
+          <li id="cite-8">Arkansas Code § 14-271-112, notice of intent to excavate, effective March 16, 2023.</li>
+      </ol>
+    </details>
   </div>
 </section>
 
@@ -917,11 +928,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
           <li id="cite-1">NOAA National Centers for Environmental Information and the North Carolina Institute for Climate Studies, “Arkansas State Climate Summary,” 2022. Long-term statewide average of 50.1 inches of precipitation a year; heavy rains can total more than 10 inches.</li>
           <li id="cite-2">University of Arkansas Division of Agriculture Cooperative Extension Service, “Arkansas Flood Impacts.”</li>
           <li id="cite-3">University of Arkansas Division of Agriculture, “Above the Flood: Recovering Your Lawn from Heavy Rainfall,” June 2015.</li>
-          <li id="cite-4">Henry F. French, Farm Drainage (New York: C. M. Saxton, Barker &amp; Co., 1860; copyright 1859); McGill University Library archival description of Henry F. French.</li>
-          <li id="cite-5">LSU AgCenter, “Installing and Maintaining a French Drain.”</li>
-          <li id="cite-6">Clemson Cooperative Extension Home &amp; Garden Information Center, “Dealing with Spring Drainage.”</li>
-          <li id="cite-7">International Code Council, 2021 International Residential Code, Section R401.3, adopted in the Arkansas Fire Prevention Code effective January 1, 2023.</li>
-          <li id="cite-8">Arkansas Code § 14-271-112, notice of intent to excavate, effective March 16, 2023.</li>
       </ol>
     </details>
   </div>
@@ -977,10 +983,10 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </script>
 
 <script>
-// A footnote opens the Citations fold-out (and its FAQ answer stays open) before jumping to the source.
+// A footnote opens the fold-out that holds its source (Citations, or FAQ Citations under the FAQ) before jumping to it.
 (function () {
-  var box = document.getElementById('citations'); if (!box) return;
-  function show(hash) { if (hash && hash.indexOf('#cite-') === 0) { box.open = true; var t = document.querySelector(hash); if (t) t.scrollIntoView({ block: 'center' }); } }
+  if (!document.querySelector('.cites-box')) return;
+  function show(hash) { if (hash && hash.indexOf('#cite-') === 0) { var t = document.querySelector(hash); if (!t) return; var box = t.closest('details'); if (box) box.open = true; t.scrollIntoView({ block: 'center' }); } }
   document.addEventListener('click', function (e) { var a = e.target.closest('.fn a'); if (!a) return; e.preventDefault(); history.replaceState(null, '', a.getAttribute('href')); show(a.getAttribute('href')); });
   show(location.hash);
 })();
