@@ -359,16 +359,26 @@ def page(t):
 STAR_CITY = {
     "slug": "star-city", "town": "Star City",
     "title": "Landscaping and Hardscaping Projects in Star City, AR | Amanda's Villa",
-    "description": "Four Amanda's Villa projects in Star City, Arkansas, photographed from start to finish: a French drain, a curved paver walk, a flagstone walk and new flower beds.",
+    "description": "Four Amanda's Villa projects in Star City, Arkansas, photographed from start to finish: new flower beds, a curved paver walk, a flagstone walk and a French drain.",
     "hero": {
         "h1": "Landscaping and Hardscaping Projects in Star City, <em>Arkansas</em>",
-        "sub": "A French drain, two new walks and a set of flower beds, built and planted by Amanda's Villa for Star City homes.",
+        "sub": "New flower beds, two new walks and a French drain, planted and built by Amanda's Villa for Star City homes.",
         "wide": ("hero-curved-paver-walk-picket-gate-wide", "A curved paver walk running through a white picket fence gate beside a Star City home, built by the Amanda's Villa hardscape team"),
         "tall": ("hero-curved-paver-walk-river-rock-tall",),
     },
     "work_h2": "Examples of our work in Star City",
-    "work_intro": "Each of these was built by the Amanda's Villa hardscape teams or planted by Amanda's crew at a home in Star City. Use the arrows to walk through each job from start to finish.",
+    "work_intro": "Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Star City. Use the arrows to walk through each job from start to finish.",
     "tiers": [
+        {"title": "Landscaping",
+         "text": "Beds of shrubs and flowers, designed by Amanda and planted by her crew.",
+         "link": ("landscaping/", "More about landscaping at Amanda's Villa"),
+         "jobs": [
+             {"title": "Flower beds along a brick-edged drive",
+              "text": "Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.",
+              "photos": [
+                  ("beds-1-sunroom-bed", "Bed across the front of the sunroom"), ("beds-2-flower-border-drive", "Flower border along the drive"),
+                  ("beds-3-shrubs-by-brick-pillar", "Shrubs beside the brick pillar"), ("beds-4-annuals-by-porch", "Annuals beside the porch rail")]},
+         ]},
         {"title": "Hardscape and drainage",
          "text": "Drains, walks and stonework, built by the hardscape teams led by Colton.",
          "link": ("hardscape/", "More about hardscape at Amanda's Villa"),
@@ -391,16 +401,6 @@ STAR_CITY = {
               "photos": [
                   ("flagstone-1-dug-out", "Walk dug out to the porch"), ("flagstone-2-gravel-and-border", "Gravel base down, paver border set"),
                   ("flagstone-3-finished", "Finished flagstone walk with the paver border")]},
-         ]},
-        {"title": "Landscaping",
-         "text": "Beds of shrubs and flowers, designed by Amanda and planted by her crew.",
-         "link": ("landscaping/", "More about landscaping at Amanda's Villa"),
-         "jobs": [
-             {"title": "Flower beds along a brick-edged drive",
-              "text": "Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.",
-              "photos": [
-                  ("beds-1-sunroom-bed", "Bed across the front of the sunroom"), ("beds-2-flower-border-drive", "Flower border along the drive"),
-                  ("beds-3-shrubs-by-brick-pillar", "Shrubs beside the brick pillar"), ("beds-4-annuals-by-porch", "Annuals beside the porch rail")]},
          ]},
     ],
     "sales": {
@@ -428,7 +428,7 @@ STAR_CITY = {
     "faq_h2": "Star City landscaping and hardscaping questions",
     "faq": [
         ("Has Amanda's Villa done work in Star City?",
-         "Yes. The French drain, paver walk, flagstone walk and flower beds on this page are all at Star City homes, and the teams work all over the state of Arkansas."),
+         "Yes. The flower beds, paver walk, flagstone walk and French drain on this page are all at Star City homes, and the teams work all over the state of Arkansas."),
         ("What does Star City's soil mean for a walk, patio or flower bed?",
          f"Under roughly seven of every ten acres in and around Star City, USDA soil maps show a seasonal water table within about two feet of the surface. Savannah fine sandy loam, which covers nearly three of every ten acres there, also has a dense layer called a fragipan about two feet down that slows water draining through it.{fn(2, 'b')} So every walk and patio sits on a compacted gravel base, and drainage is planned before anything is planted."),
         ("How long does a project take?",
