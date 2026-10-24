@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Landscaping and Hardscaping in Star City, AR | Amanda&#x27;s Villa</title>
-<meta name="description" content="French drains, paver walks, flagstone paths and flower beds built by Amanda&#x27;s Villa in Star City, Arkansas. Four local projects with photos. Free estimates.">
+<title>Landscaping and Hardscaping Projects in Star City, AR | Amanda&#x27;s Villa</title>
+<meta name="description" content="Four Amanda&#x27;s Villa projects in Star City, Arkansas, photographed from start to finish: a French drain, a curved paver walk, a flagstone walk and new flower beds.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b4a3a%22/%3E%3Cpath d=%22M9 23c0-8 6-13 14-14-1 8-6 14-14 14zm0 0 7-7%22 fill=%22none%22 stroke=%22%23f6f5f0%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -478,14 +478,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     },
     {
       "@type": "Question",
-      "name": "Is the estimate free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. A member of the hardscape team visits the property, surveys it with a transit and provides an estimate at no cost."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "How long does a project take?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -494,70 +486,39 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     },
     {
       "@type": "Question",
-      "name": "Where do the plants and stone come from?",
+      "name": "Is the estimate free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Amanda chooses plants from the Amanda's Villa garden center at 7901 Dollarway Road in White Hall, which also sells mulch, soil and landscaping stone to homeowners."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you work with my budget?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every project is a custom quote. The team starts with the ideal design for your yard and then adjusts the scope to fit your budget."
+        "text": "Yes. A member of the hardscape team visits the property, surveys it with a transit and provides an estimate at no cost. Every project is a custom quote."
       }
     }
   ]
 }
 </script>
 <style id="town-page">
-/* ---------- Town pages: one block per job, three photos each ---------- */
-.jobs { display: grid; gap: var(--space-16); }
-.job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
-.job:first-child { padding-top: 0; border-top: 0; }
-.job h3 { font-size: 28px; line-height: 1.2; }
+/* ---------- Town portfolio pages: work grouped by category, one carousel per job ---------- */
+.tier { margin-top: var(--space-16); }
+.tier-head { padding-bottom: var(--space-4); border-bottom: 1px solid var(--line-strong); }
+.tier-head h3 { font: 400 32px/1.15 var(--font-display); }
+.tier-head p { margin-top: var(--space-2); max-width: var(--measure-text); }
+.tier-head .link { display: inline-block; margin-top: var(--space-2); }
+.job { margin-top: var(--space-10); }
+.job + .job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
+.job h4 { margin: 0; font: 400 24px/1.25 var(--font-text-serif); color: var(--ink); text-wrap: balance; }
 .job-text { max-width: var(--measure-text); margin-top: var(--space-2); }
-.job-text .link { display: inline-block; margin-top: var(--space-4); }
-.job-photos { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
-.job-photos figure { margin: 0; }
-.job-photos img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-photo); background: var(--linen-2); }
-.job-photos figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.4; color: var(--ink-3); text-align: center; }
+.job .cf { margin-top: var(--space-6); }
+.cf--work .cf-caption { margin-top: var(--space-4); }
+.cf--work .cf-title { font-size: 22px; }
 .svc3 h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .svc3 h3 a:hover { border-bottom-color: var(--clay); }
 .svc3--six { row-gap: var(--space-16); }
-.area .prose { margin: 0 auto; }
-.area .head { text-align: center; margin-bottom: var(--space-6); }
+.hero-meta a { color: inherit; text-decoration: underline; text-underline-offset: 4px; }
 .faq--solo { max-width: 860px; }
-.job-photos .pf-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius-photo); overflow: hidden; }
-.job-photos .pf-open img { transition: transform .25s ease; }
-.job-photos .pf-open:hover img { transform: scale(1.02); }
-.hero-meta a.pf-open { display: inline; width: auto; color: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
-.pf-row { justify-content: center; margin-top: var(--space-16); }
-.pf { width: min(1100px, 100vw - 32px); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: var(--radius-photo); background: var(--ink); color: var(--on-forest); }
-.pf::backdrop { background: rgba(20, 26, 22, .85); }
-.pf-box { display: grid; grid-template-rows: minmax(0, 1fr) auto; max-height: calc(100vh - 32px); }
-.pf-img { width: 100%; height: 100%; max-height: calc(100vh - 170px); object-fit: contain; background: #111; }
-.pf-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); }
-.pf-text { flex: 1; min-width: 0; }
-.pf-job { font: 400 20px/1.3 var(--font-text-serif); }
-.pf-cap { font-size: 16px; line-height: 1.4; }
-.pf-count { font-size: 14px; opacity: .75; }
-.pf-text p + p { margin-top: 2px; }
-.pf-btn { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(246, 245, 240, .5); background: transparent; color: var(--on-forest); font: 400 24px/1 var(--font-body); cursor: pointer; }
-.pf-btn:hover { background: rgba(246, 245, 240, .14); }
-@media (prefers-reduced-motion: reduce) { .job-photos .pf-open img { transition: none; } }
 @media (max-width: 640px) {
-  .pf { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; }
-  .pf-box { height: 100%; max-height: 100dvh; }
-  .pf-img { height: 100%; max-height: none; min-height: 0; }
-  .pf-bar { flex-wrap: wrap; }
-  .pf-text { order: -1; flex-basis: 100%; }
-  .job h3 { font-size: 24px; }
-  .job-photos { grid-template-columns: 1fr 1fr; gap: var(--space-2) var(--space-4); }
-  .job-photos li:last-child { grid-column: 1 / -1; order: -1; }
-  .job-photos li:last-child img { aspect-ratio: 4 / 3; }
-  .job-photos figcaption { font-size: 14px; }
+  .tier { margin-top: var(--space-10); }
+  .tier-head h3 { font-size: 27px; }
+  .job h4 { font-size: 21px; }
+  .cf--work .cf-title { font-size: 19px; }
 }
 </style>
 <style id="site-nav">
@@ -598,13 +559,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <symbol id="i-cloud-rain" viewBox="0 0 24 24"><svg class="lucide lucide-cloud-rain" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol>
-<symbol id="i-frown" viewBox="0 0 24 24"><svg class="lucide lucide-frown" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="M16 16s-1.5-2-4-2-4 2-4 2" /> <line x1="9" x2="9.01" y1="9" y2="9" /> <line x1="15" x2="15.01" y1="9" y2="9" /></symbol>
-<symbol id="i-house" viewBox="0 0 24 24"><svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
 <symbol id="i-layers" viewBox="0 0 24 24"><svg class="lucide lucide-layers" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol>
 <symbol id="i-sprout" viewBox="0 0 24 24"><svg class="lucide lucide-sprout" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M7 20h10" /> <path d="M10 20c5.5-2.5.8-6.4 3-10" /> <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /> <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" /></symbol>
-<symbol id="i-clipboard-list" viewBox="0 0 24 24"><svg class="lucide lucide-clipboard-list" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="8" height="4" x="8" y="2" rx="1" ry="1" /> <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /> <path d="M12 11h4" /> <path d="M12 16h4" /> <path d="M8 11h.01" /> <path d="M8 16h.01" /></symbol>
-<symbol id="i-ruler" viewBox="0 0 24 24"><svg class="lucide lucide-ruler" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" /> <path d="m14.5 12.5 2-2" /> <path d="m11.5 9.5 2-2" /> <path d="m8.5 6.5 2-2" /> <path d="m17.5 15.5 2-2" /></symbol>
-<symbol id="i-hammer" viewBox="0 0 24 24"><svg class="lucide lucide-hammer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9" /> <path d="m18 15 4-4" /> <path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></symbol>
 <symbol id="i-footprints" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /> <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /> <path d="M16 17h4" /> <path d="M4 13h4" /></g></symbol>
 <symbol id="i-brick-wall" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M12 9v6" /> <path d="M16 15v6" /> <path d="M16 3v6" /> <path d="M3 15h18" /> <path d="M3 9h18" /> <path d="M8 15v6" /> <path d="M8 3v6" /></g></symbol>
 <symbol id="i-flower" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" /> <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" /> <path d="M12 7.5V9" /> <path d="M7.5 12H9" /> <path d="M16.5 12H15" /> <path d="M12 16.5V15" /> <path d="m8 8 1.88 1.88" /> <path d="M14.12 9.88 16 8" /> <path d="m8 16 1.88-1.88" /> <path d="M14.12 14.12 16 16" /></g></symbol>
@@ -663,57 +619,158 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       </details>
     </nav>
     <div class="hero-copy">
-      <h1>Landscaping and Hardscaping in Star City, <em>Arkansas</em></h1>
-      <p class="hero-sub">French drains, paver walks, flagstone paths and flower beds, built and planted by Amanda's Villa for Star City homes.</p>
+      <h1>Landscaping and Hardscaping Projects in Star City, <em>Arkansas</em></h1>
+      <p class="hero-sub">A French drain, two new walks and a set of flower beds, built and planted by Amanda's Villa for Star City homes.</p>
       <div class="hero-ctas">
         <a class="btn btn--onphoto" href="../../contact/#estimate">Request a free estimate</a>
         <a class="btn btn--ghost" href="tel:+18704895463">Call (870) 489-5463</a>
       </div>
-      <p class="hero-meta"><a href="#projects" class="pf-open" data-pf="0">Check out our Star City portfolio</a> · Free estimates</p>
+      <p class="hero-meta"><a href="#projects">Examples of our work in Star City</a> · Free estimates</p>
     </div>
   </div>
 </header>
 
 <main>
 
-<!-- VALUE -->
-<section class="band">
+<!-- THE WORK: every job Colton placed in this town, grouped by category -->
+<section class="band" id="projects">
   <div class="wrap">
-    <div class="split split--flip split--short">
-    <figure class="split-media">
-      <img width="1200" height="900" src="../../img/projects/star-city/value-flower-border-brick-edging.jpg" alt="A border of red and purple annuals and yellow-green foliage along a brick edging at a Star City home" loading="lazy">
-    </figure>
-    <div>
-      <h2>Let's build you a Star City yard that stays dry and looks finished</h2>
-      <div class="prose" style="margin-top: var(--space-6)">
-        <p>Your project starts with a walk around your yard and a transit survey of how the ground falls, so the water, the stone and the plants each have a plan before any digging starts.</p>
+    <div class="head">
+      <h2>Examples of our work in Star City</h2>
+      <p>Each of these was built by the Amanda's Villa hardscape teams or planted by Amanda's crew at a home in Star City. Use the arrows to walk through each job from start to finish.</p>
+    </div>
+  <div class="tier">
+    <div class="tier-head">
+      <h3>Hardscape and drainage</h3>
+      <p>Drains, walks and stonework, built by the hardscape teams led by Colton.</p>
+      <a class="link" href="../../hardscape/">More about hardscape at Amanda&#x27;s Villa</a>
+    </div>
+    <article class="job">
+      <h4>A French drain along the fence and the house</h4>
+      <div class="job-text"><p>The team lifted the sod along the drain route, dug the trench, lined it with filter fabric and laid the pipe in gravel, with catch basins where the water collects. Then the sod went back down. From the first cut to the finished lawn, the job took four days.</p></div>
+      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A French drain along the fence and the house, 7 photos">
+        <div class="cf-bar cf-bar--top">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <span class="cf-count" aria-hidden="true">1 / 7</span>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+        <div class="cf-stage">
+        <figure class="cf-card" data-i="0" data-title="Sod lifted along the drain route"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-1-sod-lifted.jpg" alt="A French drain along the fence and the house: Sod lifted along the drain route" loading="lazy"></figure>
+        <figure class="cf-card" data-i="1" data-title="Trench dug"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-2-trench-dug.jpg" alt="A French drain along the fence and the house: Trench dug" loading="lazy"></figure>
+        <figure class="cf-card" data-i="2" data-title="Pipe laid in a fabric-lined trench beside the house"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-3-pipe-in-fabric.jpg" alt="A French drain along the fence and the house: Pipe laid in a fabric-lined trench beside the house" loading="lazy"></figure>
+        <figure class="cf-card" data-i="3" data-title="Gravel and a catch basin grate"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-4-gravel-and-catch-basin.jpg" alt="A French drain along the fence and the house: Gravel and a catch basin grate" loading="lazy"></figure>
+        <figure class="cf-card" data-i="4" data-title="Sod going back down along the fence"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-5-sod-going-back.jpg" alt="A French drain along the fence and the house: Sod going back down along the fence" loading="lazy"></figure>
+        <figure class="cf-card" data-i="5" data-title="Finished, lawn back along the fence"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-6-finished-along-fence.jpg" alt="A French drain along the fence and the house: Finished, lawn back along the fence" loading="lazy"></figure>
+        <figure class="cf-card" data-i="6" data-title="Finished, lawn back beside the house"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-7-finished-beside-house.jpg" alt="A French drain along the fence and the house: Finished, lawn back beside the house" loading="lazy"></figure>
+        </div>
+        <div class="cf-caption" aria-live="polite"><p class="cf-title">Sod lifted along the drain route</p></div>
+        <div class="cf-bar">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div class="cf-dots"></div>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
       </div>
+    </article>
+    <article class="job">
+      <h4>A curved paver walk to the backyard gate</h4>
+      <div class="job-text"><p>The strip of grass between the house and the picket fence became a curved paver walk with a two-color border and a river rock bed set into the bend. Downspout lines were run beneath the walk before the base went down.</p></div>
+      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A curved paver walk to the backyard gate, 6 photos">
+        <div class="cf-bar cf-bar--top">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <span class="cf-count" aria-hidden="true">1 / 6</span>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+        <div class="cf-stage">
+        <figure class="cf-card" data-i="0" data-title="Before: grass between the house and the fence"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-1-before.jpg" alt="A curved paver walk to the backyard gate: Before: grass between the house and the fence" loading="lazy"></figure>
+        <figure class="cf-card" data-i="1" data-title="Walk dug out, downspout lines going in"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-2-dug-out-downspout-lines.jpg" alt="A curved paver walk to the backyard gate: Walk dug out, downspout lines going in" loading="lazy"></figure>
+        <figure class="cf-card" data-i="2" data-title="Pavers going down"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-3-pavers-going-down.jpg" alt="A curved paver walk to the backyard gate: Pavers going down" loading="lazy"></figure>
+        <figure class="cf-card" data-i="3" data-title="Finished walk curving to the gate"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-4-finished-curve-to-gate.jpg" alt="A curved paver walk to the backyard gate: Finished walk curving to the gate" loading="lazy"></figure>
+        <figure class="cf-card" data-i="4" data-title="Finished walk and the river rock bed"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-5-finished-river-rock-bed.jpg" alt="A curved paver walk to the backyard gate: Finished walk and the river rock bed" loading="lazy"></figure>
+        <figure class="cf-card" data-i="5" data-title="Finished walk through the gate"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-6-finished-through-gate.jpg" alt="A curved paver walk to the backyard gate: Finished walk through the gate" loading="lazy"></figure>
+        </div>
+        <div class="cf-caption" aria-live="polite"><p class="cf-title">Before: grass between the house and the fence</p></div>
+        <div class="cf-bar">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div class="cf-dots"></div>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </article>
+    <article class="job">
+      <h4>A flagstone front walk with a paver border</h4>
+      <div class="job-text"><p>The front walk was dug out from the drive to the porch, filled with a gravel base, edged with pavers and finished with flagstone set in gravel.</p></div>
+      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A flagstone front walk with a paver border, 3 photos">
+        <div class="cf-bar cf-bar--top">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <span class="cf-count" aria-hidden="true">1 / 3</span>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+        <div class="cf-stage">
+        <figure class="cf-card" data-i="0" data-title="Walk dug out to the porch"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/flagstone-1-dug-out.jpg" alt="A flagstone front walk with a paver border: Walk dug out to the porch" loading="lazy"></figure>
+        <figure class="cf-card" data-i="1" data-title="Gravel base down, paver border set"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/flagstone-2-gravel-and-border.jpg" alt="A flagstone front walk with a paver border: Gravel base down, paver border set" loading="lazy"></figure>
+        <figure class="cf-card" data-i="2" data-title="Finished flagstone walk with the paver border"><img draggable="false" width="1000" height="609" src="../../img/projects/star-city/portfolio/flagstone-3-finished.jpg" alt="A flagstone front walk with a paver border: Finished flagstone walk with the paver border" loading="lazy"></figure>
+        </div>
+        <div class="cf-caption" aria-live="polite"><p class="cf-title">Walk dug out to the porch</p></div>
+        <div class="cf-bar">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div class="cf-dots"></div>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="tier">
+    <div class="tier-head">
+      <h3>Landscaping</h3>
+      <p>Beds of shrubs and flowers, designed by Amanda and planted by her crew.</p>
+      <a class="link" href="../../landscaping/">More about landscaping at Amanda&#x27;s Villa</a>
     </div>
-    </div>
-    <div class="svc3">
-      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>A gravel base under every walk</h3><p>Your walk or patio sits on 8 to 10 inches of compacted gravel with a finer base on top, so the stone stays level through wet springs and dry summers.</p></div>
-      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-cloud-rain"/></svg></span><h3>Drainage goes in first</h3><p>Downspout lines and French drains go in before the stone and the plants, so roof water and runoff have somewhere to go.</p></div>
-      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><h3>Plants from the garden center in White Hall</h3><p>Amanda chooses your shrubs and flowers from the Amanda's Villa lot, and her crew plants them.</p></div>
-    </div>
+    <article class="job">
+      <h4>Flower beds along a brick-edged drive</h4>
+      <div class="job-text"><p>Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.</p></div>
+      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Flower beds along a brick-edged drive, 4 photos">
+        <div class="cf-bar cf-bar--top">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <span class="cf-count" aria-hidden="true">1 / 4</span>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+        <div class="cf-stage">
+        <figure class="cf-card" data-i="0" data-title="Bed across the front of the sunroom"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/beds-1-sunroom-bed.jpg" alt="Flower beds along a brick-edged drive: Bed across the front of the sunroom" loading="lazy"></figure>
+        <figure class="cf-card" data-i="1" data-title="Flower border along the drive"><img draggable="false" width="916" height="960" src="../../img/projects/star-city/portfolio/beds-2-flower-border-drive.jpg" alt="Flower beds along a brick-edged drive: Flower border along the drive" loading="lazy"></figure>
+        <figure class="cf-card" data-i="2" data-title="Shrubs beside the brick pillar"><img draggable="false" width="1000" height="750" src="../../img/projects/star-city/portfolio/beds-3-shrubs-by-brick-pillar.jpg" alt="Flower beds along a brick-edged drive: Shrubs beside the brick pillar" loading="lazy"></figure>
+        <figure class="cf-card" data-i="3" data-title="Annuals beside the porch rail"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/beds-4-annuals-by-porch.jpg" alt="Flower beds along a brick-edged drive: Annuals beside the porch rail" loading="lazy"></figure>
+        </div>
+        <div class="cf-caption" aria-live="polite"><p class="cf-title">Bed across the front of the sunroom</p></div>
+        <div class="cf-bar">
+          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div class="cf-dots"></div>
+          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </article>
+  </div>
   </div>
 </section>
 
-<!-- PROBLEM: one broad problem, then external, internal and philosophical -->
+<!-- SALES: the town's ground, and how the teams build for it -->
 <section class="band band--alt">
   <div class="wrap">
     <div class="split split--short">
       <div class="split-text">
-        <h2>Star City yards hold on to the rain</h2>
-        <p>Arkansas averages about 50 inches of rain a year.<sup class='fn'><a href='#cite-1' id='ref-1' aria-label='Citation 1'>1</a></sup> In and around Star City, USDA soil maps show a seasonal water table within about two feet of the surface under roughly seven of every ten acres.<sup class='fn'><a href='#cite-2' id='ref-2' aria-label='Citation 2'>2</a></sup> When the ground stays that wet:</p>
+        <h2>Let's build you a Star City yard that stays dry and looks finished</h2>
+        <div class="prose" style="margin-top: var(--space-6)">
+        <p>Star City is the seat of Lincoln County, which Bayou Bartholomew splits between the Delta and the West Gulf Coastal Plain.<sup class='fn'><a href='#cite-3' id='ref-3' aria-label='Citation 3'>3</a></sup> Under roughly seven of every ten acres in and around town, USDA soil maps show a seasonal water table within about two feet of the surface,<sup class='fn'><a href='#cite-2' id='ref-2' aria-label='Citation 2'>2</a></sup> and Arkansas averages about 50 inches of rain a year.<sup class='fn'><a href='#cite-1' id='ref-1' aria-label='Citation 1'>1</a></sup></p>
+        <p>So your project starts with a free estimate and a transit survey of how your ground falls, and the drainage is planned before the stone and the plants.</p>
+        </div>
       </div>
       <figure class="split-media">
         <img width="1000" height="1250" src="../../img/projects/star-city/problem-side-yard-dug-out-downspout-lines.jpg" alt="A side yard dug out along a brick house in Star City, with downspout drain pipe laid along the foundation" loading="lazy">
       </figure>
     </div>
     <div class="svc3">
-      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-cloud-rain"/></svg></span><h3>Water stands where it lands</h3><p>Low spots stay soggy for days, runoff collects along the foundation, and roots sitting in saturated soil run short of oxygen.<sup class='fn'><a href='#cite-3' id='ref-3' aria-label='Citation 3'>3</a></sup></p></div>
-      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-frown"/></svg></span><h3>The yard turns into a chore</h3><p>Homeowners end up stepping around mud and putting off every plan they had for the space.</p></div>
-      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></span><h3>A yard should be ready after a storm</h3><p>No family should have to wait days for the ground to dry before they can use their own yard.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>A gravel base under every walk</h3><p>Your walk or patio sits on 8 to 10 inches of compacted gravel with a finer base on top, so the stone stays level through wet springs and dry summers.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-cloud-rain"/></svg></span><h3>Drainage goes in first</h3><p>Downspout lines and French drains go in before the stone and the plants, so roof water and runoff have somewhere to go.</p></div>
+      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span><h3>Plants from the garden center in White Hall</h3><p>Amanda chooses your shrubs and flowers from the Amanda's Villa lot, and her crew plants them.</p></div>
     </div>
     <div class="btn-row cta-row">
       <a class="btn btn--primary" href="../../contact/#estimate">Request a free estimate</a>
@@ -722,112 +779,11 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   </div>
 </section>
 
-<!-- PROOF: every job Colton placed in this town -->
-<section class="band" id="projects">
-  <div class="wrap">
-    <div class="head">
-      <h2>Four Amanda's Villa projects in Star City</h2>
-      <p>Each of these was built by the Amanda's Villa hardscape teams or planted by Amanda's crew at a home in Star City.</p>
-    </div>
-    <div class="jobs">
-    <article class="job">
-      <h3>A French drain along the fence and the house</h3>
-      <div class="job-text">
-        <p>The team lifted the sod along the drain route, dug the trench, lined it with filter fabric and laid the pipe in gravel, with catch basins where the water collects. Then the sod went back down. From the first cut to the finished lawn, the job took four days.</p>
-        <a class="link" href="../../hardscape/french-drains/">How a French drain is built, step by step</a>
-      </div>
-      <ul class="job-photos">
-        <li><figure><button type="button" class="pf-open" data-pf="0" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-drain-1-sod-lifted.jpg" alt="Rolls of cut sod beside a curving strip of bare soil marking a French drain route across a Star City backyard" loading="lazy"></button><figcaption>Sod lifted along the route</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="2" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-drain-2-pipe-in-fabric.jpg" alt="Blue drain pipe laid in a fabric-lined trench beside a brick house and air conditioning unit" loading="lazy"></button><figcaption>Pipe laid in filter fabric</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="5" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-drain-3-finished-lawn.jpg" alt="A green backyard lawn along a wood privacy fence after the French drain was finished beneath it" loading="lazy"></button><figcaption>Lawn back in place</figcaption></figure></li>
-      </ul>
-    </article>
-    <article class="job">
-      <h3>A curved paver walk to the backyard gate</h3>
-      <div class="job-text">
-        <p>The strip of grass between the house and the picket fence became a curved paver walk with a two-color border and a river rock bed set into the bend. Downspout lines were run beneath the walk before the base went down.</p>
-        <a class="link" href="../../hardscape/">Paver walkways, patios and retaining walls</a>
-      </div>
-      <ul class="job-photos">
-        <li><figure><button type="button" class="pf-open" data-pf="7" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-walk-1-before.jpg" alt="Grass along a brick house and white picket fence before the paver walk" loading="lazy"></button><figcaption>Before</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="9" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-walk-2-pavers-going-down.jpg" alt="Gray pavers being laid in a diagonal pattern with a dark border course along a side yard" loading="lazy"></button><figcaption>Pavers going down</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="10" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-walk-3-finished.jpg" alt="A finished curved paver walk with a two-color border beside a brick house and a new bed" loading="lazy"></button><figcaption>Finished</figcaption></figure></li>
-      </ul>
-    </article>
-    <article class="job">
-      <h3>A flagstone front walk with a paver border</h3>
-      <div class="job-text">
-        <p>The front walk was dug out from the drive to the porch, filled with a gravel base, edged with pavers and finished with flagstone set in gravel.</p>
-        <a class="link" href="../../hardscape/">Stone and paver walkways</a>
-      </div>
-      <ul class="job-photos">
-        <li><figure><button type="button" class="pf-open" data-pf="13" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-flagstone-1-dug-out.jpg" alt="A curved front walk dug out across a lawn to the porch of a white brick house" loading="lazy"></button><figcaption>Dug out to the porch</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="14" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-flagstone-2-gravel-and-border.jpg" alt="A curved walk filled with a gravel base and edged with a paver border" loading="lazy"></button><figcaption>Gravel base and paver border</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="15" aria-label="Open the Star City portfolio at this photo"><img width="640" height="640" src="../../img/projects/star-city/job-flagstone-3-finished.jpg" alt="A finished flagstone walk set in gravel with a dark paver border across a green lawn" loading="lazy"></button><figcaption>Finished</figcaption></figure></li>
-      </ul>
-    </article>
-    <article class="job">
-      <h3>Flower beds along a brick-edged drive</h3>
-      <div class="job-text">
-        <p>Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.</p>
-        <a class="link" href="../../landscaping/">Landscape design and flower beds</a>
-      </div>
-      <ul class="job-photos">
-        <li><figure><button type="button" class="pf-open" data-pf="16" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-beds-1-sunroom-bed.jpg" alt="A new bed of small shrubs and annuals across the front of a white arched sunroom on a brick house" loading="lazy"></button><figcaption>Bed in front of the sunroom</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="19" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-beds-2-petunias-porch-rail.jpg" alt="Pink and red petunias and vinca in a brick-edged bed beside a white porch rail" loading="lazy"></button><figcaption>Annuals by the porch</figcaption></figure></li>
-        <li><figure><button type="button" class="pf-open" data-pf="18" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-beds-3-shrubs-by-brick-pillar.jpg" alt="Rows of green and gold shrubs in a mulched bed beside a brick pillar wall" loading="lazy"></button><figcaption>Shrubs by the brick pillar</figcaption></figure></li>
-      </ul>
-    </article>
-    </div>
-    <div class="btn-row cta-row pf-row">
-      <button type="button" class="btn btn--primary pf-open" data-pf="0">Check out our Star City portfolio</button>
-    </div>
-  </div>
-</section>
-
-<!-- GUIDE -->
-<section class="band band--alt">
-  <div class="wrap split split--flip">
-    <figure class="split-media">
-      <img width="1000" height="1250" src="../../img/projects/star-city/guide-crew-digging-french-drain-trench.jpg" alt="An Amanda&#x27;s Villa crew member digging a French drain trench across a Star City backyard" loading="lazy">
-    </figure>
-    <div>
-      <h2>Amanda and the hardscape teams, from White Hall to Star City</h2>
-      <div class="prose" style="margin-top: var(--space-6)">
-        <p>Amanda's Villa runs its landscaping and hardscape work from its garden center on Dollarway Road in White Hall. Amanda designs the beds and her crew plants them. The hardscape teams, led by Colton, build the walks, patios, walls and drains.</p>
-        <p>Every project starts the same way, with a free estimate and a transit survey of how the yard falls. Once a crew starts, it stays on that one job until it is finished, with weather the only common delay.</p>
-      </div>
-      <figure class="quote">
-        <blockquote><p>"Say you come look at our stuff, you could dissect it, and each step is going to be done correctly."</p></blockquote>
-        <figcaption>Colton, hardscape lead at Amanda's Villa</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- PLAN -->
+<!-- SERVICES -->
 <section class="band">
   <div class="wrap">
-    <div class="plan">
-      <h2>How a Star City project works, from free estimate to finished yard</h2>
-      <ol class="steps">
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-clipboard-list"/></svg></span><span class="step-n" aria-hidden="true">1</span><h3>Request a free estimate</h3><p>Call (870) 489-5463 or send the estimate form with a few photos of your yard.</p></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="step-n" aria-hidden="true">2</span><h3>Survey and design</h3><p>A member of the hardscape team visits your Star City property, surveys it with a transit and plans the drainage and stonework, and Amanda plans the planting. You receive a custom quote.</p></li>
-        <li><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg></span><span class="step-n" aria-hidden="true">3</span><h3>Build and plant</h3><p>One crew builds your project from start to finish, and Amanda's crew plants the beds.</p></li>
-      </ol>
-      <div class="btn-row">
-      <a class="btn btn--primary" href="../../contact/#estimate">Request a free estimate</a>
-      <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
-    </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="band band--alt">
-  <div class="wrap">
     <div class="head" style="text-align:center">
-      <h2>What Amanda's Villa builds and plants for Star City homes</h2>
+      <h2>What Amanda&#x27;s Villa builds and plants for Star City homes</h2>
     </div>
     <div class="svc3 svc3--six" style="margin-top:0">
       <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span><h3><a href="../../hardscape/">Paver patios</a></h3><p>Patios on a compacted gravel base, with polymeric sand in the joints.</p></div>
@@ -840,19 +796,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   </div>
 </section>
 
-<!-- EXPLANATORY PARAGRAPH -->
-<section class="band area">
-  <div class="wrap">
-    <div class="head">
-      <h2>Landscaping and hardscaping for Star City homes</h2>
-    </div>
-    <div class="prose">
-        <p>Star City is the seat of Lincoln County, and Cane Creek State Park, just east of town, sits where the Delta meets the West Gulf Coastal Plain.<sup class='fn'><a href='#cite-4' id='ref-4' aria-label='Citation 4'>4</a></sup> Yards in and around town range from well-drained sandy hilltops to low, flat ground where the water table rises close to the surface.<sup class='fn'><a href='#cite-2' id='ref-2b' aria-label='Citation 2'>2</a></sup></p>
-        <p>Amanda's Villa builds <a class="link" href="../../hardscape/french-drains/">French drains</a> and <a class="link" href="../../hardscape/">paver walks, patios and retaining walls</a> for Star City homes, and Amanda designs and plants the <a class="link" href="../../landscaping/">flower beds and front yards</a> around them. The <a class="link" href="../../garden-center/">garden center</a> in White Hall sells the plants, mulch and stone.</p>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="band band--alt">
   <div class="wrap">
@@ -861,11 +804,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </div>
     <div class="faq faq--solo">
       <details><summary>Has Amanda&#x27;s Villa done work in Star City?</summary><div><p>Yes. The French drain, paver walk, flagstone walk and flower beds on this page are all at Star City homes, and the teams work all over the state of Arkansas.</p></div></details>
-      <details><summary>What does Star City&#x27;s soil mean for a walk, patio or flower bed?</summary><div><p>Under roughly seven of every ten acres in and around Star City, USDA soil maps show a seasonal water table within about two feet of the surface. Savannah fine sandy loam, which covers nearly three of every ten acres there, also has a dense layer called a fragipan about two feet down that slows water draining through it.<sup class='fn'><a href='#cite-2' id='ref-2c' aria-label='Citation 2'>2</a></sup> So every walk and patio sits on a compacted gravel base, and drainage is planned before anything is planted.</p></div></details>
-      <details><summary>Is the estimate free?</summary><div><p>Yes. A member of the hardscape team visits the property, surveys it with a transit and provides an estimate at no cost.</p></div></details>
+      <details><summary>What does Star City&#x27;s soil mean for a walk, patio or flower bed?</summary><div><p>Under roughly seven of every ten acres in and around Star City, USDA soil maps show a seasonal water table within about two feet of the surface. Savannah fine sandy loam, which covers nearly three of every ten acres there, also has a dense layer called a fragipan about two feet down that slows water draining through it.<sup class='fn'><a href='#cite-2' id='ref-2b' aria-label='Citation 2'>2</a></sup> So every walk and patio sits on a compacted gravel base, and drainage is planned before anything is planted.</p></div></details>
       <details><summary>How long does a project take?</summary><div><p>It depends on the project. The French drain on this page took four days from the first cut to the finished lawn. Once work begins, the crew stays on your project until it is finished, and weather is the only common delay.</p></div></details>
-      <details><summary>Where do the plants and stone come from?</summary><div><p>Amanda chooses plants from the Amanda's Villa garden center at 7901 Dollarway Road in White Hall, which also sells mulch, soil and landscaping stone to homeowners.</p></div></details>
-      <details><summary>Can you work with my budget?</summary><div><p>Yes. Every project is a custom quote. The team starts with the ideal design for your yard and then adjusts the scope to fit your budget.</p></div></details>
+      <details><summary>Is the estimate free?</summary><div><p>Yes. A member of the hardscape team visits the property, surveys it with a transit and provides an estimate at no cost. Every project is a custom quote.</p></div></details>
     </div>
   </div>
 </section>
@@ -890,67 +831,23 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <summary>Citations</summary>
       <ol>
           <li id="cite-1">NOAA National Centers for Environmental Information and the North Carolina Institute for Climate Studies, “Arkansas State Climate Summary,” 2022. Long-term statewide average of 50.1 inches of precipitation a year.</li>
-          <li id="cite-2">USDA Natural Resources Conservation Service, Soil Survey Geographic Database (SSURGO), Lincoln County, Arkansas, accessed through Soil Data Access, October 2026. Of the soils mapped within about a mile of downtown Star City, the Savannah, Sawyer, Pheba and Amy soils, about 72 percent of the area, list a seasonal high water table 6 to 24 inches below the surface; Savannah fine sandy loam lists a fragipan at about 24 inches. The well-drained Smithdale and Ruston fine sandy loams cover about 17 percent.</li>
-          <li id="cite-3">University of Arkansas Division of Agriculture Cooperative Extension Service, “Arkansas Flood Impacts.”</li>
-          <li id="cite-4">CALS Encyclopedia of Arkansas, “Lincoln County” and “Star City (Lincoln County).”</li>
+          <li id="cite-2">USDA Natural Resources Conservation Service, Soil Survey Geographic Database (SSURGO), Lincoln County, Arkansas, accessed through Soil Data Access, October 2026. Of the soils mapped within about a mile of downtown Star City, the Savannah, Sawyer, Pheba and Amy soils, about 72 percent of the area, list a seasonal high water table 6 to 24 inches below the surface; Savannah fine sandy loam, about 29 percent, lists a fragipan at about 24 inches. The well-drained Smithdale and Ruston fine sandy loams cover about 17 percent.</li>
+          <li id="cite-3">CALS Encyclopedia of Arkansas, “Lincoln County” and “Star City (Lincoln County).”</li>
       </ol>
     </details>
   </div>
 </section>
 
-<dialog class="pf" id="portfolio" aria-label="Star City portfolio">
-  <div class="pf-box">
-    <img class="pf-img" alt="">
-    <div class="pf-bar">
-      <button type="button" class="pf-btn" data-step="-1" aria-label="Previous photo">&#8249;</button>
-      <div class="pf-text"><p class="pf-job"></p><p class="pf-cap"></p><p class="pf-count"></p></div>
-      <button type="button" class="pf-btn" data-step="1" aria-label="Next photo">&#8250;</button>
-      <button type="button" class="pf-btn pf-close" aria-label="Close the portfolio">&#215;</button>
-    </div>
-  </div>
-</dialog>
 <script>
-// Star City portfolio: every photo from every job in this town, opened by any .pf-open control
-(function () {
-  var items = [{"src": "../../img/projects/star-city/portfolio/drain-1-sod-lifted.jpg", "job": "French drain along the fence and the house", "cap": "Sod lifted along the drain route"}, {"src": "../../img/projects/star-city/portfolio/drain-2-trench-dug.jpg", "job": "French drain along the fence and the house", "cap": "Trench dug"}, {"src": "../../img/projects/star-city/portfolio/drain-3-pipe-in-fabric.jpg", "job": "French drain along the fence and the house", "cap": "Pipe laid in a fabric-lined trench beside the house"}, {"src": "../../img/projects/star-city/portfolio/drain-4-gravel-and-catch-basin.jpg", "job": "French drain along the fence and the house", "cap": "Gravel and a catch basin grate"}, {"src": "../../img/projects/star-city/portfolio/drain-5-sod-going-back.jpg", "job": "French drain along the fence and the house", "cap": "Sod going back down along the fence"}, {"src": "../../img/projects/star-city/portfolio/drain-6-finished-along-fence.jpg", "job": "French drain along the fence and the house", "cap": "Finished, lawn back along the fence"}, {"src": "../../img/projects/star-city/portfolio/drain-7-finished-beside-house.jpg", "job": "French drain along the fence and the house", "cap": "Finished, lawn back beside the house"}, {"src": "../../img/projects/star-city/portfolio/walk-1-before.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Before: grass between the house and the fence"}, {"src": "../../img/projects/star-city/portfolio/walk-2-dug-out-downspout-lines.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Walk dug out, downspout lines going in"}, {"src": "../../img/projects/star-city/portfolio/walk-3-pavers-going-down.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Pavers going down"}, {"src": "../../img/projects/star-city/portfolio/walk-4-finished-curve-to-gate.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Finished walk curving to the gate"}, {"src": "../../img/projects/star-city/portfolio/walk-5-finished-river-rock-bed.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Finished walk and the river rock bed"}, {"src": "../../img/projects/star-city/portfolio/walk-6-finished-through-gate.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Finished walk through the gate"}, {"src": "../../img/projects/star-city/portfolio/flagstone-1-dug-out.jpg", "job": "Flagstone front walk with a paver border", "cap": "Walk dug out to the porch"}, {"src": "../../img/projects/star-city/portfolio/flagstone-2-gravel-and-border.jpg", "job": "Flagstone front walk with a paver border", "cap": "Gravel base down, paver border set"}, {"src": "../../img/projects/star-city/portfolio/flagstone-3-finished.jpg", "job": "Flagstone front walk with a paver border", "cap": "Finished flagstone walk with the paver border"}, {"src": "../../img/projects/star-city/portfolio/beds-1-sunroom-bed.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Bed across the front of the sunroom"}, {"src": "../../img/projects/star-city/portfolio/beds-2-flower-border-drive.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Flower border along the drive"}, {"src": "../../img/projects/star-city/portfolio/beds-3-shrubs-by-brick-pillar.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Shrubs beside the brick pillar"}, {"src": "../../img/projects/star-city/portfolio/beds-4-annuals-by-porch.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Annuals beside the porch rail"}];
-  var dlg = document.getElementById('portfolio'); if (!dlg || !dlg.showModal) return;
-  var img = dlg.querySelector('.pf-img'), job = dlg.querySelector('.pf-job'), cap = dlg.querySelector('.pf-cap'), count = dlg.querySelector('.pf-count');
-  var at = 0, opener = null;
-  function show(i) {
-    at = (i + items.length) % items.length;
-    var it = items[at];
-    img.src = it.src; img.alt = it.job + ': ' + it.cap;
-    job.textContent = it.job; cap.textContent = it.cap; count.textContent = 'Photo ' + (at + 1) + ' of ' + items.length;
-    new Image().src = items[(at + 1) % items.length].src;
-  }
-  document.querySelectorAll('.pf-open').forEach(function (b) {
-    b.addEventListener('click', function (e) { e.preventDefault(); opener = b; show(+b.dataset.pf || 0); dlg.showModal(); });
-  });
-  dlg.querySelectorAll('[data-step]').forEach(function (b) { b.addEventListener('click', function () { show(at + +b.dataset.step); }); });
-  dlg.querySelector('.pf-close').addEventListener('click', function () { dlg.close(); });
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener('close', function () { if (opener) opener.focus({ preventScroll: true }); });
-  document.addEventListener('keydown', function (e) { if (!dlg.open) return; if (e.key === 'ArrowRight') show(at + 1); if (e.key === 'ArrowLeft') show(at - 1); });
-  var x0 = null;
-  img.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  img.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1)); });
-})();
-</script>
-
-</main>
-
-
-<script>
-(function () {
-  var root = document.querySelector('.cf'); if (!root) return;
+// One carousel per job. Each starts over at photo 1 when it scrolls into view and only advances while on screen.
+document.querySelectorAll('.cf').forEach(function (root) {
   var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots');
-  var title = root.querySelector('.cf-title'), text = root.querySelector('.cf-text');
+  var dotsBox = root.querySelector('.cf-dots'), title = root.querySelector('.cf-title'), count = root.querySelector('.cf-count');
   var n = cards.length, cur = 0, timer = null;
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var dots = cards.map(function (_, i) {
     var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show step ' + (i + 1)); d.addEventListener('click', function () { go(i); });
+    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
     dotsBox.appendChild(d); return d;
   });
   function render() {
@@ -960,9 +857,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
     });
     dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    root.querySelector('.cf-count').textContent = (cur + 1) + ' / ' + n;
-    title.textContent = 'Step ' + (cur + 1) + ': ' + cards[cur].getAttribute('data-title');
-    text.textContent = cards[cur].getAttribute('data-text');
+    count.textContent = (cur + 1) + ' / ' + n;
+    title.textContent = cards[cur].getAttribute('data-title');
   }
   function go(i) { cur = (i + n) % n; render(); }
   function step(d) { go(cur + d); }
@@ -972,19 +868,22 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   var x0 = null;
   root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer) return; timer = setInterval(function () { step(1); }, 6500); }
+  function play() { if (still || timer || n < 2) return; timer = setInterval(function () { step(1); }, 6500); }
   function pause() { clearInterval(timer); timer = null; }
   root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
   root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
   render();
-  // Every time the carousel scrolls into view it starts over at step 1, and it only advances while on screen.
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { pause(); go(0); play(); } else { pause(); } });
     }, { threshold: 0.3 }).observe(root);
   } else { play(); }
-})();
+});
 </script>
+
+</main>
+
+
 
 <script>
 // A footnote opens the Citations fold-out (and its FAQ answer stays open) before jumping to the source.
