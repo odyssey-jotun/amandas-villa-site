@@ -529,7 +529,30 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .area .prose { margin: 0 auto; }
 .area .head { text-align: center; margin-bottom: var(--space-6); }
 .faq--solo { max-width: 860px; }
+.job-photos .pf-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius-photo); overflow: hidden; }
+.job-photos .pf-open img { transition: transform .25s ease; }
+.job-photos .pf-open:hover img { transform: scale(1.02); }
+.hero-meta a.pf-open { display: inline; width: auto; color: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.pf-row { justify-content: center; margin-top: var(--space-16); }
+.pf { width: min(1100px, 100vw - 32px); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: var(--radius-photo); background: var(--ink); color: var(--on-forest); }
+.pf::backdrop { background: rgba(20, 26, 22, .85); }
+.pf-box { display: grid; grid-template-rows: minmax(0, 1fr) auto; max-height: calc(100vh - 32px); }
+.pf-img { width: 100%; height: 100%; max-height: calc(100vh - 170px); object-fit: contain; background: #111; }
+.pf-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); }
+.pf-text { flex: 1; min-width: 0; }
+.pf-job { font: 400 20px/1.3 var(--font-text-serif); }
+.pf-cap { font-size: 16px; line-height: 1.4; }
+.pf-count { font-size: 14px; opacity: .75; }
+.pf-text p + p { margin-top: 2px; }
+.pf-btn { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(246, 245, 240, .5); background: transparent; color: var(--on-forest); font: 400 24px/1 var(--font-body); cursor: pointer; }
+.pf-btn:hover { background: rgba(246, 245, 240, .14); }
+@media (prefers-reduced-motion: reduce) { .job-photos .pf-open img { transition: none; } }
 @media (max-width: 640px) {
+  .pf { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; }
+  .pf-box { height: 100%; max-height: 100dvh; }
+  .pf-img { height: 100%; max-height: none; min-height: 0; }
+  .pf-bar { flex-wrap: wrap; }
+  .pf-text { order: -1; flex-basis: 100%; }
   .job h3 { font-size: 24px; }
   .job-photos { grid-template-columns: 1fr 1fr; gap: var(--space-2) var(--space-4); }
   .job-photos li:last-child { grid-column: 1 / -1; order: -1; }
@@ -646,7 +669,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <a class="btn btn--onphoto" href="../../contact/#estimate">Request a free estimate</a>
         <a class="btn btn--ghost" href="tel:+18704895463">Call (870) 489-5463</a>
       </div>
-      <p class="hero-meta">Four Star City projects on this page · Free estimates</p>
+      <p class="hero-meta"><a href="#projects" class="pf-open" data-pf="0">Check out our Star City portfolio</a> · Free estimates</p>
     </div>
   </div>
 </header>
@@ -700,7 +723,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </section>
 
 <!-- PROOF: every job Colton placed in this town -->
-<section class="band">
+<section class="band" id="projects">
   <div class="wrap">
     <div class="head">
       <h2>Four Amanda's Villa projects in Star City</h2>
@@ -714,9 +737,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <a class="link" href="../../hardscape/french-drains/">How a French drain is built, step by step</a>
       </div>
       <ul class="job-photos">
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-drain-1-sod-lifted.jpg" alt="Rolls of cut sod beside a curving strip of bare soil marking a French drain route across a Star City backyard" loading="lazy"><figcaption>Sod lifted along the route</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-drain-2-pipe-in-fabric.jpg" alt="Blue drain pipe laid in a fabric-lined trench beside a brick house and air conditioning unit" loading="lazy"><figcaption>Pipe laid in filter fabric</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-drain-3-finished-lawn.jpg" alt="A green backyard lawn along a wood privacy fence after the French drain was finished beneath it" loading="lazy"><figcaption>Lawn back in place</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="0" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-drain-1-sod-lifted.jpg" alt="Rolls of cut sod beside a curving strip of bare soil marking a French drain route across a Star City backyard" loading="lazy"></button><figcaption>Sod lifted along the route</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="2" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-drain-2-pipe-in-fabric.jpg" alt="Blue drain pipe laid in a fabric-lined trench beside a brick house and air conditioning unit" loading="lazy"></button><figcaption>Pipe laid in filter fabric</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="5" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-drain-3-finished-lawn.jpg" alt="A green backyard lawn along a wood privacy fence after the French drain was finished beneath it" loading="lazy"></button><figcaption>Lawn back in place</figcaption></figure></li>
       </ul>
     </article>
     <article class="job">
@@ -726,9 +749,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <a class="link" href="../../hardscape/">Paver walkways, patios and retaining walls</a>
       </div>
       <ul class="job-photos">
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-walk-1-before.jpg" alt="Grass along a brick house and white picket fence before the paver walk" loading="lazy"><figcaption>Before</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-walk-2-pavers-going-down.jpg" alt="Gray pavers being laid in a diagonal pattern with a dark border course along a side yard" loading="lazy"><figcaption>Pavers going down</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-walk-3-finished.jpg" alt="A finished curved paver walk with a two-color border beside a brick house and a new bed" loading="lazy"><figcaption>Finished</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="7" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-walk-1-before.jpg" alt="Grass along a brick house and white picket fence before the paver walk" loading="lazy"></button><figcaption>Before</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="9" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-walk-2-pavers-going-down.jpg" alt="Gray pavers being laid in a diagonal pattern with a dark border course along a side yard" loading="lazy"></button><figcaption>Pavers going down</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="10" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-walk-3-finished.jpg" alt="A finished curved paver walk with a two-color border beside a brick house and a new bed" loading="lazy"></button><figcaption>Finished</figcaption></figure></li>
       </ul>
     </article>
     <article class="job">
@@ -738,9 +761,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <a class="link" href="../../hardscape/">Stone and paver walkways</a>
       </div>
       <ul class="job-photos">
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-flagstone-1-dug-out.jpg" alt="A curved front walk dug out across a lawn to the porch of a white brick house" loading="lazy"><figcaption>Dug out to the porch</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-flagstone-2-gravel-and-border.jpg" alt="A curved walk filled with a gravel base and edged with a paver border" loading="lazy"><figcaption>Gravel base and paver border</figcaption></figure></li>
-        <li><figure><img width="640" height="640" src="../../img/projects/star-city/job-flagstone-3-finished.jpg" alt="A finished flagstone walk set in gravel with a dark paver border across a green lawn" loading="lazy"><figcaption>Finished</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="13" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-flagstone-1-dug-out.jpg" alt="A curved front walk dug out across a lawn to the porch of a white brick house" loading="lazy"></button><figcaption>Dug out to the porch</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="14" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-flagstone-2-gravel-and-border.jpg" alt="A curved walk filled with a gravel base and edged with a paver border" loading="lazy"></button><figcaption>Gravel base and paver border</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="15" aria-label="Open the Star City portfolio at this photo"><img width="640" height="640" src="../../img/projects/star-city/job-flagstone-3-finished.jpg" alt="A finished flagstone walk set in gravel with a dark paver border across a green lawn" loading="lazy"></button><figcaption>Finished</figcaption></figure></li>
       </ul>
     </article>
     <article class="job">
@@ -750,11 +773,14 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <a class="link" href="../../landscaping/">Landscape design and flower beds</a>
       </div>
       <ul class="job-photos">
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-beds-1-sunroom-bed.jpg" alt="A new bed of small shrubs and annuals across the front of a white arched sunroom on a brick house" loading="lazy"><figcaption>Bed in front of the sunroom</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-beds-2-petunias-porch-rail.jpg" alt="Pink and red petunias and vinca in a brick-edged bed beside a white porch rail" loading="lazy"><figcaption>Annuals by the porch</figcaption></figure></li>
-        <li><figure><img width="900" height="900" src="../../img/projects/star-city/job-beds-3-shrubs-by-brick-pillar.jpg" alt="Rows of green and gold shrubs in a mulched bed beside a brick pillar wall" loading="lazy"><figcaption>Shrubs by the brick pillar</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="16" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-beds-1-sunroom-bed.jpg" alt="A new bed of small shrubs and annuals across the front of a white arched sunroom on a brick house" loading="lazy"></button><figcaption>Bed in front of the sunroom</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="19" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-beds-2-petunias-porch-rail.jpg" alt="Pink and red petunias and vinca in a brick-edged bed beside a white porch rail" loading="lazy"></button><figcaption>Annuals by the porch</figcaption></figure></li>
+        <li><figure><button type="button" class="pf-open" data-pf="18" aria-label="Open the Star City portfolio at this photo"><img width="900" height="900" src="../../img/projects/star-city/job-beds-3-shrubs-by-brick-pillar.jpg" alt="Rows of green and gold shrubs in a mulched bed beside a brick pillar wall" loading="lazy"></button><figcaption>Shrubs by the brick pillar</figcaption></figure></li>
       </ul>
     </article>
+    </div>
+    <div class="btn-row cta-row pf-row">
+      <button type="button" class="btn btn--primary pf-open" data-pf="0">Check out our Star City portfolio</button>
     </div>
   </div>
 </section>
@@ -871,6 +897,45 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </details>
   </div>
 </section>
+
+<dialog class="pf" id="portfolio" aria-label="Star City portfolio">
+  <div class="pf-box">
+    <img class="pf-img" alt="">
+    <div class="pf-bar">
+      <button type="button" class="pf-btn" data-step="-1" aria-label="Previous photo">&#8249;</button>
+      <div class="pf-text"><p class="pf-job"></p><p class="pf-cap"></p><p class="pf-count"></p></div>
+      <button type="button" class="pf-btn" data-step="1" aria-label="Next photo">&#8250;</button>
+      <button type="button" class="pf-btn pf-close" aria-label="Close the portfolio">&#215;</button>
+    </div>
+  </div>
+</dialog>
+<script>
+// Star City portfolio: every photo from every job in this town, opened by any .pf-open control
+(function () {
+  var items = [{"src": "../../img/projects/star-city/portfolio/drain-1-sod-lifted.jpg", "job": "French drain along the fence and the house", "cap": "Sod lifted along the drain route"}, {"src": "../../img/projects/star-city/portfolio/drain-2-trench-dug.jpg", "job": "French drain along the fence and the house", "cap": "Trench dug"}, {"src": "../../img/projects/star-city/portfolio/drain-3-pipe-in-fabric.jpg", "job": "French drain along the fence and the house", "cap": "Pipe laid in a fabric-lined trench beside the house"}, {"src": "../../img/projects/star-city/portfolio/drain-4-gravel-and-catch-basin.jpg", "job": "French drain along the fence and the house", "cap": "Gravel and a catch basin grate"}, {"src": "../../img/projects/star-city/portfolio/drain-5-sod-going-back.jpg", "job": "French drain along the fence and the house", "cap": "Sod going back down along the fence"}, {"src": "../../img/projects/star-city/portfolio/drain-6-finished-along-fence.jpg", "job": "French drain along the fence and the house", "cap": "Finished, lawn back along the fence"}, {"src": "../../img/projects/star-city/portfolio/drain-7-finished-beside-house.jpg", "job": "French drain along the fence and the house", "cap": "Finished, lawn back beside the house"}, {"src": "../../img/projects/star-city/portfolio/walk-1-before.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Before: grass between the house and the fence"}, {"src": "../../img/projects/star-city/portfolio/walk-2-dug-out-downspout-lines.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Walk dug out, downspout lines going in"}, {"src": "../../img/projects/star-city/portfolio/walk-3-pavers-going-down.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Pavers going down"}, {"src": "../../img/projects/star-city/portfolio/walk-4-finished-curve-to-gate.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Finished walk curving to the gate"}, {"src": "../../img/projects/star-city/portfolio/walk-5-finished-river-rock-bed.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Finished walk and the river rock bed"}, {"src": "../../img/projects/star-city/portfolio/walk-6-finished-through-gate.jpg", "job": "Curved paver walk to the backyard gate", "cap": "Finished walk through the gate"}, {"src": "../../img/projects/star-city/portfolio/flagstone-1-dug-out.jpg", "job": "Flagstone front walk with a paver border", "cap": "Walk dug out to the porch"}, {"src": "../../img/projects/star-city/portfolio/flagstone-2-gravel-and-border.jpg", "job": "Flagstone front walk with a paver border", "cap": "Gravel base down, paver border set"}, {"src": "../../img/projects/star-city/portfolio/flagstone-3-finished.jpg", "job": "Flagstone front walk with a paver border", "cap": "Finished flagstone walk with the paver border"}, {"src": "../../img/projects/star-city/portfolio/beds-1-sunroom-bed.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Bed across the front of the sunroom"}, {"src": "../../img/projects/star-city/portfolio/beds-2-flower-border-drive.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Flower border along the drive"}, {"src": "../../img/projects/star-city/portfolio/beds-3-shrubs-by-brick-pillar.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Shrubs beside the brick pillar"}, {"src": "../../img/projects/star-city/portfolio/beds-4-annuals-by-porch.jpg", "job": "Flower beds along a brick-edged drive", "cap": "Annuals beside the porch rail"}];
+  var dlg = document.getElementById('portfolio'); if (!dlg || !dlg.showModal) return;
+  var img = dlg.querySelector('.pf-img'), job = dlg.querySelector('.pf-job'), cap = dlg.querySelector('.pf-cap'), count = dlg.querySelector('.pf-count');
+  var at = 0, opener = null;
+  function show(i) {
+    at = (i + items.length) % items.length;
+    var it = items[at];
+    img.src = it.src; img.alt = it.job + ': ' + it.cap;
+    job.textContent = it.job; cap.textContent = it.cap; count.textContent = 'Photo ' + (at + 1) + ' of ' + items.length;
+    new Image().src = items[(at + 1) % items.length].src;
+  }
+  document.querySelectorAll('.pf-open').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.preventDefault(); opener = b; show(+b.dataset.pf || 0); dlg.showModal(); });
+  });
+  dlg.querySelectorAll('[data-step]').forEach(function (b) { b.addEventListener('click', function () { show(at + +b.dataset.step); }); });
+  dlg.querySelector('.pf-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (opener) opener.focus({ preventScroll: true }); });
+  document.addEventListener('keydown', function (e) { if (!dlg.open) return; if (e.key === 'ArrowRight') show(at + 1); if (e.key === 'ArrowLeft') show(at - 1); });
+  var x0 = null;
+  img.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1)); });
+})();
+</script>
 
 </main>
 

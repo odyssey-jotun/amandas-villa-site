@@ -73,7 +73,30 @@ TOWN_CSS = """<style id="town-page">
 .area .prose { margin: 0 auto; }
 .area .head { text-align: center; margin-bottom: var(--space-6); }
 .faq--solo { max-width: 860px; }
+.job-photos .pf-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius-photo); overflow: hidden; }
+.job-photos .pf-open img { transition: transform .25s ease; }
+.job-photos .pf-open:hover img { transform: scale(1.02); }
+.hero-meta a.pf-open { display: inline; width: auto; color: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.pf-row { justify-content: center; margin-top: var(--space-16); }
+.pf { width: min(1100px, 100vw - 32px); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: var(--radius-photo); background: var(--ink); color: var(--on-forest); }
+.pf::backdrop { background: rgba(20, 26, 22, .85); }
+.pf-box { display: grid; grid-template-rows: minmax(0, 1fr) auto; max-height: calc(100vh - 32px); }
+.pf-img { width: 100%; height: 100%; max-height: calc(100vh - 170px); object-fit: contain; background: #111; }
+.pf-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); }
+.pf-text { flex: 1; min-width: 0; }
+.pf-job { font: 400 20px/1.3 var(--font-text-serif); }
+.pf-cap { font-size: 16px; line-height: 1.4; }
+.pf-count { font-size: 14px; opacity: .75; }
+.pf-text p + p { margin-top: 2px; }
+.pf-btn { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(246, 245, 240, .5); background: transparent; color: var(--on-forest); font: 400 24px/1 var(--font-body); cursor: pointer; }
+.pf-btn:hover { background: rgba(246, 245, 240, .14); }
+@media (prefers-reduced-motion: reduce) { .job-photos .pf-open img { transition: none; } }
 @media (max-width: 640px) {
+  .pf { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; }
+  .pf-box { height: 100%; max-height: 100dvh; }
+  .pf-img { height: 100%; max-height: none; min-height: 0; }
+  .pf-bar { flex-wrap: wrap; }
+  .pf-text { order: -1; flex-basis: 100%; }
   .job h3 { font-size: 24px; }
   .job-photos { grid-template-columns: 1fr 1fr; gap: var(--space-2) var(--space-4); }
   .job-photos li:last-child { grid-column: 1 / -1; order: -1; }
@@ -110,8 +133,8 @@ def page(t):
     jobs = []
     for j in t["jobs"]:
         photos = "\n".join(
-            f'        <li><figure>{img(slug, n, w, h, alt)}<figcaption>{e(cap)}</figcaption></figure></li>'
-            for n, w, h, alt, cap in j["photos"])
+            f'        <li><figure><button type="button" class="pf-open" data-pf="{pf}" aria-label="Open the {e(town)} portfolio at this photo">{img(slug, n, w, h, alt)}</button><figcaption>{e(cap)}</figcaption></figure></li>'
+            for n, w, h, alt, cap, pf in j["photos"])
         more = f'\n        <a class="link" href="{P}{j["link"][0]}">{e(j["link"][1])}</a>' if j.get("link") else ""
         jobs.append(f"""    <article class="job">
       <h3>{e(j["title"])}</h3>
@@ -153,6 +176,9 @@ def page(t):
         for q, a in t["faq"]]}
 
     hero, value, prob, guide, closing = t["hero"], t["value"], t["problem"], t["guide"], t["closing"]
+    pf_items = [{"src": f"{P}img/projects/{slug}/portfolio/{f}.jpg", "job": job, "cap": cap}
+                for job, photos in t["portfolio"] for f, cap in photos]
+    pf_label = f"Check out our {town} portfolio"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -187,7 +213,7 @@ def page(t):
         <a class="btn btn--onphoto" href="{P}contact/#estimate">Request a free estimate</a>
         <a class="btn btn--ghost" href="{TEL}">Call {PHONE}</a>
       </div>
-      <p class="hero-meta">{hero["meta"]}</p>
+      <p class="hero-meta"><a href="#projects" class="pf-open" data-pf="0">{e(pf_label)}</a> · Free estimates</p>
     </div>
   </div>
 </header>
@@ -234,7 +260,7 @@ def page(t):
 </section>
 
 <!-- PROOF: every job Colton placed in this town -->
-<section class="band">
+<section class="band" id="projects">
   <div class="wrap">
     <div class="head">
       <h2>{t["jobs_h2"]}</h2>
@@ -242,6 +268,9 @@ def page(t):
     </div>
     <div class="jobs">
 {chr(10).join(jobs)}
+    </div>
+    <div class="btn-row cta-row pf-row">
+      <button type="button" class="btn btn--primary pf-open" data-pf="0">{e(pf_label)}</button>
     </div>
   </div>
 </section>
@@ -336,6 +365,45 @@ def page(t):
   </div>
 </section>
 
+<dialog class="pf" id="portfolio" aria-label="{e(town)} portfolio">
+  <div class="pf-box">
+    <img class="pf-img" alt="">
+    <div class="pf-bar">
+      <button type="button" class="pf-btn" data-step="-1" aria-label="Previous photo">&#8249;</button>
+      <div class="pf-text"><p class="pf-job"></p><p class="pf-cap"></p><p class="pf-count"></p></div>
+      <button type="button" class="pf-btn" data-step="1" aria-label="Next photo">&#8250;</button>
+      <button type="button" class="pf-btn pf-close" aria-label="Close the portfolio">&#215;</button>
+    </div>
+  </div>
+</dialog>
+<script>
+// {town} portfolio: every photo from every job in this town, opened by any .pf-open control
+(function () {{
+  var items = {json.dumps(pf_items)};
+  var dlg = document.getElementById('portfolio'); if (!dlg || !dlg.showModal) return;
+  var img = dlg.querySelector('.pf-img'), job = dlg.querySelector('.pf-job'), cap = dlg.querySelector('.pf-cap'), count = dlg.querySelector('.pf-count');
+  var at = 0, opener = null;
+  function show(i) {{
+    at = (i + items.length) % items.length;
+    var it = items[at];
+    img.src = it.src; img.alt = it.job + ': ' + it.cap;
+    job.textContent = it.job; cap.textContent = it.cap; count.textContent = 'Photo ' + (at + 1) + ' of ' + items.length;
+    new Image().src = items[(at + 1) % items.length].src;
+  }}
+  document.querySelectorAll('.pf-open').forEach(function (b) {{
+    b.addEventListener('click', function (e) {{ e.preventDefault(); opener = b; show(+b.dataset.pf || 0); dlg.showModal(); }});
+  }});
+  dlg.querySelectorAll('[data-step]').forEach(function (b) {{ b.addEventListener('click', function () {{ show(at + +b.dataset.step); }}); }});
+  dlg.querySelector('.pf-close').addEventListener('click', function () {{ dlg.close(); }});
+  dlg.addEventListener('click', function (e) {{ if (e.target === dlg) dlg.close(); }});
+  dlg.addEventListener('close', function () {{ if (opener) opener.focus({{ preventScroll: true }}); }});
+  document.addEventListener('keydown', function (e) {{ if (!dlg.open) return; if (e.key === 'ArrowRight') show(at + 1); if (e.key === 'ArrowLeft') show(at - 1); }});
+  var x0 = null;
+  img.addEventListener('touchstart', function (e) {{ x0 = e.touches[0].clientX; }}, {{ passive: true }});
+  img.addEventListener('touchend', function (e) {{ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1)); }});
+}})();
+</script>
+
 {tail()}"""
 
 
@@ -378,34 +446,51 @@ STAR_CITY = {
          "text": "The team lifted the sod along the drain route, dug the trench, lined it with filter fabric and laid the pipe in gravel, with catch basins where the water collects. Then the sod went back down. From the first cut to the finished lawn, the job took four days.",
          "link": ("hardscape/french-drains/", "How a French drain is built, step by step"),
          "photos": [
-             ("job-drain-1-sod-lifted", 900, 900, "Rolls of cut sod beside a curving strip of bare soil marking a French drain route across a Star City backyard", "Sod lifted along the route"),
-             ("job-drain-2-pipe-in-fabric", 900, 900, "Blue drain pipe laid in a fabric-lined trench beside a brick house and air conditioning unit", "Pipe laid in filter fabric"),
-             ("job-drain-3-finished-lawn", 900, 900, "A green backyard lawn along a wood privacy fence after the French drain was finished beneath it", "Lawn back in place"),
+             ("job-drain-1-sod-lifted", 900, 900, "Rolls of cut sod beside a curving strip of bare soil marking a French drain route across a Star City backyard", "Sod lifted along the route", 0),
+             ("job-drain-2-pipe-in-fabric", 900, 900, "Blue drain pipe laid in a fabric-lined trench beside a brick house and air conditioning unit", "Pipe laid in filter fabric", 2),
+             ("job-drain-3-finished-lawn", 900, 900, "A green backyard lawn along a wood privacy fence after the French drain was finished beneath it", "Lawn back in place", 5),
          ]},
         {"title": "A curved paver walk to the backyard gate",
          "text": "The strip of grass between the house and the picket fence became a curved paver walk with a two-color border and a river rock bed set into the bend. Downspout lines were run beneath the walk before the base went down.",
          "link": ("hardscape/", "Paver walkways, patios and retaining walls"),
          "photos": [
-             ("job-walk-1-before", 900, 900, "Grass along a brick house and white picket fence before the paver walk", "Before"),
-             ("job-walk-2-pavers-going-down", 900, 900, "Gray pavers being laid in a diagonal pattern with a dark border course along a side yard", "Pavers going down"),
-             ("job-walk-3-finished", 900, 900, "A finished curved paver walk with a two-color border beside a brick house and a new bed", "Finished"),
+             ("job-walk-1-before", 900, 900, "Grass along a brick house and white picket fence before the paver walk", "Before", 7),
+             ("job-walk-2-pavers-going-down", 900, 900, "Gray pavers being laid in a diagonal pattern with a dark border course along a side yard", "Pavers going down", 9),
+             ("job-walk-3-finished", 900, 900, "A finished curved paver walk with a two-color border beside a brick house and a new bed", "Finished", 10),
          ]},
         {"title": "A flagstone front walk with a paver border",
          "text": "The front walk was dug out from the drive to the porch, filled with a gravel base, edged with pavers and finished with flagstone set in gravel.",
          "link": ("hardscape/", "Stone and paver walkways"),
          "photos": [
-             ("job-flagstone-1-dug-out", 900, 900, "A curved front walk dug out across a lawn to the porch of a white brick house", "Dug out to the porch"),
-             ("job-flagstone-2-gravel-and-border", 900, 900, "A curved walk filled with a gravel base and edged with a paver border", "Gravel base and paver border"),
-             ("job-flagstone-3-finished", 640, 640, "A finished flagstone walk set in gravel with a dark paver border across a green lawn", "Finished"),
+             ("job-flagstone-1-dug-out", 900, 900, "A curved front walk dug out across a lawn to the porch of a white brick house", "Dug out to the porch", 13),
+             ("job-flagstone-2-gravel-and-border", 900, 900, "A curved walk filled with a gravel base and edged with a paver border", "Gravel base and paver border", 14),
+             ("job-flagstone-3-finished", 640, 640, "A finished flagstone walk set in gravel with a dark paver border across a green lawn", "Finished", 15),
          ]},
         {"title": "Flower beds along a brick-edged drive",
          "text": "Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.",
          "link": ("landscaping/", "Landscape design and flower beds"),
          "photos": [
-             ("job-beds-1-sunroom-bed", 900, 900, "A new bed of small shrubs and annuals across the front of a white arched sunroom on a brick house", "Bed in front of the sunroom"),
-             ("job-beds-2-petunias-porch-rail", 900, 900, "Pink and red petunias and vinca in a brick-edged bed beside a white porch rail", "Annuals by the porch"),
-             ("job-beds-3-shrubs-by-brick-pillar", 900, 900, "Rows of green and gold shrubs in a mulched bed beside a brick pillar wall", "Shrubs by the brick pillar"),
+             ("job-beds-1-sunroom-bed", 900, 900, "A new bed of small shrubs and annuals across the front of a white arched sunroom on a brick house", "Bed in front of the sunroom", 16),
+             ("job-beds-2-petunias-porch-rail", 900, 900, "Pink and red petunias and vinca in a brick-edged bed beside a white porch rail", "Annuals by the porch", 19),
+             ("job-beds-3-shrubs-by-brick-pillar", 900, 900, "Rows of green and gold shrubs in a mulched bed beside a brick pillar wall", "Shrubs by the brick pillar", 18),
          ]},
+    ],
+    "portfolio": [
+        ("French drain along the fence and the house", [
+            ("drain-1-sod-lifted", "Sod lifted along the drain route"), ("drain-2-trench-dug", "Trench dug"),
+            ("drain-3-pipe-in-fabric", "Pipe laid in a fabric-lined trench beside the house"), ("drain-4-gravel-and-catch-basin", "Gravel and a catch basin grate"),
+            ("drain-5-sod-going-back", "Sod going back down along the fence"), ("drain-6-finished-along-fence", "Finished, lawn back along the fence"),
+            ("drain-7-finished-beside-house", "Finished, lawn back beside the house")]),
+        ("Curved paver walk to the backyard gate", [
+            ("walk-1-before", "Before: grass between the house and the fence"), ("walk-2-dug-out-downspout-lines", "Walk dug out, downspout lines going in"),
+            ("walk-3-pavers-going-down", "Pavers going down"), ("walk-4-finished-curve-to-gate", "Finished walk curving to the gate"),
+            ("walk-5-finished-river-rock-bed", "Finished walk and the river rock bed"), ("walk-6-finished-through-gate", "Finished walk through the gate")]),
+        ("Flagstone front walk with a paver border", [
+            ("flagstone-1-dug-out", "Walk dug out to the porch"), ("flagstone-2-gravel-and-border", "Gravel base down, paver border set"),
+            ("flagstone-3-finished", "Finished flagstone walk with the paver border")]),
+        ("Flower beds along a brick-edged drive", [
+            ("beds-1-sunroom-bed", "Bed across the front of the sunroom"), ("beds-2-flower-border-drive", "Flower border along the drive"),
+            ("beds-3-shrubs-by-brick-pillar", "Shrubs beside the brick pillar"), ("beds-4-annuals-by-porch", "Annuals beside the porch rail")]),
     ],
     "guide": {
         "h2": "Amanda and the hardscape teams, from White Hall to Star City",
