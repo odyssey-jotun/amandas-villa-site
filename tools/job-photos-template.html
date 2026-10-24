@@ -124,7 +124,7 @@ dialog::backdrop { background: rgba(20, 26, 22, .82); }
 <main>
 <header class="wrap">
   <h1>Job Photos by Site</h1>
-  <p>Every job photo on file from Colton, the drone and Amanda's Facebook page, grouped by property. A site is one property and a project is one job there. Tap any photo to see it full size. Type in the town as Colton names it, and copy everything at the bottom when you're done.</p>
+  <p>Every job photo on file from Colton, the drone and Amanda's Facebook page, grouped by property. A site is one property and a project is one job there. Tap any photo to see it full size. Type the town and any notes under each site. Your answers save on this phone or computer as you type, and nobody else can see them until you tap Email this to Marc at the bottom.</p>
   <p class="count">{{COUNT}} photos · {{SITECOUNT}} sites · {{PROJECTCOUNT}} projects, plus Miscellaneous</p>
   <ul class="index">
 {{INDEX}}
@@ -135,11 +135,11 @@ dialog::backdrop { background: rgba(20, 26, 22, .82); }
 {{SITES}}
 
 <section class="send" id="notes">
-  <h2>Copy the notes</h2>
-  <p>Towns and notes stay saved in this browser as you type. Copy them all into a text or an email when you're done.</p>
+  <h2>Send your answers to Marc</h2>
+  <p>Everything you typed is saved on this phone or computer only. Marc sees it once you send it. Email opens with every answer filled in; just hit send.</p>
   <div class="btns">
-    <button type="button" class="btn btn--main" id="copyNotes">Copy all notes</button>
-    <button type="button" class="btn btn--plain" id="clearNotes">Clear notes</button>
+    <button type="button" class="btn btn--main" id="emailNotes">Email this to Marc</button>
+    <button type="button" class="btn btn--plain" id="copyNotes">Copy it to text Marc</button>
   </div>
   <p class="status" id="status" role="status"></p>
   <textarea id="notesOut" hidden readonly aria-label="All notes"></textarea>
@@ -162,6 +162,7 @@ dialog::backdrop { background: rgba(20, 26, 22, .82); }
 <script>
 (function () {
   var KEY = "av-job-photos-notes";
+  var TO = "mgray@odysseycollegeprep.com";
   var store = {};
   try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { store = {}; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
@@ -183,7 +184,7 @@ dialog::backdrop { background: rgba(20, 26, 22, .82); }
       if (notes) line += "\nNotes: " + notes;
       lines.push(line);
     });
-    return lines.join("\n\n");
+    return lines.length ? "Job photos: towns and notes\n\n" + lines.join("\n\n") : "";
   }
 
   var status = document.getElementById("status");
@@ -194,14 +195,14 @@ dialog::backdrop { background: rgba(20, 26, 22, .82); }
     out.value = text; out.hidden = false;
     function fallback() { out.focus(); out.select(); status.textContent = "Selected below. Copy it from there."; }
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied."; }, fallback);
+      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied. Paste it into a text to Marc."; }, fallback);
     } else { fallback(); }
   });
-  document.getElementById("clearNotes").addEventListener("click", function () {
-    if (!confirm("Clear every town and note on this page?")) return;
-    store = {}; save();
-    fields.forEach(function (f) { f.value = ""; });
-    out.hidden = true; status.textContent = "Cleared.";
+  document.getElementById("emailNotes").addEventListener("click", function () {
+    var text = collect();
+    if (!text) { status.textContent = "Nothing typed in yet."; return; }
+    location.href = "mailto:" + TO + "?subject=" + encodeURIComponent("Job photos: towns and notes") + "&body=" + encodeURIComponent(text);
+    status.textContent = "Your email should open now with everything filled in. Your answers stay saved here too.";
   });
 
   var buttons = Array.prototype.slice.call(document.querySelectorAll(".ph"));
