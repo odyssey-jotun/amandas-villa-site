@@ -409,7 +409,7 @@ STAR_CITY = {
             f"Star City is the seat of Lincoln County, which Bayou Bartholomew splits between the Delta and the West Gulf Coastal Plain.{fn(3)} Under roughly seven of every ten acres in and around town, USDA soil maps show a seasonal water table within about two feet of the surface,{fn(2)} and Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So your project starts with a free estimate and a transit survey of how your ground falls, and the drainage is planned before the stone and the plants.",
         ],
-        "photo": ("problem-side-yard-dug-out-downspout-lines", "A side yard dug out along a brick house in Star City, with downspout drain pipe laid along the foundation"),
+        "photo": ("sales-shrub-and-flower-bed-by-sunroom", "A finished bed of boxwoods, gold shrubs and seasonal flowers inside a brick edge, in front of the white arched sunroom of a Star City home"),
         "points": [
             ("i-layers", "A gravel base under every walk", "Your walk or patio sits on 8 to 10 inches of compacted gravel with a finer base on top, so the stone stays level through wet springs and dry summers."),
             ("i-cloud-rain", "Drainage goes in first", "Downspout lines and French drains go in before the stone and the plants, so roof water and runoff have somewhere to go."),
@@ -439,7 +439,7 @@ STAR_CITY = {
     "closing": {
         "h2": "Book a free estimate for your Star City yard",
         "text": "Your project starts with a walk around your yard. Schedule a free estimate, and the team will plan the drainage, stonework and planting for your Star City home.",
-        "photo": "closing-dry-side-yard-after-drain",
+        "photo": "closing-curved-paver-walk-river-rock",
     },
     "cites": [
         "NOAA National Centers for Environmental Information and the North Carolina Institute for Climate Studies, “Arkansas State Climate Summary,” 2022. Long-term statewide average of 50.1 inches of precipitation a year.",
