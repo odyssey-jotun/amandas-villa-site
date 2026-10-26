@@ -8,9 +8,9 @@ Static site for Amanda's Villa (White Hall, Arkansas), built by Outset Web Desig
 |---|---|
 | `/hardscape/` | Built: StoryBrand landing page, 3D coverflow gallery of Colton's jobs, before-and-after pairs |
 | `/hardscape/french-drains/` | Built: same StoryBrand format as Hardscape; the gallery slot is the Hardscape coverflow carousel holding a numbered seven-photo build sequence of one drain job, with a caption per step |
-| `/landscaping/` | Built: StoryBrand landing page, gallery and before-and-after pairs from Amanda's Facebook jobs; Amanda photo placeholder |
+| `/landscaping/` | Built: StoryBrand landing page, gallery and before-and-after pairs from Amanda's Facebook jobs; Amanda photo in the guide section |
 | `/garden-center/` | Built: umbrella page for everything sold on the lot |
-| `/about/` | Built: Amanda, Colton, three centered service icons; both photos are placeholders, hero is stock |
+| `/about/` | Built: Amanda, Colton, three centered service icons; Amanda and Colton photos are real, hero is stock |
 | `/` (home) | Built: tagline hero (family planting, stock stand-in), value, problem, services, Amanda + Colton guide, reviews, plan, before-and-after, FAQ |
 | `/contact/` | Built: phone, address and directions anchor (`#directions`), what to have ready, FAQ; stock hero |
 | `/garden-center/plants-shrubs-trees/`, `landscaping-stone/`, `pottery-decor/`, `produce/` | Built: StoryBrand category pages with Marc's lot photos; stock heroes |
