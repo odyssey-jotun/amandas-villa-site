@@ -327,6 +327,9 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   .pains li { gap: var(--space-4); }
 }
 
+/* ---------- Amanda + Colton side by side ---------- */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.duo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-photo); }
 /* ---------- Photo placeholder (Colton) ---------- */
 .photo-placeholder { aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius-photo); background: repeating-linear-gradient(135deg, var(--linen-2) 0 18px, var(--sage-pale) 18px 36px); border: 2px dashed var(--line-strong); display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-10); }
 .photo-placeholder > span { font: italic 400 34px/1.3 var(--font-text-serif); color: var(--ink); background: var(--linen); padding: var(--space-6) var(--space-10); border-radius: var(--radius-photo); box-shadow: 0 6px 20px rgba(28,36,31,.12); }
@@ -646,7 +649,10 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <section class="band band--alt">
   <div class="wrap split split--flip">
     <figure class="split-media">
-      <div class="photo-placeholder" role="img" aria-label="Placeholder for a photo of Amanda and Colton"><span>Hey Amanda and Colton&hellip;<br>I need a <span style="white-space:nowrap">photo of you two.</span></span></div>
+      <div class="duo">
+        <img width="687" height="859" src="img/about/amanda-landscape-designer-amandas-villa.jpg" alt="Amanda, owner and landscape designer at Amanda's Villa, smiling in a sage green jacket on a flagstone path in the garden center" loading="lazy">
+        <img width="1000" height="1250" src="img/about/colton-hardscape-lead-amandas-villa.jpg" alt="Colton, hardscape lead at Amanda's Villa, smiling with his arms crossed in a blue Amanda's Villa shirt" loading="lazy">
+      </div>
     </figure>
     <div>
       <h2>Amanda and Colton plan every yard together</h2>
