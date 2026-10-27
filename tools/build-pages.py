@@ -232,7 +232,7 @@ def page(d):
   <div class="hero-card">
     <picture>
       <source media="(max-width: 640px)" srcset="{p}img/{hero["img"]}-tall.jpg">
-      <img width="1600" height="900" src="{p}img/{hero["img"]}-wide.jpg" alt="{esc(hero["alt"])}" fetchpriority="high">
+      <img width="{hero.get("wh", (1600, 900))[0]}" height="{hero.get("wh", (1600, 900))[1]}" src="{p}img/{hero["img"]}-wide.jpg" alt="{esc(hero["alt"])}" fetchpriority="high">
     </picture>
 {nav(p, d["current"])}
     <div class="hero-copy">
@@ -244,8 +244,7 @@ def page(d):
       </div>
       <p class="hero-meta">7901 Dollarway Road, White Hall · <span class="todo">Hours</span></p>
     </div>
-    <p class="standin">Stand-in photo. {hero["standin"]}</p>
-  </div>
+{chr(10).join(['    <p class="standin">Stand-in photo. ' + hero['standin'] + '</p>'] if hero.get('standin') else [])}{chr(10) if hero.get('standin') else ''}  </div>
 </header>
 
 <main>
@@ -721,12 +720,13 @@ PAGES["contact"] = dict(
     title="Contact Amanda's Villa Landscaping and Garden Center | White Hall, Arkansas",
     description="Call (870) 489-5463 or visit 7901 Dollarway Road in White Hall for landscaping design, a free hardscape estimate, or the garden center.",
     hero=dict(
-        img="contact/hero-garden-center-staff-helping-customer",
-        alt="A garden center worker in an apron talking with a customer among plants in a greenhouse",
+        img="contact/hero-amanda-amandas-villa",
+        alt="Amanda, owner of Amanda's Villa, smiling on a flagstone path in the garden center",
+        wh=(687, 1024),
+        split="center 22%",
         h1="Call or Visit Amanda's <em>Villa</em>",
         sub="Landscaping design, free hardscape estimates and a full garden center at 7901 Dollarway Road in White Hall.",
-        cta=("Directions", "#directions"),
-        standin="The final hero shows Amanda or the garden center staff with a customer, still to be shot."),
+        cta=("Directions", "#directions")),
     sections=[
         contact_ways,
         contact_directions,

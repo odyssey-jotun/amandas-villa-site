@@ -308,6 +308,30 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .closing--photo { background: var(--forest-deep); }
 .review { background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 24px -14px rgba(28,36,31,.25); }
 </style>
+<style>
+/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */
+@media (min-width: 641px) {
+  .hero-card { background: var(--forest-deep); }
+  .hero-card > picture { left: auto; right: 0; width: 62%; }
+  .hero-card > picture img { object-position: center 22%; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }
+  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }
+  .hero h1 { font-size: 54px; max-width: 10.5em; }
+  .hero-sub { max-width: 24em; }
+  .hero-meta { max-width: 28em; line-height: 1.7; }
+  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }
+}
+@media (max-width: 640px) {
+  .hero-card { min-height: 0; background: var(--forest-deep); }
+  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }
+  .hero-card > picture img { object-position: center 30%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }
+  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }
+  .hero-copy { margin-top: -48px; padding-top: 0; }
+  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+}
+</style>
 <style id="lot-items">
 /* What's on the lot: icon cards, three across, two across on phones */
 .head--center { text-align: center; }
@@ -468,8 +492,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <header class="hero">
   <div class="hero-card">
     <picture>
-      <source media="(max-width: 640px)" srcset="../img/contact/hero-garden-center-staff-helping-customer-tall.jpg">
-      <img width="1600" height="900" src="../img/contact/hero-garden-center-staff-helping-customer-wide.jpg" alt="A garden center worker in an apron talking with a customer among plants in a greenhouse" fetchpriority="high">
+      <source media="(max-width: 640px)" srcset="../img/contact/hero-amanda-amandas-villa-tall.jpg">
+      <img width="687" height="1024" src="../img/contact/hero-amanda-amandas-villa-wide.jpg" alt="Amanda, owner of Amanda's Villa, smiling on a flagstone path in the garden center" fetchpriority="high">
     </picture>
     <nav class="nav" aria-label="Main">
       <a class="wordmark" href="../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
@@ -526,7 +550,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       </div>
       <p class="hero-meta">7901 Dollarway Road, White Hall · <span class="todo">Hours</span></p>
     </div>
-    <p class="standin">Stand-in photo. The final hero shows Amanda or the garden center staff with a customer, still to be shot.</p>
   </div>
 </header>
 

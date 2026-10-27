@@ -363,6 +363,30 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .foot-tag { margin-top: var(--space-4); font: italic 400 20px/1.4 var(--font-text-serif); color: var(--on-forest); }
 </style>
 <style>
+/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */
+@media (min-width: 641px) {
+  .hero-card { background: var(--forest-deep); }
+  .hero-card > picture { left: auto; right: 0; width: 62%; }
+  .hero-card > picture img { object-position: 50% center; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }
+  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }
+  .hero h1 { font-size: 54px; max-width: 10.5em; }
+  .hero-sub { max-width: 24em; }
+  .hero-meta { max-width: 28em; line-height: 1.7; }
+  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }
+}
+@media (max-width: 640px) {
+  .hero-card { min-height: 0; background: var(--forest-deep); }
+  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }
+  .hero-card > picture img { object-position: center 30%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }
+  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }
+  .hero-copy { margin-top: -48px; padding-top: 0; }
+  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+}
+</style>
+<style>
 /* ---------- About: Colton's photo sits level with his heading, and above his text on phones ---------- */
 @media (max-width: 900px) { .split--media-first .split-media { order: -1; } }
 
@@ -469,8 +493,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <header class="hero">
   <div class="hero-card">
     <picture>
-      <source media="(max-width: 640px)" srcset="../img/about/hero-couple-potted-marigolds-tall.jpg">
-      <img width="1600" height="900" src="../img/about/hero-couple-potted-marigolds-wide.jpg" alt="A man and a woman holding potted marigolds in a garden center" fetchpriority="high">
+      <source media="(max-width: 640px)" srcset="../img/about/hero-family-on-front-steps-tall.jpg">
+      <img width="1600" height="900" src="../img/about/hero-family-on-front-steps-wide.jpg" alt="A mother, father and daughter sitting together on the front steps between full green shrubs" fetchpriority="high">
     </picture>
     <nav class="nav" aria-label="Main">
       <a class="wordmark" href="../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>

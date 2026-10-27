@@ -13,3 +13,6 @@ garden-center-celosia-and-annuals.jpg
 
 value-herringbone-walk-through-new-beds.jpg
 - Amanda's Villa job (job-photos/img/img-5329.jpg), herringbone brick walk and new beds.
+
+success-brick-ranch-front-yard-planted.jpg
+- Amanda's Villa job (job-photos/img/facebook-229149.jpg, Joe's Facebook media).
