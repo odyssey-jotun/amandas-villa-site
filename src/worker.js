@@ -16,8 +16,10 @@ export default {
     const url = new URL(request.url);
     const isPublic = PUBLIC_HOSTS.includes(url.hostname);
     const forced = url.searchParams.has("coming-soon");
+    // Google Search Console's verification file has to load on the real domain.
+    const isVerification = /^\/google[0-9a-f]+\.html$/.test(url.pathname);
 
-    if (COMING_SOON && (isPublic || forced)) {
+    if (COMING_SOON && (isPublic || forced) && !isVerification) {
       const page = await env.ASSETS.fetch(new URL("/coming-soon/", url));
       return new Response(page.body, {
         status: 200,
