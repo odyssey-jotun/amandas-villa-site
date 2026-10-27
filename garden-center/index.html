@@ -299,6 +299,30 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .closing--photo { background: var(--forest-deep); }
 .review { background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 24px -14px rgba(28,36,31,.25); }
 </style>
+<style>
+/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */
+@media (min-width: 641px) {
+  .hero-card { background: var(--forest-deep); }
+  .hero-card > picture { left: auto; right: 0; width: 62%; }
+  .hero-card > picture img { object-position: 68% center; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }
+  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }
+  .hero h1 { font-size: 54px; max-width: 10.5em; }
+  .hero-sub { max-width: 24em; }
+  .hero-meta { max-width: 28em; line-height: 1.7; }
+  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }
+}
+@media (max-width: 640px) {
+  .hero-card { min-height: 0; background: var(--forest-deep); }
+  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }
+  .hero-card > picture img { object-position: center 30%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }
+  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }
+  .hero-copy { margin-top: -48px; padding-top: 0; }
+  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -409,8 +433,8 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <header class="hero">
   <div class="hero-card">
     <picture>
-      <source media="(max-width: 640px)" srcset="../img/hero-pergola-tall-amandas-villa.jpg">
-      <img width="1065" height="666" src="../img/hero-pergola-wide-amandas-villa.jpg" alt="Red-leaf banana plants and elephant ears growing under the wooden pergola at Amanda's Villa Garden Center on a sunny day" fetchpriority="high">
+      <source media="(max-width: 640px)" srcset="../img/garden-center/hero-couple-browsing-nursery-trees-tall.jpg">
+      <img width="1600" height="1000" src="../img/garden-center/hero-couple-browsing-nursery-trees-wide.jpg" alt="A young couple browsing potted trees and flowering shrubs at an outdoor plant nursery" fetchpriority="high">
     </picture>
     <nav class="nav" aria-label="Main">
       <a class="wordmark" href="../"><b>Amanda's Villa</b><span>Landscaping · Hardscape · Garden Center</span></a>
@@ -482,7 +506,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <p>Americans spend about 87 percent of their time indoors. When the rooms, the porch and the yard have nothing green in them:</p>
       </div>
       <figure class="split-media">
-        <img width="1100" height="1375" src="../img/problem-fall-planters-amandas-villa.jpg" alt="Fall planters of pansies and ornamental cabbage beside a wooden scarecrow and pumpkin cutouts at Amanda's Villa" loading="lazy">
+        <img width="1000" height="1250" src="../img/garden-center/problem-dried-out-potted-plant.jpg" alt="A potted plant dried out and brown on a wooden table" loading="lazy">
       </figure>
     </div>
     <div class="svc3">
@@ -651,7 +675,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 <section class="band band--alt">
   <div class="wrap split split--flip">
     <figure class="split-media">
-      <img width="1065" height="1420" src="../img/lot-banana-plants-and-elephant-ears-under-pergola-amandas-villa.jpg" alt="Banana plants and elephant ears under the pergola at Amanda's Villa Garden Center" loading="lazy">
+      <img width="1065" height="1420" src="../img/garden-center/covered-garden-center-pavilion-amandas-villa.jpg" alt="The covered pavilion at Amanda's Villa Garden Center, with houseplants, ferns and white pumpkins" loading="lazy">
     </figure>
     <div>
       <h2>Garden center and plant nursery serving all of Arkansas</h2>

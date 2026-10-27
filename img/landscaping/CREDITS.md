@@ -6,3 +6,5 @@ hero-woman-planting-marigolds-wide.jpg / -tall.jpg
 - STAND-IN: replace with a real photo of Amanda planting a bed.
 
 Every other photo in this folder is an Amanda's Villa landscaping job, from the Facebook media Joe collected on 2026-10-10 (Drive: Amanda's Villa Photos / FB Media). Before-and-after pairs are stills from Facebook drone videos.
+
+- problem-wilting-sunflowers-in-summer-heat.jpg: Pexels 28637809, Pexels License. Landscaping problem section; stock on purpose so no customer's yard is the negative example.

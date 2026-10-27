@@ -10,3 +10,6 @@ problem-overgrown-neglected-yard.jpg
 
 garden-center-celosia-and-annuals.jpg
 - Celosia and annuals on the Amanda's Villa lot, from the Facebook media Joe collected 2026-10-10.
+
+value-herringbone-walk-through-new-beds.jpg
+- Amanda's Villa job (job-photos/img/img-5329.jpg), herringbone brick walk and new beds.
