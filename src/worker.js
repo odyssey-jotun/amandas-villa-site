@@ -19,7 +19,13 @@ export default {
     // Google Search Console's verification file has to load on the real domain.
     const isVerification = /^\/google[0-9a-f]+\.html$/.test(url.pathname);
 
-    if (COMING_SOON && (isPublic || forced) && !isVerification) {
+    // Serve it at the exact .html address; Cloudflare would otherwise redirect
+    // it to the address without .html, and Google's check expects a 200.
+    if (isVerification) {
+      return env.ASSETS.fetch(new URL(url.pathname.replace(/\.html$/, ""), url));
+    }
+
+    if (COMING_SOON && (isPublic || forced)) {
       const page = await env.ASSETS.fetch(new URL("/coming-soon/", url));
       return new Response(page.body, {
         status: 200,
