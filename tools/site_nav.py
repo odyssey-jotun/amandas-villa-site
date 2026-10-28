@@ -4,8 +4,9 @@
 Run from the repo root:  python3 tools/site_nav.py
 (tools/build-pages.py also runs it after generating its pages.)
 
-To add a page to the Hardscape or Garden Center dropdown once it's built,
-add it to HARDSCAPE or GARDEN_CENTER below and run this script.
+To add a page to the Hardscape, Garden Center or Our Work dropdown once it's built,
+add it to HARDSCAPE, GARDEN_CENTER or PROJECTS below and run this script.
+(tools/build-town-pages.py builds /projects/ and the town pages and applies the menu to them.)
 Under-construction pages stay out of the menu on purpose.
 """
 import os
@@ -18,7 +19,7 @@ TEL = "tel:+18704895463"
 
 # Folder paths, relative to the site root
 TOP = [("landscaping/", "Landscaping"), ("hardscape/", "Hardscape"), ("garden-center/", "Garden Center"),
-       ("about/", "About"), ("contact/", "Contact")]
+       ("projects/", "Our Work"), ("about/", "About"), ("contact/", "Contact")]
 HARDSCAPE = [
     ("hardscape/french-drains/", "French drains"),
 ]
@@ -28,15 +29,25 @@ GARDEN_CENTER = [
     ("garden-center/pottery-decor/", "Pottery and garden decor"),
     ("garden-center/produce/", "Arkansas produce"),
 ]
+# Town portfolio pages, alphabetical. Not on the primary landing pages' copy (Amanda's no-towns rule), only here in the menu.
+PROJECTS = [
+    ("projects/hot-springs/", "Hot Springs"),
+    ("projects/pine-bluff/", "Pine Bluff"),
+    ("projects/sheridan/", "Sheridan"),
+    ("projects/star-city/", "Star City"),
+    ("projects/white-hall/", "White Hall"),
+    ("projects/woodlawn/", "Woodlawn"),
+]
 
 # Every page that carries the full menu
-PAGES = (["", "landscaping/", "hardscape/", "garden-center/", "about/", "contact/"]
-         + [u for u, _ in HARDSCAPE] + [u for u, _ in GARDEN_CENTER])
+PAGES = (["", "landscaping/", "hardscape/", "garden-center/", "about/", "contact/", "projects/"]
+         + [u for u, _ in HARDSCAPE] + [u for u, _ in GARDEN_CENTER] + [u for u, _ in PROJECTS])
 
 # Top-level items that open a dropdown: (overview label, sub-pages)
 DROPDOWNS = {
     "hardscape/": ("Hardscape overview", HARDSCAPE),
     "garden-center/": ("Garden Center overview", GARDEN_CENTER),
+    "projects/": ("Our Work overview", PROJECTS),
 }
 
 CSS = """<style id="site-nav">
