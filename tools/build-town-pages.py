@@ -760,8 +760,8 @@ SHERIDAN = {
     "hero": {
         "h1": "Paver Walk and Landing Projects in Sheridan, <em>Arkansas</em>",
         "sub": "A paver landing at the front door and a paver walk around the side of the house, built by the Amanda's Villa hardscape teams for a Sheridan home.",
-        "wide": ("hero-paver-walk-around-corner-wide", "A new paver walk with a dark border turning the corner of a brick house toward a green Sheridan lawn, built by Amanda's Villa"),
-        "tall": ("hero-paver-walk-long-view-tall",),
+        "wide": ("hero-paver-walk-along-brick-house-wide", "A new paver walk with a dark border running along a brick house and its hedge to the back patio of a Sheridan home, built by Amanda's Villa"),
+        "tall": ("hero-paver-walk-along-brick-house-tall",),
     },
     "work_h2": "Examples of our work in Sheridan",
     "work_intro": "Both of these were built by the Amanda's Villa hardscape teams at one home in Sheridan.",
@@ -780,12 +780,10 @@ SHERIDAN = {
              {"title": "A paver walk around the side of the house",
               "text": "An old path along the hedge and a worn bed along the side of the house were replaced by a paver walk with a dark border, set on gravel, that turns the corner of the house toward the driveway.",
               "pairs": [("side-walk-1-before-old-path", "side-walk-6-finished-long-view")],
-              "more": ["side-walk-3-finished-around-corner", "side-walk-4-finished-along-hedge"],
+              "more": [],
               "photos": [
                   ("side-walk-1-before-old-path", "Before: old path along the hedge"),
-                  ("side-walk-6-finished-long-view", "Finished: paver walk along the house"),
-                  ("side-walk-3-finished-around-corner", "Finished: paver walk around the corner"),
-                  ("side-walk-4-finished-along-hedge", "Finished: paver walk along the hedge")]},
+                  ("side-walk-6-finished-long-view", "Finished: paver walk along the house")]},
          ]},
     ],
     "sales": {
