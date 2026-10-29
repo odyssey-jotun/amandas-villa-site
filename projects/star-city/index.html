@@ -506,7 +506,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 }
 </script>
 <style id="town-page">
-/* ---------- Town portfolio pages: work grouped by category, one carousel per job ---------- */
+/* ---------- Town portfolio pages: work grouped by category, each job as before-and-after pairs ---------- */
 .tier { margin-top: var(--space-16); }
 .tier-head { padding-bottom: var(--space-4); border-bottom: 1px solid var(--line-strong); }
 .tier-head h3 { font: 400 32px/1.15 var(--font-display); }
@@ -516,9 +516,18 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .job + .job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
 .job h4 { margin: 0; font: 400 24px/1.25 var(--font-text-serif); color: var(--ink); text-wrap: balance; }
 .job-text { max-width: var(--measure-text); margin-top: var(--space-2); }
-.job .cf { margin-top: var(--space-6); }
-.cf--work .cf-caption { margin-top: var(--space-4); }
-.cf--work .cf-title { font-size: 22px; }
+.ba-list { display: grid; gap: var(--space-10); margin-top: var(--space-6); max-width: 1000px; }
+.ba { margin: 0; }
+.ba-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.ba-shot { position: relative; margin: 0; }
+.ba-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: var(--radius-photo); }
+.ba-pair::after { content: "\2192"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--on-forest); border: 4px solid var(--linen-2); display: flex; align-items: center; justify-content: center; font: 600 22px/1 var(--font-body); }
+.ba-tag { position: absolute; left: 16px; top: 16px; padding: 11px 20px; border-radius: 99px; font: 600 16px/1 var(--font-body); box-shadow: 0 4px 14px rgba(28,36,31,.25); letter-spacing: .18em; text-transform: uppercase; background: rgba(246,245,240,.94); color: var(--ink); }
+.ba-shot--after .ba-tag { background: var(--forest); color: var(--on-forest); }
+.ba > figcaption, .job-more figcaption { margin-top: var(--space-2); }
+.job-more { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-10); max-width: 1000px; }
+.job-more figure { margin: 0; }
+.job-more img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--radius-photo); }
 .svc3 h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .svc3 h3 a:hover { border-bottom-color: var(--clay); }
 .svc3--six { row-gap: var(--space-16); }
@@ -536,13 +545,16 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .town-card a:hover .link { border-bottom-color: var(--clay); }
 @media (max-width: 1000px) { .town-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf--many .cf-dots { display: none; }  /* more than 9 dots wrap on a phone; the count above says where you are */
+  .ba-pair { gap: var(--space-2); }
+  .ba-shot img { aspect-ratio: 3 / 4; }
+  .ba-pair::after { width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+  .job-more { gap: var(--space-2); margin-top: var(--space-6); }
   .town-grid { grid-template-columns: 1fr; }
   .town-card h3 { font-size: 25px; }
   .tier { margin-top: var(--space-10); }
   .tier-head h3 { font-size: 27px; }
   .job h4 { font-size: 21px; }
-  .cf--work .cf-title { font-size: 19px; }
 }
 </style>
 <style id="site-nav">
@@ -682,7 +694,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   <div class="wrap">
     <div class="head">
       <h2>Examples of our work in Star City</h2>
-      <p>Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Star City. Use the arrows to walk through each job from start to finish.</p>
+      <p>Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Star City.</p>
     </div>
   <div class="tier">
     <div class="tier-head">
@@ -693,24 +705,11 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <article class="job">
       <h4>Flower beds along a brick-edged drive</h4>
       <div class="job-text"><p>Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Flower beds along a brick-edged drive, 4 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 4</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Bed across the front of the sunroom"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/beds-1-sunroom-bed.jpg" alt="Flower beds along a brick-edged drive: Bed across the front of the sunroom" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="Flower border along the drive"><img draggable="false" width="916" height="960" src="../../img/projects/star-city/portfolio/beds-2-flower-border-drive.jpg" alt="Flower beds along a brick-edged drive: Flower border along the drive" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Shrubs beside the brick pillar"><img draggable="false" width="1000" height="750" src="../../img/projects/star-city/portfolio/beds-3-shrubs-by-brick-pillar.jpg" alt="Flower beds along a brick-edged drive: Shrubs beside the brick pillar" loading="lazy"></figure>
-        <figure class="cf-card" data-i="3" data-title="Annuals beside the porch rail"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/beds-4-annuals-by-porch.jpg" alt="Flower beds along a brick-edged drive: Annuals beside the porch rail" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Bed across the front of the sunroom</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="job-more">
+        <figure><img width="750" height="1000" src="../../img/projects/star-city/portfolio/beds-1-sunroom-bed.jpg" alt="Flower beds along a brick-edged drive: Bed across the front of the sunroom" loading="lazy"><figcaption>Bed across the front of the sunroom</figcaption></figure>
+        <figure><img width="916" height="960" src="../../img/projects/star-city/portfolio/beds-2-flower-border-drive.jpg" alt="Flower beds along a brick-edged drive: Flower border along the drive" loading="lazy"><figcaption>Flower border along the drive</figcaption></figure>
+        <figure><img width="1000" height="750" src="../../img/projects/star-city/portfolio/beds-3-shrubs-by-brick-pillar.jpg" alt="Flower beds along a brick-edged drive: Shrubs beside the brick pillar" loading="lazy"><figcaption>Shrubs beside the brick pillar</figcaption></figure>
+        <figure><img width="750" height="1000" src="../../img/projects/star-city/portfolio/beds-4-annuals-by-porch.jpg" alt="Flower beds along a brick-edged drive: Annuals beside the porch rail" loading="lazy"><figcaption>Annuals beside the porch rail</figcaption></figure>
       </div>
     </article>
   </div>
@@ -723,74 +722,51 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <article class="job">
       <h4>A French drain along the fence and the house</h4>
       <div class="job-text"><p>The team lifted the sod along the drain route, dug the trench, lined it with filter fabric and laid the pipe in gravel, with catch basins where the water collects. Then the sod went back down. From the first cut to the finished lawn, the job took four days.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A French drain along the fence and the house, 7 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 7</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Sod lifted along the drain route"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-1-sod-lifted.jpg" alt="A French drain along the fence and the house: Sod lifted along the drain route" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="Trench dug"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-2-trench-dug.jpg" alt="A French drain along the fence and the house: Trench dug" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Pipe laid in a fabric-lined trench beside the house"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-3-pipe-in-fabric.jpg" alt="A French drain along the fence and the house: Pipe laid in a fabric-lined trench beside the house" loading="lazy"></figure>
-        <figure class="cf-card" data-i="3" data-title="Gravel and a catch basin grate"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-4-gravel-and-catch-basin.jpg" alt="A French drain along the fence and the house: Gravel and a catch basin grate" loading="lazy"></figure>
-        <figure class="cf-card" data-i="4" data-title="Sod going back down along the fence"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-5-sod-going-back.jpg" alt="A French drain along the fence and the house: Sod going back down along the fence" loading="lazy"></figure>
-        <figure class="cf-card" data-i="5" data-title="Finished, lawn back along the fence"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-6-finished-along-fence.jpg" alt="A French drain along the fence and the house: Finished, lawn back along the fence" loading="lazy"></figure>
-        <figure class="cf-card" data-i="6" data-title="Finished, lawn back beside the house"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-7-finished-beside-house.jpg" alt="A French drain along the fence and the house: Finished, lawn back beside the house" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Sod lifted along the drain route</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-1-sod-lifted.jpg" alt="A French drain along the fence and the house, before: Sod lifted along the drain route" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-6-finished-along-fence.jpg" alt="A French drain along the fence and the house, after: Lawn back down over the drain along the fence" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Lawn back down over the drain along the fence</figcaption>
+        </figure>
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-3-pipe-in-fabric.jpg" alt="A French drain along the fence and the house, before: Pipe laid in a fabric-lined trench beside the house" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/drain-7-finished-beside-house.jpg" alt="A French drain along the fence and the house, after: Lawn back down over the drain beside the house" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Lawn back down over the drain beside the house</figcaption>
+        </figure>
       </div>
     </article>
     <article class="job">
       <h4>A curved paver walk to the backyard gate</h4>
       <div class="job-text"><p>The strip of grass between the house and the picket fence became a curved paver walk with a two-color border and a river rock bed set into the bend. Downspout lines were run beneath the walk before the base went down.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A curved paver walk to the backyard gate, 6 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 6</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Before: grass between the house and the fence"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-1-before.jpg" alt="A curved paver walk to the backyard gate: Before: grass between the house and the fence" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="Walk dug out, downspout lines going in"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-2-dug-out-downspout-lines.jpg" alt="A curved paver walk to the backyard gate: Walk dug out, downspout lines going in" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Pavers going down"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-3-pavers-going-down.jpg" alt="A curved paver walk to the backyard gate: Pavers going down" loading="lazy"></figure>
-        <figure class="cf-card" data-i="3" data-title="Finished walk curving to the gate"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-4-finished-curve-to-gate.jpg" alt="A curved paver walk to the backyard gate: Finished walk curving to the gate" loading="lazy"></figure>
-        <figure class="cf-card" data-i="4" data-title="Finished walk and the river rock bed"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-5-finished-river-rock-bed.jpg" alt="A curved paver walk to the backyard gate: Finished walk and the river rock bed" loading="lazy"></figure>
-        <figure class="cf-card" data-i="5" data-title="Finished walk through the gate"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-6-finished-through-gate.jpg" alt="A curved paver walk to the backyard gate: Finished walk through the gate" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Before: grass between the house and the fence</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-1-before.jpg" alt="A curved paver walk to the backyard gate, before: Grass between the house and the fence" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-4-finished-curve-to-gate.jpg" alt="A curved paver walk to the backyard gate, after: Paver walk curving to the gate" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Paver walk curving to the gate</figcaption>
+        </figure>
+      </div>
+      <div class="job-more">
+        <figure><img width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-5-finished-river-rock-bed.jpg" alt="A curved paver walk to the backyard gate: The river rock bed in the bend" loading="lazy"><figcaption>The river rock bed in the bend</figcaption></figure>
+        <figure><img width="750" height="1000" src="../../img/projects/star-city/portfolio/walk-6-finished-through-gate.jpg" alt="A curved paver walk to the backyard gate: Paver walk through the gate" loading="lazy"><figcaption>Paver walk through the gate</figcaption></figure>
       </div>
     </article>
     <article class="job">
       <h4>A flagstone front walk with a paver border</h4>
       <div class="job-text"><p>The front walk was dug out from the drive to the porch, filled with a gravel base, edged with pavers and finished with flagstone set in gravel.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A flagstone front walk with a paver border, 3 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 3</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Walk dug out to the porch"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/flagstone-1-dug-out.jpg" alt="A flagstone front walk with a paver border: Walk dug out to the porch" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="Gravel base down, paver border set"><img draggable="false" width="750" height="1000" src="../../img/projects/star-city/portfolio/flagstone-2-gravel-and-border.jpg" alt="A flagstone front walk with a paver border: Gravel base down, paver border set" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Finished flagstone walk with the paver border"><img draggable="false" width="1000" height="609" src="../../img/projects/star-city/portfolio/flagstone-3-finished.jpg" alt="A flagstone front walk with a paver border: Finished flagstone walk with the paver border" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Walk dug out to the porch</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/star-city/portfolio/flagstone-1-dug-out.jpg" alt="A flagstone front walk with a paver border, before: Walk dug out to the porch" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="1000" height="609" src="../../img/projects/star-city/portfolio/flagstone-3-finished.jpg" alt="A flagstone front walk with a paver border, after: Flagstone walk with the paver border" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Flagstone walk with the paver border</figcaption>
+        </figure>
       </div>
     </article>
   </div>
@@ -882,49 +858,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </details>
   </div>
 </section>
-
-<script>
-// One carousel per job. Each starts over at photo 1 when it scrolls into view and only advances while on screen.
-document.querySelectorAll('.cf').forEach(function (root) {
-  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots'), title = root.querySelector('.cf-title'), count = root.querySelector('.cf-count');
-  var n = cards.length, cur = 0, timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots = cards.map(function (_, i) {
-    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
-    dotsBox.appendChild(d); return d;
-  });
-  function render() {
-    cards.forEach(function (c, i) {
-      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
-      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
-      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
-    });
-    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    count.textContent = (cur + 1) + ' / ' + n;
-    title.textContent = cards[cur].getAttribute('data-title');
-  }
-  function go(i) { cur = (i + n) % n; render(); }
-  function step(d) { go(cur + d); }
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
-  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer || n < 2) return; timer = setInterval(function () { step(1); }, 6500); }
-  function pause() { clearInterval(timer); timer = null; }
-  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
-  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render();
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { pause(); go(0); play(); } else { pause(); } });
-    }, { threshold: 0.3 }).observe(root);
-  } else { play(); }
-});
-</script>
 
 </main>
 

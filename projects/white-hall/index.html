@@ -506,7 +506,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 }
 </script>
 <style id="town-page">
-/* ---------- Town portfolio pages: work grouped by category, one carousel per job ---------- */
+/* ---------- Town portfolio pages: work grouped by category, each job as before-and-after pairs ---------- */
 .tier { margin-top: var(--space-16); }
 .tier-head { padding-bottom: var(--space-4); border-bottom: 1px solid var(--line-strong); }
 .tier-head h3 { font: 400 32px/1.15 var(--font-display); }
@@ -516,9 +516,18 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .job + .job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
 .job h4 { margin: 0; font: 400 24px/1.25 var(--font-text-serif); color: var(--ink); text-wrap: balance; }
 .job-text { max-width: var(--measure-text); margin-top: var(--space-2); }
-.job .cf { margin-top: var(--space-6); }
-.cf--work .cf-caption { margin-top: var(--space-4); }
-.cf--work .cf-title { font-size: 22px; }
+.ba-list { display: grid; gap: var(--space-10); margin-top: var(--space-6); max-width: 1000px; }
+.ba { margin: 0; }
+.ba-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.ba-shot { position: relative; margin: 0; }
+.ba-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: var(--radius-photo); }
+.ba-pair::after { content: "\2192"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--on-forest); border: 4px solid var(--linen-2); display: flex; align-items: center; justify-content: center; font: 600 22px/1 var(--font-body); }
+.ba-tag { position: absolute; left: 16px; top: 16px; padding: 11px 20px; border-radius: 99px; font: 600 16px/1 var(--font-body); box-shadow: 0 4px 14px rgba(28,36,31,.25); letter-spacing: .18em; text-transform: uppercase; background: rgba(246,245,240,.94); color: var(--ink); }
+.ba-shot--after .ba-tag { background: var(--forest); color: var(--on-forest); }
+.ba > figcaption, .job-more figcaption { margin-top: var(--space-2); }
+.job-more { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-10); max-width: 1000px; }
+.job-more figure { margin: 0; }
+.job-more img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--radius-photo); }
 .svc3 h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .svc3 h3 a:hover { border-bottom-color: var(--clay); }
 .svc3--six { row-gap: var(--space-16); }
@@ -536,13 +545,16 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .town-card a:hover .link { border-bottom-color: var(--clay); }
 @media (max-width: 1000px) { .town-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf--many .cf-dots { display: none; }  /* more than 9 dots wrap on a phone; the count above says where you are */
+  .ba-pair { gap: var(--space-2); }
+  .ba-shot img { aspect-ratio: 3 / 4; }
+  .ba-pair::after { width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+  .job-more { gap: var(--space-2); margin-top: var(--space-6); }
   .town-grid { grid-template-columns: 1fr; }
   .town-card h3 { font-size: 25px; }
   .tier { margin-top: var(--space-10); }
   .tier-head h3 { font-size: 27px; }
   .job h4 { font-size: 21px; }
-  .cf--work .cf-title { font-size: 19px; }
 }
 </style>
 <style id="site-nav">
@@ -682,7 +694,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   <div class="wrap">
     <div class="head">
       <h2>Examples of our work in White Hall</h2>
-      <p>Each of these was designed by Amanda and planted by her crew at a home in White Hall. Use the arrows to compare each yard before and after.</p>
+      <p>Each of these was designed by Amanda and planted by her crew at a home in White Hall.</p>
     </div>
   <div class="tier">
     <div class="tier-head">
@@ -693,46 +705,37 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <article class="job">
       <h4>Planted beds along a stepping-stone walk</h4>
       <div class="job-text"><p>At a new white stone house with a round tower, the walk to the front door ran through bare dirt. Amanda's crew planted beds along the house on both sides of the walk: shrubs, flowers and black mulch, up to a fern urn and a fountain at the front door.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Planted beds along a stepping-stone walk, 3 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 3</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Before: bare dirt along the walk"><img draggable="false" width="750" height="1000" src="../../img/projects/white-hall/portfolio/walk-beds-1-before.jpg" alt="Planted beds along a stepping-stone walk: Before: bare dirt along the walk" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="After: planted beds along the walk"><img draggable="false" width="750" height="1000" src="../../img/projects/white-hall/portfolio/walk-beds-2-after.jpg" alt="Planted beds along a stepping-stone walk: After: planted beds along the walk" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Fern urn and fountain by the front door"><img draggable="false" width="750" height="1000" src="../../img/projects/white-hall/portfolio/walk-beds-3-fern-urn-fountain.jpg" alt="Planted beds along a stepping-stone walk: Fern urn and fountain by the front door" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Before: bare dirt along the walk</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/white-hall/portfolio/walk-beds-1-before.jpg" alt="Planted beds along a stepping-stone walk, before: Bare dirt along the walk" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="750" height="1000" src="../../img/projects/white-hall/portfolio/walk-beds-2-after.jpg" alt="Planted beds along a stepping-stone walk, after: Planted beds along the walk" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Planted beds along the walk</figcaption>
+        </figure>
+      </div>
+      <div class="job-more">
+        <figure><img width="750" height="1000" src="../../img/projects/white-hall/portfolio/walk-beds-3-fern-urn-fountain.jpg" alt="Planted beds along a stepping-stone walk: Fern urn and fountain by the front door" loading="lazy"><figcaption>Fern urn and fountain by the front door</figcaption></figure>
       </div>
     </article>
     <article class="job">
       <h4>Block-edged beds along the drive and a fountain bed</h4>
       <div class="job-text"><p>A strip of grass along the drive of a white brick house became a bed edged in block and planted with shrubs and flowers. Around the corner by the garage, a bare patch became a matching bed with a fountain in the middle.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Block-edged beds along the drive and a fountain bed, 4 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 4</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Before: grass strip along the drive"><img draggable="false" width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-1-before.jpg" alt="Block-edged beds along the drive and a fountain bed: Before: grass strip along the drive" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="After: block-edged bed along the drive"><img draggable="false" width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-2-after.jpg" alt="Block-edged beds along the drive and a fountain bed: After: block-edged bed along the drive" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Before: bare corner by the garage"><img draggable="false" width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-3-corner-before.jpg" alt="Block-edged beds along the drive and a fountain bed: Before: bare corner by the garage" loading="lazy"></figure>
-        <figure class="cf-card" data-i="3" data-title="After: fountain bed by the garage"><img draggable="false" width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-4-fountain-bed.jpg" alt="Block-edged beds along the drive and a fountain bed: After: fountain bed by the garage" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Before: grass strip along the drive</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-1-before.jpg" alt="Block-edged beds along the drive and a fountain bed, before: Grass strip along the drive" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-2-after.jpg" alt="Block-edged beds along the drive and a fountain bed, after: Block-edged bed along the drive" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Block-edged bed along the drive</figcaption>
+        </figure>
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-3-corner-before.jpg" alt="Block-edged beds along the drive and a fountain bed, before: Bare corner by the garage" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="1000" height="563" src="../../img/projects/white-hall/portfolio/drive-beds-4-fountain-bed.jpg" alt="Block-edged beds along the drive and a fountain bed, after: Fountain bed by the garage" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Fountain bed by the garage</figcaption>
+        </figure>
       </div>
     </article>
     <article class="job">
@@ -834,49 +837,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </details>
   </div>
 </section>
-
-<script>
-// One carousel per job. Each starts over at photo 1 when it scrolls into view and only advances while on screen.
-document.querySelectorAll('.cf').forEach(function (root) {
-  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots'), title = root.querySelector('.cf-title'), count = root.querySelector('.cf-count');
-  var n = cards.length, cur = 0, timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots = cards.map(function (_, i) {
-    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
-    dotsBox.appendChild(d); return d;
-  });
-  function render() {
-    cards.forEach(function (c, i) {
-      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
-      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
-      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
-    });
-    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    count.textContent = (cur + 1) + ' / ' + n;
-    title.textContent = cards[cur].getAttribute('data-title');
-  }
-  function go(i) { cur = (i + n) % n; render(); }
-  function step(d) { go(cur + d); }
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
-  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer || n < 2) return; timer = setInterval(function () { step(1); }, 6500); }
-  function pause() { clearInterval(timer); timer = null; }
-  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
-  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render();
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { pause(); go(0); play(); } else { pause(); } });
-    }, { threshold: 0.3 }).observe(root);
-  } else { play(); }
-});
-</script>
 
 </main>
 

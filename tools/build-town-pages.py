@@ -4,8 +4,9 @@
 Run from the repo root:  python3 tools/build-town-pages.py
 
 A town page is a portfolio first: its main content is the jobs Colton placed in that town
-(see /job-photos/), grouped by category (Hardscape, Landscaping), each job with its own
-carousel of every photo. Around the work sit one short sales section with the town's soil
+(see /job-photos/), grouped by category (Hardscape, Landscaping), each job shown as before-and-after
+pairs (same view, tagged Before and After) plus a few finished photos. No carousels, and no
+demolition or machinery shots. Around the work sit one short sales section with the town's soil
 facts, links to the service pages, a short FAQ and the closing call. Keep the shared copy
 small so each page is mostly its own town's work.
 
@@ -68,7 +69,7 @@ def tail():
 
 
 TOWN_CSS = """<style id="town-page">
-/* ---------- Town portfolio pages: work grouped by category, one carousel per job ---------- */
+/* ---------- Town portfolio pages: work grouped by category, each job as before-and-after pairs ---------- */
 .tier { margin-top: var(--space-16); }
 .tier-head { padding-bottom: var(--space-4); border-bottom: 1px solid var(--line-strong); }
 .tier-head h3 { font: 400 32px/1.15 var(--font-display); }
@@ -78,9 +79,18 @@ TOWN_CSS = """<style id="town-page">
 .job + .job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
 .job h4 { margin: 0; font: 400 24px/1.25 var(--font-text-serif); color: var(--ink); text-wrap: balance; }
 .job-text { max-width: var(--measure-text); margin-top: var(--space-2); }
-.job .cf { margin-top: var(--space-6); }
-.cf--work .cf-caption { margin-top: var(--space-4); }
-.cf--work .cf-title { font-size: 22px; }
+.ba-list { display: grid; gap: var(--space-10); margin-top: var(--space-6); max-width: 1000px; }
+.ba { margin: 0; }
+.ba-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.ba-shot { position: relative; margin: 0; }
+.ba-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: var(--radius-photo); }
+.ba-pair::after { content: "\\2192"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--on-forest); border: 4px solid var(--linen-2); display: flex; align-items: center; justify-content: center; font: 600 22px/1 var(--font-body); }
+.ba-tag { position: absolute; left: 16px; top: 16px; padding: 11px 20px; border-radius: 99px; font: 600 16px/1 var(--font-body); box-shadow: 0 4px 14px rgba(28,36,31,.25); letter-spacing: .18em; text-transform: uppercase; background: rgba(246,245,240,.94); color: var(--ink); }
+.ba-shot--after .ba-tag { background: var(--forest); color: var(--on-forest); }
+.ba > figcaption, .job-more figcaption { margin-top: var(--space-2); }
+.job-more { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-10); max-width: 1000px; }
+.job-more figure { margin: 0; }
+.job-more img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--radius-photo); }
 .svc3 h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .svc3 h3 a:hover { border-bottom-color: var(--clay); }
 .svc3--six { row-gap: var(--space-16); }
@@ -98,63 +108,18 @@ TOWN_CSS = """<style id="town-page">
 .town-card a:hover .link { border-bottom-color: var(--clay); }
 @media (max-width: 1000px) { .town-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf--many .cf-dots { display: none; }  /* more than 9 dots wrap on a phone; the count above says where you are */
+  .ba-pair { gap: var(--space-2); }
+  .ba-shot img { aspect-ratio: 3 / 4; }
+  .ba-pair::after { width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+  .job-more { gap: var(--space-2); margin-top: var(--space-6); }
   .town-grid { grid-template-columns: 1fr; }
   .town-card h3 { font-size: 25px; }
   .tier { margin-top: var(--space-10); }
   .tier-head h3 { font-size: 27px; }
   .job h4 { font-size: 21px; }
-  .cf--work .cf-title { font-size: 19px; }
 }
 </style>"""
-
-CAROUSEL_JS = """<script>
-// One carousel per job. Each starts over at photo 1 when it scrolls into view and only advances while on screen.
-document.querySelectorAll('.cf').forEach(function (root) {
-  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots'), title = root.querySelector('.cf-title'), count = root.querySelector('.cf-count');
-  var n = cards.length, cur = 0, timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots = cards.map(function (_, i) {
-    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
-    dotsBox.appendChild(d); return d;
-  });
-  function render() {
-    cards.forEach(function (c, i) {
-      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
-      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
-      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
-    });
-    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    count.textContent = (cur + 1) + ' / ' + n;
-    title.textContent = cards[cur].getAttribute('data-title');
-  }
-  function go(i) { cur = (i + n) % n; render(); }
-  function step(d) { go(cur + d); }
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
-  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer || n < 2) return; timer = setInterval(function () { step(1); }, 6500); }
-  function pause() { clearInterval(timer); timer = null; }
-  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
-  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render();
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { pause(); go(0); play(); } else { pause(); } });
-    }, { threshold: 0.3 }).observe(root);
-  } else { play(); }
-});
-</script>
-"""
-
-ARROW_L = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>'
-ARROW_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>'
-
 
 def e(t):
     return html.escape(t, quote=True)
@@ -178,35 +143,39 @@ def strip_tags(s):
     return re.sub(r"<[^>]+>", "", s)
 
 
-def carousel(slug, job):
-    if len(job["photos"]) == 1:  # one photo on file: a plain figure, no carousel controls
-        f, cap = job["photos"][0]
-        w, h = Image.open(os.path.join(ROOT, "img", "projects", slug, "portfolio", f + ".jpg")).size
-        return (f'      <figure class="job-photo"><img width="{w}" height="{h}" src="{P}img/projects/{slug}/portfolio/{f}.jpg" '
-                f'alt="{e(job["title"] + ": " + cap)}" loading="lazy"><figcaption>{e(cap)}</figcaption></figure>')
-    cards = []
-    for i, (f, cap) in enumerate(job["photos"]):
-        w, h = Image.open(os.path.join(ROOT, "img", "projects", slug, "portfolio", f + ".jpg")).size
-        alt = f"{job['title']}: {cap}"
-        cards.append(f'        <figure class="cf-card" data-i="{i}" data-title="{e(cap)}"><img draggable="false" width="{w}" height="{h}" '
-                     f'src="{P}img/projects/{slug}/portfolio/{f}.jpg" alt="{e(alt)}" loading="lazy"></figure>')
-    n = len(cards)
-    return f"""      <div class="cf cf--steps cf--work{' cf--many' if n > 9 else ''}" tabindex="0" role="region" aria-roledescription="carousel" aria-label="{e(job['title'])}, {n} photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo">{ARROW_L}</button>
-          <span class="cf-count" aria-hidden="true">1 / {n}</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo">{ARROW_R}</button>
-        </div>
-        <div class="cf-stage">
-{chr(10).join(cards)}
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">{e(job['photos'][0][1])}</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo">{ARROW_L}</button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo">{ARROW_R}</button>
-        </div>
-      </div>"""
+def shot(slug, f):
+    w, h = Image.open(os.path.join(ROOT, "img", "projects", slug, "portfolio", f + ".jpg")).size
+    return f'width="{w}" height="{h}" src="{P}img/projects/{slug}/portfolio/{f}.jpg"'
+
+
+def bare(cap):
+    """A caption without its Before/After/Finished lead-in, for alt text and pair captions."""
+    cap = re.sub(r"^(Before|After|Finished|Drone)[:,]?\s+", "", cap)
+    return cap[0].upper() + cap[1:]
+
+
+def job_photos(slug, job):
+    """Before-and-after pairs side by side, tagged Before and After, then a few more finished photos. No carousels."""
+    caps = dict(job["photos"])
+    out = []
+    for b, a in job["pairs"]:
+        out.append(f"""        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img {shot(slug, b)} alt="{e(job['title'] + ', before: ' + bare(caps[b]))}" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img {shot(slug, a)} alt="{e(job['title'] + ', after: ' + bare(caps[a]))}" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>{e(bare(caps[a]))}</figcaption>
+        </figure>""")
+    pairs = f'      <div class="ba-list">\n' + "\n".join(out) + "\n      </div>" if out else ""
+    if len(job["more"]) == 1 and not out:  # one photo on file: a plain figure
+        f = job["more"][0]
+        return f'      <figure class="job-photo"><img {shot(slug, f)} alt="{e(job["title"] + ": " + caps[f])}" loading="lazy"><figcaption>{e(caps[f])}</figcaption></figure>'
+    more = ""
+    if job["more"]:
+        figs = "\n".join(f'        <figure><img {shot(slug, f)} alt="{e(job["title"] + ": " + bare(caps[f]))}" loading="lazy"><figcaption>{e(bare(caps[f]))}</figcaption></figure>'
+                         for f in job["more"])
+        more = f'      <div class="job-more">\n{figs}\n      </div>'
+    return "\n".join(x for x in (pairs, more) if x)
 
 
 def page(t):
@@ -217,7 +186,7 @@ def page(t):
         jobs = "\n".join(f"""    <article class="job">
       <h4>{e(j["title"])}</h4>
       <div class="job-text"><p>{j["text"]}</p></div>
-{carousel(slug, j)}
+{job_photos(slug, j)}
     </article>""" for j in tier["jobs"])
         tiers.append(f"""  <div class="tier">
     <div class="tier-head">
@@ -382,7 +351,6 @@ def page(t):
   </div>
 </section>
 
-{CAROUSEL_JS}
 {tail()}"""
 
 
@@ -397,7 +365,7 @@ STAR_CITY = {
         "tall": ("hero-curved-paver-walk-river-rock-tall",),
     },
     "work_h2": "Examples of our work in Star City",
-    "work_intro": "Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Star City. Use the arrows to walk through each job from start to finish.",
+    "work_intro": "Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Star City.",
     "tiers": [
         {"title": "Landscaping",
          "text": "Beds of shrubs and flowers, designed by Amanda and planted by her crew.",
@@ -405,9 +373,13 @@ STAR_CITY = {
          "jobs": [
              {"title": "Flower beds along a brick-edged drive",
               "text": "Amanda's crew planted new beds along the brick edging: rows of shrubs behind borders of seasonal flowers, a bed across the front of the sunroom and bright annuals beside the porch rail.",
+              "pairs": [],
+              "more": ["beds-1-sunroom-bed", "beds-2-flower-border-drive", "beds-3-shrubs-by-brick-pillar", "beds-4-annuals-by-porch"],
               "photos": [
-                  ("beds-1-sunroom-bed", "Bed across the front of the sunroom"), ("beds-2-flower-border-drive", "Flower border along the drive"),
-                  ("beds-3-shrubs-by-brick-pillar", "Shrubs beside the brick pillar"), ("beds-4-annuals-by-porch", "Annuals beside the porch rail")]},
+                  ("beds-1-sunroom-bed", "Bed across the front of the sunroom"),
+                  ("beds-2-flower-border-drive", "Flower border along the drive"),
+                  ("beds-3-shrubs-by-brick-pillar", "Shrubs beside the brick pillar"),
+                  ("beds-4-annuals-by-porch", "Annuals beside the porch rail")]},
          ]},
         {"title": "Hardscape and drainage",
          "text": "Drains, walks and stonework, built by the hardscape teams led by Colton.",
@@ -415,21 +387,28 @@ STAR_CITY = {
          "jobs": [
              {"title": "A French drain along the fence and the house",
               "text": "The team lifted the sod along the drain route, dug the trench, lined it with filter fabric and laid the pipe in gravel, with catch basins where the water collects. Then the sod went back down. From the first cut to the finished lawn, the job took four days.",
+              "pairs": [("drain-1-sod-lifted", "drain-6-finished-along-fence"), ("drain-3-pipe-in-fabric", "drain-7-finished-beside-house")],
+              "more": [],
               "photos": [
-                  ("drain-1-sod-lifted", "Sod lifted along the drain route"), ("drain-2-trench-dug", "Trench dug"),
-                  ("drain-3-pipe-in-fabric", "Pipe laid in a fabric-lined trench beside the house"), ("drain-4-gravel-and-catch-basin", "Gravel and a catch basin grate"),
-                  ("drain-5-sod-going-back", "Sod going back down along the fence"), ("drain-6-finished-along-fence", "Finished, lawn back along the fence"),
-                  ("drain-7-finished-beside-house", "Finished, lawn back beside the house")]},
+                  ("drain-1-sod-lifted", "Sod lifted along the drain route"),
+                  ("drain-6-finished-along-fence", "Finished: lawn back down over the drain along the fence"),
+                  ("drain-3-pipe-in-fabric", "Pipe laid in a fabric-lined trench beside the house"),
+                  ("drain-7-finished-beside-house", "Finished: lawn back down over the drain beside the house")]},
              {"title": "A curved paver walk to the backyard gate",
               "text": "The strip of grass between the house and the picket fence became a curved paver walk with a two-color border and a river rock bed set into the bend. Downspout lines were run beneath the walk before the base went down.",
+              "pairs": [("walk-1-before", "walk-4-finished-curve-to-gate")],
+              "more": ["walk-5-finished-river-rock-bed", "walk-6-finished-through-gate"],
               "photos": [
-                  ("walk-1-before", "Before: grass between the house and the fence"), ("walk-2-dug-out-downspout-lines", "Walk dug out, downspout lines going in"),
-                  ("walk-3-pavers-going-down", "Pavers going down"), ("walk-4-finished-curve-to-gate", "Finished walk curving to the gate"),
-                  ("walk-5-finished-river-rock-bed", "Finished walk and the river rock bed"), ("walk-6-finished-through-gate", "Finished walk through the gate")]},
+                  ("walk-1-before", "Before: grass between the house and the fence"),
+                  ("walk-4-finished-curve-to-gate", "Finished: paver walk curving to the gate"),
+                  ("walk-5-finished-river-rock-bed", "Finished: the river rock bed in the bend"),
+                  ("walk-6-finished-through-gate", "Finished: paver walk through the gate")]},
              {"title": "A flagstone front walk with a paver border",
               "text": "The front walk was dug out from the drive to the porch, filled with a gravel base, edged with pavers and finished with flagstone set in gravel.",
+              "pairs": [("flagstone-1-dug-out", "flagstone-3-finished")],
+              "more": [],
               "photos": [
-                  ("flagstone-1-dug-out", "Walk dug out to the porch"), ("flagstone-2-gravel-and-border", "Gravel base down, paver border set"),
+                  ("flagstone-1-dug-out", "Walk dug out to the porch"),
                   ("flagstone-3-finished", "Finished flagstone walk with the paver border")]},
          ]},
     ],
@@ -499,7 +478,7 @@ WHITE_HALL = {
         "tall": ("hero-flower-beds-front-walk-tall",),
     },
     "work_h2": "Examples of our work in White Hall",
-    "work_intro": "Each of these was designed by Amanda and planted by her crew at a home in White Hall. Use the arrows to compare each yard before and after.",
+    "work_intro": "Each of these was designed by Amanda and planted by her crew at a home in White Hall.",
     "tiers": [
         {"title": "Landscaping",
          "text": "Beds of shrubs and flowers, designed by Amanda and planted by her crew.",
@@ -507,20 +486,33 @@ WHITE_HALL = {
          "jobs": [
              {"title": "Planted beds along a stepping-stone walk",
               "text": "At a new white stone house with a round tower, the walk to the front door ran through bare dirt. Amanda's crew planted beds along the house on both sides of the walk: shrubs, flowers and black mulch, up to a fern urn and a fountain at the front door.",
+              "pairs": [("walk-beds-1-before", "walk-beds-2-after")],
+              "more": ["walk-beds-3-fern-urn-fountain"],
               "photos": [
-                  ("walk-beds-1-before", "Before: bare dirt along the walk"), ("walk-beds-2-after", "After: planted beds along the walk"),
+                  ("walk-beds-1-before", "Before: bare dirt along the walk"),
+                  ("walk-beds-2-after", "After: planted beds along the walk"),
                   ("walk-beds-3-fern-urn-fountain", "Fern urn and fountain by the front door")]},
              {"title": "Block-edged beds along the drive and a fountain bed",
               "text": "A strip of grass along the drive of a white brick house became a bed edged in block and planted with shrubs and flowers. Around the corner by the garage, a bare patch became a matching bed with a fountain in the middle.",
+              "pairs": [("drive-beds-1-before", "drive-beds-2-after"), ("drive-beds-3-corner-before", "drive-beds-4-fountain-bed")],
+              "more": [],
               "photos": [
-                  ("drive-beds-1-before", "Before: grass strip along the drive"), ("drive-beds-2-after", "After: block-edged bed along the drive"),
-                  ("drive-beds-3-corner-before", "Before: bare corner by the garage"), ("drive-beds-4-fountain-bed", "After: fountain bed by the garage")]},
+                  ("drive-beds-1-before", "Before: grass strip along the drive"),
+                  ("drive-beds-2-after", "After: block-edged bed along the drive"),
+                  ("drive-beds-3-corner-before", "Before: bare corner by the garage"),
+                  ("drive-beds-4-fountain-bed", "After: fountain bed by the garage")]},
              {"title": "Flower beds on both sides of the front walk",
               "text": "Two curved beds frame the front walk where it meets the street, each with a small tree ringed by seasonal flowers inside a block edge.",
-              "photos": [("mailbox-beds", "Beds on both sides of the front walk")]},
+              "pairs": [],
+              "more": ["mailbox-beds"],
+              "photos": [
+                  ("mailbox-beds", "Beds on both sides of the front walk")]},
              {"title": "A flower ring under a shade tree",
               "text": "A ring of seasonal flowers, inside stone edging, around the trunk of a big shade tree in the front lawn.",
-              "photos": [("flower-ring", "Flower ring with stone edging")]},
+              "pairs": [],
+              "more": ["flower-ring"],
+              "photos": [
+                  ("flower-ring", "Flower ring with stone edging")]},
          ]},
     ],
     "sales": {
@@ -571,7 +563,7 @@ WOODLAWN = {
         "tall": ("hero-farmhouse-curved-walk-tall",),
     },
     "work_h2": "Examples of our work in Woodlawn",
-    "work_intro": "Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Woodlawn. Use the arrows to walk through each job from start to finish.",
+    "work_intro": "Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Woodlawn.",
     "tiers": [
         {"title": "Landscaping",
          "text": "Beds of shrubs and flowers, designed by Amanda and planted by her crew.",
@@ -579,7 +571,11 @@ WOODLAWN = {
          "jobs": [
              {"title": "A curved bed with a flagstone walk around it",
               "text": "Beside a tan-sided house, a curved bed was cut into bare ground, edged and planted with shrubs. Then a flagstone walk was laid around the curve of the bed to the drive.",
-              "photos": [("bed-1-before", "Before: bed outline dug in bare ground"), ("bed-2-after", "After: flagstone walk around the planted bed")]},
+              "pairs": [("bed-1-before", "bed-2-after")],
+              "more": [],
+              "photos": [
+                  ("bed-1-before", "Before: bed outline dug in bare ground"),
+                  ("bed-2-after", "After: flagstone walk around the planted bed")]},
          ]},
         {"title": "Hardscape",
          "text": "Walls, steps and walks, built by the Amanda's Villa hardscape teams.",
@@ -587,16 +583,15 @@ WOODLAWN = {
          "jobs": [
              {"title": "Block walls, steps and a paver walk across a farmhouse front",
               "text": "The front of a black farmhouse sat a step above open lawn. The hardscape team built a block retaining wall along the front beds and beside the garage, wide block steps up to a paver landing at the porch, and a paver walk with a dark border that curves between new beds out toward the drive. The beds were planted with shrubs and grasses, with boulders set in the mulch.",
+              "pairs": [("farmhouse-01-before-front-yard", "farmhouse-10-finished-from-yard"), ("farmhouse-02-before-beds-by-garage", "farmhouse-16-finished-raised-wall")],
+              "more": ["farmhouse-11-finished-steps-to-porch", "farmhouse-14-finished-curved-walk"],
               "photos": [
-                  ("farmhouse-01-before-front-yard", "Before: front yard and porch"), ("farmhouse-02-before-beds-by-garage", "Before: the beds by the garage"),
-                  ("farmhouse-03-dug-out-front-beds", "Ground dug out along the front beds, layout stakes in"), ("farmhouse-04-wall-going-up", "Wall going up beside the garage"),
-                  ("farmhouse-05-wall-and-steps-built", "Wall and steps built, gravel fill"), ("farmhouse-06-walk-turning-corner", "Paver walk turning the corner by the garage"),
-                  ("farmhouse-07-walk-along-beds", "Paver walk along the front beds"), ("farmhouse-08-steps-and-landing", "Steps and landing at the porch"),
-                  ("farmhouse-09-landing-at-porch", "Landing at the porch"), ("farmhouse-10-finished-from-yard", "Finished: walls, steps and beds from the yard"),
-                  ("farmhouse-11-finished-steps-to-porch", "Finished: steps up to the porch"), ("farmhouse-12-finished-walk-between-beds", "Finished: walk between the beds"),
-                  ("farmhouse-13-finished-landing", "Finished: landing at the porch"), ("farmhouse-14-finished-curved-walk", "Finished: curved walk and bed"),
-                  ("farmhouse-15-finished-steps-boulder-bed", "Finished: steps and the boulder bed"), ("farmhouse-16-finished-raised-wall", "Finished: raised wall by the garage"),
-                  ("farmhouse-17-finished-long-walk", "Finished: long walk out toward the driveway")]},
+                  ("farmhouse-01-before-front-yard", "Before: front yard and porch"),
+                  ("farmhouse-10-finished-from-yard", "Finished: walls, steps and beds from the yard"),
+                  ("farmhouse-02-before-beds-by-garage", "Before: the beds by the garage"),
+                  ("farmhouse-16-finished-raised-wall", "Finished: raised wall by the garage"),
+                  ("farmhouse-11-finished-steps-to-porch", "Finished: steps up to the porch"),
+                  ("farmhouse-14-finished-curved-walk", "Finished: curved walk and bed")]},
          ]},
     ],
     "sales": {
@@ -643,22 +638,21 @@ HOT_SPRINGS = {
         "tall": ("hero-hillside-block-steps-tall",),
     },
     "work_h2": "Examples of our work in Hot Springs",
-    "work_intro": "This hillside was built by the Amanda's Villa hardscape teams at a home in Hot Springs. Use the arrows to go from the bare slope to the finished walls, from the ground and from the air.",
+    "work_intro": "This hillside was built by the Amanda's Villa hardscape teams at a home in Hot Springs.",
     "tiers": [
         {"title": "Hardscape",
          "text": "Walls, steps and patios, built by the Amanda's Villa hardscape teams.",
          "link": ("hardscape/", "More about hardscape at Amanda's Villa"),
          "jobs": [
              {"title": "Retaining walls, block steps, a patio and boulder steps on a wooded hillside",
-              "text": "The slope beside the house was bare red dirt. An excavator graded it into levels, and the hardscape team built curved block retaining walls to hold each level, block steps between the walls, a round raised terrace, a paver patio along a curved wall and boulder steps through a bed of river rock. Planted beds sit on the levels above the walls.",
+              "text": "The slope beside the house was bare red dirt. The hardscape team graded it into levels and built curved block retaining walls to hold each level, block steps between the walls, a round raised terrace, a paver patio along a curved wall and boulder steps through a bed of river rock. Planted beds sit on the levels above the walls.",
+              "pairs": [("hillside-01-before-bare-slope", "hillside-12-drone-round-wall-steps-low")],
+              "more": ["hillside-03-drone-walls-patio-beds", "hillside-11-boulder-steps"],
               "photos": [
-                  ("hillside-01-before-bare-slope", "Before: bare slope by the fence"), ("hillside-02-excavator-grading", "Excavator grading the slope"),
-                  ("hillside-03-drone-walls-patio-beds", "Drone: walls, terrace and beds from above"), ("hillside-04-drone-patio-steps-river-rock", "Drone: terrace, steps and river rock"),
-                  ("hillside-05-drone-curved-wall-steps", "Drone: curved wall and steps"), ("hillside-06-drone-round-wall", "Drone: the round wall and the bed above it"),
-                  ("hillside-07-block-steps-between-walls", "Block steps between two walls"), ("hillside-08-curved-wall-paver-patio", "Curved wall and paver patio"),
-                  ("hillside-09-wall-corner-gravel", "Wall corner and gravel"), ("hillside-10-wall-river-rock-drive", "Wall with river rock along the drive"),
-                  ("hillside-11-boulder-steps", "Boulder steps through river rock"), ("hillside-12-drone-round-wall-steps-low", "Drone: the round wall and steps, lower angle"),
-                  ("hillside-13-drone-round-wall-drive", "Drone: round wall and steps with the drive behind")]},
+                  ("hillside-01-before-bare-slope", "Before: bare slope by the fence"),
+                  ("hillside-12-drone-round-wall-steps-low", "Finished: the round wall and steps built into the slope"),
+                  ("hillside-03-drone-walls-patio-beds", "Drone: walls, terrace and beds from above"),
+                  ("hillside-11-boulder-steps", "Boulder steps through river rock")]},
          ]},
     ],
     "sales": {
@@ -683,7 +677,7 @@ HOT_SPRINGS = {
         ("What does Hot Springs ground mean for a wall or a patio?",
          f"Within about a mile of downtown Hot Springs, USDA soil maps show roughly seven of every ten acres sloping 8 percent or more, and more than eight of every ten with bedrock within about three feet of the surface.{fn(2, 'b')} So a sloped yard is built in levels behind structural retaining walls, and every walk and patio sits on a compacted gravel base."),
         ("How long does a project take?",
-         "It depends on the project. On the hillside on this page, the excavator was grading the slope in late August, and the finished drone photos were taken in early October. Once work begins, the crew stays on your project until it is finished, and weather is the only common delay."),
+         "It depends on the project. On the hillside on this page, grading started in late August, and the finished drone photos were taken in early October. Once work begins, the crew stays on your project until it is finished, and weather is the only common delay."),
         ask_free_estimate(),
     ],
     "closing": {
@@ -709,7 +703,7 @@ PINE_BLUFF = {
         "tall": ("hero-herringbone-path-tall",),
     },
     "work_h2": "Examples of our work in Pine Bluff",
-    "work_intro": "This patio was built by the Amanda's Villa hardscape teams at a home in Pine Bluff. Use the arrows to walk through the job from the old yard to the finished patio.",
+    "work_intro": "This patio was built by the Amanda's Villa hardscape teams at a home in Pine Bluff.",
     "tiers": [
         {"title": "Hardscape",
          "text": "Patios, walks and stonework, built by the Amanda's Villa hardscape teams.",
@@ -717,13 +711,13 @@ PINE_BLUFF = {
          "jobs": [
              {"title": "A herringbone brick path and patio with new beds",
               "text": "Behind the house, an old brick edging and a worn path ran through a bare yard between the house, a brick garage and a white arbor. The team cleared the ground, compacted the base and laid red brick pavers in a herringbone pattern with a gray border: a path along the house that opens into a patio by the garage. New beds of shrubs and flowers were planted on both sides. From the cleared ground to the finished patio took about two weeks.",
+              "pairs": [("patio-01-before-edging-along-house", "patio-09-finished-path-new-beds"), ("patio-02-before-yard-and-arbor", "patio-10-finished-patio-chairs")],
+              "more": [],
               "photos": [
-                  ("patio-01-before-edging-along-house", "Before: old brick edging along the house"), ("patio-02-before-yard-and-arbor", "Before: the yard and the arbor by the garage"),
-                  ("patio-03-ground-cleared", "Ground cleared, skid steer on site"), ("patio-04-base-compacted", "Base compacted"),
-                  ("patio-05-path-started", "Herringbone path started along the house"), ("patio-06-path-and-border", "Path and border laid"),
-                  ("patio-07-patio-laid", "Patio laid"), ("patio-08-patio-and-path-by-garage", "Patio and path by the garage"),
-                  ("patio-09-finished-path-new-beds", "Finished: path and new beds"), ("patio-10-finished-patio-chairs", "Finished: patio with the white chairs"),
-                  ("patio-11-finished-path-between-beds", "Finished: path between the planted beds")]},
+                  ("patio-01-before-edging-along-house", "Before: old brick edging along the house"),
+                  ("patio-09-finished-path-new-beds", "Finished: path and new beds"),
+                  ("patio-02-before-yard-and-arbor", "Before: the yard and the arbor by the garage"),
+                  ("patio-10-finished-patio-chairs", "Finished: patio with the white chairs")]},
          ]},
     ],
     "sales": {
@@ -770,7 +764,7 @@ SHERIDAN = {
         "tall": ("hero-paver-walk-long-view-tall",),
     },
     "work_h2": "Examples of our work in Sheridan",
-    "work_intro": "Both of these were built by the Amanda's Villa hardscape teams at one home in Sheridan. Use the arrows to compare each before and after.",
+    "work_intro": "Both of these were built by the Amanda's Villa hardscape teams at one home in Sheridan.",
     "tiers": [
         {"title": "Hardscape",
          "text": "Walks, landings and stonework, built by the Amanda's Villa hardscape teams.",
@@ -778,13 +772,20 @@ SHERIDAN = {
          "jobs": [
              {"title": "A paver landing at the front door",
               "text": "The patch of worn grass in front of the concrete stoop became a paver landing with a dark border.",
-              "photos": [("landing-1-before", "Before: grass at the front door"), ("landing-2-finished", "Finished paver landing")]},
-             {"title": "A paver walk around the side of the house",
-              "text": "An old path along the hedge and a torn-out bed along the side of the house were replaced by a paver walk with a dark border, set on gravel, that turns the corner of the house toward the driveway.",
+              "pairs": [("landing-1-before", "landing-2-finished")],
+              "more": [],
               "photos": [
-                  ("side-walk-1-before-old-path", "Before: old path along the hedge"), ("side-walk-2-before-bed-torn-out", "Before: old bed torn out along the side"),
-                  ("side-walk-3-finished-around-corner", "Finished walk around the corner"), ("side-walk-4-finished-along-hedge", "Finished walk along the hedge"),
-                  ("side-walk-5-finished-toward-drive", "Finished walk toward the driveway"), ("side-walk-6-finished-long-view", "Finished walk, long view")]},
+                  ("landing-1-before", "Before: grass at the front door"),
+                  ("landing-2-finished", "Finished: paver landing at the front door")]},
+             {"title": "A paver walk around the side of the house",
+              "text": "An old path along the hedge and a worn bed along the side of the house were replaced by a paver walk with a dark border, set on gravel, that turns the corner of the house toward the driveway.",
+              "pairs": [("side-walk-1-before-old-path", "side-walk-6-finished-long-view")],
+              "more": ["side-walk-3-finished-around-corner", "side-walk-4-finished-along-hedge"],
+              "photos": [
+                  ("side-walk-1-before-old-path", "Before: old path along the hedge"),
+                  ("side-walk-6-finished-long-view", "Finished: paver walk along the house"),
+                  ("side-walk-3-finished-around-corner", "Finished: paver walk around the corner"),
+                  ("side-walk-4-finished-along-hedge", "Finished: paver walk along the hedge")]},
          ]},
     ],
     "sales": {

@@ -433,7 +433,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .cites-box--faq { max-width: none; margin-top: var(--space-10); }
 </style>
 <style id="town-page">
-/* ---------- Town portfolio pages: work grouped by category, one carousel per job ---------- */
+/* ---------- Town portfolio pages: work grouped by category, each job as before-and-after pairs ---------- */
 .tier { margin-top: var(--space-16); }
 .tier-head { padding-bottom: var(--space-4); border-bottom: 1px solid var(--line-strong); }
 .tier-head h3 { font: 400 32px/1.15 var(--font-display); }
@@ -443,9 +443,18 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .job + .job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
 .job h4 { margin: 0; font: 400 24px/1.25 var(--font-text-serif); color: var(--ink); text-wrap: balance; }
 .job-text { max-width: var(--measure-text); margin-top: var(--space-2); }
-.job .cf { margin-top: var(--space-6); }
-.cf--work .cf-caption { margin-top: var(--space-4); }
-.cf--work .cf-title { font-size: 22px; }
+.ba-list { display: grid; gap: var(--space-10); margin-top: var(--space-6); max-width: 1000px; }
+.ba { margin: 0; }
+.ba-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.ba-shot { position: relative; margin: 0; }
+.ba-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: var(--radius-photo); }
+.ba-pair::after { content: "\2192"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--on-forest); border: 4px solid var(--linen-2); display: flex; align-items: center; justify-content: center; font: 600 22px/1 var(--font-body); }
+.ba-tag { position: absolute; left: 16px; top: 16px; padding: 11px 20px; border-radius: 99px; font: 600 16px/1 var(--font-body); box-shadow: 0 4px 14px rgba(28,36,31,.25); letter-spacing: .18em; text-transform: uppercase; background: rgba(246,245,240,.94); color: var(--ink); }
+.ba-shot--after .ba-tag { background: var(--forest); color: var(--on-forest); }
+.ba > figcaption, .job-more figcaption { margin-top: var(--space-2); }
+.job-more { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-10); max-width: 1000px; }
+.job-more figure { margin: 0; }
+.job-more img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--radius-photo); }
 .svc3 h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .svc3 h3 a:hover { border-bottom-color: var(--clay); }
 .svc3--six { row-gap: var(--space-16); }
@@ -463,13 +472,16 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .town-card a:hover .link { border-bottom-color: var(--clay); }
 @media (max-width: 1000px) { .town-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf--many .cf-dots { display: none; }  /* more than 9 dots wrap on a phone; the count above says where you are */
+  .ba-pair { gap: var(--space-2); }
+  .ba-shot img { aspect-ratio: 3 / 4; }
+  .ba-pair::after { width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+  .job-more { gap: var(--space-2); margin-top: var(--space-6); }
   .town-grid { grid-template-columns: 1fr; }
   .town-card h3 { font-size: 25px; }
   .tier { margin-top: var(--space-10); }
   .tier-head h3 { font-size: 27px; }
   .job h4 { font-size: 21px; }
-  .cf--work .cf-title { font-size: 19px; }
 }
 </style>
 <style id="site-nav">

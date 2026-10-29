@@ -506,7 +506,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 }
 </script>
 <style id="town-page">
-/* ---------- Town portfolio pages: work grouped by category, one carousel per job ---------- */
+/* ---------- Town portfolio pages: work grouped by category, each job as before-and-after pairs ---------- */
 .tier { margin-top: var(--space-16); }
 .tier-head { padding-bottom: var(--space-4); border-bottom: 1px solid var(--line-strong); }
 .tier-head h3 { font: 400 32px/1.15 var(--font-display); }
@@ -516,9 +516,18 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .job + .job { padding-top: var(--space-10); border-top: 1px solid var(--line); }
 .job h4 { margin: 0; font: 400 24px/1.25 var(--font-text-serif); color: var(--ink); text-wrap: balance; }
 .job-text { max-width: var(--measure-text); margin-top: var(--space-2); }
-.job .cf { margin-top: var(--space-6); }
-.cf--work .cf-caption { margin-top: var(--space-4); }
-.cf--work .cf-title { font-size: 22px; }
+.ba-list { display: grid; gap: var(--space-10); margin-top: var(--space-6); max-width: 1000px; }
+.ba { margin: 0; }
+.ba-pair { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.ba-shot { position: relative; margin: 0; }
+.ba-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: var(--radius-photo); }
+.ba-pair::after { content: "\2192"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--on-forest); border: 4px solid var(--linen-2); display: flex; align-items: center; justify-content: center; font: 600 22px/1 var(--font-body); }
+.ba-tag { position: absolute; left: 16px; top: 16px; padding: 11px 20px; border-radius: 99px; font: 600 16px/1 var(--font-body); box-shadow: 0 4px 14px rgba(28,36,31,.25); letter-spacing: .18em; text-transform: uppercase; background: rgba(246,245,240,.94); color: var(--ink); }
+.ba-shot--after .ba-tag { background: var(--forest); color: var(--on-forest); }
+.ba > figcaption, .job-more figcaption { margin-top: var(--space-2); }
+.job-more { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-10); max-width: 1000px; }
+.job-more figure { margin: 0; }
+.job-more img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--radius-photo); }
 .svc3 h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .svc3 h3 a:hover { border-bottom-color: var(--clay); }
 .svc3--six { row-gap: var(--space-16); }
@@ -536,13 +545,16 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .town-card a:hover .link { border-bottom-color: var(--clay); }
 @media (max-width: 1000px) { .town-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf--many .cf-dots { display: none; }  /* more than 9 dots wrap on a phone; the count above says where you are */
+  .ba-pair { gap: var(--space-2); }
+  .ba-shot img { aspect-ratio: 3 / 4; }
+  .ba-pair::after { width: 36px; height: 36px; font-size: 16px; border-width: 3px; }
+  .ba-tag { font-size: 11px; padding: 7px 10px; left: 8px; top: 8px; letter-spacing: .12em; }
+  .job-more { gap: var(--space-2); margin-top: var(--space-6); }
   .town-grid { grid-template-columns: 1fr; }
   .town-card h3 { font-size: 25px; }
   .tier { margin-top: var(--space-10); }
   .tier-head h3 { font-size: 27px; }
   .job h4 { font-size: 21px; }
-  .cf--work .cf-title { font-size: 19px; }
 }
 </style>
 <style id="site-nav">
@@ -682,7 +694,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   <div class="wrap">
     <div class="head">
       <h2>Examples of our work in Woodlawn</h2>
-      <p>Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Woodlawn. Use the arrows to walk through each job from start to finish.</p>
+      <p>Each of these was planted by Amanda's crew or built by the Amanda's Villa hardscape teams at a home in Woodlawn.</p>
     </div>
   <div class="tier">
     <div class="tier-head">
@@ -693,22 +705,14 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <article class="job">
       <h4>A curved bed with a flagstone walk around it</h4>
       <div class="job-text"><p>Beside a tan-sided house, a curved bed was cut into bare ground, edged and planted with shrubs. Then a flagstone walk was laid around the curve of the bed to the drive.</p></div>
-      <div class="cf cf--steps cf--work" tabindex="0" role="region" aria-roledescription="carousel" aria-label="A curved bed with a flagstone walk around it, 2 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 2</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Before: bed outline dug in bare ground"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/bed-1-before.jpg" alt="A curved bed with a flagstone walk around it: Before: bed outline dug in bare ground" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="After: flagstone walk around the planted bed"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/bed-2-after.jpg" alt="A curved bed with a flagstone walk around it: After: flagstone walk around the planted bed" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Before: bed outline dug in bare ground</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/woodlawn/portfolio/bed-1-before.jpg" alt="A curved bed with a flagstone walk around it, before: Bed outline dug in bare ground" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="750" height="1000" src="../../img/projects/woodlawn/portfolio/bed-2-after.jpg" alt="A curved bed with a flagstone walk around it, after: Flagstone walk around the planted bed" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Flagstone walk around the planted bed</figcaption>
+        </figure>
       </div>
     </article>
   </div>
@@ -721,37 +725,25 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <article class="job">
       <h4>Block walls, steps and a paver walk across a farmhouse front</h4>
       <div class="job-text"><p>The front of a black farmhouse sat a step above open lawn. The hardscape team built a block retaining wall along the front beds and beside the garage, wide block steps up to a paver landing at the porch, and a paver walk with a dark border that curves between new beds out toward the drive. The beds were planted with shrubs and grasses, with boulders set in the mulch.</p></div>
-      <div class="cf cf--steps cf--work cf--many" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Block walls, steps and a paver walk across a farmhouse front, 17 photos">
-        <div class="cf-bar cf-bar--top">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <span class="cf-count" aria-hidden="true">1 / 17</span>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
-        <div class="cf-stage">
-        <figure class="cf-card" data-i="0" data-title="Before: front yard and porch"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-01-before-front-yard.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Before: front yard and porch" loading="lazy"></figure>
-        <figure class="cf-card" data-i="1" data-title="Before: the beds by the garage"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-02-before-beds-by-garage.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Before: the beds by the garage" loading="lazy"></figure>
-        <figure class="cf-card" data-i="2" data-title="Ground dug out along the front beds, layout stakes in"><img draggable="false" width="752" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-03-dug-out-front-beds.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Ground dug out along the front beds, layout stakes in" loading="lazy"></figure>
-        <figure class="cf-card" data-i="3" data-title="Wall going up beside the garage"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-04-wall-going-up.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Wall going up beside the garage" loading="lazy"></figure>
-        <figure class="cf-card" data-i="4" data-title="Wall and steps built, gravel fill"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-05-wall-and-steps-built.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Wall and steps built, gravel fill" loading="lazy"></figure>
-        <figure class="cf-card" data-i="5" data-title="Paver walk turning the corner by the garage"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-06-walk-turning-corner.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Paver walk turning the corner by the garage" loading="lazy"></figure>
-        <figure class="cf-card" data-i="6" data-title="Paver walk along the front beds"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-07-walk-along-beds.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Paver walk along the front beds" loading="lazy"></figure>
-        <figure class="cf-card" data-i="7" data-title="Steps and landing at the porch"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-08-steps-and-landing.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Steps and landing at the porch" loading="lazy"></figure>
-        <figure class="cf-card" data-i="8" data-title="Landing at the porch"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-09-landing-at-porch.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Landing at the porch" loading="lazy"></figure>
-        <figure class="cf-card" data-i="9" data-title="Finished: walls, steps and beds from the yard"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-10-finished-from-yard.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: walls, steps and beds from the yard" loading="lazy"></figure>
-        <figure class="cf-card" data-i="10" data-title="Finished: steps up to the porch"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-11-finished-steps-to-porch.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: steps up to the porch" loading="lazy"></figure>
-        <figure class="cf-card" data-i="11" data-title="Finished: walk between the beds"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-12-finished-walk-between-beds.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: walk between the beds" loading="lazy"></figure>
-        <figure class="cf-card" data-i="12" data-title="Finished: landing at the porch"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-13-finished-landing.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: landing at the porch" loading="lazy"></figure>
-        <figure class="cf-card" data-i="13" data-title="Finished: curved walk and bed"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-14-finished-curved-walk.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: curved walk and bed" loading="lazy"></figure>
-        <figure class="cf-card" data-i="14" data-title="Finished: steps and the boulder bed"><img draggable="false" width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-15-finished-steps-boulder-bed.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: steps and the boulder bed" loading="lazy"></figure>
-        <figure class="cf-card" data-i="15" data-title="Finished: raised wall by the garage"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-16-finished-raised-wall.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: raised wall by the garage" loading="lazy"></figure>
-        <figure class="cf-card" data-i="16" data-title="Finished: long walk out toward the driveway"><img draggable="false" width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-17-finished-long-walk.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Finished: long walk out toward the driveway" loading="lazy"></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><p class="cf-title">Before: front yard and porch</p></div>
-        <div class="cf-bar">
-          <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-        </div>
+      <div class="ba-list">
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-01-before-front-yard.jpg" alt="Block walls, steps and a paver walk across a farmhouse front, before: Front yard and porch" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-10-finished-from-yard.jpg" alt="Block walls, steps and a paver walk across a farmhouse front, after: Walls, steps and beds from the yard" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Walls, steps and beds from the yard</figcaption>
+        </figure>
+        <figure class="ba">
+          <div class="ba-pair">
+            <figure class="ba-shot"><img width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-02-before-beds-by-garage.jpg" alt="Block walls, steps and a paver walk across a farmhouse front, before: The beds by the garage" loading="lazy"><span class="ba-tag">Before</span></figure>
+            <figure class="ba-shot ba-shot--after"><img width="750" height="1000" src="../../img/projects/woodlawn/portfolio/farmhouse-16-finished-raised-wall.jpg" alt="Block walls, steps and a paver walk across a farmhouse front, after: Raised wall by the garage" loading="lazy"><span class="ba-tag">After</span></figure>
+          </div>
+          <figcaption>Raised wall by the garage</figcaption>
+        </figure>
+      </div>
+      <div class="job-more">
+        <figure><img width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-11-finished-steps-to-porch.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Steps up to the porch" loading="lazy"><figcaption>Steps up to the porch</figcaption></figure>
+        <figure><img width="1000" height="750" src="../../img/projects/woodlawn/portfolio/farmhouse-14-finished-curved-walk.jpg" alt="Block walls, steps and a paver walk across a farmhouse front: Curved walk and bed" loading="lazy"><figcaption>Curved walk and bed</figcaption></figure>
       </div>
     </article>
   </div>
@@ -843,49 +835,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     </details>
   </div>
 </section>
-
-<script>
-// One carousel per job. Each starts over at photo 1 when it scrolls into view and only advances while on screen.
-document.querySelectorAll('.cf').forEach(function (root) {
-  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots'), title = root.querySelector('.cf-title'), count = root.querySelector('.cf-count');
-  var n = cards.length, cur = 0, timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots = cards.map(function (_, i) {
-    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
-    dotsBox.appendChild(d); return d;
-  });
-  function render() {
-    cards.forEach(function (c, i) {
-      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
-      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
-      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
-    });
-    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    count.textContent = (cur + 1) + ' / ' + n;
-    title.textContent = cards[cur].getAttribute('data-title');
-  }
-  function go(i) { cur = (i + n) % n; render(); }
-  function step(d) { go(cur + d); }
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
-  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer || n < 2) return; timer = setInterval(function () { step(1); }, 6500); }
-  function pause() { clearInterval(timer); timer = null; }
-  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
-  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render();
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { pause(); go(0); play(); } else { pause(); } });
-    }, { threshold: 0.3 }).observe(root);
-  } else { play(); }
-});
-</script>
 
 </main>
 
