@@ -413,7 +413,7 @@ STAR_CITY = {
          ]},
     ],
     "sales": {
-        "h2": "Let's build you a Star City yard that stays dry and looks finished",
+        "h2": "If you live in Star City, we commit to crafting you a yard you're proud to come home to",
         "paras": [
             f"Star City is the seat of Lincoln County, which Bayou Bartholomew splits between the Delta and the West Gulf Coastal Plain.{fn(3)} Under roughly seven of every ten acres in and around town, USDA soil maps show a seasonal water table within about two feet of the surface,{fn(2)} and Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So your project starts with a free estimate and a transit survey of how your ground falls, and the drainage is planned before the stone and the plants.",
@@ -516,7 +516,7 @@ WHITE_HALL = {
          ]},
     ],
     "sales": {
-        "h2": "Let's plant you a White Hall yard that stays dry and looks finished",
+        "h2": "If you live in White Hall, we commit to crafting you a yard you're proud to come home to",
         "paras": [
             f"The Amanda's Villa garden center sits on Dollarway Road, which the Encyclopedia of Arkansas calls the first concrete road in Arkansas.{fn(3)} Under roughly eight of every ten acres within a mile of the center of White Hall, USDA soil maps show a seasonal water table within about two feet of the surface, and under about six of every ten, a dense layer called a fragipan two to two and a half feet down slows water draining through it.{fn(2)} Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So your project starts with a free estimate, and the drainage is planned before the stone and the plants.",
@@ -595,7 +595,7 @@ WOODLAWN = {
          ]},
     ],
     "sales": {
-        "h2": "Let's build you a Woodlawn yard that stays dry and looks finished",
+        "h2": "If you live in Woodlawn, we commit to crafting you a yard you're proud to come home to",
         "paras": [
             f"Woodlawn sits in Cleveland County, which the Saline River crosses from near its northwest corner to near its southeast corner.{fn(3)} Under nearly eight of every ten acres within a mile of Woodlawn, USDA soil maps show a seasonal water table within about two feet of the surface, and nearly one acre in five is floodplain that floods often.{fn(2)} Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So your project starts with a free estimate and a transit survey of how your ground falls, and the drainage is planned before the stone and the plants.",
@@ -656,7 +656,7 @@ HOT_SPRINGS = {
          ]},
     ],
     "sales": {
-        "h2": "Let's build you a Hot Springs yard that holds its slope and looks finished",
+        "h2": "If you live in Hot Springs, we commit to crafting you a yard you're proud to come home to",
         "paras": [
             f"Hot Springs sits along the Ouachita River in the Central Ouachita Mountains.{fn(3)} Within about a mile of downtown, USDA soil maps show roughly seven of every ten acres sloping 8 percent or more, about six of every ten mapped as stony and bedrock within about three feet of the surface under more than eight of every ten.{fn(2)} Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So a hillside yard there is built in levels. Walls hold the slope back, steps join one level to the next, and your project starts with a free estimate and a transit survey of how the ground falls.",
@@ -721,7 +721,7 @@ PINE_BLUFF = {
          ]},
     ],
     "sales": {
-        "h2": "Let's build you a Pine Bluff yard that stays dry and looks finished",
+        "h2": "If you live in Pine Bluff, we commit to crafting you a yard you're proud to come home to",
         "paras": [
             f"Pine Bluff grew from a cabin built in 1819 on a “high bluff covered with pine trees” on the south bank of the Arkansas River.{fn(3)} Under about three of every four acres of land within a mile of downtown, USDA soil maps show a seasonal water table within about two feet of the surface, rising to about a foot under more than half, over a dense fragipan layer two and a half to three feet down.{fn(2)} Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So your project starts with a free estimate and a transit survey of how your ground falls, and the drainage is planned before the stone and the plants.",
@@ -789,7 +789,7 @@ SHERIDAN = {
          ]},
     ],
     "sales": {
-        "h2": "Let's build you a Sheridan yard that stays dry and looks finished",
+        "h2": "If you live in Sheridan, we commit to crafting you a yard you're proud to come home to",
         "paras": [
             f"Sheridan is the county seat of Grant County, which is known for its timber industry.{fn(3)} About four of every ten acres within a mile of downtown are Sacul soils, a sandy loam over a subsoil that is about half clay from roughly seven inches down, and about one acre in five is floodplain that floods often.{fn(2)} Arkansas averages about 50 inches of rain a year.{fn(1)}",
             "So your project starts with a free estimate and a transit survey of how your ground falls, and the drainage is planned before the stone and the plants.",
