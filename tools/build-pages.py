@@ -89,7 +89,7 @@ LOCAL_BUSINESS = {
     "@context": "https://schema.org",
     "@type": "GardenStore",
     "name": "Amanda's Villa Landscaping and Garden Center",
-    "telephone": "+1-870-489-5463",
+    "telephone": "+1-870-489-5463", "openingHours": "Mo-Sa 09:00-18:00",
     "address": {"@type": "PostalAddress", "streetAddress": "7901 Dollarway Road", "addressLocality": "White Hall", "addressRegion": "AR", "postalCode": "71602", "addressCountry": "US"},
     "areaServed": "Arkansas",
 }
@@ -156,7 +156,7 @@ def footer(p):
       <ul>
         <li>7901 Dollarway Road<br>White Hall, AR 71602</li>
         <li><a href="{TEL}">{PHONE}</a></li>
-        <li><span class="todo">Hours</span></li>
+        <li>Mon to Sat, 9 a.m. to 6 p.m.</li>
       </ul>
     </div>
     <small>© 2026 Amanda's Villa Landscaping and Garden Center.</small>
@@ -245,7 +245,7 @@ def page(d):
         <a class="btn btn--onphoto" href="{hero["cta"][1].replace("~/", p)}">{hero["cta"][0]}</a>
         <a class="btn btn--ghost" href="{TEL}">Call {PHONE}</a>
       </div>
-      <p class="hero-meta">7901 Dollarway Road, White Hall · <span class="todo">Hours</span></p>
+      <p class="hero-meta">7901 Dollarway Road, White Hall · Open Mon to Sat, 9 to 6</p>
     </div>
 {chr(10).join(['    <p class="standin">Stand-in photo. ' + hero['standin'] + '</p>'] if hero.get('standin') else [])}{chr(10) if hero.get('standin') else ''}  </div>
 </header>
@@ -276,7 +276,7 @@ def page(d):
   {img(p, d["closing"]["img"], "", 2000, 1250)}
   <div class="wrap">
     <h2>{d["closing"]["h2"]}</h2>
-    <p>7901 Dollarway Road, White Hall, Arkansas · {PHONE} · <span class="todo">Hours</span></p>
+    <p>7901 Dollarway Road, White Hall, Arkansas · {PHONE} · Open Mon to Sat, 9 to 6</p>
     {cta_row(p, d["closing"]["cta"], "")}
   </div>
 </section>
@@ -465,7 +465,7 @@ PAGES["garden-center/plants-shrubs-trees"] = dict(
         ("Can Amanda's crew plant what I buy?", "Yes. Buy the plants and take them home, or have Amanda's crew plant them for you."),
         ("My plant is dying. Can you help?", "Usually. Bring a photo, or the plant. The staff will ask about sun, watering, ants and whether water is standing in the hole, which covers many of the usual causes."),
         ("Can you order a plant you don't have?", "Usually. If it isn't on the lot, Amanda will try to find it."),
-        ("What are your hours?", '<span class="todo">Hours.</span> The garden center is at 7901 Dollarway Road, White Hall.'),
+        ("What are your hours?", 'Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday. The garden center is at 7901 Dollarway Road, White Hall.'),
     ],
     faq_img=("landscaping/service-flower-bed-design.jpg", "A planted bed of shrubs and annuals along a brick house, designed by Amanda's Villa", 900, 1125),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Describe the spot. Leave with plants that will grow there.", cta=VISIT),
@@ -540,7 +540,7 @@ PAGES["garden-center/landscaping-stone"] = dict(
         ("Can you find a stone you don't have?", "Usually. If the lot doesn't have the stone a project calls for, Amanda will try to track it down."),
         ("Do you sell stone to contractors?", "Yes. Landscapers and contractors load stone here for their jobs."),
         ("Can your crew build with the stone?", 'Yes. The hardscape teams build patios, walkways and retaining walls, and the estimate is free. See the <a class="link" href="../../hardscape/">hardscape page</a>.'),
-        ("What are your hours?", '<span class="todo">Hours.</span> The stone yard is at 7901 Dollarway Road, White Hall.'),
+        ("What are your hours?", 'Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday. The stone yard is at 7901 Dollarway Road, White Hall.'),
     ],
     faq_img=("hardscape/area-farmhouse-walls-and-steps.jpg", "Block walls, steps and a boulder accent in front of a farmhouse, built by an Amanda's Villa hardscape team", 1200, 900),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Pick out the stone. Build a yard that stays put.", cta=VISIT),
@@ -609,7 +609,7 @@ PAGES["garden-center/pottery-decor"] = dict(
         ("How many pots do you carry?", "Around two hundred are on the lot at any time."),
         ("Do you sell bird baths and fountains?", "Yes, along with concrete planters, garden statues, hummingbird feeders and seasonal decor."),
         ("Can you help me pick a plant for the pot?", "Yes. Say where the pot is going, and someone on the lot will suggest plants for that light."),
-        ("What are your hours?", '<span class="todo">Hours.</span> The garden center is at 7901 Dollarway Road, White Hall.'),
+        ("What are your hours?", 'Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday. The garden center is at 7901 Dollarway Road, White Hall.'),
     ],
     faq_img=("landscaping/service-flower-bed-edging.jpg", "A bird bath in an edged flower bed, planted by Amanda's Villa", 807, 1008),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Pick the pot and the plant together.", cta=VISIT),
@@ -676,11 +676,146 @@ PAGES["garden-center/produce"] = dict(
         ("What's in season right now?", "It changes every few weeks. In early fall the stand had tomatoes, watermelons, onions, pickling cucumbers, pumpkins and winter squash. Call to ask what came in this week."),
         ("Who makes the jams and chow-chow?", "Ozark Mountain, an Amish family in north-central Arkansas that uses no preservatives."),
         ("Do you sell local honey?", "Yes. The honey comes from an Arkansas beekeeper."),
-        ("What are your hours?", '<span class="todo">Hours.</span> The produce stand is at 7901 Dollarway Road, White Hall.'),
+        ("What are your hours?", 'Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday. The produce stand is at 7901 Dollarway Road, White Hall.'),
     ],
     faq_img=("fall-heirloom-pumpkins-amandas-villa.jpg", "Heirloom pumpkins and gourds on straw at Amanda's Villa", 1100, 1375),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Pick what's in season. Bring Arkansas home to the table.", cta=("Visit the produce stand", "~/contact/#directions")),
 )
+
+
+def contact_estimate(p):
+    return r'''<!-- ESTIMATE FORM: every "Request a free estimate" button lands here. Posts to /api/estimate (src/worker.js). -->
+<section class="band" id="estimate">
+  <style>
+    .est { max-width: 760px; margin: 0 auto; }
+    .est .head { text-align: center; margin: 0 auto var(--space-10); }
+    .est form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6) var(--space-6); background: #fff; border: 1px solid var(--line); border-radius: var(--radius-photo); padding: var(--space-10); }
+    .est .full { grid-column: 1 / -1; }
+    .est label, .est legend { display: block; font: 600 15px/1.3 var(--font-body); color: var(--ink); margin-bottom: 6px; }
+    .est .opt { font-weight: 400; color: var(--ink-3); }
+    .est input[type=text], .est input[type=tel], .est input[type=email], .est textarea { width: 100%; box-sizing: border-box; font: 400 17px/1.4 var(--font-body); color: var(--ink); background: var(--linen); border: 1px solid var(--line-strong); border-radius: 10px; padding: 12px 14px; }
+    .est textarea { min-height: 130px; resize: vertical; }
+    .est fieldset { border: 0; margin: 0; padding: 0; }
+    .est .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
+    .est .checks label { display: flex; gap: 10px; align-items: center; font-weight: 400; color: var(--ink-2); margin: 0; }
+    .est .checks input { width: 20px; height: 20px; accent-color: var(--forest); flex: none; }
+    .est .hint { font: 400 14px/1.4 var(--font-body); color: var(--ink-3); margin: 6px 0 0; }
+    .est .err { font: 600 14px/1.4 var(--font-body); color: #9b2c1f; margin: 6px 0 0; }
+    .est .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .est .send { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: center; }
+    .est .status { text-align: center; margin: 0; font-weight: 600; color: var(--forest); }
+    .est .status.bad { color: #9b2c1f; }
+    .est .done { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-photo); padding: var(--space-10) var(--space-6); }
+    @media (max-width: 640px) {
+      .est form { grid-template-columns: 1fr; padding: var(--space-6) var(--space-4); }
+      .est .checks { grid-template-columns: 1fr; }
+    }
+  </style>
+  <div class="wrap est">
+    <div class="head">
+      <h2>Request a free estimate</h2>
+      <p>Tell us about your yard, and Amanda's Villa will call to set up a visit. A photo of the space helps.</p>
+    </div>
+    <form id="estimate-form" novalidate>
+      <div><label for="est-name">Name</label><input id="est-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="est-phone">Phone</label><input id="est-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div><label for="est-email">Email <span class="opt">(optional)</span></label><input id="est-email" name="email" type="email" autocomplete="email"></div>
+      <div><label for="est-town">Town or address <span class="opt">(optional)</span></label><input id="est-town" name="town" type="text" autocomplete="street-address"></div>
+      <fieldset class="full">
+        <legend>What can we help with?</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="needs" value="Landscaping and flower beds"> Landscaping and flower beds</label>
+          <label><input type="checkbox" name="needs" value="Patio, walkway or retaining wall"> Patio, walkway or retaining wall</label>
+          <label><input type="checkbox" name="needs" value="French drain or standing water"> French drain or standing water</label>
+          <label><input type="checkbox" name="needs" value="Something from the garden center"> Something from the garden center</label>
+        </div>
+      </fieldset>
+      <div class="full"><label for="est-message">Tell us about the space <span class="opt">(optional)</span></label><textarea id="est-message" name="message"></textarea></div>
+      <div class="full"><label for="est-photos">Photos of the space <span class="opt">(optional, up to 3)</span></label><input id="est-photos" name="photos" type="file" accept="image/*" multiple><p class="hint">A phone photo of the yard, or a yard you love, is plenty.</p></div>
+      <div class="hp" aria-hidden="true"><label for="est-company">Company</label><input id="est-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="full send"><button class="btn btn--primary" type="submit">Send my request</button></div>
+      <p class="full status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <script>
+  (function () {
+    var form = document.getElementById("estimate-form");
+    if (!form) return;
+    var status = form.querySelector(".status");
+    var button = form.querySelector("button[type=submit]");
+    var PHONE = "(870) 489-5463";
+    // form.name is the form's own name, so look fields up by selector instead.
+    function val(n) { return form.querySelector("[name=" + n + "]").value.trim(); }
+
+    function fieldError(id, msg) {
+      var input = document.getElementById(id), old = input.parentNode.querySelector(".err");
+      if (old) old.remove();
+      input.removeAttribute("aria-invalid");
+      if (!msg) return;
+      var p = document.createElement("p");
+      p.className = "err"; p.id = id + "-err"; p.textContent = msg;
+      input.setAttribute("aria-invalid", "true"); input.setAttribute("aria-describedby", p.id);
+      input.parentNode.appendChild(p);
+    }
+
+    // Shrink each photo in the browser so the request stays small: longest side 1600px, JPEG.
+    function shrink(file) {
+      return new Promise(function (resolve) {
+        var url = URL.createObjectURL(file), img = new Image();
+        img.onload = function () {
+          var s = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+          var c = document.createElement("canvas");
+          c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          URL.revokeObjectURL(url);
+          resolve({ data: c.toDataURL("image/jpeg", 0.82).split(",")[1] });
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); resolve(null); };
+        img.src = url;
+      });
+    }
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var v = {
+        name: val("name"), phone: val("phone"), email: val("email"),
+        town: val("town"), message: val("message"), company: val("company"),
+        needs: Array.prototype.filter.call(form.querySelectorAll("input[name=needs]"), function (c) { return c.checked; }).map(function (c) { return c.value; })
+      };
+      fieldError("est-name", v.name ? "" : "Please add your name.");
+      fieldError("est-phone", v.phone || v.email ? "" : "Please add a phone number or an email address.");
+      fieldError("est-email", !v.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email) ? "" : "That email address doesn't look right.");
+      var bad = form.querySelector("[aria-invalid=true]");
+      if (bad) { bad.focus(); return; }
+
+      button.disabled = true; status.className = "full status"; status.textContent = "Sending...";
+      var files = Array.prototype.slice.call(document.getElementById("est-photos").files || [], 0, 3);
+      Promise.all(files.map(shrink)).then(function (photos) {
+        v.photos = photos.filter(Boolean);
+        return fetch("/api/estimate", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(v) });
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, body: body }; });
+      }).then(function (r) {
+        if (r.ok) {
+          var first = v.name.split(/\s+/)[0];
+          form.outerHTML = '<div class="done" role="status"><h3>Thanks, ' + first.replace(/[<>&"]/g, "") + '. Your request is in.</h3><p>Amanda’s Villa will be in touch to set up a visit. Questions before then? Call <a class="link" href="tel:+18704895463">' + PHONE + '</a>.</p></div>';
+          return;
+        }
+        if (r.body && r.body.errors) {
+          if (r.body.errors.name) fieldError("est-name", r.body.errors.name);
+          if (r.body.errors.phone) fieldError("est-phone", r.body.errors.phone);
+          if (r.body.errors.email) fieldError("est-email", r.body.errors.email);
+        }
+        throw new Error("not sent");
+      }).catch(function () {
+        button.disabled = false;
+        status.className = "full status bad";
+        status.innerHTML = 'That didn’t go through. Please call <a href="tel:+18704895463">' + PHONE + '</a> instead.';
+      });
+    });
+  })();
+  </script>
+</section>'''
 
 
 def contact_ways(p):
@@ -712,7 +847,7 @@ def contact_directions(p):
       <div class="prose" style="margin-top: var(--space-6)">
         <p>Amanda's Villa Landscaping and Garden Center<br>7901 Dollarway Road<br>White Hall, AR 71602</p>
         <p>Look for the Amanda's Villa sign out front.</p>
-        <p><span class="todo">Hours</span></p>
+        <p>Open Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday.</p>
       </div>
     </div>
   </div>
@@ -732,6 +867,7 @@ PAGES["contact"] = dict(
         sub="Landscaping design, free hardscape estimates and a full garden center at 7901 Dollarway Road in White Hall.",
         cta=("Directions", "#directions")),
     sections=[
+        contact_estimate,
         contact_ways,
         contact_directions,
         plan(
@@ -748,7 +884,7 @@ PAGES["contact"] = dict(
         ("Does Amanda come out herself?", "Yes. She measures and designs every landscaping job personally."),
         ("How far do you travel?", "Landscaping and hardscape jobs are all over the state of Arkansas."),
         ("Do I need an appointment for the garden center?", "No. Come by the lot at 7901 Dollarway Road in White Hall, and someone will greet you on the way in."),
-        ("What are your hours?", '<span class="todo">Hours.</span>'),
+        ("What are your hours?", 'Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday.'),
     ],
     faq_img=("home/garden-center-celosia-and-annuals.jpg", "Red celosia and bright annuals on the Amanda's Villa lot", 900, 1125),
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Together, plant the space your yard deserves.", cta=("Directions", "#directions")),

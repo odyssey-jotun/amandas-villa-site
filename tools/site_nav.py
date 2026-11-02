@@ -32,9 +32,13 @@ GARDEN_CENTER = [
 # Town portfolio pages, alphabetical. Not on the primary landing pages' copy (Amanda's no-towns rule), only here in the menu.
 PROJECTS = [
     ("projects/hot-springs/", "Hot Springs"),
+    ("projects/monticello/", "Monticello"),
     ("projects/pine-bluff/", "Pine Bluff"),
+    ("projects/rison/", "Rison"),
     ("projects/sheridan/", "Sheridan"),
     ("projects/star-city/", "Star City"),
+    ("projects/stuttgart/", "Stuttgart"),
+    ("projects/tarry/", "Tarry"),
     ("projects/white-hall/", "White Hall"),
     ("projects/woodlawn/", "Woodlawn"),
 ]
@@ -176,7 +180,7 @@ def footer_html(page):
       <ul>
         <li>7901 Dollarway Road<br>White Hall, AR 71602</li>
         <li><a href="{TEL}">{PHONE}</a></li>
-        <li><span class="todo">Hours</span></li>
+        <li>Mon to Sat, 9 a.m. to 6 p.m.</li>
       </ul>
     </div>
     <small>© 2026 Amanda's Villa Landscaping and Garden Center.</small>

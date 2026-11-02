@@ -362,6 +362,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   "@type": "GardenStore",
   "name": "Amanda's Villa Landscaping and Garden Center",
   "telephone": "+1-870-489-5463",
+  "openingHours": "Mo-Sa 09:00-18:00",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "7901 Dollarway Road",
@@ -408,6 +409,14 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No. Come by the lot at 7901 Dollarway Road in White Hall, and someone will greet you on the way in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday."
       }
     }
   ]
@@ -534,9 +543,13 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
             <ul>
             <li><a href="../projects/">Our Work overview</a></li>
             <li><a href="../projects/hot-springs/">Hot Springs</a></li>
+            <li><a href="../projects/monticello/">Monticello</a></li>
             <li><a href="../projects/pine-bluff/">Pine Bluff</a></li>
+            <li><a href="../projects/rison/">Rison</a></li>
             <li><a href="../projects/sheridan/">Sheridan</a></li>
             <li><a href="../projects/star-city/">Star City</a></li>
+            <li><a href="../projects/stuttgart/">Stuttgart</a></li>
+            <li><a href="../projects/tarry/">Tarry</a></li>
             <li><a href="../projects/white-hall/">White Hall</a></li>
             <li><a href="../projects/woodlawn/">Woodlawn</a></li>
             </ul>
@@ -559,9 +572,13 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
           <li><a class="sub" href="../garden-center/produce/">Arkansas produce</a></li>
           <li><a href="../projects/">Our Work</a></li>
           <li><a class="sub" href="../projects/hot-springs/">Hot Springs</a></li>
+          <li><a class="sub" href="../projects/monticello/">Monticello</a></li>
           <li><a class="sub" href="../projects/pine-bluff/">Pine Bluff</a></li>
+          <li><a class="sub" href="../projects/rison/">Rison</a></li>
           <li><a class="sub" href="../projects/sheridan/">Sheridan</a></li>
           <li><a class="sub" href="../projects/star-city/">Star City</a></li>
+          <li><a class="sub" href="../projects/stuttgart/">Stuttgart</a></li>
+          <li><a class="sub" href="../projects/tarry/">Tarry</a></li>
           <li><a class="sub" href="../projects/white-hall/">White Hall</a></li>
           <li><a class="sub" href="../projects/woodlawn/">Woodlawn</a></li>
           <li><a href="../about/">About</a></li>
@@ -577,15 +594,148 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
         <a class="btn btn--onphoto" href="#directions">Directions</a>
         <a class="btn btn--ghost" href="tel:+18704895463">Call (870) 489-5463</a>
       </div>
-      <p class="hero-meta">7901 Dollarway Road, White Hall · <span class="todo">Hours</span></p>
+      <p class="hero-meta">7901 Dollarway Road, White Hall · Open Mon to Sat, 9 to 6</p>
     </div>
   </div>
 </header>
 
 <main>
 
+<!-- ESTIMATE FORM: every "Request a free estimate" button lands here. Posts to /api/estimate (src/worker.js). -->
+<section class="band" id="estimate">
+  <style>
+    .est { max-width: 760px; margin: 0 auto; }
+    .est .head { text-align: center; margin: 0 auto var(--space-10); }
+    .est form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6) var(--space-6); background: #fff; border: 1px solid var(--line); border-radius: var(--radius-photo); padding: var(--space-10); }
+    .est .full { grid-column: 1 / -1; }
+    .est label, .est legend { display: block; font: 600 15px/1.3 var(--font-body); color: var(--ink); margin-bottom: 6px; }
+    .est .opt { font-weight: 400; color: var(--ink-3); }
+    .est input[type=text], .est input[type=tel], .est input[type=email], .est textarea { width: 100%; box-sizing: border-box; font: 400 17px/1.4 var(--font-body); color: var(--ink); background: var(--linen); border: 1px solid var(--line-strong); border-radius: 10px; padding: 12px 14px; }
+    .est textarea { min-height: 130px; resize: vertical; }
+    .est fieldset { border: 0; margin: 0; padding: 0; }
+    .est .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
+    .est .checks label { display: flex; gap: 10px; align-items: center; font-weight: 400; color: var(--ink-2); margin: 0; }
+    .est .checks input { width: 20px; height: 20px; accent-color: var(--forest); flex: none; }
+    .est .hint { font: 400 14px/1.4 var(--font-body); color: var(--ink-3); margin: 6px 0 0; }
+    .est .err { font: 600 14px/1.4 var(--font-body); color: #9b2c1f; margin: 6px 0 0; }
+    .est .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .est .send { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: center; }
+    .est .status { text-align: center; margin: 0; font-weight: 600; color: var(--forest); }
+    .est .status.bad { color: #9b2c1f; }
+    .est .done { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-photo); padding: var(--space-10) var(--space-6); }
+    @media (max-width: 640px) {
+      .est form { grid-template-columns: 1fr; padding: var(--space-6) var(--space-4); }
+      .est .checks { grid-template-columns: 1fr; }
+    }
+  </style>
+  <div class="wrap est">
+    <div class="head">
+      <h2>Request a free estimate</h2>
+      <p>Tell us about your yard, and Amanda's Villa will call to set up a visit. A photo of the space helps.</p>
+    </div>
+    <form id="estimate-form" novalidate>
+      <div><label for="est-name">Name</label><input id="est-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="est-phone">Phone</label><input id="est-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div><label for="est-email">Email <span class="opt">(optional)</span></label><input id="est-email" name="email" type="email" autocomplete="email"></div>
+      <div><label for="est-town">Town or address <span class="opt">(optional)</span></label><input id="est-town" name="town" type="text" autocomplete="street-address"></div>
+      <fieldset class="full">
+        <legend>What can we help with?</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="needs" value="Landscaping and flower beds"> Landscaping and flower beds</label>
+          <label><input type="checkbox" name="needs" value="Patio, walkway or retaining wall"> Patio, walkway or retaining wall</label>
+          <label><input type="checkbox" name="needs" value="French drain or standing water"> French drain or standing water</label>
+          <label><input type="checkbox" name="needs" value="Something from the garden center"> Something from the garden center</label>
+        </div>
+      </fieldset>
+      <div class="full"><label for="est-message">Tell us about the space <span class="opt">(optional)</span></label><textarea id="est-message" name="message"></textarea></div>
+      <div class="full"><label for="est-photos">Photos of the space <span class="opt">(optional, up to 3)</span></label><input id="est-photos" name="photos" type="file" accept="image/*" multiple><p class="hint">A phone photo of the yard, or a yard you love, is plenty.</p></div>
+      <div class="hp" aria-hidden="true"><label for="est-company">Company</label><input id="est-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="full send"><button class="btn btn--primary" type="submit">Send my request</button></div>
+      <p class="full status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <script>
+  (function () {
+    var form = document.getElementById("estimate-form");
+    if (!form) return;
+    var status = form.querySelector(".status");
+    var button = form.querySelector("button[type=submit]");
+    var PHONE = "(870) 489-5463";
+    // form.name is the form's own name, so look fields up by selector instead.
+    function val(n) { return form.querySelector("[name=" + n + "]").value.trim(); }
+
+    function fieldError(id, msg) {
+      var input = document.getElementById(id), old = input.parentNode.querySelector(".err");
+      if (old) old.remove();
+      input.removeAttribute("aria-invalid");
+      if (!msg) return;
+      var p = document.createElement("p");
+      p.className = "err"; p.id = id + "-err"; p.textContent = msg;
+      input.setAttribute("aria-invalid", "true"); input.setAttribute("aria-describedby", p.id);
+      input.parentNode.appendChild(p);
+    }
+
+    // Shrink each photo in the browser so the request stays small: longest side 1600px, JPEG.
+    function shrink(file) {
+      return new Promise(function (resolve) {
+        var url = URL.createObjectURL(file), img = new Image();
+        img.onload = function () {
+          var s = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+          var c = document.createElement("canvas");
+          c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          URL.revokeObjectURL(url);
+          resolve({ data: c.toDataURL("image/jpeg", 0.82).split(",")[1] });
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); resolve(null); };
+        img.src = url;
+      });
+    }
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var v = {
+        name: val("name"), phone: val("phone"), email: val("email"),
+        town: val("town"), message: val("message"), company: val("company"),
+        needs: Array.prototype.filter.call(form.querySelectorAll("input[name=needs]"), function (c) { return c.checked; }).map(function (c) { return c.value; })
+      };
+      fieldError("est-name", v.name ? "" : "Please add your name.");
+      fieldError("est-phone", v.phone || v.email ? "" : "Please add a phone number or an email address.");
+      fieldError("est-email", !v.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email) ? "" : "That email address doesn't look right.");
+      var bad = form.querySelector("[aria-invalid=true]");
+      if (bad) { bad.focus(); return; }
+
+      button.disabled = true; status.className = "full status"; status.textContent = "Sending...";
+      var files = Array.prototype.slice.call(document.getElementById("est-photos").files || [], 0, 3);
+      Promise.all(files.map(shrink)).then(function (photos) {
+        v.photos = photos.filter(Boolean);
+        return fetch("/api/estimate", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(v) });
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, body: body }; });
+      }).then(function (r) {
+        if (r.ok) {
+          var first = v.name.split(/\s+/)[0];
+          form.outerHTML = '<div class="done" role="status"><h3>Thanks, ' + first.replace(/[<>&"]/g, "") + '. Your request is in.</h3><p>Amanda’s Villa will be in touch to set up a visit. Questions before then? Call <a class="link" href="tel:+18704895463">' + PHONE + '</a>.</p></div>';
+          return;
+        }
+        if (r.body && r.body.errors) {
+          if (r.body.errors.name) fieldError("est-name", r.body.errors.name);
+          if (r.body.errors.phone) fieldError("est-phone", r.body.errors.phone);
+          if (r.body.errors.email) fieldError("est-email", r.body.errors.email);
+        }
+        throw new Error("not sent");
+      }).catch(function () {
+        button.disabled = false;
+        status.className = "full status bad";
+        status.innerHTML = 'That didn’t go through. Please call <a href="tel:+18704895463">' + PHONE + '</a> instead.';
+      });
+    });
+  })();
+  </script>
+</section>
+
 <!-- WAYS TO REACH AMANDA'S VILLA -->
-<section class="band">
+<section class="band band--alt">
   <div class="wrap">
     <div class="head">
       <h2>Call, come by, or ask for a visit</h2>
@@ -603,7 +753,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </section>
 
 <!-- DIRECTIONS -->
-<section class="band band--alt" id="directions">
+<section class="band" id="directions">
   <div class="wrap split split--flip">
     <figure class="split-media">
       <img width="1100" height="825" src="../img/contact/roadside-sign-with-butterflies-amandas-villa.jpg" alt="The Amanda&#x27;s Villa Landscaping and Garden Center roadside sign with metal butterfly ornaments" loading="lazy">
@@ -613,14 +763,14 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <div class="prose" style="margin-top: var(--space-6)">
         <p>Amanda's Villa Landscaping and Garden Center<br>7901 Dollarway Road<br>White Hall, AR 71602</p>
         <p>Look for the Amanda's Villa sign out front.</p>
-        <p><span class="todo">Hours</span></p>
+        <p>Open Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PLAN -->
-<section class="band">
+<section class="band band--alt">
   <div class="wrap">
     <div class="plan">
       <h2>What to have ready when you call</h2>
@@ -639,7 +789,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 </section>
 
 <!-- FAQ -->
-<section class="band band--alt">
+<section class="band">
   <div class="wrap">
     <div class="head">
       <h2>Questions people ask before they call</h2>
@@ -650,7 +800,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <details><summary>Does Amanda come out herself?</summary><div><p>Yes. She measures and designs every landscaping job personally.</p></div></details>
       <details><summary>How far do you travel?</summary><div><p>Landscaping and hardscape jobs are all over the state of Arkansas.</p></div></details>
       <details><summary>Do I need an appointment for the garden center?</summary><div><p>No. Come by the lot at 7901 Dollarway Road in White Hall, and someone will greet you on the way in.</p></div></details>
-      <details><summary>What are your hours?</summary><div><p><span class="todo">Hours.</span></p></div></details>
+      <details><summary>What are your hours?</summary><div><p>Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday.</p></div></details>
     </div>
     <figure class="split-media">
       <img width="900" height="1125" src="../img/home/garden-center-celosia-and-annuals.jpg" alt="Red celosia and bright annuals on the Amanda&#x27;s Villa lot" loading="lazy">
@@ -664,7 +814,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   <img width="2000" height="1250" src="../img/hero-storefront-amandas-villa.jpg" alt="" loading="lazy">
   <div class="wrap">
     <h2>Together, plant the space your yard deserves.</h2>
-    <p>7901 Dollarway Road, White Hall, Arkansas · (870) 489-5463 · <span class="todo">Hours</span></p>
+    <p>7901 Dollarway Road, White Hall, Arkansas · (870) 489-5463 · Open Mon to Sat, 9 to 6</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="#directions">Directions</a>
       <a class="btn btn--secondary" href="tel:+18704895463">Call (870) 489-5463</a>
@@ -699,7 +849,7 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
       <ul>
         <li>7901 Dollarway Road<br>White Hall, AR 71602</li>
         <li><a href="tel:+18704895463">(870) 489-5463</a></li>
-        <li><span class="todo">Hours</span></li>
+        <li>Mon to Sat, 9 a.m. to 6 p.m.</li>
       </ul>
     </div>
     <small>© 2026 Amanda's Villa Landscaping and Garden Center.</small>

@@ -197,15 +197,52 @@ def page(t):
 {jobs}
   </div>""")
 
-    sales = t["sales"]
-    sales3 = "\n".join(f'      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#{ic}"/></svg></span><h3>{e(h)}</h3><p>{p}</p></div>'
-                       for ic, h, p in sales["points"])
-    sales_p = "\n".join(f"        <p>{p}</p>" for p in sales["paras"])
+    sales = t.get("sales")  # the four portfolio-only towns have no sales section
+    sales_html = ""
+    if sales:
+        sales3 = "\n".join(f'      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#{ic}"/></svg></span><h3>{e(h)}</h3><p>{p}</p></div>'
+                           for ic, h, p in sales["points"])
+        sales_p = "\n".join(f"        <p>{p}</p>" for p in sales["paras"])
+        sales_html = f"""
+<!-- SALES: the town's ground, and how the teams build for it -->
+<section class="band band--alt">
+  <div class="wrap">
+    <div class="split split--short">
+      <div class="split-text">
+        <h2>{sales["h2"]}</h2>
+        <div class="prose" style="margin-top: var(--space-6)">
+{sales_p}
+        </div>
+      </div>
+      <figure class="split-media">
+        {img(slug, sales["photo"][0], 1000, 1250, sales["photo"][1])}
+      </figure>
+    </div>
+    <div class="svc3">
+{sales3}
+    </div>
+    {ctas(" cta-row")}
+  </div>
+</section>
+"""
     svc = "\n".join(f'      <div><span class="ic-badge"><svg class="ic" aria-hidden="true"><use href="#{ic}"/></svg></span>'
                     f'<h3><a href="{P}{href}">{e(title)}</a></h3><p>{text}</p></div>'
                     for ic, title, href, text in t["services"])
     faq = "\n".join(f"      <details><summary>{e(q)}</summary><div><p>{a}</p></div></details>" for q, a in t["faq"])
-    cites = "\n".join(f'          <li id="cite-{i}">{c}</li>' for i, c in enumerate(t["cites"], 1))
+    cites = "\n".join(f'          <li id="cite-{i}">{c}</li>' for i, c in enumerate(t.get("cites", []), 1))
+    cites_html = "" if not cites else f"""
+<!-- CITATIONS: plain text, no links -->
+<section class="cites">
+  <div class="wrap">
+    <details class="cites-box" id="citations">
+      <summary>Citations</summary>
+      <ol>
+{cites}
+      </ol>
+    </details>
+  </div>
+</section>
+"""
 
     ld_service = {
         "@context": "https://schema.org", "@type": "Service",
@@ -214,7 +251,7 @@ def page(t):
         "areaServed": {"@type": "City", "name": town, "containedInPlace": {"@type": "State", "name": "Arkansas"}},
         "provider": {
             "@type": "HomeAndConstructionBusiness", "name": "Amanda's Villa Landscaping and Garden Center",
-            "telephone": "+1-870-489-5463",
+            "telephone": "+1-870-489-5463", "openingHours": "Mo-Sa 09:00-18:00",
             "address": {"@type": "PostalAddress", "streetAddress": "7901 Dollarway Road", "addressLocality": "White Hall",
                         "addressRegion": "AR", "postalCode": "71602", "addressCountry": "US"}},
     }
@@ -284,27 +321,7 @@ def page(t):
   </div>
 </section>
 
-<!-- SALES: the town's ground, and how the teams build for it -->
-<section class="band band--alt">
-  <div class="wrap">
-    <div class="split split--short">
-      <div class="split-text">
-        <h2>{sales["h2"]}</h2>
-        <div class="prose" style="margin-top: var(--space-6)">
-{sales_p}
-        </div>
-      </div>
-      <figure class="split-media">
-        {img(slug, sales["photo"][0], 1000, 1250, sales["photo"][1])}
-      </figure>
-    </div>
-    <div class="svc3">
-{sales3}
-    </div>
-    {ctas(" cta-row")}
-  </div>
-</section>
-
+{sales_html}
 <!-- SERVICES -->
 <section class="band">
   <div class="wrap">
@@ -330,8 +347,8 @@ def page(t):
 </section>
 
 <!-- CLOSING CTA -->
-<section class="band closing closing--photo">
-  {img(slug, closing["photo"], 1200, 900, "")}
+<section class="band closing{' closing--photo' if closing.get('photo') else ''}">
+  {img(slug, closing["photo"], 1200, 900, "") if closing.get("photo") else ""}
   <div class="wrap">
     <h2>{closing["h2"]}</h2>
     <p>{closing["text"]}</p>
@@ -339,18 +356,7 @@ def page(t):
   </div>
 </section>
 
-<!-- CITATIONS: plain text, no links -->
-<section class="cites">
-  <div class="wrap">
-    <details class="cites-box" id="citations">
-      <summary>Citations</summary>
-      <ol>
-{cites}
-      </ol>
-    </details>
-  </div>
-</section>
-
+{cites_html}
 {tail()}"""
 
 
@@ -819,18 +825,169 @@ SHERIDAN = {
     ],
 }
 
-TOWNS = [STAR_CITY, WHITE_HALL, WOODLAWN, HOT_SPRINGS, PINE_BLUFF, SHERIDAN]
+# Monticello, Rison, Stuttgart and Tarry are portfolio pages only (Marc, 2026-11-02): the work, the services,
+# a short FAQ and a closing call. No soil facts, no sales section, no citations.
+LANDSCAPING_TIER = ("Landscaping", "Beds of shrubs and flowers, designed by Amanda and planted by her crew.",
+                    ("landscaping/", "More about landscaping at Amanda's Villa"))
+
+
+def landscaping_tier(jobs):
+    title, text, link = LANDSCAPING_TIER
+    return [{"title": title, "text": text, "link": link, "jobs": jobs}]
+
+
+def portfolio_faq(town, what):
+    return [
+        (f"Has Amanda's Villa done work in {town}?",
+         f"Yes. {what} on this page {'is' if not what.endswith('s') else 'are'} at a {town} home, and the crews work all over the state of Arkansas."),
+        ("How long does a project take?",
+         "It depends on the project. Once work begins, the crew stays on your project until it is finished, and weather is the only common delay."),
+        ask_free_estimate(),
+    ]
+
+
+def portfolio_closing(town):
+    return {"h2": f"Book a free estimate for your {town} yard",
+            "text": f"Your project starts with a walk around your yard. Schedule a free estimate, and Amanda's Villa will plan the planting and stonework for your {town} home.",
+            "photo": None}
+
+
+MONTICELLO = {
+    "slug": "monticello", "town": "Monticello",
+    "title": "Flower Bed Project in Monticello, AR | Amanda's Villa",
+    "description": "A new mulched bed of shrubs along the curved front walk of a Monticello, Arkansas home, designed by Amanda and planted by the Amanda's Villa crew.",
+    "hero": {
+        "h1": "A New Front Bed in Monticello, <em>Arkansas</em>",
+        "sub": "A bed of shrubs along the curved front walk of a brick home, designed by Amanda and planted by her crew.",
+        "wide": ("hero-new-bed-along-curved-front-walk-wide", "A new mulched bed of shrubs along the curved front walk of a red brick home in Monticello, planted by Amanda's Villa"),
+        "tall": ("hero-new-bed-along-curved-front-walk-tall",),
+    },
+    "work_h2": "Examples of our work in Monticello",
+    "work_intro": "This bed was designed by Amanda and planted by her crew at a home in Monticello.",
+    "tiers": landscaping_tier([
+        {"title": "A bed along the curved front walk",
+         "text": "The strip of lawn between the curved front walk and the house became a mulched bed with a clean edge, planted with rows of shrubs that follow the curve of the walk up to the porch.",
+         "pairs": [("front-bed-1-before", "front-bed-2-after")],
+         "more": [],
+         "photos": [
+             ("front-bed-1-before", "Before: lawn along the front walk"),
+             ("front-bed-2-after", "After: new bed of shrubs along the walk")]},
+    ]),
+    "services_h2": "What Amanda's Villa builds and plants for Monticello homes",
+    "services": SERVICES,
+    "faq_h2": "Monticello landscaping questions",
+    "faq": portfolio_faq("Monticello", "The front bed"),
+    "closing": portfolio_closing("Monticello"),
+}
+
+RISON = {
+    "slug": "rison", "town": "Rison",
+    "title": "Front Yard Landscaping Project in Rison, AR | Amanda's Villa",
+    "description": "New beds across the front of a Rison, Arkansas home, with a boulder and a Japanese maple, designed by Amanda and planted by the Amanda's Villa crew.",
+    "hero": {
+        "h1": "Front Yard Landscaping in Rison, <em>Arkansas</em>",
+        "sub": "New beds across the front porch and around the corner of a Rison home, with a boulder and a Japanese maple, designed by Amanda and planted by her crew.",
+        "wide": ("hero-front-bed-with-boulder-wide", "A new front bed with a boulder, small evergreens and flowers along the porch of a white Rison home, planted by Amanda's Villa"),
+        "tall": ("hero-front-bed-with-boulder-tall",),
+    },
+    "work_h2": "Examples of our work in Rison",
+    "work_intro": "These beds were designed by Amanda and planted by her crew at a home in Rison.",
+    "tiers": landscaping_tier([
+        {"title": "Beds across the front of the house",
+         "text": "Bare lawn along the porch of a white ranch became one long bed with a curved edge: a boulder and small evergreens by the front door, flowers along the porch, and a Japanese maple in a rounded bed at the corner of the house.",
+         "pairs": [("porch-1-before", "porch-2-after"), ("corner-1-before", "corner-2-after"), ("whole-front-1-before", "whole-front-2-after")],
+         "more": [],
+         "photos": [
+             ("porch-1-before", "Before: lawn at the front porch"),
+             ("porch-2-after", "After: the front bed with the boulder"),
+             ("corner-1-before", "Before: bare corner by the porch"),
+             ("corner-2-after", "After: the corner bed with the Japanese maple"),
+             ("whole-front-1-before", "Before: the whole front"),
+             ("whole-front-2-after", "After: the whole front")]},
+    ]),
+    "services_h2": "What Amanda's Villa builds and plants for Rison homes",
+    "services": SERVICES,
+    "faq_h2": "Rison landscaping questions",
+    "faq": portfolio_faq("Rison", "The front beds"),
+    "closing": portfolio_closing("Rison"),
+}
+
+STUTTGART = {
+    "slug": "stuttgart", "town": "Stuttgart",
+    "title": "Backyard Landscaping Project in Stuttgart, AR | Amanda's Villa",
+    "description": "A curved bed around a pool patio and a row of arborvitae along the fence, planted by Amanda's Villa in a Stuttgart, Arkansas backyard.",
+    "hero": {
+        "h1": "A Poolside Backyard in Stuttgart, <em>Arkansas</em>",
+        "sub": "A curved bed around the patio and a row of arborvitae along the fence, designed by Amanda and planted by her crew.",
+        "wide": ("hero-curved-bed-by-pool-patio-wide", "A curved bed edged in low brick wrapping a round patio beside a pool in a Stuttgart backyard, planted by Amanda's Villa"),
+        "tall": ("hero-curved-bed-by-pool-patio-tall",),
+    },
+    "work_h2": "Examples of our work in Stuttgart",
+    "work_intro": "This backyard was designed by Amanda and planted by her crew at a home in Stuttgart.",
+    "tiers": landscaping_tier([
+        {"title": "A curved bed and an arborvitae row by the pool",
+         "text": "A bed edged in low brick curves around the round patio by the pool, planted with roses and grasses in fresh mulch. Along the wood privacy fence, a row of arborvitae stands in a mulched bed lit by landscape lights.",
+         "pairs": [],
+         "more": ["arborvitae-along-fence"],
+         "photos": [
+             ("arborvitae-along-fence", "Arborvitae and landscape lights along the fence"),
+             ("curved-bed-by-patio", "Curved brick-edged bed by the patio")]},
+    ]),
+    "services_h2": "What Amanda's Villa builds and plants for Stuttgart homes",
+    "services": SERVICES,
+    "faq_h2": "Stuttgart landscaping questions",
+    "faq": portfolio_faq("Stuttgart", "The backyard beds"),
+    "closing": portfolio_closing("Stuttgart"),
+}
+
+TARRY = {
+    "slug": "tarry", "town": "Tarry",
+    "title": "Flower Bed Project in Tarry, AR | Amanda's Villa",
+    "description": "Two stone-edged flower beds, one with a birdbath and one ringed with junipers and pansies, planted by Amanda's Villa at a home in Tarry, Arkansas.",
+    "hero": {
+        "h1": "Flower Beds in Tarry, <em>Arkansas</em>",
+        "sub": "Two stone-edged beds of shrubs, pansies and a birdbath, designed by Amanda and planted by her crew.",
+        "wide": ("hero-stone-edged-bed-with-birdbath-wide", "A stone-edged flower bed with pansies, small shrubs, a boulder and a birdbath at a home in Tarry, planted by Amanda's Villa"),
+        "tall": ("hero-stone-edged-bed-with-birdbath-tall",),
+    },
+    "work_h2": "Examples of our work in Tarry",
+    "work_intro": "These beds were designed by Amanda and planted by her crew at a home in Tarry.",
+    "tiers": landscaping_tier([
+        {"title": "Two stone-edged flower beds",
+         "text": "A long bed edged in stone holds a birdbath, a boulder, small shrubs and a row of pansies. Nearby, a round bed in the same stone edging circles a ring of junipers with pansies planted between them.",
+         "pairs": [],
+         "more": ["round-juniper-bed"],
+         "photos": [
+             ("birdbath-bed", "Stone-edged bed with a birdbath"),
+             ("round-juniper-bed", "Round bed with junipers and pansies")]},
+    ]),
+    "services_h2": "What Amanda's Villa builds and plants for Tarry homes",
+    "services": SERVICES,
+    "faq_h2": "Tarry landscaping questions",
+    "faq": portfolio_faq("Tarry", "The flower beds"),
+    "closing": portfolio_closing("Tarry"),
+}
+
+TOWNS = [STAR_CITY, WHITE_HALL, WOODLAWN, HOT_SPRINGS, PINE_BLUFF, SHERIDAN, MONTICELLO, RISON, STUTTGART, TARRY]
 
 # The /projects/ hub: one card per town, in alphabetical order. (slug, town, card photo, alt, what's there)
 HUB_CARDS = [
     ("hot-springs", "Hot Springs", "A round block retaining wall and steps on a wooded Hot Springs hillside",
      "Curved retaining walls, block steps, a raised terrace and boulder steps on a hillside."),
+    ("monticello", "Monticello", "A new bed of shrubs along the curved front walk of a brick home in Monticello",
+     "A new bed of shrubs along a curved front walk."),
     ("pine-bluff", "Pine Bluff", "A red brick herringbone path between new planted beds in Pine Bluff",
      "A herringbone brick path and patio with new beds on both sides."),
+    ("rison", "Rison", "A new front bed with a boulder along the porch of a white home in Rison",
+     "New beds across the front porch, with a boulder and a Japanese maple."),
     ("sheridan", "Sheridan", "A paver walk with a dark border along a brick house in Sheridan",
      "A paver landing at the front door and a paver walk around the house."),
     ("star-city", "Star City", "A curved paver walk with a river rock bed beside a Star City home",
      "New flower beds, a curved paver walk, a flagstone walk and a French drain."),
+    ("stuttgart", "Stuttgart", "A curved brick-edged bed around a round patio beside a pool in Stuttgart",
+     "A curved bed around a pool patio and arborvitae along the fence."),
+    ("tarry", "Tarry", "A stone-edged flower bed with pansies and a birdbath in Tarry",
+     "Two stone-edged flower beds, one with a birdbath."),
     ("white-hall", "White Hall", "Two curved flower beds framing the front walk of a White Hall home",
      "Four sets of new flower beds, close to the garden center."),
     ("woodlawn", "Woodlawn", "Block walls, wide steps and planted beds across a Woodlawn farmhouse front",

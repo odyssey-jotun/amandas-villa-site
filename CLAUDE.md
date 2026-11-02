@@ -24,7 +24,7 @@ Plain HTML/CSS/JS. One folder per URL, all paths relative. Site files live at th
 
 ## Going-live checklist (do on develop, check the preview, then merge)
 1. Remove `<meta name="robots" content="noindex, nofollow">` from every page, only after Amanda says yes, and add a `robots.txt` allowing all.
-2. Connect and test any forms.
+2. Connect and test any forms. The estimate form on /contact/ posts to `/api/estimate` in `src/worker.js`, which emails each request through SendGrid like the Outset site's contact form. Set two Worker secrets: `SENDGRID_API_KEY` and `CONTACT_TO_EMAIL` (Amanda's email); `CONTACT_FROM_EMAIL` is optional (defaults to website@outsetsites.com, which must be a verified SendGrid sender). Submissions from workers.dev and the develop preview arrive marked [TEST]. The form cannot send from GitHub Pages; there it tells people to call.
 3. Set `COMING_SOON = false` in `src/worker.js` so amandasvilla.com shows the real site.
 4. Set `"workers_dev": false`, then confirm the develop preview still loads.
 5. Load https://amandasvilla.com and https://www.amandasvilla.com and confirm.
