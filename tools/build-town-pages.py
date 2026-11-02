@@ -357,7 +357,7 @@ def page(t):
 STAR_CITY = {
     "slug": "star-city", "town": "Star City",
     "title": "Landscaping and Hardscaping Projects in Star City, AR | Amanda's Villa",
-    "description": "Four Amanda's Villa projects in Star City, Arkansas, photographed from start to finish: new flower beds, a curved paver walk, a flagstone walk and a French drain.",
+    "description": "Amanda's Villa projects in Star City, Arkansas, from start to finish: new flower beds, a curved paver walk, a flagstone walk and a French drain.",
     "hero": {
         "h1": "Landscaping and Hardscaping Projects in Star City, <em>Arkansas</em>",
         "sub": "New flower beds, two new walks and a French drain, planted and built by Amanda's Villa for Star City homes.",
@@ -555,7 +555,7 @@ WHITE_HALL = {
 WOODLAWN = {
     "slug": "woodlawn", "town": "Woodlawn",
     "title": "Landscaping and Hardscaping Projects in Woodlawn, AR | Amanda's Villa",
-    "description": "Two Amanda's Villa projects in Woodlawn, Arkansas, photographed from start to finish: a curved bed with a flagstone walk, and a farmhouse front with block walls, steps and a paver walk.",
+    "description": "Amanda's Villa projects in Woodlawn, Arkansas: a curved bed with a flagstone walk, and a farmhouse front with block walls, steps and a paver walk.",
     "hero": {
         "h1": "Landscaping and Hardscaping Projects in Woodlawn, <em>Arkansas</em>",
         "sub": "A curved bed with a flagstone walk, and a farmhouse front with block walls, wide steps and a paver walk, built and planted by Amanda's Villa for Woodlawn homes.",
@@ -630,7 +630,7 @@ WOODLAWN = {
 HOT_SPRINGS = {
     "slug": "hot-springs", "town": "Hot Springs",
     "title": "Hillside Retaining Wall Project in Hot Springs, AR | Amanda's Villa",
-    "description": "A bare Hot Springs, Arkansas hillside built into levels by Amanda's Villa: curved block retaining walls, block steps, a round raised terrace and boulder steps.",
+    "description": "A bare Hot Springs, Arkansas hillside built into levels by Amanda's Villa: curved block retaining walls, block steps, a round terrace and boulder steps.",
     "hero": {
         "h1": "Hillside Retaining Walls in Hot Springs, <em>Arkansas</em>",
         "sub": "A bare hillside built into levels with curved block retaining walls, block steps, a round raised terrace and boulder steps, by the Amanda's Villa hardscape teams.",
@@ -866,7 +866,7 @@ def hub():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Our Work: Landscaping and Hardscaping Projects Across Arkansas | Amanda's Villa</title>
-<meta name="description" content="Finished Amanda's Villa projects, town by town: flower beds, paver and flagstone walks, patios, retaining walls and French drains, each photographed from start to finish.">
+<meta name="description" content="Finished Amanda's Villa projects, town by town: flower beds, paver and flagstone walks, patios, retaining walls and French drains, from start to finish.">
 {head}
 {TOWN_CSS}
 </head>
