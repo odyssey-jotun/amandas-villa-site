@@ -83,6 +83,11 @@ CSS = """<style id="site-nav">
   .nav .btn--onphoto { margin-left: auto; }
 }
 @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr; } }
+/* Phone hero photo: a short 4:3 band so the headline and buttons sit on the first screen */
+@media (max-width: 640px) {
+  .hero-card > picture { aspect-ratio: 4 / 3; min-height: 0; overflow: hidden; }
+  .hero-card > picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+}
 </style>"""
 
 JS = """<script id="site-nav-js">

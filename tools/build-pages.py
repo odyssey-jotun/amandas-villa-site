@@ -192,7 +192,9 @@ def reviews_section(heading):
 </section>"""
 
 
-SPLIT_HERO_CSS = '<style>\n/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */\n@media (min-width: 641px) {\n  .hero-card { background: var(--forest-deep); }\n  .hero-card > picture { left: auto; right: 0; width: 62%; }\n  .hero-card > picture img { object-position: {pos}; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }\n  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }\n  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }\n  .hero h1 { font-size: 54px; max-width: 10.5em; }\n  .hero-sub { max-width: 24em; }\n  .hero-meta { max-width: 28em; line-height: 1.7; }\n  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }\n  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }\n}\n@media (max-width: 640px) {\n  .hero-card { min-height: 0; background: var(--forest-deep); }\n  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }\n  .hero-card > picture img { object-position: center 30%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }\n  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }\n  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }\n  .hero-copy { margin-top: -48px; padding-top: 0; }\n  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }\n}\n</style>'
+SPLIT_HERO_CSS = '<style>\n/* ---------- Hero: copy on the green panel beside the photo on desktop, below it on phones ---------- */\n@media (min-width: 641px) {\n  .hero-card { background: var(--forest-deep); }\n  .hero-card > picture { left: auto; right: 0; width: 62%; }\n  .hero-card > picture img { object-position: {pos}; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }\n  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 20%); }\n  .hero-copy { align-items: flex-start; text-align: left; justify-content: center; width: 50%; padding: var(--space-10) var(--space-10) var(--space-16) calc(var(--space-10) + var(--space-6)); }\n  .hero h1 { font-size: 54px; max-width: 10.5em; }\n  .hero-sub { max-width: 24em; }\n  .hero-meta { max-width: 28em; line-height: 1.7; }\n  .hero-ctas .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }\n  .hero-ctas .btn--onphoto:hover { background: #fff; border-color: #fff; }\n}\n</style>'
+# Phones: every built page shows the photo as a band above the copy on the green panel, split hero or not
+PHONE_HERO_CSS = '<style>\n/* ---------- Hero on phones: photo above, copy below on green ---------- */\n@media (max-width: 640px) {\n  .hero-card { min-height: 0; background: var(--forest-deep); }\n  .hero-card > picture { position: relative; inset: auto; display: block; aspect-ratio: 4 / 5; }\n  .hero-card > picture img { object-position: {ppos}; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent); mask-image: linear-gradient(180deg, #000 78%, transparent); }\n  .hero-card .nav { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }\n  .hero-card::before { background: linear-gradient(180deg, rgba(14,22,18,.55) 0%, rgba(14,22,18,0) 14%); }\n  .hero-copy { margin-top: -48px; padding-top: 0; }\n  .hero-card .btn--onphoto { background: var(--on-forest); color: var(--forest-deep); border-color: var(--on-forest); }\n}\n</style>'
 
 
 def page(d):
@@ -223,6 +225,7 @@ def page(d):
 {HEAD_STYLE}
 {LOT_CSS}
 {SPLIT_HERO_CSS.replace("{pos}", hero["split"]) if hero.get("split") else ""}
+{PHONE_HERO_CSS.replace("{ppos}", hero.get("phone_pos", "center 30%"))}
 {ld_html}
 </head>
 <body>
@@ -478,6 +481,7 @@ PAGES["garden-center/landscaping-stone"] = dict(
         h1="Landscaping Rocks, River Rock and Boulders for Arkansas <em>Yards</em>",
         sub="River rock, fieldstone, flagstone, boulders, granite and Ozark Mountain rock, by the piece or by the pile.",
         cta=VISIT,
+        phone_pos="center 0%",
         standin="The final hero shows a customer choosing stone on the lot, still to be shot."),
     sections=[
         guide(
