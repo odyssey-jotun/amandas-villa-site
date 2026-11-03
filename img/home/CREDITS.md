@@ -1,8 +1,12 @@
 # Photo credits
 
-hero-family-planting-together-wide.jpg / -tall.jpg
+hero-coleus-and-mums-garden-center-wide.jpg / -phone.jpg
+- Marc's photo of the coleus and mums display on the Amanda's Villa lot, shot 2026-10-03 (proposal repo assets/photos/coleus-and-mums-fall-plant-display-amandas-villa.jpg). Cropped below the power lines and above the FARM sign. Home hero since 2026-11-03, when Amanda and Colton asked for a different one.
+
+success-family-planting-together.jpg
 - Unsplash photo VFydNLV594w ("A woman and two children are looking at a plant", Holly Landkammer), Unsplash License (free to use, no credit required)
 - https://unsplash.com/photos/VFydNLV594w
+- Was the home hero until 2026-11-03; now the success section photo.
 - STAND-IN: replace with a real photo of an Amanda's Villa customer family in their finished yard, or Amanda planting with a family.
 
 problem-overgrown-neglected-yard.jpg
