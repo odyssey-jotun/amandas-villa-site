@@ -8,6 +8,24 @@ Stock heroes (Unsplash License, free to use, no credit required). All are STAND-
 - hero-couple-shopping-gourds-at-market-wide.jpg / -tall.jpg: Unsplash BlXa_riHlp4 (Land O'Lakes, Inc.), https://unsplash.com/photos/BlXa_riHlp4. Arkansas Produce page.
 - hero-couple-browsing-nursery-trees-wide.jpg / -tall.jpg: Pexels 5029821, Pexels License. Garden Center overview page. STAND-IN until a customer is photographed choosing plants on the lot.
 
+Stock heroes added 2026-11-03 for the last five category pages (Pexels License, free to use, no credit required). All are STAND-INS until real photos of customers on the lot are shot:
+- hero-woman-watering-snake-plants-wide.jpg / -tall.jpg: Pexels 4503736. Houseplants page.
+- hero-woman-watering-hanging-plants-wide.jpg / -tall.jpg: Pexels 9414266. Hanging Baskets page. No porch-basket photo with a person turned up.
+- hero-hands-spreading-mulch-around-tree-wide.jpg / -tall.jpg: Pexels 11573798. Mulch page.
+- hero-woman-shoveling-garden-soil-wide.jpg / -tall.jpg: Pexels 7728994. Soil page.
+- hero-woman-working-soil-into-bed-wide.jpg / -tall.jpg: Pexels 7728040. Compost page.
+
+Stock section photos added 2026-11-03 (Pexels License), lifestyle and garden shots only, never shown as Amanda's Villa work:
+- houseplants-success-potting-snake-plants.jpg: Pexels 4503261. Houseplants success section.
+- houseplants-woman-repotting-plant.jpg: Pexels 9730471. Houseplants FAQ.
+- compost-planting-tomato-seedling.jpg: Pexels 12113255. Compost "on the lot" grid.
+- compost-hands-holding-compost.jpg: Pexels 33995853. Compost success section.
+- compost-shovel-in-compost-pile.jpg: Pexels 7728714. Soil explanatory paragraph.
+- hanging-petunia-basket.jpg: Pexels 17786099. Hanging Baskets grid.
+- hanging-ferns-on-wall.jpg: Pexels 18085485. Hanging Baskets grid.
+
+4:5 crops of Marc's lot photos for the guide sections: covered-pavilion-houseplants-amandas-villa.jpg (from covered-garden-center-pavilion-amandas-villa.jpg) and hanging-baskets-shade-house-amandas-villa.jpg (from ../lot-hanging-baskets-and-boston-ferns-amandas-villa.jpg).
+
 Stock problem-section photo (Pexels License), stock on purpose so no customer's yard or the lot is used as a negative example:
 - problem-dried-out-potted-plant.jpg: Pexels 9733751. Garden Center overview page.
 

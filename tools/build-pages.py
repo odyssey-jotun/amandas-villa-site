@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Build the Contact page and the garden center category pages.
 
-Run from the repo root:  python3 tools/build-pages.py
+Run from the repo root:  python3 tools/build-pages.py [path ...]
+
+With paths (e.g. garden-center/mulch) only those pages are written. Most built
+pages carry later hand edits, so name the pages you mean to rebuild.
 
 Each page reuses the Garden Center page's <head> styles and icon sprite, so a
 style change made on /garden-center/ carries over the next time this runs.
-Pages still waiting on Amanda (mulch, soil, compost, houseplants, hanging
-baskets) stay under construction in tools/build-under-construction.py.
+The mulch, soil and compost pages are written from Marty's walkthrough
+(2026-10-02): hardwood and red mulch, organic topsoil, compost and super soil,
+sold by the tractor scoop or a five-gallon bucket, never by the bag. Make no
+claims about what super soil is made of until Amanda names the supplier.
 """
 import html
 import json
@@ -682,6 +687,342 @@ PAGES["garden-center/produce"] = dict(
     closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Pick what's in season. Bring Arkansas home to the table.", cta=("Visit the produce stand", "~/contact/#directions")),
 )
 
+HOURS_A = "Monday to Saturday, 9 a.m. to 6 p.m. Closed on Sunday."
+
+PAGES["garden-center/houseplants"] = dict(
+    prefix="../../", current=GC,
+    title="Easy Houseplants and Low Light Houseplants in Arkansas | Amanda's Villa",
+    description="Snake plants, spider plants and ferns, with help choosing a houseplant for the light in each room, at Amanda's Villa in White Hall.",
+    hero=dict(
+        img="garden-center/hero-woman-watering-snake-plants",
+        alt="A woman watering snake plants and other houseplants by a bright window",
+        wh=(1400, 1400), split="center 20%",
+        h1="Easy Houseplants for Low Light and Bright <em>Windows</em>",
+        sub="Snake plants, spider plants and ferns, chosen for the light in each room.",
+        cta=VISIT,
+        standin="The final hero shows a customer choosing a houseplant on the lot, still to be shot."),
+    sections=[
+        guide(
+            "Houseplants chosen for the room they're going in",
+            "A healthy plant can fade fast in the wrong spot, and the people on the lot have seen it happen. So every houseplant sale starts with a question about the room: a bright kitchen window, a dim bedroom or a corner of the living room. Then a few plants that will live there come out.",
+            ("garden-center/covered-pavilion-houseplants-amandas-villa.jpg", "The covered pavilion at Amanda's Villa Garden Center, with houseplants and ferns on the tables", 1065, 1331),
+            [("leaf", "Snake plants, spider plants and ferns"),
+             ("sun", "Plants for low light and bright windows"),
+             ("amphora", "Pots to match, a few steps away"),
+             ("hand-heart", "Help bringing a struggling plant back")]),
+        lot(
+            "Low light houseplants and plants for a bright window",
+            "A few of the houseplants on the lot. Stock changes with the season, so call ahead for something specific.",
+            [("leaf", "Snake plant", "Dracaena trifasciata", "Stiff, upright leaves that handle low light and a missed watering."),
+             ("sprout", "Spider plant", "Chlorophytum comosum", "Arching striped leaves for a bright window or a hanging pot. Also called an airplane plant."),
+             ("feather", "Ferns", "", "Soft fronds for a bright room with some humidity, like a kitchen or a bathroom.")],
+            "Ask on the lot which houseplants fit the light in each room.",
+            [("lot-snake-plants-in-nursery-pots-amandas-villa.jpg", "Snake plants with yellow-edged and banded leaves in nursery pots at Amanda's Villa Garden Center", 800, 1420, "Snake plants"),
+             ("lot-hanging-baskets-and-boston-ferns-amandas-villa.jpg", "Trailing plants and Boston ferns in hanging pots under the shade house at Amanda's Villa", 800, 1420, "Ferns and trailing plants"),
+             ("pottery-frogs-planters-amandas-villa.jpg", "Purple and blue ceramic planters beside painted metal frog ornaments at Amanda's Villa Garden Center", 1100, 1375, "Planters to match")]),
+        lambda p: reviews_section("What customers say about the plants"),
+        plan(
+            "How to bring home a houseplant that lasts",
+            ("plan-fall-planters-amandas-villa.jpg", "Potted lantana, pansies, ornamental kale and peppers ready to take home at Amanda's Villa Garden Center", 1500, 643),
+            [("store", "Come visit", "Stop by the lot at 7901 Dollarway Road in White Hall. Someone will greet you on the way in."),
+             ("sun", "Describe the room", "Say how much light the room has, or show a photo, and someone will lay out a few plants that will live there."),
+             ("house", "Enjoy it at home", "Set it in its spot and enjoy a room that feels alive.")],
+            VISIT),
+        split_prose(
+            "SUCCESS AND FAILURE",
+            "A home that feels alive",
+            ["Picture a snake plant standing tall in the bedroom corner, a spider plant trailing from a kitchen shelf and a fern by the bathroom window. Every plant was chosen for the light in its room, so it keeps growing.",
+             "Months later the plants are still green. New leaves keep coming, the spider plant sends out babies to pot up, and friends ask where they came from.",
+             "One easy plant turns into a windowsill full, and the house feels more like home every season."],
+            ("garden-center/houseplants-success-potting-snake-plants.jpg", "A person potting a snake plant in a terracotta pot, surrounded by houseplants", 900, 1125),
+            alt=True, flip=False),
+        split_prose(
+            "EXPLANATORY PARAGRAPH",
+            "Houseplants for low light, bright windows and every room in between",
+            ["Many Arkansas homeowners want greenery inside, but it's hard to know which houseplants will live in a dim bedroom or a sunny kitchen. Amanda's Villa sells snake plants, spider plants, ferns and other easy houseplants on Dollarway Road in White Hall, and every sale starts with a question about the light.",
+             "Come by, describe the room, and enjoy a houseplant that lasts."],
+            ("garden-center/talavera-and-ceramic-pottery-aisle-amandas-villa.jpg", "An aisle of Talavera and ceramic pottery lined with blooming annuals at Amanda's Villa Garden Center", 1100, 825),
+            alt=False, flip=True),
+    ],
+    faq_heading="Questions about houseplants",
+    faqs=[
+        ("What's a good houseplant for low light?", "A snake plant. It handles a dim room and forgives a missed watering. Bring a photo of the spot, and someone on the lot will suggest a few more."),
+        ("What's an easy houseplant for a beginner?", "Snake plants and spider plants are two of the easiest to keep."),
+        ("My houseplant is dying. Can you help?", "Usually. Bring a photo, or the plant. The staff will ask about light, watering and whether water is sitting in the bottom of the pot, which covers many of the usual causes."),
+        ("Do you sell pots for houseplants?", 'Yes. Around two hundred pots are on the lot at any time. See <a class="link" href="../pottery-decor/">pottery and decor</a>.'),
+        ("What are your hours?", HOURS_A + " The garden center is at 7901 Dollarway Road, White Hall."),
+    ],
+    faq_img=("garden-center/houseplants-woman-repotting-plant.jpg", "A smiling woman repotting a leafy houseplant into a terracotta pot", 900, 1125),
+    closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Describe the room. Bring home a houseplant that lasts.", cta=VISIT),
+)
+
+PAGES["garden-center/hanging-baskets"] = dict(
+    prefix="../../", current=GC,
+    title="Hanging Baskets, Boston Ferns and Hanging Plants in Arkansas | Amanda's Villa",
+    description="Boston ferns, begonias and trailing plants in hanging baskets, with help choosing one for a shady or sunny porch, at Amanda's Villa in White Hall.",
+    hero=dict(
+        img="garden-center/hero-woman-watering-hanging-plants",
+        alt="A woman watering a trailing plant in a hanging pot by a bright window",
+        wh=(1400, 1400), split="center 35%",
+        h1="Hanging Baskets and Boston Ferns for the <em>Porch</em>",
+        sub="Boston ferns, begonias and trailing plants in hanging baskets, ready to hang the day they come home.",
+        cta=VISIT,
+        standin="The final hero shows a customer choosing a hanging basket on the lot, still to be shot."),
+    sections=[
+        guide(
+            "Hanging baskets on display full size under the shade house",
+            "The hanging baskets at Amanda's Villa hang in rows under the shade house, so each one can be seen full size before it goes home. Someone on the lot will ask whether the porch has morning sun, afternoon sun or shade, then point out the baskets that will do well there.",
+            ("garden-center/hanging-baskets-shade-house-amandas-villa.jpg", "Hanging baskets of begonias, wandering dude and Boston ferns under the shade house at Amanda's Villa", 800, 1000),
+            [("feather", "Boston ferns, begonias and trailing baskets"),
+             ("sun", "Baskets for shade, part sun and full sun"),
+             ("house", "Ready to hang the day they come home"),
+             ("hand-heart", "Help keeping a basket full all season")]),
+        lot(
+            "Boston ferns, begonias and the best plants for hanging baskets",
+            "A few of the baskets on the lot. What's hanging changes with the season, so call ahead for a matching pair.",
+            [("feather", "Boston fern", "Nephrolepis exaltata", "Full, arching fronds for a shady porch."),
+             ("flower", "Begonias", "Begonia", "Steady color for a porch with shade or part sun."),
+             ("leaf", "Wandering dude", "Tradescantia zebrina", "Purple and silver striped leaves that spill over the edge of the basket.")],
+            "Bring a photo of the porch and ask on the lot which baskets fit its light.",
+            [("landscaping/faq-stone-house-fern-urn.jpg", "A Boston fern in a tall black urn beside a front door, planted by Amanda's Villa", 900, 1200, "Boston ferns"),
+             ("garden-center/hanging-petunia-basket.jpg", "A hanging basket of bright pink flowers outside a window", 900, 1125, "Flowering baskets"),
+             ("garden-center/hanging-ferns-on-wall.jpg", "Ferns in black pots on wall shelves against white brick", 900, 1125, "Ferns for a covered porch")]),
+        lambda p: reviews_section("What customers say about the plants"),
+        plan(
+            "How to bring home a basket that stays full",
+            ("plan-fall-planters-amandas-villa.jpg", "Potted lantana, pansies, ornamental kale and peppers ready to take home at Amanda's Villa Garden Center", 1500, 643),
+            [("store", "Come visit", "Stop by the lot at 7901 Dollarway Road in White Hall. Someone will greet you on the way in."),
+             ("sun", "Describe the porch", "Say how much sun the porch has, or show a photo, and someone will point out the baskets that will do well there."),
+             ("house", "Enjoy the porch", "Hang it by the door and enjoy a porch that welcomes people home.")],
+            VISIT),
+        split_prose(
+            "SUCCESS AND FAILURE",
+            "A porch that looks lived in all summer",
+            ["Picture a pair of Boston ferns framing the front steps and a basket of begonias by the door. Guests notice them before they reach the porch.",
+             "Through the summer the baskets keep filling out, and a good watering each morning is all they ask.",
+             "By the end of the season the porch is the favorite seat on a warm evening, and the baskets are a big part of the reason."],
+            ("landscaping/success-flower-bed-porch-steps.jpg", "A curved flower bed of pink and red impatiens and petunias beside white porch steps, planted by Amanda's Villa", 1000, 1250),
+            alt=True, flip=False),
+        split_prose(
+            "EXPLANATORY PARAGRAPH",
+            "Hanging baskets, hanging plants and Boston ferns for Arkansas porches",
+            ["Many Arkansas homeowners want a porch that looks cared for, but it's hard to know which hanging plants will last in shade or full sun. Amanda's Villa sells Boston ferns, begonias and trailing baskets on Dollarway Road in White Hall, and someone on the lot will match a basket to the light on the porch.",
+             "Come by, describe the porch, and enjoy baskets that stay full."],
+            ("garden-center/covered-pavilion-houseplants-amandas-villa.jpg", "The covered pavilion at Amanda's Villa Garden Center, with ferns and houseplants on the tables", 1065, 1331),
+            alt=False, flip=True),
+    ],
+    faq_heading="Questions about hanging baskets",
+    faqs=[
+        ("What hanging plants do well in shade?", "Boston ferns and begonias both do well on a shady or partly shaded porch. Bring a photo, and someone on the lot will suggest more."),
+        ("How often should I water a hanging basket?", "In an Arkansas summer, usually every day. Baskets dry out faster than pots on the ground, so water until it runs out the bottom."),
+        ("Can I buy a matching pair?", "Usually. Call ahead and ask what's hanging that week."),
+        ("What are your hours?", HOURS_A + " The garden center is at 7901 Dollarway Road, White Hall."),
+    ],
+    faq_img=("garden-center/talavera-and-ceramic-pottery-aisle-amandas-villa.jpg", "An aisle of Talavera and ceramic pottery lined with blooming annuals at Amanda's Villa Garden Center", 1100, 825),
+    closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Describe the porch. Hang a basket that stays full.", cta=VISIT),
+)
+
+PAGES["garden-center/mulch"] = dict(
+    prefix="../../", current=GC,
+    title="Bulk Mulch: Hardwood and Red Mulch by the Scoop in Arkansas | Amanda's Villa",
+    description="Hardwood mulch and red mulch sold in bulk by the tractor scoop, or as little as a five-gallon bucket, at Amanda's Villa in White Hall.",
+    hero=dict(
+        img="garden-center/hero-hands-spreading-mulch-around-tree",
+        alt="Hands spreading dark mulch in a ring around a newly planted tree",
+        wh=(1600, 1065), split="72% center",
+        h1="Hardwood and Red Mulch by the <em>Scoop</em>",
+        sub="Bulk mulch loaded by the tractor scoop for a whole yard, or a five-gallon bucket for one bed.",
+        cta=VISIT,
+        standin="The final hero shows a customer loading mulch at the bulk yard, still to be shot."),
+    sections=[
+        guide(
+            "Bulk mulch in any amount, even one bucket",
+            "Amanda's Villa sells mulch in bulk, loaded by the tractor scoop, and a bulk order can be as small as one bed. The staff will fill a five-gallon bucket as gladly as a truck bed. The same people plant beds all over Arkansas, so they can help work out how much a yard takes.",
+            ("lot-red-mulch-pile-amandas-villa.jpg", "A pile of red mulch in the bulk yard at Amanda's Villa", 800, 600),
+            [("truck", "Loaded by the tractor scoop into a truck or trailer"),
+             ("shovel", "As little as a five-gallon bucket"),
+             ("leaf", "Hardwood mulch that's slow to fade"),
+             ("hand-heart", "Help working out how much each bed takes")]),
+        lot(
+            "Hardwood mulch and red mulch in the bulk yard",
+            "Mulch sells in bulk only, so there's no plastic bag to throw away. Call ahead for a large order.",
+            [("leaf", "Hardwood mulch", "", "Shredded hardwood that's slow to fade, for beds around shrubs, trees and flowers."),
+             ("flower", "Red mulch", "", "Bright red color against green shrubs and a brick house."),
+             ("truck", "Any amount", "", "A tractor scoop for a whole yard, or a five-gallon bucket for one bed.")],
+            "Bring the length and width of each bed, and someone at the bulk yard will help work out how much mulch it takes.",
+            [("landscaping/service-mulch-installation.jpg", "A freshly mulched bed of shrubs and flowers beside a brick wall, planted by Amanda's Villa", 648, 810, "A fresh bed by Amanda's crew"),
+             ("landscaping/after-ranch-maple.jpg", "A curved mulched bed with a Japanese maple at the corner of a ranch house, planted by Amanda's Villa", 1100, 825, "Mulch around a new Japanese maple"),
+             ("home/value-herringbone-walk-through-new-beds.jpg", "A herringbone brick walk through new mulched beds of boxwoods and roses, built and planted by Amanda's Villa", 900, 675, "Mulched beds along a brick walk")]),
+        lambda p: reviews_section("What customers say about Amanda's Villa"),
+        plan(
+            "How to mulch every bed in one trip",
+            ("landscaping/after-porch-boulder.jpg", "A long mulched bed of shrubs, perennials and a feature boulder along a covered porch, planted by Amanda's Villa", 1100, 825),
+            [("clipboard", "Measure the beds", "Write down the length and width of each bed you want to cover."),
+             ("truck", "Come by the bulk yard", "Bring a truck, a trailer or a bucket to 7901 Dollarway Road in White Hall, and the staff will load it."),
+             ("house", "Enjoy finished beds", "Come home to clean, dark beds that look cared for all season.")],
+            VISIT),
+        split_prose(
+            "SUCCESS AND FAILURE",
+            "Beds that look finished all season",
+            ["Picture fresh mulch around every shrub, a clean line along the walk and dark beds that make the flowers stand out. The yard looks cared for from the street.",
+             "Through the summer the mulch holds moisture in the ground, so the plants handle the heat and the beds need less watering. Fewer weeds push through, so more weekends go to the porch.",
+             "A fresh layer each spring keeps the whole yard looking new year after year."],
+            ("landscaping/step-3-planted-bed-finished.jpg", "A finished bed of shrubs in fresh mulch with a stone block border, planted by Amanda's Villa", 900, 900),
+            alt=True, flip=False),
+        split_prose(
+            "EXPLANATORY PARAGRAPH",
+            "Bulk mulch, hardwood mulch and red mulch for Arkansas yards",
+            ["Many Arkansas homeowners want beds that look finished, but buying mulch one bag at a time is slow and leaves a pile of plastic. Amanda's Villa sells hardwood mulch and red mulch in bulk on Dollarway Road in White Hall, by the tractor scoop or by the five-gallon bucket.",
+             "Measure the beds, come by the bulk yard, and enjoy a yard that looks cared for."],
+            ("landscaping/area-stone-house-walk-new-beds.jpg", "A new mulched bed of shrubs and flowers along a stone house beside a stepping-stone walk, planted by Amanda's Villa", 1080, 810),
+            alt=False, flip=True),
+    ],
+    faq_heading="Questions about mulch",
+    faqs=[
+        ("Do you sell mulch by the bag?", "No. Mulch sells in bulk, loaded by the tractor scoop. For a small job, the staff will fill a five-gallon bucket."),
+        ("What kinds of mulch do you carry?", "Hardwood mulch and red mulch. Hardwood mulch is slow to fade, so the beds stay dark longer."),
+        ("How much mulch do I need?", "Bring the length and width of each bed, and someone at the bulk yard will help work out how much to load."),
+        ("Can Amanda's crew spread the mulch for me?", 'Yes. Mulch installation is part of Amanda\'s landscaping work. See the <a class="link" href="../../landscaping/">landscaping page</a>.'),
+        ("What are your hours?", HOURS_A + " The bulk yard is at 7901 Dollarway Road, White Hall."),
+    ],
+    faq_img=("landscaping/gallery-08.jpg", "A curved bed of boxwoods in fresh mulch along the front walk of a brick ranch house, landscaped by Amanda's Villa", 900, 1125),
+    closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Load up by the scoop. Enjoy beds that look finished.", cta=VISIT),
+)
+
+PAGES["garden-center/soil"] = dict(
+    prefix="../../", current=GC,
+    title="Organic Topsoil and Garden Soil in Bulk in Arkansas | Amanda's Villa",
+    description="Organic topsoil, compost and super soil sold in bulk by the tractor scoop, or a five-gallon bucket at a time, at Amanda's Villa in White Hall.",
+    hero=dict(
+        img="garden-center/hero-woman-shoveling-garden-soil",
+        alt="A smiling woman shoveling dark garden soil beside a large soil pile",
+        wh=(1400, 1400), split="center 35%",
+        h1="Organic Topsoil and Garden Soil in <em>Bulk</em>",
+        sub="Organic topsoil and super soil for new beds, raised beds and vegetable gardens, loaded by the tractor scoop or a bucket at a time.",
+        cta=VISIT,
+        standin="The final hero shows a customer loading soil at the bulk yard, still to be shot."),
+    sections=[
+        guide(
+            "Soil from a garden center that plants yards all over Arkansas",
+            "Amanda designs and plants yards all over the state, so the people at the bulk yard know what a new bed or garden needs. Before anything is loaded, someone asks what's going in the ground.",
+            ("lot-topsoil-pile-amandas-villa.jpg", "A pile of dark topsoil in the bulk yard at Amanda's Villa", 800, 600),
+            [("layers", "Organic topsoil, compost and super soil"),
+             ("truck", "Loaded by the tractor scoop"),
+             ("shovel", "As little as a five-gallon bucket"),
+             ("sprout", "Amanda's crew can build and plant the bed")]),
+        lot(
+            "Organic topsoil and super soil for beds and gardens",
+            "Soil sells in bulk, from one bucket to a truckload. Call ahead for a large order.",
+            [("layers", "Organic topsoil", "", "For new beds and raised beds, and for filling low spots in the yard."),
+             ("sprout", "Super soil", "", "The mix the staff put on vegetable gardens and flower beds that need a boost."),
+             ("leaf", "Compost", "", 'To mix into beds before planting. See <a class="link" href="../compost/">compost</a>.')],
+            "Bring the length, width and depth of the bed, and someone at the bulk yard will help work out how much soil it takes.",
+            [("landscaping/step-2-bed-outline-dug.jpg", "A curved bed outline dug into bare ground along the side of a house by Amanda's crew", 900, 900, "Dug and ready for soil"),
+             ("landscaping/step-3-planted-bed-finished.jpg", "The corner of a white brick house finished with a planted bed of shrubs and a stone block border, by Amanda's Villa", 900, 900, "Planted and finished"),
+             ("landscaping/gallery-01.jpg", "A round bed of red, pink and white annuals under a shade tree, planted by Amanda's Villa", 821, 1026, "Annuals in a new bed")]),
+        lambda p: reviews_section("What customers say about Amanda's Villa"),
+        plan(
+            "How to fill a new bed in one trip",
+            ("landscaping/after-flagstone-walk.jpg", "A planted bed with steel edging beside a new flagstone walk, laid by Amanda's Villa", 1080, 810),
+            [("clipboard", "Measure the bed", "Write down the length, the width and how deep the soil needs to go."),
+             ("truck", "Come by the bulk yard", "Bring a truck, a trailer or a bucket to 7901 Dollarway Road in White Hall, and the staff will load it."),
+             ("sprout", "Watch it grow", "Enjoy a bed that fills in and a garden that keeps producing.")],
+            VISIT),
+        split_prose(
+            "SUCCESS AND FAILURE",
+            "Gardens that grow from the first season",
+            ["Picture a raised bed of tomatoes and peppers climbing their cages by July, and a new flower bed that fills in before the end of its first summer. The plants went into good soil, so they took off.",
+             "Through the season the beds need less fuss. Roots run deep, the plants stay green in the heat, and there's always something to pick or cut.",
+             "Next spring the bed is ready again with a fresh layer on top, and the garden picks up where it left off."],
+            ("landscaping/success-flower-bed-porch-steps.jpg", "A curved flower bed of pink and red impatiens and petunias beside white porch steps, planted by Amanda's Villa", 1000, 1250),
+            alt=True, flip=False),
+        split_prose(
+            "EXPLANATORY PARAGRAPH",
+            "Topsoil, garden soil and super soil for Arkansas yards",
+            ["Many Arkansas homeowners want beds and gardens that grow, but finding good soil in the amount a project needs is hard. Amanda's Villa sells organic topsoil, compost and super soil in bulk on Dollarway Road in White Hall, by the tractor scoop or by the five-gallon bucket.",
+             "Measure the bed, come by the bulk yard, and enjoy a garden that grows."],
+            ("garden-center/compost-shovel-in-compost-pile.jpg", "A shovel lifting dark garden soil from a pile", 900, 1125),
+            alt=False, flip=True),
+    ],
+    faq_heading="Questions about topsoil and garden soil",
+    faqs=[
+        ("Do you sell topsoil in bulk?", "Yes. Organic topsoil sells in bulk, loaded by the tractor scoop."),
+        ("Can I buy just a little soil?", "Yes. The staff will fill a five-gallon bucket for a small bed or a few pots."),
+        ("What is super soil?", "It's a garden mix the staff put on vegetable gardens and flower beds that need a boost. Ask at the bulk yard about the current load."),
+        ("Can Amanda's crew build the bed for me?", 'Yes. Amanda designs and plants beds all over Arkansas. See the <a class="link" href="../../landscaping/">landscaping page</a>.'),
+        ("What are your hours?", HOURS_A + " The bulk yard is at 7901 Dollarway Road, White Hall."),
+    ],
+    faq_img=("landscaping/service-flower-bed-design.jpg", "A planted bed of shrubs and annuals along a brick house, designed by Amanda's Villa", 900, 1125),
+    closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Fill the bed in one trip. Watch the garden grow.", cta=VISIT),
+)
+
+PAGES["garden-center/compost"] = dict(
+    prefix="../../", current=GC,
+    title="Bulk Compost for Gardens and Flower Beds in Arkansas | Amanda's Villa",
+    description="Compost sold in bulk by the tractor scoop, or a five-gallon bucket at a time, for gardens and flower beds, at Amanda's Villa in White Hall.",
+    hero=dict(
+        img="garden-center/hero-woman-working-soil-into-bed",
+        alt="A woman in work gloves mixing soil in a garden bed beside a house",
+        wh=(1400, 1400), split="center 35%",
+        h1="Bulk Compost for Gardens and Flower <em>Beds</em>",
+        sub="Compost loaded by the tractor scoop or a five-gallon bucket at a time, to mix into gardens and flower beds before planting.",
+        cta=VISIT,
+        standin="The final hero shows a customer loading compost at the bulk yard, still to be shot."),
+    sections=[
+        guide(
+            "Compost sold by people who plant for a living",
+            "Amanda's crew plants beds and gardens all over Arkansas, and the bulk yard on Dollarway Road carries what a new bed needs: compost, organic topsoil and super soil. Someone will ask what's going in the ground and help work out how much to load.",
+            ("lot-compost-piles-and-mums-amandas-villa.jpg", "Dark compost piles behind rows of potted mums at Amanda's Villa", 800, 600),
+            [("store", "Compost in the bulk yard beside the topsoil and mulch"),
+             ("truck", "Loaded by the tractor scoop"),
+             ("shovel", "Or a five-gallon bucket at a time"),
+             ("sprout", "Amanda's crew can work it in and plant the bed")]),
+        lot(
+            "Compost for vegetable gardens, flower beds and shrubs",
+            "Compost sells in bulk alongside the organic topsoil and super soil. Call ahead for a large order.",
+            [("sprout", "Vegetable gardens", "", "Mix it into the rows before planting tomatoes, peppers and greens."),
+             ("flower", "Flower beds", "", "Work it into the soil before the flowers go in."),
+             ("tree-deciduous", "Shrubs and trees", "", "Add it to the planting hole, then spread a layer around the base.")],
+            "Ask at the bulk yard how much compost a bed or garden takes.",
+            [("garden-center/compost-planting-tomato-seedling.jpg", "Hands planting a tomato seedling in dark compost in a garden bed", 900, 1125, "Vegetable gardens"),
+             ("landscaping/success-flower-bed-porch-steps.jpg", "A curved flower bed of pink and red impatiens and petunias beside white porch steps, planted by Amanda's Villa", 1000, 1250, "Flower beds"),
+             ("landscaping/service-landscape-design.jpg", "New beds of shrubs and a crape myrtle along the porch of a brick house, landscaped by Amanda's Villa", 900, 1125, "Shrubs and trees")]),
+        lambda p: reviews_section("What customers say about Amanda's Villa"),
+        plan(
+            "How to start a garden bed with compost",
+            ("landscaping/after-fountain-bed.jpg", "A mulched bed with a fountain, small shrubs and a stone block border by a front entry, planted by Amanda's Villa", 1100, 825),
+            [("clipboard", "Measure the bed", "Write down the length and width of the bed or garden."),
+             ("truck", "Load up at the bulk yard", "Bring a truck, a trailer or a bucket to 7901 Dollarway Road in White Hall, and the staff will load it."),
+             ("sprout", "Enjoy what grows", "Watch the flowers fill in and the vegetables ripen.")],
+            VISIT),
+        split_prose(
+            "SUCCESS AND FAILURE",
+            "A garden that grows a little better every year",
+            ["Picture tomatoes ripening on the vine in July, peppers by the basket and a flower bed that blooms into the fall. Compost went into the ground before the first plant did, so everything had a good start.",
+             "Each year another layer goes in, and the soil keeps improving. The beds hold water longer after a rain, and the plants stay greener through the heat.",
+             "Before long the garden is the favorite part of the yard, with something to pick or cut every week of the season."],
+            ("garden-center/compost-hands-holding-compost.jpg", "Two hands holding dark, crumbly compost beside a leafy plant", 900, 1125),
+            alt=True, flip=False),
+        split_prose(
+            "EXPLANATORY PARAGRAPH",
+            "Bulk compost for Arkansas gardens and flower beds",
+            ["Many Arkansas gardeners want soil that grows healthy plants, but making enough compost at home takes a long time. Amanda's Villa sells compost in bulk on Dollarway Road in White Hall, by the tractor scoop or by the five-gallon bucket, alongside organic topsoil and super soil.",
+             "Measure the bed, load up at the bulk yard, and enjoy a garden that grows."],
+            ("landscaping/gallery-07.jpg", "A long curved bed of annuals and shrubs with a brick border across a front lawn, planted by Amanda's Villa", 768, 960),
+            alt=False, flip=True),
+    ],
+    faq_heading="Questions about compost",
+    faqs=[
+        ("Do you sell compost in bulk?", "Yes. Compost sells in bulk, loaded by the tractor scoop."),
+        ("Can I buy a small amount?", "Yes. The staff will fill a five-gallon bucket for a small bed or a few pots."),
+        ("How do I use compost?", "Mix it into the top of the soil before planting, or spread a layer around plants that are already in the ground."),
+        ("Do you sell topsoil and mulch too?", 'Yes. See <a class="link" href="../soil/">topsoil and super soil</a> and <a class="link" href="../mulch/">mulch</a>.'),
+        ("What are your hours?", HOURS_A + " The bulk yard is at 7901 Dollarway Road, White Hall."),
+    ],
+    faq_img=("landscaping/gallery-08.jpg", "A curved bed of boxwoods along the front walk of a brick ranch house, landscaped by Amanda's Villa", 900, 1125),
+    closing=dict(img="hero-storefront-amandas-villa.jpg", h2="Mix in compost. Enjoy a garden that grows.", cta=VISIT),
+)
+
 
 def contact_estimate(p):
     return r'''<!-- ESTIMATE FORM: every "Request a free estimate" button lands here. Posts to /api/estimate (src/worker.js). -->
@@ -892,7 +1233,11 @@ PAGES["contact"] = dict(
 
 
 if __name__ == "__main__":
+    import sys
+    only = [a.strip("/") for a in sys.argv[1:]]
     for path, d in PAGES.items():
+        if only and path not in only:
+            continue
         out = os.path.join(ROOT, path, "index.html")
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, "w", encoding="utf-8") as f:

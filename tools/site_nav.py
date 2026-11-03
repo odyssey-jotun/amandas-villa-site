@@ -25,6 +25,11 @@ HARDSCAPE = [
 ]
 GARDEN_CENTER = [
     ("garden-center/plants-shrubs-trees/", "Plants, shrubs and trees"),
+    ("garden-center/houseplants/", "Houseplants"),
+    ("garden-center/hanging-baskets/", "Hanging baskets"),
+    ("garden-center/mulch/", "Mulch"),
+    ("garden-center/soil/", "Soil"),
+    ("garden-center/compost/", "Compost"),
     ("garden-center/landscaping-stone/", "Landscaping stone"),
     ("garden-center/pottery-decor/", "Pottery and garden decor"),
     ("garden-center/produce/", "Arkansas produce"),
