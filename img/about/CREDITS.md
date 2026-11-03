@@ -8,4 +8,4 @@ hero-couple-potted-marigolds-wide.jpg / -tall.jpg
 colton-curved-wall-paver-patio.jpg, colton-boulder-steps-river-rock.jpg
 - Amanda's Villa hardscape jobs, from Marc's Drive uploads of 2026-10-08 (IMG_6153, IMG_6162).
 
-- hero-family-on-porch-steps-wide.jpg / -tall.jpg: Pexels 7678149, Pexels License. About hero since 2026-11-03, customers on their front porch steps. Replaced Pexels 7982976 at Marc's request (removed from the repo), which had replaced the stock couple in aprons that read as staff.
+- hero-family-under-flowering-tree-wide.jpg / -tall.jpg: Pexels 4586683, Pexels License. About hero since 2026-11-03: a father holding his toddler beside the mother under a flowering tree. Earlier heroes, all removed from the repo: Pexels 7678149 (family with a dog on porch steps; Marc said it looked like a site for selling dogs), Pexels 7982976 (removed at Marc's request), and the stock couple in aprons that read as staff.
