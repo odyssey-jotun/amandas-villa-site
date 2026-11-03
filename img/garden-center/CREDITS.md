@@ -6,7 +6,7 @@ Stock heroes (Unsplash License, free to use, no credit required). All are STAND-
 - hero-couple-crossing-natural-stone-steps-wide.jpg / -tall.jpg: Unsplash s3AH-gJ4A7o (tabitha turner), https://unsplash.com/photos/s3AH-gJ4A7o. Landscaping Stone page.
 - hero-woman-choosing-terracotta-pot-wide.jpg (Pexels 9414267, mirrored) / -tall.jpg (Pexels 9412410), Pexels License. Pottery and Decor page. STAND-IN until a customer is photographed choosing a pot on the lot.
 - hero-couple-shopping-gourds-at-market-wide.jpg / -tall.jpg: Unsplash BlXa_riHlp4 (Land O'Lakes, Inc.), https://unsplash.com/photos/BlXa_riHlp4. Arkansas Produce page.
-- hero-couple-browsing-nursery-trees-wide.jpg / -tall.jpg: Pexels 5029821, Pexels License. Garden Center overview page. STAND-IN until a customer is photographed choosing plants on the lot.
+- hero-mother-daughter-choosing-geraniums-wide.jpg / -tall.jpg: Pexels 5622497, Pexels License. Garden Center overview page since 2026-11-03. Replaced Pexels 5029821 (a young couple, removed from the repo) because Marc said the shoppers here are women in their 30s to 60s. STAND-IN until a customer is photographed choosing plants on the lot.
 
 Stock heroes added 2026-11-03 for the last five category pages (Pexels License, free to use, no credit required). All are STAND-INS until real photos of customers on the lot are shot:
 - hero-woman-watering-snake-plants-wide.jpg / -tall.jpg: Pexels 4503736. Houseplants page.
