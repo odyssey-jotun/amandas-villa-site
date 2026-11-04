@@ -571,7 +571,14 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
 .foot ul { align-content: start; }
 @media (max-width: 1440px) { .nav-links { gap: 28px; } }
-/* The full row needs about 1250px; below that, the Menu button takes over and Call stays visible */
+/* At full spacing the row needs a 1390px window. From 1280 to 1439 it tightens to fit with room to spare */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .nav-links { gap: 16px; }
+  .nav-links a, .nav-drop summary { letter-spacing: .14em; }
+  .nav .wordmark span { letter-spacing: .18em; }
+  .nav { gap: 16px; }
+}
+/* Below 1280 the Menu button takes over and Call stays visible */
 @media (max-width: 1279px) {
   .nav-links { display: none; }
   .nav details { display: block; position: relative; }
