@@ -1,9 +1,13 @@
 # Photo credits
 
-hero-woman-planting-marigolds-wide.jpg / -tall.jpg
+value-woman-planting-flowers.jpg
 - Unsplash photo cjiYK1NbrHo ("A woman in an apron and hat tending to flowers"), Unsplash License (free to use, no credit required)
 - https://unsplash.com/photos/cjiYK1NbrHo
+- Was the page hero until 2026-11-04; now the 4:3 photo in the "Let's plant you a front yard" section.
 - STAND-IN: replace with a real photo of Amanda planting a bed.
+
+hero-flower-beds-front-walk-wide.jpg / -tall.jpg
+- Amanda's Villa job (job-photos/img/facebook-867741.jpg), the White Hall front walk with flower beds on both sides. Made from img/projects/white-hall/hero-flower-beds-front-walk-wide.jpg, where the house number on the mailbox column and the address plaque by the door are painted out. Page hero since 2026-11-04, when Marc asked for a yard with pretty flowers at the top; it was the photo in the section under the hero before.
 
 Every other photo in this folder is an Amanda's Villa landscaping job, from the Facebook media Joe collected on 2026-10-10 (Drive: Amanda's Villa Photos / FB Media). Before-and-after pairs are stills from Facebook drone videos.
 
