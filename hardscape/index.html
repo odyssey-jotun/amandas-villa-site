@@ -227,33 +227,27 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 @media (max-width: 900px) { .lot-grid { grid-template-columns: 1fr 1fr; gap: var(--space-4); } }
 @media (max-width: 640px) { .lot-grid figcaption { font-size: 17px; } }
 
-/* ---------- Coverflow gallery (vanilla port of the 21st.dev 3D Coverflow) ---------- */
-.cf { position: relative; margin-top: var(--space-10); outline: none; }
-.cf-stage { position: relative; height: clamp(380px, 52vw, 560px); perspective: 1400px; overflow: hidden; touch-action: pan-y; }
-.cf-card { position: absolute; left: 50%; top: 50%; width: clamp(240px, 32vw, 400px); aspect-ratio: 4 / 5; margin: 0; border-radius: var(--radius-photo); overflow: hidden; background: var(--linen-2);
-  transform: translate(-50%, -50%) scale(.4); opacity: 0; transition: transform .8s cubic-bezier(.25,1,.5,1), opacity .8s cubic-bezier(.25,1,.5,1), filter .8s; cursor: pointer; }
-.cf-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cf-card[data-pos="0"] { transform: translate(-50%, -50%); opacity: 1; z-index: 30; cursor: default; box-shadow: 0 24px 50px -18px rgba(28,36,31,.45); }
-.cf-card[data-pos="1"] { transform: translate(calc(-50% + 78%), -50%) scale(.84) rotateY(-24deg); opacity: .7; z-index: 20; filter: brightness(.85); }
-.cf-card[data-pos="-1"] { transform: translate(calc(-50% - 78%), -50%) scale(.84) rotateY(24deg); opacity: .7; z-index: 20; filter: brightness(.85); }
-.cf-card[data-pos="2"] { transform: translate(calc(-50% + 138%), -50%) scale(.68) rotateY(-38deg); opacity: .4; z-index: 10; filter: brightness(.7); }
-.cf-card[data-pos="-2"] { transform: translate(calc(-50% - 138%), -50%) scale(.68) rotateY(38deg); opacity: .4; z-index: 10; filter: brightness(.7); }
+/* ---------- Project cards: one finished job per card, each linked to its town page ---------- */
 .cf-bar { display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-top: var(--space-6); }
 .cf-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--linen); color: var(--forest); font: 400 22px/1 var(--font-body); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 .cf-btn:hover { background: var(--sage-pale); }
-.cf-dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 60%; }
-.cf-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line-strong); opacity: .5; cursor: pointer; transition: width .3s, opacity .3s; }
-.cf-dot[aria-current="true"] { width: 26px; background: var(--forest); opacity: 1; }
-.cf-count { display: none; font: 600 15px/1 var(--font-body); letter-spacing: .12em; color: var(--ink-2); }
-.cf-caption { text-align: center; margin-top: var(--space-4); font: 400 20px/1.35 var(--font-text-serif); color: var(--ink); min-height: 1.4em; }
-@media (prefers-reduced-motion: reduce) { .cf-card { transition: none; } }
+.job-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.job-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.job-card a { color: inherit; text-decoration: none; display: block; }
+.job-card-photo { overflow: hidden; border-radius: var(--radius-photo); }
+.job-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.25,1,.5,1); }
+.job-card a:hover img { transform: scale(1.04); }
+.job-card h3 { margin-top: var(--space-4); }
+.job-card .link { display: inline-block; margin-top: var(--space-2); }
+.job-card a:hover .link { border-bottom-color: var(--clay); }
+.job-grid-more { text-align: center; margin-top: var(--space-10); }
+@media (prefers-reduced-motion: reduce) { .job-card img { transition: none; } }
+@media (max-width: 1000px) { .job-grid, .job-grid--4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf-card[data-pos="1"] { transform: translate(calc(-50% + 70%), -50%) scale(.8) rotateY(-24deg); }
-  .cf-card[data-pos="-1"] { transform: translate(calc(-50% - 70%), -50%) scale(.8) rotateY(24deg); }
-  .cf-card[data-pos="2"], .cf-card[data-pos="-2"] { opacity: 0; }
-  .cf-card { width: 64vw; }
-  .cf-dots { display: none; }
-  .cf-count { display: block; }
+  .job-grid, .job-grid--4 { grid-template-columns: 1fr; gap: var(--space-6); }
+  .job-card a { display: grid; grid-template-columns: 42% 1fr; gap: var(--space-4); align-items: center; }
+  .job-card h3 { margin-top: 0; font-size: 19px; }
+  .job-card .link { display: inline; font-size: 15px; line-height: 1.5; }
 }
 
 /* ---------- Before and after ---------- */
@@ -772,24 +766,33 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <div class="head" style="text-align:center">
       <h2>Paver walkways and patios built by Amanda's Villa</h2>
     </div>
-    <div class="cf" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Photos of paver walkways and patios">
-      <div class="cf-stage">
-        <figure class="cf-card" data-i="0"><img width="900" height="1125" src="../img/hardscape/gallery-02.jpg" alt="A wide paver walk curving between new beds, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="1"><img width="900" height="1125" src="../img/hardscape/gallery-07.jpg" alt="A paver walkway bending around a river rock bed, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="2"><img width="900" height="1125" src="../img/hardscape/gallery-09.jpg" alt="A herringbone brick walk through a new garden bed, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="3"><img width="900" height="1125" src="../img/hardscape/gallery-15.jpg" alt="A curved paver walkway through a white picket gate, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="4"><img width="900" height="1125" src="../img/hardscape/gallery-05.jpg" alt="An L-shaped paver walkway beside the house, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="5"><img width="900" height="1125" src="../img/hardscape/gallery-06.jpg" alt="A curved gray paver path along a brick wall, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="6"><img width="900" height="1125" src="../img/hardscape/gallery-14.jpg" alt="A herringbone brick patio, finished and edged, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="7"><img width="900" height="1125" src="../img/hardscape/gallery-13.jpg" alt="A paver path wrapping the corner of a brick house, built by Amanda's Villa" loading="lazy" draggable="false"></figure>
-      </div>
-      <div class="cf-bar">
-        <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo">‹</button>
-        <div class="cf-dots"></div>
-        <span class="cf-count" aria-hidden="true"></span>
-        <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo">›</button>
-      </div>
+    <div class="job-grid job-grid--4">
+      <article class="job-card">
+        <a href="../projects/woodlawn/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/hardscape/job-woodlawn-farmhouse-walk.jpg" alt="A curved paver walk with a dark block border between new beds at a black farmhouse in Woodlawn" loading="lazy"></div>
+          <div><h3>A paver walk across a farmhouse front</h3><span class="link">See the work in Woodlawn</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/star-city/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/hardscape/job-star-city-curved-walk.jpg" alt="A paver walk with a two-color border bending around a river rock bed in Star City" loading="lazy"></div>
+          <div><h3>A curved paver walk to the backyard gate</h3><span class="link">See the work in Star City</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/pine-bluff/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/hardscape/job-pine-bluff-herringbone-path.jpg" alt="A red brick herringbone path through new beds beside a brick house in Pine Bluff" loading="lazy"></div>
+          <div><h3>A herringbone brick path with new beds</h3><span class="link">See the work in Pine Bluff</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/sheridan/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/hardscape/job-sheridan-side-walk.jpg" alt="A paver walk with a dark border turning the corner of a brick house in Sheridan" loading="lazy"></div>
+          <div><h3>A paver walk around the side of the house</h3><span class="link">See the work in Sheridan</span></div>
+        </a>
+      </article>
     </div>
+    <p class="job-grid-more"><a class="link" href="../projects/">See every project in Our Work</a></p>
   </div>
 </section>
 
@@ -983,43 +986,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   var x0 = null;
   root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
-})();
-</script>
-
-<script>
-(function () {
-  var root = document.querySelector('.cf'); if (!root) return;
-  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots');
-  var n = cards.length, cur = 0, timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots = cards.map(function (_, i) {
-    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
-    dotsBox.appendChild(d); return d;
-  });
-  function render() {
-    cards.forEach(function (c, i) {
-      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
-      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
-      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
-    });
-    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    root.querySelector('.cf-count').textContent = (cur + 1) + ' / ' + n;
-  }
-  function go(i) { cur = (i + n) % n; render(); }
-  function step(d) { go(cur + d); }
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
-  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer) return; timer = setInterval(function () { step(1); }, 5000); }
-  function pause() { clearInterval(timer); timer = null; }
-  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
-  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render(); play();
 })();
 </script>
 

@@ -227,33 +227,27 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
 @media (max-width: 900px) { .lot-grid { grid-template-columns: 1fr 1fr; gap: var(--space-4); } }
 @media (max-width: 640px) { .lot-grid figcaption { font-size: 17px; } }
 
-/* ---------- Coverflow gallery (vanilla port of the 21st.dev 3D Coverflow) ---------- */
-.cf { position: relative; margin-top: var(--space-10); outline: none; }
-.cf-stage { position: relative; height: clamp(380px, 52vw, 560px); perspective: 1400px; overflow: hidden; touch-action: pan-y; }
-.cf-card { position: absolute; left: 50%; top: 50%; width: clamp(240px, 32vw, 400px); aspect-ratio: 4 / 5; margin: 0; border-radius: var(--radius-photo); overflow: hidden; background: var(--linen-2);
-  transform: translate(-50%, -50%) scale(.4); opacity: 0; transition: transform .8s cubic-bezier(.25,1,.5,1), opacity .8s cubic-bezier(.25,1,.5,1), filter .8s; cursor: pointer; }
-.cf-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cf-card[data-pos="0"] { transform: translate(-50%, -50%); opacity: 1; z-index: 30; cursor: default; box-shadow: 0 24px 50px -18px rgba(28,36,31,.45); }
-.cf-card[data-pos="1"] { transform: translate(calc(-50% + 78%), -50%) scale(.84) rotateY(-24deg); opacity: .7; z-index: 20; filter: brightness(.85); }
-.cf-card[data-pos="-1"] { transform: translate(calc(-50% - 78%), -50%) scale(.84) rotateY(24deg); opacity: .7; z-index: 20; filter: brightness(.85); }
-.cf-card[data-pos="2"] { transform: translate(calc(-50% + 138%), -50%) scale(.68) rotateY(-38deg); opacity: .4; z-index: 10; filter: brightness(.7); }
-.cf-card[data-pos="-2"] { transform: translate(calc(-50% - 138%), -50%) scale(.68) rotateY(38deg); opacity: .4; z-index: 10; filter: brightness(.7); }
+/* ---------- Project cards: one finished job per card, each linked to its town page ---------- */
 .cf-bar { display: flex; align-items: center; justify-content: center; gap: var(--space-6); margin-top: var(--space-6); }
 .cf-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--linen); color: var(--forest); font: 400 22px/1 var(--font-body); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 .cf-btn:hover { background: var(--sage-pale); }
-.cf-dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 60%; }
-.cf-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line-strong); opacity: .5; cursor: pointer; transition: width .3s, opacity .3s; }
-.cf-dot[aria-current="true"] { width: 26px; background: var(--forest); opacity: 1; }
-.cf-count { display: none; font: 600 15px/1 var(--font-body); letter-spacing: .12em; color: var(--ink-2); }
-.cf-caption { text-align: center; margin-top: var(--space-4); font: 400 20px/1.35 var(--font-text-serif); color: var(--ink); min-height: 1.4em; }
-@media (prefers-reduced-motion: reduce) { .cf-card { transition: none; } }
+.job-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-10) var(--space-6); margin-top: var(--space-10); }
+.job-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.job-card a { color: inherit; text-decoration: none; display: block; }
+.job-card-photo { overflow: hidden; border-radius: var(--radius-photo); }
+.job-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.25,1,.5,1); }
+.job-card a:hover img { transform: scale(1.04); }
+.job-card h3 { margin-top: var(--space-4); }
+.job-card .link { display: inline-block; margin-top: var(--space-2); }
+.job-card a:hover .link { border-bottom-color: var(--clay); }
+.job-grid-more { text-align: center; margin-top: var(--space-10); }
+@media (prefers-reduced-motion: reduce) { .job-card img { transition: none; } }
+@media (max-width: 1000px) { .job-grid, .job-grid--4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .cf-card[data-pos="1"] { transform: translate(calc(-50% + 70%), -50%) scale(.8) rotateY(-24deg); }
-  .cf-card[data-pos="-1"] { transform: translate(calc(-50% - 70%), -50%) scale(.8) rotateY(24deg); }
-  .cf-card[data-pos="2"], .cf-card[data-pos="-2"] { opacity: 0; }
-  .cf-card { width: 64vw; }
-  .cf-dots { display: none; }
-  .cf-count { display: block; }
+  .job-grid, .job-grid--4 { grid-template-columns: 1fr; gap: var(--space-6); }
+  .job-card a { display: grid; grid-template-columns: 42% 1fr; gap: var(--space-4); align-items: center; }
+  .job-card h3 { margin-top: 0; font-size: 19px; }
+  .job-card .link { display: inline; font-size: 15px; line-height: 1.5; }
 }
 
 /* ---------- Before and after ---------- */
@@ -674,22 +668,45 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
     <div class="head" style="text-align:center">
       <h2>Front yard landscaping and flower bed ideas from Amanda's Villa projects</h2>
     </div>
-    <div class="cf" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Photos of landscaping projects">
-      <div class="cf-stage">
-        <figure class="cf-card" data-i="0"><img width="821" height="1026" src="../img/landscaping/gallery-01.jpg" alt="A round flower bed of red, pink and white annuals under a shade tree, edged in stone block" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="1"><img width="900" height="1125" src="../img/landscaping/gallery-06.jpg" alt="A new bed of shrubs with steel edging beside a flagstone walk along a house" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="2"><img width="815" height="1018" src="../img/landscaping/gallery-04.jpg" alt="A circular bed of dwarf blue spruce and pansies in black mulch with a brick border" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="3"><img width="900" height="1125" src="../img/landscaping/gallery-08.jpg" alt="A curved bed of boxwoods along the front walk of a brick ranch house" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="4"><img width="768" height="960" src="../img/landscaping/gallery-07.jpg" alt="A long curved bed of annuals and shrubs with a brick border across a front lawn" loading="lazy" draggable="false"></figure>
-        <figure class="cf-card" data-i="5"><img width="540" height="675" src="../img/landscaping/gallery-05.jpg" alt="A raised circular bed with a brick wall around a backyard seating area" loading="lazy" draggable="false"></figure>
-      </div>
-      <div class="cf-bar">
-        <button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo">‹</button>
-        <div class="cf-dots"></div>
-        <span class="cf-count" aria-hidden="true"></span>
-        <button class="cf-btn" type="button" data-dir="1" aria-label="Next photo">›</button>
-      </div>
+    <div class="job-grid">
+      <article class="job-card">
+        <a href="../projects/white-hall/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/landscaping/job-white-hall-flower-ring.jpg" alt="A ring of red, pink and white annuals inside stone edging around a shade tree in a White Hall front lawn" loading="lazy"></div>
+          <div><h3>A flower ring under a shade tree</h3><span class="link">See the work in White Hall</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/woodlawn/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/landscaping/job-woodlawn-flagstone-walk-bed.jpg" alt="A curved bed of shrubs with a flagstone walk around it beside a tan-sided house in Woodlawn" loading="lazy"></div>
+          <div><h3>A curved bed with a flagstone walk around it</h3><span class="link">See the work in Woodlawn</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/tarry/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/landscaping/job-tarry-round-juniper-bed.jpg" alt="A round stone-edged bed of junipers with pansies planted between them in Tarry" loading="lazy"></div>
+          <div><h3>A round bed of junipers and pansies</h3><span class="link">See the work in Tarry</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/monticello/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/landscaping/job-monticello-front-walk-bed.jpg" alt="A new bed of shrubs along the curved front walk of a brick home in Monticello" loading="lazy"></div>
+          <div><h3>A bed along the curved front walk</h3><span class="link">See the work in Monticello</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/star-city/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/landscaping/job-star-city-flower-border.jpg" alt="Seasonal flowers in front of a row of shrubs behind brick edging along a drive in Star City" loading="lazy"></div>
+          <div><h3>Flower beds along a brick-edged drive</h3><span class="link">See the work in Star City</span></div>
+        </a>
+      </article>
+      <article class="job-card">
+        <a href="../projects/stuttgart/">
+          <div class="job-card-photo"><img width="800" height="600" src="../img/landscaping/job-stuttgart-curved-bed-by-pool.jpg" alt="A curved brick-edged bed of roses and grasses around the round patio by the pool in Stuttgart" loading="lazy"></div>
+          <div><h3>A curved bed by the pool</h3><span class="link">See the work in Stuttgart</span></div>
+        </a>
+      </article>
     </div>
+    <p class="job-grid-more"><a class="link" href="../projects/">See every project in Our Work</a></p>
   </div>
 </section>
 
@@ -876,43 +893,6 @@ figcaption { margin-top: var(--space-2); font-size: 15px; line-height: 1.45; col
   var x0 = null;
   root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); x0 = null; });
-})();
-</script>
-
-<script>
-(function () {
-  var root = document.querySelector('.cf'); if (!root) return;
-  var cards = Array.prototype.slice.call(root.querySelectorAll('.cf-card'));
-  var dotsBox = root.querySelector('.cf-dots');
-  var n = cards.length, cur = 0, timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dots = cards.map(function (_, i) {
-    var d = document.createElement('button'); d.type = 'button'; d.className = 'cf-dot';
-    d.setAttribute('aria-label', 'Show photo ' + (i + 1)); d.addEventListener('click', function () { go(i); });
-    dotsBox.appendChild(d); return d;
-  });
-  function render() {
-    cards.forEach(function (c, i) {
-      var off = (i - cur + n) % n; if (off > n / 2) off -= n;
-      c.setAttribute('data-pos', Math.abs(off) <= 2 ? String(off) : 'x');
-      c.setAttribute('aria-hidden', off === 0 ? 'false' : 'true');
-    });
-    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
-    root.querySelector('.cf-count').textContent = (cur + 1) + ' / ' + n;
-  }
-  function go(i) { cur = (i + n) % n; render(); }
-  function step(d) { go(cur + d); }
-  cards.forEach(function (c, i) { c.addEventListener('click', function () { if (i !== cur) go(i); }); });
-  root.querySelectorAll('.cf-btn').forEach(function (b) { b.addEventListener('click', function () { step(+b.getAttribute('data-dir')); }); });
-  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); } if (e.key === 'ArrowRight') { step(1); e.preventDefault(); } });
-  var x0 = null;
-  root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  root.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); x0 = null; });
-  function play() { if (still || timer) return; timer = setInterval(function () { step(1); }, 5000); }
-  function pause() { clearInterval(timer); timer = null; }
-  root.addEventListener('mouseenter', pause); root.addEventListener('mouseleave', play);
-  root.addEventListener('focusin', pause); root.addEventListener('focusout', play);
-  render(); play();
 })();
 </script>
 
